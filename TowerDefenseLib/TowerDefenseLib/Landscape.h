@@ -24,10 +24,11 @@ namespace TD {
 		void makeTurn();
 		void createPath();
 		void download();
-		void loadLevel(int, int, int, int);
+		void loadLevel(int);
 	public:
 		Landscape();
-		Landscape(int length, int, int nLires);
+		Landscape(int length, int, int nLires); // возможно надо будет убрать в будущем
+		Landscape(int);
 		int getSize() const;
 		void setSize(int length, int wigth);
 		CellType getCellType(int n, int m) const;
