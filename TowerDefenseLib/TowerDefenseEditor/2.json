@@ -1,0 +1,95 @@
+{
+    "0": {
+        "0": {
+            "type": "forest"
+        },
+        "1": {
+            "type": "forest"
+        },
+        "2": {
+            "type": "forest"
+        },
+        "3": {
+            "type": "forest"
+        }
+    },
+    "1": {
+        "0": {
+            "type": "forest"
+        },
+        "1": {
+            "type": "forest"
+        },
+        "2": {
+            "type": "forest"
+        },
+        "3": {
+            "type": "forest"
+        }
+    },
+    "2": {
+        "0": {
+            "type": "forest"
+        },
+        "1": {
+            "type": "forest"
+        },
+        "2": {
+            "type": "forest"
+        },
+        "3": {
+            "type": "forest"
+        }
+    },
+    "3": {
+        "0": {
+            "schedule": {
+                "0": {
+                    "enemy": {
+                        "maxHp": 9000.0,
+                        "speed": 100500.0,
+                        "title": "boss"
+                    },
+                    "time": 34567
+                },
+                "1": {
+                    "enemy": {
+                        "maxHp": 133.0,
+                        "speed": 122.0,
+                        "title": "qwerty"
+                    },
+                    "time": 45523
+                },
+                "2": {
+                    "enemy": {
+                        "maxHp": 111.0,
+                        "speed": 111.0,
+                        "title": "ytrewq"
+                    },
+                    "time": 111
+                },
+                "3": {
+                    "enemy": {
+                        "maxHp": 122.0,
+                        "speed": 200.0,
+                        "title": "chuck"
+                    },
+                    "time": 2345
+                }
+            },
+            "type": "road"
+        },
+        "1": {
+            "type": "forest"
+        },
+        "2": {
+            "type": "forest"
+        },
+        "3": {
+            "type": "forest"
+        }
+    },
+    "height": 4,
+    "no": 2,
+    "width": 4
+}

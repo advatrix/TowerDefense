@@ -1,0 +1,36 @@
+{
+    "0": {
+        "0": {
+            "type": "field"
+        },
+        "1": {
+            "lire": false,
+            "type": "road"
+        },
+        "2": {
+            "type": "forest"
+        },
+        "3": {
+            "type": "forest"
+        }
+    },
+    "1": {
+        "0": {
+            "type": "forest"
+        },
+        "1": {
+            "lire": true,
+            "schedule": {
+                "0": {
+                    "enemy": {
+                        "maxHp": 99.0,
+                        "speed": 1234.0,
+                        "title": "chuck"
+                    },
+                    "time": 454
+                },
+                "1": {
+                    "enemy": {
+                        "maxHp": 344.0,
+                        "speed": 12345.0,
+                        "title": "

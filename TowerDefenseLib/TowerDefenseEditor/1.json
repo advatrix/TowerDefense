@@ -1,0 +1,61 @@
+{
+    "0": {
+        "0": {
+            "type": "forest"
+        },
+        "1": {
+            "type": "forest"
+        },
+        "2": {
+            "type": "forest"
+        },
+        "3": {
+            "type": "forest"
+        }
+    },
+    "1": {
+        "0": {
+            "type": "forest"
+        },
+        "1": {
+            "type": "forest"
+        },
+        "2": {
+            "type": "forest"
+        },
+        "3": {
+            "type": "forest"
+        }
+    },
+    "2": {
+        "0": {
+            "type": "forest"
+        },
+        "1": {
+            "type": "forest"
+        },
+        "2": {
+            "type": "forest"
+        },
+        "3": {
+            "type": "forest"
+        }
+    },
+    "3": {
+        "0": {
+            "type": "forest"
+        },
+        "1": {
+            "type": "forest"
+        },
+        "2": {
+            "type": "forest"
+        },
+        "3": {
+            "type": "forest"
+        }
+    },
+    "height": 4,
+    "no": 1,
+    "width": 4
+}
