@@ -6,7 +6,7 @@
 namespace TD {
 	class Building {
 	protected:
-		Cell* cell;
+		Cell* cell_;
 	public:
 		Building();
 		Building(Cell*);
@@ -15,15 +15,17 @@ namespace TD {
 
 	class Castle : Building {
 	private:
-		double curHp;
-		double maxHp;
-		int money;
-		std::string title;
+		double curHp_;
+		double maxHp_;
+		int money_;
+		std::string title_;
 	public:
 		Castle();
-		std::string getTitle() const;
+		inline double getHp() const { return curHp_; }
+		inline std::string getTitle() const { return title_; }
 		void damage(double);
 		void updBalance(int);
+		Castle(Cell*, double curHp, double maxHp, int money, std::string title);
 	};
 
 	class Lire : Building {

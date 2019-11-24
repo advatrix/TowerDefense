@@ -4,35 +4,38 @@
 #include "Enemy.h"
 
 namespace TD {
-	class Tower : Building {
+	class Tower : public Building {
 	protected:
-		unsigned int lvl;
-		unsigned int lastShot;
-		Feature* feature;
+		unsigned int level_;
+		unsigned int lastShot_;
+		Feature* feature_;
+		virtual void fire(Enemy&) {}
 	public:
-		virtual void upgrade();
-		virtual void attack();
+		virtual void upgrade() {}
+		virtual void attack() {}
 	};
 
 	class Feature {
 	private:
-		int price;
-		double radius;
-		double damage;
-		double shotSpeed;
+		int price_;
+		double radius_;
+		double damage_;
+		double shotSpeed_;
 	public:
 		void behaviour();
 		Feature();
 		friend class Tower;
+		Feature(int price, double raduis, double damage, double shotSpeed);
 	};
 
 
-	class DefaultTower : Tower {
+	class DefaultTower : public Tower {
 	protected:
-		Strategy* strategy;
+		Strategy* strategy_;
 		void fire(Enemy&);
 	public:
 		DefaultTower();
+		DefaultTower(Feature*, Strategy*);
 		void attack();
 	};
 
@@ -41,27 +44,28 @@ namespace TD {
 		virtual void attack(Tower&);
 	};
 
-	class NearToTower : Strategy {
+	class NearToTower : public Strategy {
+	public:
+		void attack(Tower&);
+		NearToTower() {}
+	};
+
+	class NearToCastle : public Strategy {
 	public:
 		void attack(Tower&);
 	};
 
-	class NearToCastle : Strategy {
+	class Strong : public Strategy {
 	public:
 		void attack(Tower&);
 	};
 
-	class Strong : Strategy {
+	class Weak : public Strategy {
 	public:
 		void attack(Tower&);
 	};
 
-	class Weak : Strategy {
-	public:
-		void attack(Tower&);
-	};
-
-	class Fast : Strategy {
+	class Fast : public Strategy {
 	public:
 		void attack(Tower&);
 	};

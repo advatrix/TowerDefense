@@ -108,7 +108,7 @@ void createLevel() {
 			case 0:
 				level[currI][currJ]["type"] = "forest";
 				break;
-			case 1:
+			case 1: {
 				level[currI][currJ]["type"] = "road";
 				int ans;
 				print("Build a trap? 0/1");
@@ -125,12 +125,11 @@ void createLevel() {
 				}
 				else level[currI][currJ]["trap"] = false;
 				break;
-			case 2:
+			}
+			case 2: {
 				level[currI][currJ]["type"] = "field";
 				print("Build something? 0/1");
 				int ans;
-				
-				print("Build a lire? (0/1)");
 				input(ans);
 				if (ans) {
 					int buildingType = dialog(buildings, NBuildings);
@@ -140,7 +139,7 @@ void createLevel() {
 						int towerLevel, price, strategy;
 						double radius, damage, shotSpeed;
 						print("input level");
-						input(level);
+						input(towerLevel);
 						print("input price");
 						input(price);
 						print("input strategy");
@@ -151,8 +150,8 @@ void createLevel() {
 						input(radius);
 						print("shotSpeed");
 						input(shotSpeed);
-						level[currI][currJ]["building"]["level"] = level;
-						level[currI][currJ]["building"]["price"] = price;
+						level[currI][currJ]["building"]["tower"]["level"] = towerLevel;
+						level[currI][currJ]["building"]["tower"]["price"] = price;
 						level[currI][currJ]["building"]["strategy"] = strategy;
 						level[currI][currJ]["building"]["damage"] = damage;
 						level[currI][currJ]["building"]["radius"] = radius;
@@ -234,6 +233,7 @@ void createLevel() {
 				}
 				else level[currI][currJ]["lire"] = false;
 				break;
+			}
 			}
 		}
 	}
