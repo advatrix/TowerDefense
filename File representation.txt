@@ -29,6 +29,17 @@ double damage
 double radius
 double shotSpeed
 
+FEATURES contains features accorgins to every level.
+
+int n
+
+FileFeature (n):
+int level
+double damage
+double radius
+double shotSpeed
+double price
+
 
 LIRES contains lires' configurations and enemies schedules for each lire
 
@@ -92,6 +103,8 @@ int money
 int nEffects
 
 int effectsId (nEffects) -> link to the EFFECTS file.
+
+
 
 
 

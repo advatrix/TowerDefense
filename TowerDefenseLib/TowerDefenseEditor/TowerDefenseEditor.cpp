@@ -9,7 +9,7 @@
 #include <filesystem>
 
 #include "IOFuncs.h"
-// #include "..//TowerDefenseStaticLib/Landscape.h"
+#include "..//TowerDefenseStaticLib/Landscape.h"
 #include "..//TowerDefenseStaticLib/json.hpp"
 
 using namespace IOFuncs;
@@ -19,6 +19,7 @@ namespace fs = std::experimental::filesystem;
 
 typedef std::vector<std::string> Menu;
 
+/*
 const char* menu[] = { "0. Quit", "1. Levels", "2. Enemies", "3. Other" };
 const char* levelEditorMenu[] = { "0. Quit", "1. Load level", "2. Edit level", "3. Create level" };
 const char* enemyEditorMenu[] = { "0. Quit", "1. Load enemy", "2. Edit enemy"};
@@ -26,8 +27,17 @@ const char* towerEditorMenu[] = { "0. Quit", "1. Load tower", "2. Edit tower"};
 const char* strategies[] = { "0. Near to tower", "1. Near to castle", "2. Strong", "3. Weak", "4. Fast" };
 const char* effects[] = { "0. Weakness", "1. Slowdown", "2. Poison" };
 const char* buildings[] = { "0. Tower", "1. Magic Tower", "2. Lire", "3. Castle" };
+*/
+
 const Menu cellTypeMenu = { "0. Forest", "1. Road", "2. Field" };
 const Menu buildingsTypeMenu = { "0. Nothing", "1. Tower", "2. Magic Tower", "3. Lire", "4. Castle" };
+const Menu menu = { "0. Quit", "1. Levels", "2. Enemies", "3. Other" };
+const Menu levelEditorMenu = { "0. Quit", "1. Load level", "2. Edit level", "3. Create level" };
+const Menu enemyEditorMenu = { "0. Quit", "1. Load enemy", "2. Edit enemy" };
+const Menu towerEditorMenu = { "0. Quit", "1. Load tower", "2. Edit tower" };
+const Menu strategies = { "0. Near to tower", "1. Near to castle", "2. Strong", "3. Weak", "4. Fast" };
+const Menu effectsMenu = { "0. Weakness", "1. Slowdown", "2. Poison" };
+const Menu buildings = { "0. Tower", "1. Magic Tower", "2. Lire", "3. Castle" };
 
 const int NMenu = sizeof(menu) / sizeof(menu[0]);
 const int NLevelEditorMenu = sizeof(levelEditorMenu) / sizeof(levelEditorMenu[0]);
@@ -35,7 +45,7 @@ const int NEnemyEditorMenu = sizeof(enemyEditorMenu) / sizeof(enemyEditorMenu[0]
 const int NTowerEditorMenu = sizeof(towerEditorMenu) / sizeof(towerEditorMenu[0]);
 const int NBuildings = sizeof(buildings) / sizeof(buildings[0]);
 const int NStrategies = sizeof(strategies) / sizeof(strategies[0]);
-const int NEffects = sizeof(effects) / sizeof(effects[0]);
+// const int NEffects = sizeof(effects) / sizeof(effects[0]);
 
 enum buildingsEnum {tower, magicTower, lire, castle};
 
@@ -63,7 +73,7 @@ int dialog(const Menu& menu);
 
 void levelEditor() {
 	int rc;
-	while (rc = dialog(levelEditorMenu, NLevelEditorMenu)) levelEditorFPtr[rc]();
+	while (rc = dialog(levelEditorMenu)) levelEditorFPtr[rc]();
 }
 
 void loadLevel() {
@@ -91,7 +101,7 @@ void loadLevel() {
 
 }
 
-void createLevel() {
+void JSONcreateLevel() {
 	int levelNo, height, width;
 	bool isCastled = false;
 	print("input level number");
@@ -144,7 +154,7 @@ void createLevel() {
 				int ans;
 				input(ans);
 				if (ans) {
-					int buildingType = dialog(buildings, NBuildings);
+					int buildingType = dialog(buildings);
 					switch (buildingType) {
 					case tower: {
 						level[currI][currJ]["building"] = "tower";
@@ -182,7 +192,7 @@ void createLevel() {
 						double radius, damage, shotSpeed;
 						unsigned int time;
 						print("input effect");
-						effect = dialog(effects, NEffects);
+						effect = dialog(effectsMenu);
 						std::string strEffect = std::to_string(effect);
 						print("input level");
 						input(towerLevel);
@@ -284,7 +294,7 @@ void createLevel() {
 	std::ofstream f(filename); 
 	f << std::setw(4) << level << std::endl;
 }
-/*
+
 void createLevel() {
 	int levelNo, height, width;
 	bool castled = false;
@@ -301,24 +311,21 @@ void createLevel() {
 	fs::create_directory(p);
 	fs::current_path(p);
 
+	int effectsCounter = 0, buildingsCounter = 0, trapsCounter = 0;
 
-
-
-	int effectsCounter = 0, buildingsCounter = 0;
 	std::vector<TD::FileCell> cells;
 	std::vector<TD::FileEnemy> enemies;
 	std::vector<TD::FileTower> towers;
 	std::vector<TD::FileLire> lires;
 	std::vector<TD::FileEffect> effects;
+	std::vector<TD::FileTrap> traps;
+	std::vector<std::vector<TD::FileScheduleItem>> schedules;
+
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
 			std::cout << "CELL " << i << " " << j << std::endl;
 			print("Set a type of a cell");
-			print("0. Forest");
-			print("1. Road");
-			print("2. Field");
-			int cellType;
-			input(cellType);
+			int cellType = dialog(cellTypeMenu);
 			switch (cellType) {
 			case TD::cellTypeEnum::forest: {
 				cells.push_back(TD::FileCell(i, j, cellType, TD::buildingTypeEnum::none, 0));
@@ -356,17 +363,141 @@ void createLevel() {
 						std::ofstream castleFile("castle");
 						castleFile << x << y << money << title << maxHp << curHp << std::endl;
 					}
+					break;
+				}
+				case TD::buildingTypeEnum::lire: {
+					int enemiesCount;
+					print("enter enemies count");
+					lires.push_back(TD::FileLire(i, j, enemiesCount));
+					std::vector<TD::FileScheduleItem> tmpSchVector;
+					for (int k = 0; k < enemiesCount; k++) {
+						unsigned int time;
+						int money;
+						double maxHp, speed;
+						std::string name;
+						std::cout << "ENEMY " << k << std::endl;
+						print("input name");
+						input(name);
+						print("input hp");
+						input(maxHp);
+						print("input speed");
+						input(speed);
+						print("money");
+						input(money);
+						print("input time");
+						input(time);
+						tmpSchVector.push_back(TD::FileScheduleItem(time, name, maxHp, speed, money));
 					}
+					schedules.push_back(tmpSchVector);
+					break;
 				}
+				case TD::buildingTypeEnum::tower: {
+					int level, strategy;
+					print("input level");
+					input(level);
+					print("input strategy");
+					strategy = dialog(strategies);
+					towers.push_back(TD::FileTower(i, j, TD::towerTypeEnum::default_, 0, level, strategy));
+					break;
 				}
-			}
-			}
+				case TD::buildingTypeEnum::magicTower: {
+					int level, strategy, effectType, value;
+					unsigned int time;
+					print("input level");
+					input(level);
+					print("input strategy");
+					strategy = dialog(strategies);
+					print("input effect type");
+					effectType = dialog(effectsMenu);
+					print("input value");
+					input(value);
+					print("input time");
+					input(time);
+					effectsCounter++;
+					effects.push_back(TD::FileEffect(effectType, value, time));
+					towers.push_back(TD::FileTower(i, j, TD::towerTypeEnum::magic, effectsCounter, level, strategy));
+					break;
+				}
+				default: {
+					throw std::runtime_error("incorrect building type");
+				}
 
+			}
+				break;
+			}
+			case TD::cellTypeEnum::road: {
+				print("Build a trap? 0/ 1");
+				int ans;
+				input(ans);
+				if (ans) {
+					print("input effect");
+					int effectType = dialog(effectsMenu);
+					effectsCounter++;
+					int value;
+					unsigned int time;
+					print("input value");
+					input(value);
+					print("input time");
+					input(time);
+					trapsCounter++;
+					cells.push_back(TD::FileCell(i, j, TD::cellTypeEnum::road, TD::buildingTypeEnum::trap, trapsCounter));
+					effects.push_back(TD::FileEffect(effectType, value, time));
+					traps.push_back(TD::FileTrap(i, j, effectsCounter));
+				}
+				else cells.push_back(TD::FileCell(i, j, TD::cellTypeEnum::road, TD::buildingTypeEnum::none, 0));
+				break;
+			}
+			}
 		}
 	}
 
+	//creating files
+	std::ofstream cellsFile("cells", std::ios::binary);
+	std::ofstream enemiesFile("enemies", std::ios::binary);
+	std::ofstream towersFile("towers", std::ios::binary);
+	std::ofstream liresFile("lires", std::ios::binary);
+	std::ofstream effectsFile("effects", std::ios::binary);
+	std::ofstream trapsFile("traps", std::ios::binary);
+	std::ofstream schedulesFile("schedules", std::ios::binary);
+
+	//writing down all the structs:
+	int cellsSize = cells.size();
+	
+	cellsFile << cellsSize;
+	for (int i = 0; i < cellsSize; i++) cellsFile << cells[i];
+
+	int enemiesSize = enemies.size();
+	enemiesFile << enemiesSize;
+	for (int i = 0; i < enemiesSize; i++) enemiesFile << enemies[i];
+
+	int towersSize = towers.size();
+	towersFile << towersSize;
+	for (int i = 0; i < towersSize; i++) towersFile << towers[i];
+
+	int liresSize = lires.size();
+	liresFile << liresSize;
+	for (int i = 0; i < liresSize; i++) liresFile << lires[i];
+
+	int effectsSize = effects.size();
+	effectsFile << effectsSize;
+	for (int i = 0; i < effectsSize; i++) effectsFile << effects[i];
+
+	int trapsSize = traps.size();
+	trapsFile << trapsSize;
+	for (int i = 0; i < trapsSize; i++) trapsFile << traps[i];
+
+	int schedulesSize = schedules.size();
+	schedulesFile << schedulesSize;
+	for (int i = 0; i < schedulesSize; i++) {
+		int tmpSize = schedules[i].size();
+		schedulesFile << tmpSize;
+		for (int j = 0; j < tmpSize; j++) schedulesFile << schedules[i][j];
+	}
+	
+	
 }
-*/
+
+
 
 void enemyEditor() {
 	print("not implemented yet");

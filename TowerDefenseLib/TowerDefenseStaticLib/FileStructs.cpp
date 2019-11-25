@@ -9,7 +9,7 @@ namespace TD {
 		buildingId = _buildingId;
 	}
 
-	FileTower::FileTower(int _x, int _y, int _towerType, int _effectId, int _level, int _strategytype, double _damage, double _radius, double _shotSpeed) {
+	FileTower::FileTower(int _x, int _y, int _towerType, int _effectId, int _level, int _strategytype) {
 		x = _x;
 		y = _y;
 		towerType = _towerType;
@@ -62,6 +62,116 @@ namespace TD {
 		money = _money;
 		nEffects = _nEffects;
 	}
+
+	FileFeature::FileFeature(int _level, int _price, double _damage, double _radius, double _shotSpeed) {
+		level = _level;
+		price = _price;
+		damage = _damage;
+		radius = _radius;
+		shotSpeed = _shotSpeed;
+	}
+
+
+	std::ostream& operator<< (std::ostream& o, const FileCell& f) {
+		o << f.x << f.y << f.type << f.building << f.buildingId;
+		return o;
+	}
+
+	std::istream& operator >> (std::istream& i, FileCell& f) {
+		i >> f.x >> f.y >> f.type >> f.building >> f.buildingId;
+		return i;
+	}
+
+
+	std::ostream& operator<< (std::ostream& o, const FileTower& f) {
+		o << f.x << f.y << f.towerType << f.effectId << f.level << f.strategyType;
+		return o;
+	}
+
+	std::istream& operator >> (std::istream& i, FileTower& f) {
+		i >> f.x >> f.y >> f.towerType >> f.effectId >> f.level >> f.strategyType;
+		return i;
+	}
+
+
+	std::ostream& operator<< (std::ostream& o, const FileLire& f) {
+		o << f.x << f.y << f.enemiesCount;
+		return o;
+	}
+
+	std::istream& operator >> (std::istream& i, FileLire& f) {
+		i >> f.x >> f.y >> f.enemiesCount;
+		return i;
+	}
+
+
+	std::ostream& operator<< (std::ostream& o, const FileScheduleItem& f) {
+		o << f.time << f.name << f.maxHp << f.speed << f.money;
+		return o;
+	}
+
+	std::istream& operator >> (std::istream& i, FileScheduleItem& f) {
+		i >> f.time >> f.name >> f.maxHp >> f.speed >> f.money;
+		return i;
+	}
+
+
+	std::ostream& operator<< (std::ostream& o, const FileTrap& f) {
+		o << f.x << f.y << f.effectId;
+		return o;
+	}
+
+	std::istream& operator >> (std::istream& i, FileTrap& f) {
+		i >> f.x >> f.y >> f.effectId;
+		return i;
+	}
+
+
+	std::ostream& operator<< (std::ostream& o, const FileCastle& f) {
+		o << f.x << f.y << f.money << f.title << f.maxHp << f.curHp;
+		return o;
+	}
+
+	std::istream& operator >> (std::istream& i, FileCastle& f) {
+		i >> f.x >> f.y >> f.money >> f.title >> f.maxHp >> f.curHp;
+		return i;
+	}
+
+
+	std::ostream& operator<< (std::ostream& o, const FileEffect& f) {
+		o << f.type << f.value << f.time;
+		return o;
+	}
+
+	std::istream& operator >> (std::istream& i, FileEffect& f) {
+		i >> f.type >> f.value >> f.time;
+		return i;
+	}
+
+
+	std::ostream& operator<< (std::ostream& o, const FileEnemy& f) {
+		o << f.name << f.cord_x << f.cord_y << f.maxHp << f.curHp << f.speed << f.money << f.nEffects;
+		return o;
+	}
+
+	std::istream& operator >> (std::istream& i, FileEnemy& f) {
+		i >> f.name >> f.cord_x >> f.cord_y >> f.maxHp >> f.curHp >> f.speed >> f.money >> f.nEffects;
+		return i;
+	}
+
+
+	std::ostream& operator<< (std::ostream& o, const FileFeature& f) {
+		o << f.level << f.price << f.damage << f.radius << f.shotSpeed;
+		return o;
+	}
+
+	std::istream& operator >> (std::istream& i, FileFeature& f) {
+		i >> f.level >> f.price >> f.damage >> f.radius >> f.shotSpeed;
+		return i;
+	}
+
+	
+
 
 
 }

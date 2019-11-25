@@ -9,4 +9,15 @@ namespace TD {
 		money_ = money;
 		title_ = title;
 	}
+
+	Building::Building() {
+		cell_ = nullptr;
+	}
+
+	Building::Building(Cell* cell) {
+		cell_ = cell;
+	}
+
+
+
 }
