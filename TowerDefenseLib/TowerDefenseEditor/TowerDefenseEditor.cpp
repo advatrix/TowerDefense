@@ -9,7 +9,7 @@
 #include <filesystem>
 
 #include "IOFuncs.h"
-#include "..//TowerDefenseStaticLib/Landscape.h"
+// #include "..//TowerDefenseStaticLib/Landscape.h"
 #include "..//TowerDefenseStaticLib/json.hpp"
 
 using namespace IOFuncs;
@@ -124,17 +124,18 @@ void createLevel() {
 				print("Build a trap? 0/1");
 				input(ans);
 				if (ans) {
-					level[currI][currJ]["trap"] = true;
+					level[currI][currJ]["trap"] = "true";
 					int type, value;
 					print("input effect type");
 					input(type);
 					print("input effect value");
 					input(value);
-					
-					level[currI][currJ]["trap"]["effect"]["value"] = value;
-					level[currI][currJ]["trap"]["effect"]["type"] = type;
+					std::string strType = std::to_string(type);
+					std::string strValue = std::to_string(value);
+					level[currI][currJ]["trap"]["effect"]["value"] = strValue;
+					level[currI][currJ]["trap"]["effect"]["type"] = strType;
 				}
-				else level[currI][currJ]["trap"] = false;
+				else level[currI][currJ]["trap"] = "false";
 				break;
 			}
 			case 2: {
@@ -151,22 +152,28 @@ void createLevel() {
 						double radius, damage, shotSpeed;
 						print("input level");
 						input(towerLevel);
+						std::string strTowerLevel = std::to_string(towerLevel);
 						print("input price");
 						input(price);
+						std::string strPrice = std::to_string(price);
 						print("input strategy");
 						input(strategy);
+						std::string strStrategy = std::to_string(strategy);
 						print("damage");
 						input(damage);
+						std::string strDamage = std::to_string(damage);
 						print("radius");
 						input(radius);
+						std::string strRadius = std::to_string(radius);
 						print("shotSpeed");
 						input(shotSpeed);
-						level[currI][currJ]["building"]["tower"]["level"] = towerLevel;
-						level[currI][currJ]["building"]["tower"]["price"] = price;
-						level[currI][currJ]["building"]["strategy"] = strategy;
-						level[currI][currJ]["building"]["damage"] = damage;
-						level[currI][currJ]["building"]["radius"] = radius;
-						level[currI][currJ]["building"]["shotSpeed"] = shotSpeed;
+						std::string strShotSpeed = std::to_string(shotSpeed);
+						level[currI][currJ]["building"]["tower"]["level"] = strTowerLevel;
+						level[currI][currJ]["building"]["tower"]["price"] = strPrice;
+						level[currI][currJ]["building"]["strategy"] = strStrategy;
+						level[currI][currJ]["building"]["damage"] = strDamage;
+						level[currI][currJ]["building"]["radius"] = strRadius;
+						level[currI][currJ]["building"]["shotSpeed"] = strShotSpeed;
 						break;
 					}
 					case magicTower: {
@@ -176,29 +183,40 @@ void createLevel() {
 						unsigned int time;
 						print("input effect");
 						effect = dialog(effects, NEffects);
+						std::string strEffect = std::to_string(effect);
 						print("input level");
-						input(level);
+						input(towerLevel);
+						std::string strTowerLevel = std::to_string(towerLevel);
 						print("input price");
 						input(price);
+						std::string strPrice = std::to_string(price);
 						print("input strategy");
 						input(strategy);
+						std::string strStrategy = std::to_string(strategy);
 						print("damage");
 						input(damage);
+						std::string strDamage = std::to_string(damage);
 						print("radius");
 						input(radius);
+						std::string strRadius = std::to_string(radius);
 						print("shotSpeed");
 						input(shotSpeed);
+						std::string strShotSpeed = std::to_string(shotSpeed);
 						print("time");
 						input(time);
-						level[currI][currJ]["building"]["level"] = level;
-						level[currI][currJ]["building"]["price"] = price;
-						level[currI][currJ]["building"]["strategy"] = strategy;
-						level[currI][currJ]["building"]["damage"] = damage;
-						level[currI][currJ]["building"]["radius"] = radius;
-						level[currI][currJ]["building"]["shotSpeed"] = shotSpeed;
-						level[currI][currJ]["building"]["effect"] = effect;
-						level[currI][currJ]["building"]["value"] = value;
-						level[currI][currJ]["building"]["time"] = value;
+						std::string strTime = std::to_string(time);
+						print("input value");
+						input(value);
+						std::string strValue = std::to_string(value);
+						level[currI][currJ]["building"]["level"] = strTowerLevel;
+						level[currI][currJ]["building"]["price"] = strPrice;
+						level[currI][currJ]["building"]["strategy"] = strStrategy;
+						level[currI][currJ]["building"]["damage"] = strDamage;
+						level[currI][currJ]["building"]["radius"] = strRadius;
+						level[currI][currJ]["building"]["shotSpeed"] = strShotSpeed;
+						level[currI][currJ]["building"]["effect"] = strEffect;
+						level[currI][currJ]["building"]["value"] = strValue;
+						level[currI][currJ]["building"]["time"] = strTime;
 						break;
 					}
 					case lire: {
@@ -215,17 +233,20 @@ void createLevel() {
 							input(title);
 							print("input max hp");
 							input(maxHp);
+							std::string strMaxHp = std::to_string(maxHp);
 							print("input speed");
 							input(speed);
+							std::string strSpeed = std::to_string(speed);
 							print("input time");
 							input(currTime);
+							std::string strTime = std::to_string(currTime);
 							std::string currK = std::to_string(k);
 							level[currI][currJ]["schedule"][currK]["enemy"]["title"] = title;
-							level[currI][currJ]["schedule"][currK]["enemy"]["maxHp"] = maxHp;
-							level[currI][currJ]["schedule"][currK]["enemy"]["currHp"] = maxHp;
-							level[currI][currJ]["schedule"][currK]["enemy"]["speed"] = speed;
-							level[currI][currJ]["schedule"][currK]["enemy"]["effect"] = false;
-							level[currI][currJ]["schedule"][currK]["time"] = currTime;
+							level[currI][currJ]["schedule"][currK]["enemy"]["maxHp"] = strMaxHp;
+							level[currI][currJ]["schedule"][currK]["enemy"]["currHp"] = strMaxHp;
+							level[currI][currJ]["schedule"][currK]["enemy"]["speed"] = strSpeed;
+							level[currI][currJ]["schedule"][currK]["enemy"]["effect"] = "false";
+							level[currI][currJ]["schedule"][currK]["time"] = strTime;
 						}
 					}
 					case castle: {
@@ -234,6 +255,18 @@ void createLevel() {
 							std::string title;
 							int money;
 							double hp;
+							print("enter title");
+							input(title);
+							print("enter money");
+							input(money);
+							std::string strMoney = std::to_string(money);
+							print("enter hp");
+							input(hp);
+							std::string strHp = std::to_string(hp);
+							level[currI][currJ]["building"] = "castle";
+							level[currI][currJ]["castle"]["title"] = title;
+							level[currI][currJ]["castle"]["money"] = strMoney;
+							level[currI][currJ]["castle"]["hp"] = strHp;
 						}
 						else {
 							print("The castle has been built already");
@@ -242,7 +275,6 @@ void createLevel() {
 					}
 					}
 				}
-				else level[currI][currJ]["lire"] = false;
 				break;
 			}
 			}
