@@ -11,6 +11,8 @@
 #include "Building.h"
 #include "Tower.h"
 
+#include "FileStructs.h"
+
 using namespace nlohmann;
 
 namespace TD {

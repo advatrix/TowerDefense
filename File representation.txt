@@ -1,0 +1,99 @@
+FILE REPRESENTATION
+
+LEVEL contains cell structure of a level.
+
+int height (1)
+int width (1)
+
+FileCell (height * width):
+int x
+int y
+int type { forest, road, field }
+int building { none, tower, trap, lire, castle }
+int building_id (0 if none building). Parameter wich defines position of config in config file.
+// building config will be in another file
+
+
+TOWERS contains towers' configurations, including magic ones.
+
+int n
+
+FileTower (n):
+int x
+int y  -- these ones will be checked with cell cords
+int type { default, magic }
+int effect_id (0 if default)
+int level
+int strategy { near to tower, near to castle, strong, weak, fast }
+double damage
+double radius
+double shotSpeed
+
+
+LIRES contains lires' configurations and enemies schedules for each lire
+
+int n
+
+FileLire (n):
+int x
+int y
+int enemiesCount //defines schedule length
+
+	FileScheduleItem (enemiesCount):
+	unsigned int time
+	std::string name
+	double maxHp
+	double speed
+	int money
+
+TRAPS contains traps configurations
+int n
+
+FileTrap (n):
+int x
+int y
+int effect_id
+
+
+
+CASTLE contains castle configuration.
+
+FileCastle:
+int x
+int y
+int money
+std::string title
+double maxHp
+double curHp
+
+
+
+EFFECTS contains effects configurations
+int n
+
+FileEffect (n):
+int type { weakness, slowdown, poison }
+int value
+unsigned int time
+
+
+ENEMIES contains enemies configurations
+
+int n
+
+FileEnemy (n):
+std::string name
+double cord_x
+double cord_y
+double maxHp
+double curHp
+double speed
+int money
+int nEffects
+
+int effectsId (nEffects) -> link to the EFFECTS file.
+
+
+
+
+

@@ -11,6 +11,7 @@
 using namespace nlohmann;
 
 namespace TD {
+	/*
 	Landscape::Landscape() {
 		playingField = nullptr;
 		width = 0;
@@ -84,6 +85,8 @@ namespace TD {
 			}
 		}
 	}
+	*/
+
 
 	Landscape::Landscape(int length, int height, int n) {
 		if (length < 1) throw std::exception("incorrect length");

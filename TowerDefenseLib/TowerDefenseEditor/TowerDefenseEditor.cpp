@@ -4,13 +4,20 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <vector>
+#include <experimental/filesystem>
+#include <filesystem>
 
 #include "IOFuncs.h"
-//#include "..//TowerDefenseStaticLib/Landscape.h"
+#include "..//TowerDefenseStaticLib/Landscape.h"
 #include "..//TowerDefenseStaticLib/json.hpp"
 
 using namespace IOFuncs;
 using namespace nlohmann;
+
+namespace fs = std::experimental::filesystem;
+
+typedef std::vector<std::string> Menu;
 
 const char* menu[] = { "0. Quit", "1. Levels", "2. Enemies", "3. Other" };
 const char* levelEditorMenu[] = { "0. Quit", "1. Load level", "2. Edit level", "3. Create level" };
@@ -19,6 +26,8 @@ const char* towerEditorMenu[] = { "0. Quit", "1. Load tower", "2. Edit tower"};
 const char* strategies[] = { "0. Near to tower", "1. Near to castle", "2. Strong", "3. Weak", "4. Fast" };
 const char* effects[] = { "0. Weakness", "1. Slowdown", "2. Poison" };
 const char* buildings[] = { "0. Tower", "1. Magic Tower", "2. Lire", "3. Castle" };
+const Menu cellTypeMenu = { "0. Forest", "1. Road", "2. Field" };
+const Menu buildingsTypeMenu = { "0. Nothing", "1. Tower", "2. Magic Tower", "3. Lire", "4. Castle" };
 
 const int NMenu = sizeof(menu) / sizeof(menu[0]);
 const int NLevelEditorMenu = sizeof(levelEditorMenu) / sizeof(levelEditorMenu[0]);
@@ -50,6 +59,7 @@ void (*enemyEditorFPtr[])() = { nullptr, loadEnemy, editEnemy };
 void (*towerEditorFPtr[])() = { nullptr, loadTower, editTower };
 
 int dialog(const char* msgs[], int N);
+int dialog(const Menu& menu);
 
 void levelEditor() {
 	int rc;
@@ -120,6 +130,7 @@ void createLevel() {
 					input(type);
 					print("input effect value");
 					input(value);
+					
 					level[currI][currJ]["trap"]["effect"]["value"] = value;
 					level[currI][currJ]["trap"]["effect"]["type"] = type;
 				}
@@ -241,6 +252,89 @@ void createLevel() {
 	std::ofstream f(filename); 
 	f << std::setw(4) << level << std::endl;
 }
+/*
+void createLevel() {
+	int levelNo, height, width;
+	bool castled = false;
+	print("input level number");
+	input(levelNo);
+	print("input height");
+	input(height);
+	print("input width");
+	input(width);
+
+	// create a level directory
+	std::string dirName = std::to_string(levelNo);
+	fs::path p = "/" + dirName;
+	fs::create_directory(p);
+	fs::current_path(p);
+
+
+
+
+	int effectsCounter = 0, buildingsCounter = 0;
+	std::vector<TD::FileCell> cells;
+	std::vector<TD::FileEnemy> enemies;
+	std::vector<TD::FileTower> towers;
+	std::vector<TD::FileLire> lires;
+	std::vector<TD::FileEffect> effects;
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			std::cout << "CELL " << i << " " << j << std::endl;
+			print("Set a type of a cell");
+			print("0. Forest");
+			print("1. Road");
+			print("2. Field");
+			int cellType;
+			input(cellType);
+			switch (cellType) {
+			case TD::cellTypeEnum::forest: {
+				cells.push_back(TD::FileCell(i, j, cellType, TD::buildingTypeEnum::none, 0));
+				break;
+			} 
+			case TD::cellTypeEnum::field: {
+				print("Set a type of a building");
+				int building = dialog(buildingsTypeMenu);
+				switch (building) {
+				case TD::buildingTypeEnum::none: {
+					cells.push_back(TD::FileCell(i, j, cellType, TD::buildingTypeEnum::none, 0));
+					break;
+				} 
+				case TD::buildingTypeEnum::castle: {
+					if (castled) {
+						print("The castle has already been built. This cell will be empty");
+						cells.push_back(TD::FileCell(i, j, cellType, TD::buildingTypeEnum::none, 0));
+					}
+					else {
+						castled = true;
+						int x, y, money;
+						double maxHp, curHp;
+						std::string title;
+						print("Input castle features");
+						print("Input title");
+						input(title);
+						print("input money");
+						input(money);
+						print("input maxHp");
+						input(maxHp);
+						print("input curHp");
+						input(curHp);
+						cells.push_back(TD::FileCell(i, j, cellType, building, 0));
+						TD::FileCastle castle_(x, y, money, title, maxHp, curHp); // мб и не нужно совсем
+						std::ofstream castleFile("castle");
+						castleFile << x << y << money << title << maxHp << curHp << std::endl;
+					}
+					}
+				}
+				}
+			}
+			}
+
+		}
+	}
+
+}
+*/
 
 void enemyEditor() {
 	print("not implemented yet");
@@ -292,6 +386,19 @@ int dialog(const char* msgs[], int N) {
 		puts("I don't understand you. Try again");
 	} while (rc < 0 || rc > N);
 	return rc;
+}
+
+int dialog(const Menu & menu) {
+	int rc;
+	do {
+		for (Menu::size_type i = 0; i < menu.size(); ++i) std::cout << menu[i] << '\n';
+		print("Make your choice");
+		input(rc);
+		if (rc >= 0 && rc < static_cast<int>(menu.size())) continue;
+		print("Incorrect choice. Try again");
+	} while (rc < 0 || rc > static_cast<int>(menu.size()));
+	return rc;
+
 }
 
 int main()
