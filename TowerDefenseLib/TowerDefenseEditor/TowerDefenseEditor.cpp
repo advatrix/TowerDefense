@@ -38,6 +38,8 @@ const Menu towerEditorMenu = { "0. Quit", "1. Load tower", "2. Edit tower" };
 const Menu strategies = { "0. Near to tower", "1. Near to castle", "2. Strong", "3. Weak", "4. Fast" };
 const Menu effectsMenu = { "0. Weakness", "1. Slowdown", "2. Poison" };
 const Menu buildings = { "0. Tower", "1. Magic Tower", "2. Lire", "3. Castle" };
+const Menu fieldBuildingsTypeMenu = { "0. None", "1. Tower", "2. Magic tower" };
+const Menu roadBuildingsTypeMenu = { "0. None", "1. -", "2. -", "3. Trap", "4. Lire", "5. Castle" };
 
 const int NMenu = sizeof(menu) / sizeof(menu[0]);
 const int NLevelEditorMenu = sizeof(levelEditorMenu) / sizeof(levelEditorMenu[0]);
@@ -100,8 +102,8 @@ void loadLevel() {
 	*/
 
 }
-
-void JSONcreateLevel() {
+/*
+void createLevel() {
 	int levelNo, height, width;
 	bool isCastled = false;
 	print("input level number");
@@ -134,7 +136,7 @@ void JSONcreateLevel() {
 				print("Build a trap? 0/1");
 				input(ans);
 				if (ans) {
-					level[currI][currJ]["trap"] = "true";
+					level[currI][currJ]["trap"] = true;
 					int type, value;
 					print("input effect type");
 					input(type);
@@ -142,8 +144,9 @@ void JSONcreateLevel() {
 					input(value);
 					std::string strType = std::to_string(type);
 					std::string strValue = std::to_string(value);
-					level[currI][currJ]["trap"]["effect"]["value"] = strValue;
-					level[currI][currJ]["trap"]["effect"]["type"] = strType;
+					json t = level[currI][currJ]["trap"];
+					t["value"] = type;
+					t["type"] = value;
 				}
 				else level[currI][currJ]["trap"] = "false";
 				break;
@@ -294,7 +297,7 @@ void JSONcreateLevel() {
 	std::ofstream f(filename); 
 	f << std::setw(4) << level << std::endl;
 }
-
+*/
 void createLevel() {
 	int levelNo, height, width;
 	bool castled = false;
@@ -311,7 +314,7 @@ void createLevel() {
 	fs::create_directory(p);
 	fs::current_path(p);
 
-	int effectsCounter = 0, buildingsCounter = 0, trapsCounter = 0;
+	int effectsCounter = 0, buildingsCounter = 0, trapsCounter = 0, liresCounter = 0;
 
 	std::vector<TD::FileCell> cells;
 	std::vector<TD::FileEnemy> enemies;
@@ -333,64 +336,12 @@ void createLevel() {
 			} 
 			case TD::cellTypeEnum::field: {
 				print("Set a type of a building");
-				int building = dialog(buildingsTypeMenu);
+				int building = dialog(fieldBuildingsTypeMenu);
 				switch (building) {
 				case TD::buildingTypeEnum::none: {
 					cells.push_back(TD::FileCell(i, j, cellType, TD::buildingTypeEnum::none, 0));
 					break;
 				} 
-				case TD::buildingTypeEnum::castle: {
-					if (castled) {
-						print("The castle has already been built. This cell will be empty");
-						cells.push_back(TD::FileCell(i, j, cellType, TD::buildingTypeEnum::none, 0));
-					}
-					else {
-						castled = true;
-						int x, y, money;
-						double maxHp, curHp;
-						std::string title;
-						print("Input castle features");
-						print("Input title");
-						input(title);
-						print("input money");
-						input(money);
-						print("input maxHp");
-						input(maxHp);
-						print("input curHp");
-						input(curHp);
-						cells.push_back(TD::FileCell(i, j, cellType, building, 0));
-						TD::FileCastle castle_(x, y, money, title, maxHp, curHp); // мб и не нужно совсем
-						std::ofstream castleFile("castle");
-						castleFile << x << y << money << title << maxHp << curHp << std::endl;
-					}
-					break;
-				}
-				case TD::buildingTypeEnum::lire: {
-					int enemiesCount;
-					print("enter enemies count");
-					lires.push_back(TD::FileLire(i, j, enemiesCount));
-					std::vector<TD::FileScheduleItem> tmpSchVector;
-					for (int k = 0; k < enemiesCount; k++) {
-						unsigned int time;
-						int money;
-						double maxHp, speed;
-						std::string name;
-						std::cout << "ENEMY " << k << std::endl;
-						print("input name");
-						input(name);
-						print("input hp");
-						input(maxHp);
-						print("input speed");
-						input(speed);
-						print("money");
-						input(money);
-						print("input time");
-						input(time);
-						tmpSchVector.push_back(TD::FileScheduleItem(time, name, maxHp, speed, money));
-					}
-					schedules.push_back(tmpSchVector);
-					break;
-				}
 				case TD::buildingTypeEnum::tower: {
 					int level, strategy;
 					print("input level");
@@ -426,10 +377,41 @@ void createLevel() {
 				break;
 			}
 			case TD::cellTypeEnum::road: {
-				print("Build a trap? 0/ 1");
-				int ans;
-				input(ans);
-				if (ans) {
+				int ans = dialog(roadBuildingsTypeMenu);
+				switch (ans) {
+				case TD::buildingTypeEnum::none: {
+					cells.push_back(TD::FileCell(i, j, TD::cellTypeEnum::road, TD::buildingTypeEnum::none, 0));
+					break;
+				}
+				case TD::buildingTypeEnum::lire : {
+					int enemiesCount;
+					print("enter enemies count");
+					lires.push_back(TD::FileLire(i, j, enemiesCount));
+					std::vector<TD::FileScheduleItem> tmpSchVector;
+					for (int k = 0; k < enemiesCount; k++) {
+						unsigned int time;
+						int money;
+						double maxHp, speed;
+						std::string name;
+						std::cout << "ENEMY " << k << std::endl;
+						print("input name");
+						input(name);
+						print("input hp");
+						input(maxHp);
+						print("input speed");
+						input(speed);
+						print("money");
+						input(money);
+						print("input time");
+						input(time);
+						tmpSchVector.push_back(TD::FileScheduleItem(time, name, maxHp, speed, money));
+					}
+					schedules.push_back(tmpSchVector);
+					liresCounter++;
+					cells.push_back(TD::FileCell(i, j, TD::cellTypeEnum::road, TD::buildingTypeEnum::lire, liresCounter));
+					break;
+				}
+				case TD::buildingTypeEnum::trap: {
 					print("input effect");
 					int effectType = dialog(effectsMenu);
 					effectsCounter++;
@@ -443,8 +425,38 @@ void createLevel() {
 					cells.push_back(TD::FileCell(i, j, TD::cellTypeEnum::road, TD::buildingTypeEnum::trap, trapsCounter));
 					effects.push_back(TD::FileEffect(effectType, value, time));
 					traps.push_back(TD::FileTrap(i, j, effectsCounter));
+					break;
 				}
-				else cells.push_back(TD::FileCell(i, j, TD::cellTypeEnum::road, TD::buildingTypeEnum::none, 0));
+				case TD::buildingTypeEnum::castle: {
+					if (castled) {
+						print("The castle has already been built. This cell will be empty");
+						cells.push_back(TD::FileCell(i, j, cellType, TD::buildingTypeEnum::none, 0));
+					}
+					else {
+						castled = true;
+						int x, y, money;
+						double maxHp, curHp;
+						std::string title;
+						print("Input castle features");
+						print("Input title");
+						input(title);
+						print("input money");
+						input(money);
+						print("input maxHp");
+						input(maxHp);
+						print("input curHp");
+						input(curHp);
+						cells.push_back(TD::FileCell(i, j, TD::cellTypeEnum::road, TD::buildingTypeEnum::castle, 0));
+						TD::FileCastle castle_(x, y, money, title, maxHp, curHp); // мб и не нужно совсем
+						std::ofstream castleFile("castle");
+						castleFile << x << y << money << title << maxHp << curHp << std::endl;
+					}
+					break;
+				}
+				}
+			
+
+
 				break;
 			}
 			}
@@ -452,13 +464,13 @@ void createLevel() {
 	}
 
 	//creating files
-	std::ofstream cellsFile("cells", std::ios::binary);
-	std::ofstream enemiesFile("enemies", std::ios::binary);
-	std::ofstream towersFile("towers", std::ios::binary);
-	std::ofstream liresFile("lires", std::ios::binary);
-	std::ofstream effectsFile("effects", std::ios::binary);
-	std::ofstream trapsFile("traps", std::ios::binary);
-	std::ofstream schedulesFile("schedules", std::ios::binary);
+	std::ofstream cellsFile("cells");
+	std::ofstream enemiesFile("enemies");
+	std::ofstream towersFile("towers");
+	std::ofstream liresFile("lires");
+	std::ofstream effectsFile("effects");
+	std::ofstream trapsFile("traps");
+	std::ofstream schedulesFile("schedules");
 
 	//writing down all the structs:
 	int cellsSize = cells.size();
@@ -492,13 +504,9 @@ void createLevel() {
 		int tmpSize = schedules[i].size();
 		schedulesFile << tmpSize;
 		for (int j = 0; j < tmpSize; j++) schedulesFile << schedules[i][j];
-	}
-	
-	
+	}	
 }
-
-
-
+ 
 void enemyEditor() {
 	print("not implemented yet");
 }
@@ -567,7 +575,7 @@ int dialog(const Menu & menu) {
 int main()
 {
 	int rc;
-	while (rc = dialog(menu, NMenu)) menuFPtr[rc]();
+	while (rc = dialog(menu)) menuFPtr[rc]();
 	print("Program finished");
 	return 0;
 }

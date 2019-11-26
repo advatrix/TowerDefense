@@ -9,10 +9,16 @@ namespace TD {
 		unsigned int level_;
 		unsigned int lastShot_;
 		Feature* feature_;
-		virtual void fire(Enemy&) {}
+		strategyTypeEnum strategyType_;
+		
+		static Landscape* land;
 	public:
-		virtual void upgrade() {}
-		virtual void attack() {}
+		virtual void upgrade() = 0;
+		virtual void attack() = 0;
+		inline void tick() { ++lastShot_; }
+		inline Landscape* ls() const { return land; }
+		virtual void fire(Enemy*) = 0;
+		virtual strategyTypeEnum strategyType() const = 0;
 	};
 
 	class Feature {
@@ -20,61 +26,75 @@ namespace TD {
 		int price_;
 		double radius_;
 		double damage_;
-		double shotSpeed_;
+		unsigned int shotSpeed_;
+		int level_;
 	public:
-		void behaviour();
-		Feature();
+		// void behaviour();
+		Feature() : price_(0), radius_(0), damage_(0), shotSpeed_(0), level_(0) {}
 		friend class Tower;
-		Feature(int price, double raduis, double damage, double shotSpeed);
+		inline int price() const { return price_; }
+		inline double radius() const { return radius_; }
+		inline double damage() const { return damage_; }
+		inline double shotSpeed() const { return shotSpeed_; }
+		inline int level() const { return level_; }
+		Feature(int level, int price, double raduis, double damage, double shotSpeed);
 	};
 
 
 	class DefaultTower : public Tower {
 	protected:
 		Strategy* strategy_;
-		void fire(Enemy&);
+		strategyTypeEnum strategyType_;
 	public:
 		DefaultTower();
-		DefaultTower(Feature*, Strategy*);
+		DefaultTower(Feature*, Strategy*, Landscape*);
+		DefaultTower(Landscape*);
 		void attack();
+		void upgrade();
+		void fire(Enemy *);
+		friend class Strategy;
+
+		inline strategyTypeEnum strategyType() const { return strategyType_;}
 	};
 
 	class Strategy {
 	public:
-		virtual void attack(Tower&);
+		virtual void attack(Tower *) = 0;
+		virtual ~Strategy() {}
+		static double distance(Enemy*, Building*)
 	};
 
 	class NearToTower : public Strategy {
 	public:
-		void attack(Tower&);
-		NearToTower() {}
+		void attack(Tower *);
 	};
 
 	class NearToCastle : public Strategy {
 	public:
-		void attack(Tower&);
+		void attack(Tower *);
 	};
 
 	class Strong : public Strategy {
 	public:
-		void attack(Tower&);
+		void attack(Tower *);
 	};
 
 	class Weak : public Strategy {
 	public:
-		void attack(Tower&);
+		void attack(Tower *);
 	};
 
 	class Fast : public Strategy {
 	public:
-		void attack(Tower&);
+		void attack(Tower *);
 	};
 
 	class MagicEntity {
 	protected:
 		Effect effect;
 	public:
-		virtual void applyEffect(Enemy&);
+		virtual void applyEffect(Enemy&) = 0;
+		virtual ~MagicEntity() = 0;
 	};
 
 	class Trap : Building, MagicEntity {

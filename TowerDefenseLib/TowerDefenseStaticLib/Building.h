@@ -10,10 +10,11 @@ namespace TD {
 	public:
 		Building();
 		Building(Cell*);
-		~Building();
+		virtual ~Building() {}
+		std::pair<double, double> cords() const;
 	};
 
-	class Castle : Building {
+	class Castle : public Building {
 	private:
 		double curHp_;
 		double maxHp_;
@@ -23,12 +24,15 @@ namespace TD {
 		Castle();
 		inline double getHp() const { return curHp_; }
 		inline std::string getTitle() const { return title_; }
-		void damage(double);
-		void updBalance(int);
+		inline void damage(double quant) { curHp_ -= quant; }
+		inline void updBalance(int income) { money_ += income; }
 		Castle(Cell*, double curHp, double maxHp, int money, std::string title);
+
+		friend class Landscape;
+
 	};
 
-	class Lire : Building {
+	class Lire : public Building {
 	private:
 		EnemySchedule schedule;
 	public:
@@ -36,6 +40,7 @@ namespace TD {
 		void spawnByTime();
 		Lire();
 		~Lire();
+		friend class Landscape;
 	};
 }
 

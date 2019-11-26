@@ -18,6 +18,17 @@ namespace TD {
 		cell_ = cell;
 	}
 
+	Castle::Castle() {
+		curHp_ = 100;
+		maxHp_ = 100;
+		money_ = 100;
+		title_ = "Castle";
+	}
 
+	std::pair<double, double> Building::cords() const {
+		return cell_->cords();
+	}
+
+	
 
 }

@@ -14,16 +14,24 @@ namespace TD {
 		int money;
 		double speed;
 		EffectTable effects;
-		Cords* cords;
+		// Cords* cords;
+		double x_;
+		double y_;
 		void move();
 		void calculateHp();
 	public:
 		Enemy();
 		virtual void turn();
 		virtual void hit(int, Building*);
+		void getHurt(double);
+		
 		void addEffect(Effect*);
 		~Enemy();
 		friend class Effect;
+		inline double hp() const { return curHp; }
+		std::pair<double, double> cords() const;
+		inline double spd() const { return speed; }
+
 	};
 	
 	

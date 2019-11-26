@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <limits>
+#include <queue>
 
 
 #include "Landscape.h"
@@ -88,15 +90,6 @@ namespace TD {
 	*/
 
 
-	Landscape::Landscape(int length, int height, int n) {
-		if (length < 1) throw std::exception("incorrect length");
-		if (height < 1) throw std::exception("incorrect width");
-		if (n < 1) throw std::exception("there should be at least one lire");
-		//loadLevel();
-		
-
-	}
-
 	void Landscape::loadLevel(int level) {
 		/*
 		загрузка карты из файла, соответствующего уровню
@@ -108,11 +101,346 @@ namespace TD {
 
 		можно сделать через json
 		*/
-	}
 
-	void Landscape::constructLevel() const {
-		int len, wid, n;
 
 
 	}
+
+	Landscape::Landscape() {
+		width = 0;
+		height = 0;
+		nLires = 0;
+		enemyTable = EnemyTable();
+		castle = nullptr;
+		strategies_[0] = new NearToTower;
+		strategies_[1] = new NearToCastle;
+		strategies_[2] = new Strong;
+		strategies_[3] = new Weak;
+		strategies_[4] = new Fast;
+
+		features_[0] = new Feature(1, 0, 1, 1, 10);
+		features_[1] = new Feature(2, 10, 3, 2, 8);
+	}
+
+	void Landscape::createPath() {
+		std::queue<Road*> searchFrontier;
+		for (int i = 0; i < height; i++)
+			for (int j = 0; j < width; j++)
+				if (playingField[i][j]->getType == cellTypeEnum::road) {
+					Road* a = dynamic_cast<Road*>(playingField[i][j]);
+					if (i > 0 && (playingField[i - 1][j]->type == cellTypeEnum::road)) {
+						Road* b = dynamic_cast<Road*>(playingField[i - 1][j]);
+						Road::makeNorthSouthNeighbours(b, a);
+					}
+					if (j > 0 && (playingField[i][j - 1]->type == cellTypeEnum::road)) {
+						Road* b = dynamic_cast<Road*>(playingField[i][j - 1]);
+						Road::makeWestEastNeighbours(b, a);
+					}
+					a->clearPath();
+				}
+		Road* dest = dynamic_cast<Road*>(castle->cell_);
+		dest->becomeDestination();
+		searchFrontier.push(dest);
+
+		while (!searchFrontier.empty()) {
+			Road* tmp = searchFrontier.front();
+			searchFrontier.pop();
+			if (tmp) {
+				searchFrontier.push(tmp->growPathNorth);
+				searchFrontier.push(tmp->growPathSouth);
+				searchFrontier.push(tmp->growPathEast);				
+				searchFrontier.push(tmp->growPathWest);
+			}
+		}
+
+	}
+
+	bool Landscape::checkWay() const {
+		
+		
+		for (auto i = lires.begin(); i != lires.end(); i++) {
+			Road* tmp = dynamic_cast<Road*>((*i)->cell_);
+			if (tmp->dist == std::numeric_limits<int>::max()) return false;
+		}
+		return true;
+		
+		/*
+		for (int i = 0; i < lires.size(); i++) {
+			Road* tmp = dynamic_cast<Road*>(lires[i]->cell_);
+			if (tmp->dist == std::numeric_limits<int>::max()) return false;
+		}
+		return true;
+		*/
+	}
+
+	void Landscape::finish() {
+		for (auto i = playingField.begin(); i != playingField.end(); i++) 
+			for (auto j = (*i).begin(); j != (*i).end(); j++) delete (*j);
+		
+		for (auto i = strategies.begin(); i != strategies.end(); i++) delete (*i);
+		
+		// for enemy in emenyTable delete enemy
+
+		
+
+	}
+
+	void Landscape::setCellType(int i, int j, cellTypeEnum type) {
+		playingField[i][j]->setType(type);
+	}
+
+	bool Landscape::check() const {
+		return (checkCastle() && checkLire() && checkWay());
+	}
+
+	void Landscape::updateBalance(int mn) {
+		castle->updBalance(mn);
+	}
+
+	cellTypeEnum Landscape::getCellType(int i, int j) const {
+		return playingField[i][j]->type;
+	}
+
+	void Road::makeWestEastNeighbours(Road* west, Road* east) {
+		if (west->east || east->west) throw std::runtime_error("Redefining neighbours");
+		west->east = east;
+		east->west = west;
+	}
+
+	void Road::makeNorthSouthNeighbours(Road* north, Road* south) {
+		if (south->north || north->south) throw std::exception("Redefining neighbours!");
+		north->south = south;
+		south->north = north;
+	}
+
+	void Road::clearPath() {
+		next = nullptr;
+		dist = std::numeric_limits<int>::max();
+	}
+
+	void Road::build(Building* bld) {
+		if (building) throw std::runtime_error("Rebuilding");
+		building = bld;
+		Castle* possibleCastlePtr = nullptr;
+		try {
+			possibleCastlePtr = dynamic_cast<Castle*>(bld);
+		}
+		catch (...) {
+			return;
+		}
+		if (possibleCastlePtr) becomeDestination();
+	}
+
+	void Road::becomeDestination() {
+		dist = 0;
+		next = nullptr;
+	}
+
+	void Road::growPathTo(Road* neighbour) {
+		if (!hasPath()) throw std::runtime_error("No path");
+		if (!neighbour || neighbour->hasPath()) return;
+		neighbour->dist = dist + 1;
+		neighbour->next = this;
+	}
+
+	Road* Road::growPathToNeighbour(Road* neighbour) {
+		if (!hasPath()) throw std::runtime_error("No path");
+		if (!neighbour || neighbour->hasPath()) return nullptr;
+		neighbour->dist = dist + 1;
+		neighbour->next = this;
+		return neighbour;
+	}
+
+	void Field::destroy() {
+		if (tower) delete tower;
+	}
+
+	Cell* Cell::setType(cellTypeEnum newType) {
+		destroy();
+		switch (newType) {
+		case forest: {
+			Cell* tmp = new Cell(x, y);
+			delete this;
+			return tmp;
+		}
+		case field: {
+			Cell* tmp = new Field(x, y);
+			delete this;
+			return tmp;
+		}
+		case road: {
+			Cell* tmp = new Road(x, y);
+			delete this;
+			return tmp;
+		}
+		default:
+			throw std::invalid_argument("wrong cell type");
+		}
+	}
+
+	Cell::Cell() {
+		x = 0;
+		y = 0;
+		type = forest;
+	}
+
+	Cell::Cell(int x_, int y_) {
+		x = x_;
+		y = y_;
+		type = forest;
+	}
+
+	void Road::destroy() {
+		Trap* possibleTrap;
+		try {
+			possibleTrap = dynamic_cast<Trap*>(building);
+		}
+		catch (...) {
+			throw std::exception("impossible to destroy");
+		}
+		if (possibleTrap) delete building;
+		else throw std::exception("impossible to destroy");
+	}
+
+	Road::Road(int i, int j) {
+		building = nullptr;
+		west = nullptr;
+		east = nullptr;
+		north = nullptr;
+		south = nullptr;
+		next = nullptr;
+		dist = std::numeric_limits<int>::max();
+		x = i;
+		y = j;
+	}
+
+	Road::Road() {
+		building = nullptr;
+		west = nullptr;
+		east = nullptr;
+		north = nullptr;
+		south = nullptr;
+		next = nullptr;
+		dist = std::numeric_limits<int>::max();
+		x = 0;
+		y = 0;
+	}
+
+	Road::~Road() {
+		try {
+			destroy();
+		}
+		catch (...) {
+			;
+		}
+	}
+
+	void Field::build(Tower* tw) {
+		if (tw) tower = tw;
+		else throw std::invalid_argument("tower nullptr");
+	}
+
+	Field::Field() {
+		x = 0;
+		y = 0;
+		tower = nullptr;
+	}
+	
+	Field::Field(int i, int j) {
+		x = i;
+		y = j;
+		tower = nullptr;
+	}
+
+	Field::~Field() {
+		delete tower;
+	}
+
+	Cords::Cords() {
+		x = 0;
+		y = 0;
+	}
+
+	Cords::Cords(double _x, double _y) {
+		x = _x;
+		y = _y;
+	}
+
+	/*
+	EnemyTable::Iterator EnemyTable::begin()
+	{
+		return EnemyTableIt(arr.begin());
+	}
+
+	EnemyTable::Iterator EnemyTable::end()
+	{
+		return EnemyTableIt(arr.end());
+	}
+
+	int EnemyTableIt::operator !=(const EnemyTableIt& it) const
+	{
+		return cur != it.cur;
+	}
+	int EnemyTableIt::operator ==(const EnemyTableIt& it) const
+	{
+		return cur == it.cur;
+	}
+
+	std::vector<Enemy*> & EnemyTableIt::operator *()
+	{
+		return *cur;
+	}
+
+	std::pair<const std::string, int>* ConstAssocIt::operator ->()
+	{
+		return &(*cur);
+	}
+
+	ConstAssocIt& ConstAssocIt::operator ++()
+	{
+		++cur;
+		return *this;
+	}
+
+	ConstAssocIt ConstAssocIt::operator ++(int)
+	{
+		ConstAssocIt res(*this);
+		++cur;
+		return res;
+	}
+	*/
+
+	void EnemyTable::add(Enemy* e) {
+		if (e) arr.push_back(e);
+		else throw std::invalid_argument("enemy nullptr");
+	}
+
+	void EnemyTable::update() {
+		for (int i = 0; i < arr.size(); i++) {
+			if (arr[i]->hp()) arr[i]->turn();
+			else {
+				delete arr[i];
+				arr.erase(arr.begin() + i);
+			}
+		}		
+	}
+
+	void EnemyTable::erase() {
+		for (int i = 0; i < arr.size(); i++) delete arr[i];
+	}
+
+	std::pair<double, double> Cell::cords() const {
+		return std::pair<double, double>(x, y);
+	}
+
+	Enemy* EnemyTable::operator[] (int i) const {
+		return arr[i];
+	}
+
+
+
+
+
+
+
 }

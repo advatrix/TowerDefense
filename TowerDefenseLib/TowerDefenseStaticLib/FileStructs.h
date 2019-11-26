@@ -36,8 +36,8 @@ namespace TD {
 		FileTower() : x(0), y(0), towerType(default_), effectId(0), level(1), strategyType(nearToTower) {}
 		FileTower(int _x, int _y, int _towerType, int _effectId, int _level, int _strategytype);
 
-		friend std::ostream& operator << (std::ostream&, const FileCell&);
-		friend std::istream& operator >> (std::istream&, const FileCell&);
+		friend std::ostream& operator << (std::ostream&, const FileTower&);
+		friend std::istream& operator >> (std::istream&, const FileTower&);
 	};
 
 	struct FileLire {
@@ -47,8 +47,8 @@ namespace TD {
 		FileLire() : x(0), y(0), enemiesCount(0) {}
 		FileLire(int _x, int _y, int _enemiesCount);
 
-		friend std::ostream& operator << (std::ostream&, const FileCell&);
-		friend std::istream& operator >> (std::istream&, const FileCell&);
+		friend std::ostream& operator << (std::ostream&, const FileLire&);
+		friend std::istream& operator >> (std::istream&, const FileLire&);
 	};
 
 	struct FileScheduleItem {
@@ -60,8 +60,8 @@ namespace TD {
 		FileScheduleItem() : time(0), name("Enemy"), maxHp(1), speed(0), money(0) {}
 		FileScheduleItem(unsigned int _time, std::string _name, double _maxHp, double _speed, int _money);
 
-		friend std::ostream& operator << (std::ostream&, const FileCell&);
-		friend std::istream& operator >> (std::istream&, const FileCell&);
+		friend std::ostream& operator << (std::ostream&, const FileScheduleItem&);
+		friend std::istream& operator >> (std::istream&, const FileScheduleItem&);
 	};
 
 	struct FileTrap {
@@ -71,8 +71,8 @@ namespace TD {
 		FileTrap() : x(0), y(0), effectId(0) {}
 		FileTrap(int _x, int _y, int _effectId);
 
-		friend std::ostream& operator << (std::ostream&, const FileCell&);
-		friend std::istream& operator >> (std::istream&, const FileCell&);
+		friend std::ostream& operator << (std::ostream&, const FileTrap&);
+		friend std::istream& operator >> (std::istream&, const FileTrap&);
 	};
 
 	struct FileCastle {
@@ -85,8 +85,8 @@ namespace TD {
 		FileCastle() : x(0), y(0), money(0), title("Castle"), maxHp(1), curHp(1) {}
 		FileCastle(int _x, int _y, int _money, std::string _title, double _maxHp, double _curHp);
 
-		friend std::ostream& operator << (std::ostream&, const FileCell&);
-		friend std::istream& operator >> (std::istream&, const FileCell&);
+		friend std::ostream& operator << (std::ostream&, const FileCastle&);
+		friend std::istream& operator >> (std::istream&, const FileCastle&);
 	};
 
 	struct FileEffect {
@@ -96,8 +96,8 @@ namespace TD {
 		FileEffect() : type(poison), value(0), time(0) {}
 		FileEffect(int _type, int _value, unsigned int _time);
 
-		friend std::ostream& operator << (std::ostream&, const FileCell&);
-		friend std::istream& operator >> (std::istream&, const FileCell&);
+		friend std::ostream& operator << (std::ostream&, const FileEffect&);
+		friend std::istream& operator >> (std::istream&, const FileEffect&);
 	};
 
 	struct FileEnemy {
@@ -115,8 +115,8 @@ namespace TD {
 		FileEnemy(std::string _name, double _cordX, double _cordY, double _maxHp, double _curHp,
 			double _speed, int _money, int _nEffects/*, std::vector<int> _effectsId*/);
 
-		friend std::ostream& operator << (std::ostream&, const FileCell&);
-		friend std::istream& operator >> (std::istream&, const FileCell&);
+		friend std::ostream& operator << (std::ostream&, const FileEnemy&);
+		friend std::istream& operator >> (std::istream&, const FileEnemy&);
 	};
 
 	struct FileFeature {
@@ -128,8 +128,8 @@ namespace TD {
 		FileFeature() : level(1), price(1), damage(1), radius(1), shotSpeed(1) {}
 		FileFeature(int _level, int _price, double _damage, double _radius, double _shotSpeed);
 
-		friend std::ostream& operator << (std::ostream&, const FileCell&);
-		friend std::istream& operator >> (std::istream&, const FileCell&);
+		friend std::ostream& operator << (std::ostream&, const FileFeature&);
+		friend std::istream& operator >> (std::istream&, const FileFeature&);
 	};
 
 }
