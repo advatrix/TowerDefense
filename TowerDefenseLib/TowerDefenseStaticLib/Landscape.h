@@ -16,6 +16,27 @@
 using namespace nlohmann;
 
 namespace TD {
+	class Cell {
+	protected:
+		int x;
+		int y;
+		// Cords* cords;
+		static cellTypeEnum type;
+	public:
+		Cell* setType(cellTypeEnum) throw (std::invalid_argument, std::exception);
+		inline cellTypeEnum getType() const { return type; }
+		Cell();
+		Cell(int, int);
+		virtual void destroy() {}
+		// virtual void build(Building*) {}
+		// virtual void getDist() {}
+		// virtual void updPath() {}
+		virtual ~Cell() {}
+		std::pair<double, double> cords() const;
+	};
+
+
+
 	class Landscape {
 	private:
 		std::vector<std::vector<Cell*>> playingField;
@@ -46,7 +67,7 @@ namespace TD {
 	public:
 		Landscape();
 		// Landscape(int length, int, int nLires); // возможно надо будет убрать в будущем
-		Landscape(int);
+		// Landscape(int);
 		inline unsigned int getSize() const {
 			return width * height;
 		}
@@ -63,6 +84,11 @@ namespace TD {
 		inline std::array<Strategy*, 5>& strategies() const { return strategies_; }
 		inline std::array<Feature*, 2> & features() const { return features_; }
 
+		inline EnemyTable* table() const { return enemyTable; }
+		inline Castle* getCastle() const { return this->castle; }
+
+		inline Cell* getCell(int i, int j) const { return playingField[i][j]; }
+
 
 		friend class DefaultTower;
 
@@ -71,26 +97,11 @@ namespace TD {
 		friend class Strong;
 		friend class Weak;
 		friend class Fast;
+
+		friend class Lire;
 	};
 
-	class Cell {
-	protected:
-		int x;
-		int y;
-		// Cords* cords;
-		static cellTypeEnum type;
-	public:
-		Cell* setType(cellTypeEnum) throw (std::invalid_argument, std::exception);
-		inline cellTypeEnum getType() const { return type; }
-		Cell();
-		Cell(int, int);
-		virtual void destroy() {}
-		// virtual void build(Building*) {}
-		// virtual void getDist() {}
-		// virtual void updPath() {}
-		virtual ~Cell() {}
-		std::pair<double, double> cords() const;
-	};
+	
 
 
 	class Road : public Cell {
@@ -122,8 +133,14 @@ namespace TD {
 		Road(int, int);
 		inline int getDist() const { return dist; }
 		inline bool hasPath() const { return dist != std::numeric_limits<int>::max(); }
+		inline Building* getBuilding() const { return building; }
 		friend class Landscape;
 		friend class Road;
+
+		inline Road* getNext() const { return next; }
+
+
+
 	};
 
 	class Field : public Cell {
@@ -136,6 +153,7 @@ namespace TD {
 		~Field();
 		void destroy();
 		inline bool isBuilt() { return tower; }
+		inline Tower* getTower() const { return tower; }
 	};
 
 	class Cords {
@@ -194,6 +212,7 @@ namespace TD {
 		void erase();
 		~EnemyTable() { erase(); }
 		inline int size() { return arr.size(); }
+		// int find(Enemy*) const;
 
 		Enemy* operator[] (int) const;
 	};

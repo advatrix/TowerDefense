@@ -110,7 +110,6 @@ namespace TD {
 		width = 0;
 		height = 0;
 		nLires = 0;
-		enemyTable = EnemyTable();
 		castle = nullptr;
 		strategies_[0] = new NearToTower;
 		strategies_[1] = new NearToCastle;
@@ -177,7 +176,7 @@ namespace TD {
 		for (auto i = playingField.begin(); i != playingField.end(); i++) 
 			for (auto j = (*i).begin(); j != (*i).end(); j++) delete (*j);
 		
-		for (auto i = strategies.begin(); i != strategies.end(); i++) delete (*i);
+		for (auto i = strategies_.begin(); i != strategies_.end(); i++) delete (*i);
 		
 		// for enemy in emenyTable delete enemy
 
@@ -437,6 +436,43 @@ namespace TD {
 		return arr[i];
 	}
 
+
+	Landscape::~Landscape() {
+		for (int i = 0; i < playingField.size(); i++)
+			for (int j = 0; j < playingField[i].size(); j++)
+				delete playingField[i][j];
+
+		delete enemyTable;
+	}
+
+	bool Landscape::makeTurn() {
+		for (int i = 0; i < enemyTable->size(); i++)
+			(*enemyTable)[i]->turn();
+		for (int i = 0; i < lires.size(); i++)
+			lires[i]->spawnByTime();
+		if (!castle->getHp()) return false;
+		for (int i = 0; i < playingField.size(); i++)
+			for (int j = 0; j < playingField[i].size(); j++) {
+				Field* prField = dynamic_cast<Field*>(playingField[i][j]);
+				if (prField) {
+					bool b = prField->isBuilt();
+					if (b) prField->getTower()->attack();
+				}
+				else {
+					Road* prRoad = dynamic_cast<Road*>(playingField[i][j]);
+					if (prRoad) {
+						bool b = prRoad->isBuilt();
+						if (b) {
+							Trap* prTrap = dynamic_cast<Trap*>(prRoad->getBuilding());
+							if (prTrap) prTrap->attack();
+						}
+					}
+				}
+
+			}
+
+
+	}
 
 
 

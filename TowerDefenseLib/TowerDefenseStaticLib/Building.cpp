@@ -29,6 +29,32 @@ namespace TD {
 		return cell_->cords();
 	}
 
+	Lire::Lire() {
+		cell_ = nullptr;
+		schedule = nullptr;
+		land = nullptr;
+	}
+
+	Lire::Lire(Cell* _cell, EnemySchedule* _schedule, Landscape* _land) {
+		cell_ = _cell;
+		schedule = _schedule;
+		land = _land;
+	}
+
+	void Lire::spawn(Enemy* en) {
+		EnemyTable* table = land->enemyTable;
+		en->setCords(cell_->cords());
+		table->add(en);
+	}
+
+	void Lire::spawnByTime() {
+		std::vector<Enemy*> enemies = schedule->find(land->time);
+		for (auto it = enemies.begin(); it != enemies.end(); it++) spawn(*it);
+	}
+
+	
+
+
 	
 
 }

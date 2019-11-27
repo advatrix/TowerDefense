@@ -4,6 +4,8 @@
 #include "Tower.h"
 
 namespace TD {
+	class Cell;
+
 	class Building {
 	protected:
 		Cell* cell_;
@@ -34,13 +36,16 @@ namespace TD {
 
 	class Lire : public Building {
 	private:
-		EnemySchedule schedule;
+		EnemySchedule* schedule;
+		Landscape* land;
 	public:
-		void spawn();
+		void spawn(Enemy*);
 		void spawnByTime();
 		Lire();
-		~Lire();
+		Lire(Cell*, EnemySchedule*, Landscape*);
+		~Lire() { delete schedule; }
 		friend class Landscape;
+		inline EnemySchedule* getSchedule() const { return schedule; }
 	};
 }
 

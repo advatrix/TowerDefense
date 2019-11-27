@@ -4,6 +4,9 @@
 #include "Enemy.h"
 
 namespace TD {
+
+
+
 	class Tower : public Building {
 	protected:
 		unsigned int level_;
@@ -47,7 +50,7 @@ namespace TD {
 		strategyTypeEnum strategyType_;
 	public:
 		DefaultTower();
-		DefaultTower(Feature*, Strategy*, Landscape*);
+		DefaultTower(Cell*, Feature*, Strategy*, Landscape*);
 		DefaultTower(Landscape*);
 		void attack();
 		void upgrade();
@@ -61,7 +64,7 @@ namespace TD {
 	public:
 		virtual void attack(Tower *) = 0;
 		virtual ~Strategy() {}
-		static double distance(Enemy*, Building*)
+		static double distance(Enemy*, Building*);
 	};
 
 	class NearToTower : public Strategy {
@@ -91,19 +94,26 @@ namespace TD {
 
 	class MagicEntity {
 	protected:
-		Effect effect;
+		Effect* effect;
+		std::vector<Enemy*> attached;
+		Landscape* land_;
 	public:
-		virtual void applyEffect(Enemy&) = 0;
-		virtual ~MagicEntity() = 0;
+		void applyEffect(Enemy*);
+		virtual ~MagicEntity() {}
 	};
 
 	class Trap : Building, MagicEntity {
-	public: void attack();
+	public:
+		void attack();
+		Trap();
+		Trap(Landscape*);
+		Trap(Landscape*, Cell*, effectTypeEnum, int value, unsigned int time);
 	};
 
 	class MagicTower : DefaultTower, MagicEntity {
 	public:
-		void applyEffect(Enemy&);
+		MagicTower();
+		MagicTower(Landscape*, Cell*, Feature*, Strategy*, effectTypeEnum, int, unsigned int);
 	};
 }
 
