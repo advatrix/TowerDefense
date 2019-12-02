@@ -9,8 +9,12 @@
 
 
 #include "Landscape.h"
+/*#include "Enemy.h"
+#include "Building.h"
+#include "Tower.h"
 
-using namespace nlohmann;
+*/
+// using namespace nlohmann;
 
 namespace TD {
 	/*
@@ -119,19 +123,22 @@ namespace TD {
 
 		features_[0] = new Feature(1, 0, 1, 1, 10);
 		features_[1] = new Feature(2, 10, 3, 2, 8);
+
+		time = 0;
+		enemyTable = new EnemyTable;
 	}
 
 	void Landscape::createPath() {
 		std::queue<Road*> searchFrontier;
 		for (int i = 0; i < height; i++)
 			for (int j = 0; j < width; j++)
-				if (playingField[i][j]->getType == cellTypeEnum::road) {
+				if (playingField[i][j]->getType() == road) {
 					Road* a = dynamic_cast<Road*>(playingField[i][j]);
-					if (i > 0 && (playingField[i - 1][j]->type == cellTypeEnum::road)) {
+					if (i > 0 && (playingField[i - 1][j]->getType() == cellTypeEnum::road)) {
 						Road* b = dynamic_cast<Road*>(playingField[i - 1][j]);
 						Road::makeNorthSouthNeighbours(b, a);
 					}
-					if (j > 0 && (playingField[i][j - 1]->type == cellTypeEnum::road)) {
+					if (j > 0 && (playingField[i][j - 1]->getType() == cellTypeEnum::road)) {
 						Road* b = dynamic_cast<Road*>(playingField[i][j - 1]);
 						Road::makeWestEastNeighbours(b, a);
 					}
@@ -145,10 +152,10 @@ namespace TD {
 			Road* tmp = searchFrontier.front();
 			searchFrontier.pop();
 			if (tmp) {
-				searchFrontier.push(tmp->growPathNorth);
-				searchFrontier.push(tmp->growPathSouth);
-				searchFrontier.push(tmp->growPathEast);				
-				searchFrontier.push(tmp->growPathWest);
+				searchFrontier.push(tmp->growPathNorth());
+				searchFrontier.push(tmp->growPathSouth());
+				searchFrontier.push(tmp->growPathEast());				
+				searchFrontier.push(tmp->growPathWest());
 			}
 		}
 
@@ -177,6 +184,8 @@ namespace TD {
 			for (auto j = (*i).begin(); j != (*i).end(); j++) delete (*j);
 		
 		for (auto i = strategies_.begin(); i != strategies_.end(); i++) delete (*i);
+
+		enemyTable->erase();
 		
 		// for enemy in emenyTable delete enemy
 
@@ -185,7 +194,14 @@ namespace TD {
 	}
 
 	void Landscape::setCellType(int i, int j, cellTypeEnum type) {
-		playingField[i][j]->setType(type);
+		cellTypeEnum oldType = playingField[i][j]->getType();
+		if (type == road || oldType == road) {
+			// здесь надо проверить, не нарушится ли условие наличия пути от каждого логова к замку
+		}
+		Cell* newCell = playingField[i][j]->setType(type);
+		playingField[i][j] = newCell;
+		
+
 	}
 
 	bool Landscape::check() const {
@@ -197,7 +213,7 @@ namespace TD {
 	}
 
 	cellTypeEnum Landscape::getCellType(int i, int j) const {
-		return playingField[i][j]->type;
+		return playingField[i][j]->getType();
 	}
 
 	void Road::makeWestEastNeighbours(Road* west, Road* east) {
@@ -280,13 +296,14 @@ namespace TD {
 	Cell::Cell() {
 		x = 0;
 		y = 0;
-		type = forest;
+		// type = forest;
 	}
 
 	Cell::Cell(int x_, int y_) {
+		if (x_ < 0 || y_ < 0) throw std::invalid_argument("negative cords");
 		x = x_;
 		y = y_;
-		type = forest;
+		// type = forest;
 	}
 
 	void Road::destroy() {
@@ -474,8 +491,474 @@ namespace TD {
 
 	}
 
+	Castle::Castle(Cell* cell, double curHp, double maxHp, int money, std::string title) {
+		cell_ = cell;
+		curHp_ = curHp;
+		maxHp_ = maxHp;
+		money_ = money;
+		title_ = title;
+	}
+
+	Building::Building() {
+		cell_ = nullptr;
+	}
+
+	Building::Building(Cell* cell) {
+		cell_ = cell;
+	}
+
+	Castle::Castle() {
+		curHp_ = 100;
+		maxHp_ = 100;
+		money_ = 100;
+		title_ = "Castle";
+	}
+
+	std::pair<double, double> Building::cords() const {
+		return cell_->cords();
+	}
+
+	Lire::Lire() {
+		cell_ = nullptr;
+		schedule = nullptr;
+		land = nullptr;
+	}
+
+	Lire::Lire(Cell* _cell, EnemySchedule* _schedule, Landscape* _land) {
+		cell_ = _cell;
+		schedule = _schedule;
+		land = _land;
+	}
+
+	void Lire::spawn(Enemy* en) {
+		EnemyTable* table = land->enemyTable;
+		en->setCords(cell_->cords());
+		table->add(en);
+	}
+
+	void Lire::spawnByTime() {
+		std::vector<Enemy*> enemies = schedule->find(land->time);
+		for (auto it = enemies.begin(); it != enemies.end(); it++) spawn(*it);
+	}
+
+	void Enemy::getHurt(double damage) {
+		curHp -= damage * dmgMultiplier;
+	}
+
+	std::pair<double, double> Enemy::cords() const {
+		return std::pair<double, double>(x_, y_);
+	}
+
+	void Enemy::setCords(std::pair<double, double> newCords) {
+		x_ = newCords.first;
+		y_ = newCords.second;
+	}
+
+	void Enemy::move() {
+		directionEnum direction;
+		if (road->getDist() == 0) {
+			hit(land_->getCastle());
+			return;
+		}
+		std::pair<double, double> dest = road->getNext()->cords();
+		std::pair<double, double> cur = road->cords();
+		double deltaX = dest.first - cur.first;
+		double deltaY = dest.second - cur.second;
+
+		if (deltaY > 0) direction = east;
+		if (deltaY < 0) direction = west;
+		if (deltaX > 0) direction = south;
+		if (deltaX < 0) direction = north;
+
+		switch (direction) {
+		case east: {
+			y_ += realSpeed;
+			break;
+		}
+		case west: {
+			y_ -= realSpeed;
+			break;
+		}
+		case south: {
+			x_ += realSpeed;
+			break;
+		}
+		case north: {
+			x_ -= realSpeed;
+			break;
+		}
+		}
 
 
+	}
+
+	void Enemy::calculateHp() {
+		for (int i = 0; i < effects->getSize(); i++)
+			(*effects)[i]->action(this);
+	}
+
+	Enemy::Enemy() {
+		title = "Enemy";
+		maxHp = 1;
+		curHp = 1;
+		money = 1;
+		speed = 0.25;
+		realSpeed = speed;
+		effects = nullptr;
+		road = nullptr;
+		land_ = nullptr;
+		x_ = -1;
+		y_ = -1;
+	}
+
+	Enemy::Enemy(std::string _title, double _max, double _cur, int _money, double _speed, std::vector<Effect*> _effects, double _x, double _y, Landscape* land) {
+		title = _title;
+		maxHp = _max;
+		curHp = _cur;
+		money = _money;
+		speed = _speed;
+		realSpeed = speed;
+		effects = new EffectTable;
+		for (int i = 0; i < _effects.size(); i++) {
+			effects->addEffect(_effects[i]);
+		}
+		land_ = land;
+		road = dynamic_cast<Road*>(land->getCell(floor(_x), floor(_y)));
+		x_ = road->cords().first;
+		y_ = road->cords().second;
+	}
+
+	Effect* EffectTable::operator[] (int index) {
+		if (index >= 0 && index < effectsVec.size()) return effectsVec[index];
+		return nullptr;
+	}
+
+	void Enemy::turn() {
+		move();
+		calculateHp();
+	}
+
+	void Enemy::hit(Castle* c) {
+		c->damage(curHp);
+		c->updBalance(money);
+	}
+
+	void Enemy::addEffect(Effect* eff) {
+		if (eff) effects->addEffect(eff);
+	}
+
+	EnemySchedule::EnemySchedule(std::multimap<unsigned int, Enemy*> sch) {
+		schedule = sch;
+	}
+
+	std::vector<Enemy*> EnemySchedule::find(unsigned int time) {
+		auto eqRange = schedule.equal_range(time);
+		auto beg = eqRange.first;
+		auto end = eqRange.second;
+		std::vector<Enemy*> ret;
+		for (auto it = beg; it != end; it++) {
+			Enemy* tmp = (*it).second;
+			ret.push_back(tmp);
+		}
+		return ret;
+	}
+
+	EffectTable::~EffectTable() {
+		for (auto it = effectsVec.begin(); it != effectsVec.end(); it++)
+			delete (*it);
+	}
+
+	void EffectTable::addEffect(Effect* eff) {
+		if (eff) effectsVec.push_back(eff);
+	}
+
+	void Effect::update() {
+		action(en);
+		--remainedTime;
+	}
+
+	Effect::Effect() {
+		value = 0;
+		remainedTime = std::numeric_limits<unsigned int>::max();
+		en = nullptr;
+	}
+
+	Effect::Effect(int _value, unsigned int _time, Enemy* e) {
+		value = _value;
+		remainedTime = _time;
+		if (e) en = e;
+		else throw std::invalid_argument("enemy nullptr");
+	}
+
+	void Weakness::action(Enemy* e) {
+		e->dmgMultiplier *= ((100 + value) / 100);
+	}
+
+	void Slowdown::action(Enemy* e) {
+		e->realSpeed /= (e->speed * (100 + value) / 100);
+	}
+
+	void Poison::action(Enemy* e) {
+		e->curHp -= value;
+	}
+
+	void Landscape::start(int level) {
+
+	}
+
+	Feature::Feature(int level, int price, double radius, double damage, double shotSpeed) {
+		price_ = price;
+		radius_ = radius;
+		damage_ = damage;
+		shotSpeed_ = shotSpeed;
+		level_ = level;
+	}
+
+	DefaultTower::DefaultTower(Cell* cell, Feature* feature, Strategy* strategy, Landscape* ls) {
+		cell_ = cell;
+		feature_ = feature;
+		strategy_ = strategy;
+		land = ls;
+		if (dynamic_cast<NearToTower*>(strategy)) strategyType_ = nearToTower;
+		else if (dynamic_cast<NearToCastle*>(strategy)) strategyType_ = nearToCastle;
+		else if (dynamic_cast<Weak*>(strategy)) strategyType_ = weak;
+		else if (dynamic_cast<Strong*>(strategy)) strategyType_ = strong;
+		else strategyType_ = fast;
+	}
+
+	void DefaultTower::fire(Enemy* e) {
+		if (lastShot_ < feature_->shotSpeed()) {
+			tick();
+			return;
+		}
+		if (e) e->getHurt(feature_->damage());
+		lastShot_ = 0;
+	}
+
+	DefaultTower::DefaultTower(Landscape* land) {
+		strategy_ = land->strategies()[strategyTypeEnum::nearToTower];
+		level_ = 0;
+		lastShot_ = 0;
+		feature_ = land->features()[level_];
+		strategyType_ = nearToTower;
+
+	}
+
+	DefaultTower::DefaultTower() {
+		strategy_ = nullptr;
+		level_ = 0;
+		lastShot_ = 0;
+		feature_ = nullptr;
+		strategyType_ = noStrategy;
+	}
+
+	void DefaultTower::attack() {
+		if (strategy_) strategy_->attack(this);
+		else throw std::runtime_error("this tower cannot attack");
+
+	}
+
+	void DefaultTower::upgrade() {
+		level_++;
+		feature_ = land->features()[level_];
+		land->updateBalance(feature_->price());
+
+	}
+
+	double Strategy::distance(Enemy* e, Building* b) {
+		std::pair<double, double> ce = e->cords(),
+			cb = b->cords();
+		return sqrt(pow((ce.first - cb.first), 2) - pow((ce.second - cb.second), 2));
+	}
+
+	void NearToTower::attack(Tower* tw) {
+		Enemy* curEnemy = nullptr;
+		double mind = std::numeric_limits<double>::max();
+		Landscape* land = tw->ls();
+		EnemyTable* table = land->enemyTable;
+		int size = table->size();
+
+		for (int i = 0; i < size; i++) {
+			double tmpDist = distance((*table)[i], tw);
+			if (tmpDist < mind) {
+				curEnemy = (*table)[i];
+				mind = tmpDist;
+			}
+		}
+		if (curEnemy && (mind < land->features()[tw->getLevel()]->radius()))
+			tw->fire(curEnemy);
+	}
+
+	void NearToCastle::attack(Tower* tw) {
+		Enemy* curEnemy = nullptr;
+		double mind = std::numeric_limits<double>::max();
+		Landscape* land = tw->ls();
+		EnemyTable* table = land->enemyTable;
+		int size = table->size();
+
+		for (int i = 0; i < size; i++) {
+			double tmpDist = distance((*table)[i], land->castle);
+			if (tmpDist < mind && distance((*table)[i], tw) < land->features()[tw->getLevel()]->radius()) {
+				curEnemy = (*table)[i];
+				mind = tmpDist;
+			}
+		}
+		if (curEnemy && (mind < land->features()[tw->getLevel()]->radius()))
+			tw->fire(curEnemy);
+	}
+
+	void Strong::attack(Tower* tw) {
+		Enemy* curEnemy = nullptr;
+		double maxf = 0;
+		Landscape* land = tw->ls();
+		EnemyTable* table = land->enemyTable;
+		int size = table->size();
+
+		for (int i = 0; i < size; i++) {
+			double tmpf = (*table)[i]->hp();
+			if (tmpf > maxf && distance((*table)[i], tw) < land->features()[tw->getLevel()]->radius()) {
+				curEnemy = (*table)[i];
+				maxf = tmpf;
+			}
+		}
+		if (curEnemy) tw->fire(curEnemy);
+	}
+
+	void Weak::attack(Tower* tw) {
+		Enemy* curEnemy = nullptr;
+		double minf = std::numeric_limits<double>::max();
+		Landscape* land = tw->ls();
+		EnemyTable* table = land->enemyTable;
+		int size = table->size();
+
+		for (int i = 0; i < size; i++) {
+			double tmpf = (*table)[i]->hp();
+			if (tmpf < minf && distance((*table)[i], tw) < land->features()[tw->getLevel()]->radius()) {
+				curEnemy = (*table)[i];
+				minf = tmpf;
+			}
+		}
+		if (curEnemy) tw->fire(curEnemy);
+	}
+
+	void Fast::attack(Tower* tw) {
+		Enemy* curEnemy = nullptr;
+		double maxs = std::numeric_limits<double>::max();
+		Landscape* land = tw->ls();
+		EnemyTable* table = land->enemyTable;
+		int size = table->size();
+
+		for (int i = 0; i < size; i++) {
+			double tmps = (*table)[i]->spd();
+			if (tmps > maxs && distance((*table)[i], tw) < land->features()[tw->getLevel()]->radius()) {
+				curEnemy = (*table)[i];
+				maxs = tmps;
+			}
+		}
+		if (curEnemy) tw->fire(curEnemy);
+	}
+
+	void Trap::attack() {
+		EnemyTable* table = land_->table();
+		int size = table->size();
+		for (int i = 0; i < size; i++) {
+			std::pair<double, double> tmpCords = (*table)[i]->cords();
+			std::pair<double, double> selfCords = cell_->cords();
+			if (floor(tmpCords.first) == floor(selfCords.first) &&
+				floor(tmpCords.second) == floor(selfCords.second)) {
+				auto result = std::find(std::begin(attached), std::end(attached), (*table)[i]);
+				if (result != std::end(attached)) {
+					Enemy* en = (*table)[i];
+					applyEffect(en);
+					attached.push_back(en);
+				}
+			}
+		}
+	}
+
+	void MagicEntity::applyEffect(Enemy* e) {
+		if (e) e->addEffect(effect);
+	}
+
+	Trap::Trap() {
+		land_ = nullptr;
+		effect = nullptr;
+		cell_ = nullptr;
+	}
+
+	Trap::Trap(Landscape* _land) {
+		land_ = _land;
+		effect = nullptr;
+		cell_ = nullptr;
+	}
+
+	Effect::Effect(effectTypeEnum _type, int _value, unsigned int _time) {
+		type = _type;
+		value = _value;
+		remainedTime = _time;
+		en = nullptr;
+	}
+
+	Effect::Effect(effectTypeEnum t, int v, unsigned int time, Enemy* e) {
+		type = t;
+		value = v;
+		remainedTime = time;
+		en = e;
+	}
+
+	Trap::Trap(Landscape* _land, Cell* _cell, effectTypeEnum _type, int value, unsigned int time) {
+		land_ = _land;
+		cell_ = _cell;
+		switch (_type) {
+		case weakness: {
+			effect = new Weakness(_type, value, time);
+			break;
+		}
+		case slowdown: {
+			effect = new Slowdown(_type, value, time);
+			break;
+		}
+		case poison: {
+			effect = new Poison(_type, value, time);
+		}
+		default: {
+			throw std::invalid_argument("invalid effect type");
+		}
+		}
+	}
+
+	MagicTower::MagicTower() {
+		land_ = nullptr;
+		cell_ = nullptr;
+		feature_ = nullptr;
+		strategy_ = nullptr;
+		effect = nullptr;
+	}
+
+	MagicTower::MagicTower(Landscape* _land, Cell* _cell, Feature* feature, Strategy* _strategy, effectTypeEnum _type, int _value, unsigned int _time) {
+		land_ = _land;
+		cell_ = _cell;
+		feature_ = feature;
+		strategy_ = _strategy;
+		switch (_type) {
+		case weakness: {
+			effect = new Weakness(_type, _value, _time);
+			break;
+		}
+		case slowdown: {
+			effect = new Slowdown(_type, _value, _time);
+			break;
+		}
+		case poison: {
+			effect = new Poison(_type, _value, _time);
+		}
+		default: {
+			throw std::invalid_argument("invalid effect type");
+		}
+		}
+	}
+
+	cellTypeEnum Cell::type = forest;
 
 
 
