@@ -33,7 +33,7 @@ namespace TD {
 		y += deltaY;
 	}
 
-	void Enemy::place(std::pair<double, double>& c) {
+	void Enemy::place(std::pair<double, double> c) {
 		x = c.first;
 		y = c.second;
 	}

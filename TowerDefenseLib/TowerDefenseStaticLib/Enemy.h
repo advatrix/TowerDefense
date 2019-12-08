@@ -50,7 +50,7 @@ namespace TD {
 			bool isAlive = false);
 
 		void move(double deltaX, double deltaY);
-		void place(std::pair<double, double>& c);
+		void place(std::pair<double, double> c);
 
 		inline void makeDamage(double dmg) { curHp -= dmg; }
 		inline void addEffect(Effect* e) { effects.insert(e); }

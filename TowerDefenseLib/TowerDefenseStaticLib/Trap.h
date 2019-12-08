@@ -13,7 +13,7 @@ namespace TD {
 		ct::Table<Enemy*>* enemyTable;
 	public:
 		Trap() : Building(), MagicEntity(), enemyTable(nullptr) {}
-		Trap(std::pair<double, double>* c, Effect* eff, ct::Table<Enemy*>* et) : 
+		Trap(std::pair<double, double> c, Effect* eff, ct::Table<Enemy*>* et) : 
 			Building(c), MagicEntity(eff) {
 			enemyTable = et;
 		}

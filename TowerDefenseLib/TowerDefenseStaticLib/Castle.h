@@ -16,7 +16,7 @@ namespace TD {
 	public:
 		Castle() : Building(), title("Castle"), curHp(100), maxHp(100), money(100) {}
 
-		Castle(std::pair<double, double>* c, std::string t, double curhp, double maxhp, unsigned int money);
+		Castle(std::pair<double, double> c, std::string t, double curhp, double maxhp, unsigned int money);
 
 		void incHp(double v);
 		void decHp(double v);

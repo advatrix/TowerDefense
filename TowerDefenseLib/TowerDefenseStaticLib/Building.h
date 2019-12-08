@@ -10,12 +10,12 @@ namespace TD {
 	
 	class Building : public Entity {
 	protected:
-		std::pair<double, double>* cords;
+		std::pair<double, double> cords;
 	public:
 		virtual ~Building() {}
-		inline std::pair<double, double> getCords() { return *cords; }
-		Building() : cords(nullptr) {}
-		Building(std::pair<double, double>* c);
+		inline std::pair<double, double> getCords() { return cords; }
+		Building() : cords() {}
+		Building(std::pair<double, double> c);
 
 		virtual buildingTypeEnum getType() const { return buildingTypeEnum::none; }
 

@@ -14,7 +14,7 @@ namespace TD {
 
 	void Lire::spawn(Enemy* e) {
 		e->revive();
-		e->move(*cords);
+		e->place(cords);
 		enemyTable->insert(e);
 	}
 }

@@ -5,8 +5,7 @@
 #include "Castle.h"
 
 namespace TD {
-	Castle::Castle(std::pair<double, double>* c, std::string t, double curhp, double maxhp, unsigned int _money) {
-		if (!c) throw std::invalid_argument("cords nullptr");
+	Castle::Castle(std::pair<double, double> c, std::string t, double curhp, double maxhp, unsigned int _money) {
 		if (curhp < 0) throw std::invalid_argument("negative current hp");
 		if (curhp > maxhp) throw std::invalid_argument("current hp are greater than max hp");
 

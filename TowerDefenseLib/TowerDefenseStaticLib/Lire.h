@@ -14,9 +14,13 @@ namespace TD {
 		std::multimap<unsigned int, Enemy*> schedule;
 		customTemplates::Table<Enemy*>* enemyTable;
 		unsigned int internalTime;
+
+		friend class GameManager;
+		inline const std::multimap<unsigned int, Enemy*>& getSchedule() { return schedule; }
+
 	public:
 		Lire() : Building(), schedule(), internalTime(0), enemyTable(nullptr) {}
-		Lire(std::pair<double, double>* c, std::multimap<unsigned int, Enemy*> sch, 
+		Lire(std::pair<double, double> c, std::multimap<unsigned int, Enemy*> sch, 
 			unsigned int t, customTemplates::Table<Enemy*>* et) {
 			cords = c;
 			schedule = sch;

@@ -7,8 +7,7 @@
 
 
 namespace TD {
-	Building::Building(std::pair<double, double>* c) {
-		if (!c) throw std::invalid_argument("cords nullptr");
+	Building::Building(std::pair<double, double> c) {
 		cords = c;
 		
 	}
