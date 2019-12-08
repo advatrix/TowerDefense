@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "Cell.h"
+#include "Trap.h"
 
 namespace TD {
-	cellTypeEnum Cell::type = forest;
 
 	Cell::Cell() {
 		x = 0;
@@ -10,7 +10,6 @@ namespace TD {
 	}
 
 	Cell::Cell(int x_, int y_) {
-		if (x_ < 0 || y_ < 0) throw std::invalid_argument("negative cords");
 		x = x_;
 		y = y_;
 	}
@@ -39,15 +38,12 @@ namespace TD {
 
 	void Road::build(Building* bld) {
 		if (building) throw std::runtime_error("Rebuilding");
+		if (bld->getType() == buildingTypeEnum::tower ||
+			bld->getType() == buildingTypeEnum::magicTower)
+			throw std::invalid_argument("illegal building");
 		building = bld;
-		Castle* possibleCastlePtr = nullptr;
-		try {
-			possibleCastlePtr = dynamic_cast<Castle*>(bld);
-		}
-		catch (...) {
-			return;
-		}
-		if (possibleCastlePtr) becomeDestination();
+		if (bld->getType() == buildingTypeEnum::castle) becomeDestination();
+		
 	}
 
 	void Road::becomeDestination() {
@@ -90,7 +86,7 @@ namespace TD {
 		north = nullptr;
 		south = nullptr;
 		next = nullptr;
-		dist = std::numeric_limits<int>::max();
+		dist = std::numeric_limits<unsigned>::max();
 		x = i;
 		y = j;
 	}
@@ -102,7 +98,7 @@ namespace TD {
 		north = nullptr;
 		south = nullptr;
 		next = nullptr;
-		dist = std::numeric_limits<int>::max();
+		dist = std::numeric_limits<unsigned>::max();
 		x = 0;
 		y = 0;
 	}
@@ -137,6 +133,9 @@ namespace TD {
 		delete tower;
 	}
 
+	void Field::destroy() {
+		if (tower) delete tower;
+	}
 
 
 }

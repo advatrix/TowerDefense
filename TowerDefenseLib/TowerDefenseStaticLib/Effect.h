@@ -12,7 +12,6 @@ namespace TD {
 	{
 	protected:
 		unsigned int remainedTime;
-		effectTypeEnum type;
 		unsigned int value;
 		Enemy* enemy;
 		bool active;
@@ -20,12 +19,12 @@ namespace TD {
 		virtual void update() = 0;
 		virtual Effect* copy() = 0;
 		Effect() :
-			remainedTime(std::numeric_limits<unsigned>::max()), type(noEffect), value(0), enemy(nullptr), active(false){}
-		Effect(Enemy* en, unsigned int time, unsigned int t, effectTypeEnum _type);
+			remainedTime(std::numeric_limits<unsigned>::max()), value(0), enemy(nullptr), active(false){}
+		Effect(Enemy* en, unsigned int time, unsigned int t);
 		virtual ~Effect() {}
 
 		unsigned int getRemainedTime() const { return remainedTime; }
-		effectTypeEnum getType() const { return type; }
+		virtual effectTypeEnum getType() const { return effectTypeEnum::noEffect; }
 		bool isActive() const { return active; }
 
 		inline void setEnemy(Enemy* e) { enemy = e; }
@@ -36,36 +35,36 @@ namespace TD {
 
 	class Weakness : public Effect {
 	public:
-		Weakness() : Effect() {
-			type = effectTypeEnum::weakness;
-		}
+		Weakness() : Effect() {}
 		using Effect::Effect;
 
 		void update();
 		~Weakness() {}
 		Effect* copy();
+
+		inline effectTypeEnum getType() const { return effectTypeEnum::weakness; }
 	};
 
 	class Slowdown : public Effect {
 	public:
-		Slowdown() : Effect() {
-			type = effectTypeEnum::slowdown;
-		}
+		Slowdown() : Effect() {}
 		using Effect::Effect;
 		void update();
 		~Slowdown() {}
 		Effect* copy();
+
+		inline effectTypeEnum getType() const { return effectTypeEnum::slowdown; }
 	};
 
 	class Poison : public Effect {
 	public: 
-		Poison() : Effect() {
-			type = effectTypeEnum::poison;
-		}
+		Poison() : Effect() {}
 		using Effect::Effect;
 		void update();
 		~Poison() {}
 		Effect* copy();
+
+		inline effectTypeEnum getType() const { return effectTypeEnum::poison; }
 	};
 
 }

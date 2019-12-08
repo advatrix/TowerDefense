@@ -6,6 +6,9 @@
 namespace customTemplates {
 
 	template<class T>
+	class TableIt;
+
+	template<class T>
 	class Table {
 		friend class TableIt<T>;
 	private:
@@ -20,15 +23,21 @@ namespace customTemplates {
 			for (int i = 0; i < maxSize; i++) arr[i] = t.arr[i];
 		}
 
-		Table(Table<T>&& t) : arr(t.arr) { t.arr = nullptr; }
+		Table(Table<T>&& t) : arr(t.arr), size(t.size), maxSize(t.maxSize) { 
+			t.arr = nullptr;
+			t.size = 0;
+			t.maxSize = 0;
+		}
 
 		~Table() { delete[] arr; }
 
 		Table<T>& operator =(const Table<T>& t) {
 			if (&t == this) return *this;
 			delete arr;
-			arr = new T[t.size];
+			arr = new T[t.maxSize];
 			*arr = *t.arr;
+			size = t.size;
+			maxSize = t.maxSize;
 			return *this;
 		}
 
@@ -37,10 +46,12 @@ namespace customTemplates {
 			delete arr;
 			arr = t.arr;
 			t.arr = nullptr;
+			size = t.size;
+			maxSize = t.maxSize;
+			t.size = 0;
+			t.maxSize = 0;
 			return this;
 		}
-
-		
 
 		int getPos(const T& t) const {
 			for (int i = 0; i < size; i++) if (arr[i] == t) return i;
@@ -62,15 +73,25 @@ namespace customTemplates {
 			return 0;
 		}
 		
-		void remove(const T& item) {
+		int remove(const T& item) {
 			int i = getPos(item);
-			if (i == -1) return;
+			if (i == -1) return 1;
 			for (int j = i; j < size; j++) arr[j] = arr[j + 1];
 			size--;
+			return 0;
 		}
 
+		inline unsigned int getSize() const { return size; }
+		inline unsigned int allocated() const { return maxSize; }
 
-		const T& operator[] (int index) {
+		/*
+		T& operator[] (int index) {
+			if (index < 0 || index >= size) throw std::invalid_argument("illegal index");
+			return arr[index];
+		}
+		*/
+
+		T operator[] (int index) const {
 			if (index < 0 || index >= size) throw std::invalid_argument("illegal index");
 			return arr[index];
 		}
@@ -104,7 +125,36 @@ namespace customTemplates {
 			return *this;
 		}
 
-		Table<T> operator ++(int) {
+		TableIt<T> operator ++(int) {
+			TableIt<T> res(*this);
+			++cur;
+			return res;
+		}
+
+		TableIt<T>& operator --() {
+			--cur;
+			return *this;
+		}
+
+		TableIt<T> operator --(int) {
+			TableIt<T> res(*this);
+			--cur;
+			return res;
+		}
+
+		TableIt<T> operator +=(int i) {
+			TableIt<T> res(*this);
+			cur += i;
+			return res;
+		}
+
+		TableIt<T> operator -=(int i) {
+			TableIt<T> res(*this);
+			cur -= i;
+			return res;
+		}
+
+		TableIt<T> operator +(int i) {
 			TableIt<T> res(*this);
 			++cur;
 			return res;

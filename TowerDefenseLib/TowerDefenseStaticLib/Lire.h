@@ -27,6 +27,8 @@ namespace TD {
 		void update();
 		void spawn(Enemy*);
 		void spawn();
+
+		inline buildingTypeEnum getType() const { return buildingTypeEnum::lire; }
 	};
 }
 

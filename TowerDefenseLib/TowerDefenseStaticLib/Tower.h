@@ -11,17 +11,24 @@ namespace TD {
 		Strategy* strategy;
 		Feature* feature;
 		unsigned int lastShot;
-		static buildingTypeEnum type;
-		std::pair<double, double>* cords;
+		std::pair<double, double> cords;
 	public:
 		virtual ~Tower() {}
-		Tower() : strategy(nullptr), feature(nullptr), lastShot(0) {}
+		Tower() : strategy(nullptr), feature(nullptr), lastShot(0), cords() {}
 		Tower(Feature* _feature, Strategy* _strategy, unsigned int _lastShot,
-			std::pair<double, double>* cords);
+			std::pair<double, double> cords);
 
 		inline strategyTypeEnum getStrategyType() const { return strategy->getType(); }
+		virtual inline buildingTypeEnum getType() const { return buildingTypeEnum::tower; }
 
 		virtual void update();
+
+		void setFeature(Feature* f) { feature = f; }
+		void setStrategy(Strategy* s) { strategy = s; }
+
+		unsigned int getLevel() const { return feature->getLevel(); }
+
+
 	};
 }
 

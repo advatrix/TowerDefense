@@ -1,5 +1,8 @@
+#include "pch.h"
 #ifndef _LANDSCAPE_H_
 #define _LANDSCAPE_H_
+
+
 
 #include <vector>
 
@@ -18,9 +21,13 @@ namespace TD {
 		unsigned int width;
 
 		ct::Table<Enemy*>* enemyTable;
+
+		void moveEnemy(Enemy*);
+
+		Castle* castle;
 		
 	public:
-		Landscape() : cells(), height(0), width(0) {}
+		Landscape() : cells(), height(0), width(0), enemyTable(), castle(nullptr) {}
 		Landscape(std::vector<std::vector<Cell*>>& _cells);
 
 		inline unsigned int getHeight() const { return height; }
@@ -28,6 +35,13 @@ namespace TD {
 	
 		Cell* getCell(int i, int j) const;
 		ct::Table<Enemy*>* getEnemyTable() const { return enemyTable; }
+
+		~Landscape();
+
+		void update();
+		
+		inline void setCastle(Castle* c) { castle = c; }
+		inline Castle* getCastle() const { return castle; }
 
 		bool createPath();
 	};

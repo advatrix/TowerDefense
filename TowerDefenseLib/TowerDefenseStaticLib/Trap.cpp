@@ -6,7 +6,7 @@ namespace TD {
 		for (auto it = enemyTable->begin(); it != enemyTable->end(); it++) {
 			std::pair<double, double> enemyCords = (*it)->getCords();
 			if (floor(enemyCords.first) == cords->first &&
-				floor(enemyCords.second == cords->second)) (*it)->applyEffect(effect);
+				floor(enemyCords.second == cords->second)) applyEffect((*it));
 		}
 	}
 }

@@ -5,14 +5,27 @@
 #include "Strategy.h"
 
 namespace TD {
-	const strategyTypeEnum Strategy::type = noStrategy;
-	const strategyTypeEnum NearToTower::type = nearToTower;
-	const strategyTypeEnum NearToCastle::type = nearToCastle;
-	const strategyTypeEnum Strong::type = strong;
-	const strategyTypeEnum Weak::type = weak;
-	const strategyTypeEnum Fast::type = fast;
-
 	Strategy::Strategy(ct::Table<Enemy*>* _enemyTable) {
+		if (!_enemyTable) throw std::invalid_argument("enemyTable nullptr");
+		enemyTable = _enemyTable;
+	}
+
+	NearToTower::NearToTower(ct::Table<Enemy*>* _enemyTable) {
+		if (!_enemyTable) throw std::invalid_argument("enemyTable nullptr");
+		enemyTable = _enemyTable;
+	}
+
+	Strong::Strong(ct::Table<Enemy*>* _enemyTable) {
+		if (!_enemyTable) throw std::invalid_argument("enemyTable nullptr");
+		enemyTable = _enemyTable;
+	}
+
+	Weak::Weak(ct::Table<Enemy*>* _enemyTable) {
+		if (!_enemyTable) throw std::invalid_argument("enemyTable nullptr");
+		enemyTable = _enemyTable;
+	}
+
+	Fast::Fast(ct::Table<Enemy*>* _enemyTable) {
 		if (!_enemyTable) throw std::invalid_argument("enemyTable nullptr");
 		enemyTable = _enemyTable;
 	}

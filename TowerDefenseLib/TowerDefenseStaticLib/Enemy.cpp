@@ -3,7 +3,7 @@
 
 namespace TD {
 	Enemy::Enemy(double _x, double _y, double _maxHp, double _maxSpeed, int _money, std::string& _title,
-		double _curHp = -1, double _curSpeed = -1, double _dmgMultiplier = 1, ct::Table<Effect*> _effects = ct::Table<Effect*>(), 
+		double _curHp, double _curSpeed, double _dmgMultiplier, ct::Table<Effect*> _effects, 
 		bool isAlive) {
 	
 		if (maxSpeed <= 0) throw std::invalid_argument("illegal max speed");
@@ -33,7 +33,7 @@ namespace TD {
 		y += deltaY;
 	}
 
-	void Enemy::move(std::pair<double, double>& c) {
+	void Enemy::place(std::pair<double, double>& c) {
 		x = c.first;
 		y = c.second;
 	}

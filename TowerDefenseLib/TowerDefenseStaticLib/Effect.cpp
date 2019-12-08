@@ -2,11 +2,10 @@
 #include "Effect.h"
 
 namespace TD {
-	Effect::Effect(Enemy* en, unsigned int time, unsigned int val, effectTypeEnum _type) {
-		en = en;
+	Effect::Effect(Enemy* _en, unsigned int time, unsigned int val) {
+		enemy = _en;
 		remainedTime = time;
 		value = val;
-		type = _type;
 		active = false;
 	}
 
@@ -39,17 +38,17 @@ namespace TD {
 	}
 
 	Effect* Weakness::copy() {
-		Effect* ret = new Weakness(enemy, remainedTime, value, type);
+		Effect* ret = new Weakness(enemy, remainedTime, value);
 		return ret;
 	}
 
 	Effect* Slowdown::copy() {
-		Effect* ret = new Slowdown(enemy, remainedTime, value, type);
+		Effect* ret = new Slowdown(enemy, remainedTime, value);
 		return ret;
 	}
 
 	Effect* Poison::copy() {
-		Effect* ret = new Poison(enemy, remainedTime, value, type);
+		Effect* ret = new Poison(enemy, remainedTime, value);
 		return ret;
 	}
 }

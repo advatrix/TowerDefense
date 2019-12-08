@@ -11,12 +11,10 @@ namespace TD {
 
 	class Strategy {
 	protected:
-		static const strategyTypeEnum type;
 		ct::Table<Enemy*>* enemyTable;
-	public:
-		virtual Enemy* getTarget(std::pair<double, double>& cords) const = 0; 
+	public: 
 		virtual ~Strategy() {}
-		inline strategyTypeEnum getType() const { return type; }
+		virtual inline strategyTypeEnum getType() const { return strategyTypeEnum::noStrategy; }
 		static double distance(std::pair<double, double>, std::pair<double, double>);
 		virtual Enemy* getTarget(std::pair<double, double>& cords, double raduis) const = 0;
 		Strategy(): enemyTable(nullptr) {}
@@ -27,8 +25,13 @@ namespace TD {
 	public:
 		Enemy* getTarget(std::pair<double, double>& cords, double raduis) const;
 
+		NearToTower() {
+			enemyTable = nullptr;
+		}
 
-		NearToTower() {}
+		inline strategyTypeEnum getType() const { return strategyTypeEnum::nearToTower; }
+
+		NearToTower(ct::Table<Enemy*>* _enemyTable);
 		~NearToTower() {}
 	};
 
@@ -38,9 +41,16 @@ namespace TD {
 	public:
 		Enemy* getTarget(std::pair<double, double>& cords, double raduis) const;
 
-		NearToCastle() {}
+		NearToCastle() {
+			enemyTable = nullptr;
+		}
+
+		inline strategyTypeEnum getType() const { return strategyTypeEnum::nearToCastle; }
+
 		NearToCastle(ct::Table<Enemy*>* enemyTable, std::pair<double, double> _castleCords) :
-			Strategy(enemyTable), castleCords(castleCords) {}
+			Strategy(enemyTable), castleCords(_castleCords)
+		{}
+
 		~NearToCastle() {}
 	};
 
@@ -48,7 +58,13 @@ namespace TD {
 	public:
 		Enemy* getTarget(std::pair<double, double>& cords, double raduis) const;
 
-		Strong() {}
+		Strong() {
+			enemyTable = nullptr;
+		}
+
+		inline strategyTypeEnum getType() const { return strategyTypeEnum::strong; }
+
+		Strong(ct::Table<Enemy*>* _enemyTable);
 		~Strong() {}
 	};
 
@@ -56,15 +72,27 @@ namespace TD {
 	public:
 		Enemy* getTarget(std::pair<double, double>& cords, double raduis) const;
 
-		Weak() {}
+		Weak() {
+			enemyTable = nullptr;
+		}
+
+		Weak(ct::Table<Enemy*>* _enemyTable);
 		~Weak() {}
+
+		inline strategyTypeEnum getType() const { return strategyTypeEnum::weak; }
 	};
 
 	class Fast : public Strategy {
 	public:
 		Enemy* getTarget(std::pair<double, double>& cords, double raduis) const;
 
-		Fast() {}
+		Fast() {
+			enemyTable = nullptr;
+		}
+
+		inline strategyTypeEnum getType() const { return strategyTypeEnum::fast; }
+
+		Fast(ct::Table<Enemy*>* _enemyTable);
 		~Fast() {}
 	};
 }

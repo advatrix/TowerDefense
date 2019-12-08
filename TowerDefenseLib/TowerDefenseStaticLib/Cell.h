@@ -14,9 +14,8 @@ namespace TD {
 		protected:
 			int x;
 			int y;
-			static cellTypeEnum type;
 		public:
-			inline cellTypeEnum getType() const { return type; }
+			virtual inline cellTypeEnum getType() const { return cellTypeEnum::forest; }
 			Cell();
 			Cell(int, int);
 			virtual void destroy() {}
@@ -35,7 +34,7 @@ namespace TD {
 			Road* south;
 			Road* next;
 
-			int dist;
+			unsigned int dist;
 
 			static void makeWestEastNeighbours(Road* west, Road* east);
 			static void makeNorthSouthNeighbours(Road* north, Road* south);
@@ -56,11 +55,13 @@ namespace TD {
 			~Road();
 			Road();
 			Road(int, int);
-			inline int getDist() const { return dist; }
-			inline bool hasPath() const { return dist != std::numeric_limits<int>::max(); }
+			inline unsigned int getDist() const { return dist; }
+			inline bool hasPath() const { return dist != std::numeric_limits<unsigned>::max(); }
 			inline Building* getBuilding() const { return building; }
 			friend class Landscape;
 			friend class Road;
+
+			inline cellTypeEnum getType() const { return cellTypeEnum::road; }
 
 			inline Road* getNext() const { return next; }
 		};
@@ -76,6 +77,8 @@ namespace TD {
 			void destroy();
 			inline bool isBuilt() { return tower; }
 			inline Tower* getTower() const { return tower; }
+
+			inline cellTypeEnum getType() const { return cellTypeEnum::field; }
 		};
 }
 

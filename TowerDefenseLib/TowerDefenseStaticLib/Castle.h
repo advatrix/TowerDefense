@@ -14,8 +14,7 @@ namespace TD {
 		double maxHp;
 		unsigned int money;
 	public:
-		Castle() :
-			Building(), title("Castle"), curHp(100), maxHp(100), money(100) {}
+		Castle() : Building(), title("Castle"), curHp(100), maxHp(100), money(100) {}
 
 		Castle(std::pair<double, double>* c, std::string t, double curhp, double maxhp, unsigned int money);
 
@@ -28,7 +27,11 @@ namespace TD {
 		inline unsigned int getMoney() const { return money; }
 		inline std::string getTitle() const { return title; }
 
+		buildingTypeEnum getType() const { return buildingTypeEnum::castle; }
+
 		void update() {}
+
+		~Castle() {}
 
 	};
 }

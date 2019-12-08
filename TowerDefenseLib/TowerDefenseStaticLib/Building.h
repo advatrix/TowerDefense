@@ -10,15 +10,14 @@ namespace TD {
 	
 	class Building : public Entity {
 	protected:
-		buildingTypeEnum type;
 		std::pair<double, double>* cords;
 	public:
-		virtual ~Building() = 0;
-
-		inline buildingTypeEnum getType() const { return type; }
+		virtual ~Building() {}
 		inline std::pair<double, double> getCords() { return *cords; }
-		Building();
+		Building() : cords(nullptr) {}
 		Building(std::pair<double, double>* c);
+
+		virtual buildingTypeEnum getType() const { return buildingTypeEnum::none; }
 
 	};
 
