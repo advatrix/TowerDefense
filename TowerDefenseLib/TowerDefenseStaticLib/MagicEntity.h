@@ -18,6 +18,9 @@ namespace TD {
 		inline effectTypeEnum getEffectType() const { return effect->getType(); }
 		void applyEffect(Enemy*);
 
+		inline unsigned int getValue() const { return effect->getValue(); }
+		inline Effect* getEffect() const { return effect; }
+
 		virtual ~MagicEntity() {}
 	};
 }

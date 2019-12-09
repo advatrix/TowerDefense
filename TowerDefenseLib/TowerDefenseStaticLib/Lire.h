@@ -9,7 +9,7 @@
 
 
 namespace TD {
-	class Lire : public Building {
+	class Lire : public Building, public Entity {
 	private:
 		std::multimap<unsigned int, Enemy*> schedule;
 		customTemplates::Table<Enemy*>* enemyTable;

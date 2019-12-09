@@ -24,6 +24,7 @@ namespace TD {
 		void decMoney(unsigned int v);
 		
 		inline double getCurHp() const { return curHp; }
+		inline double getMaxHp() const { return maxHp; }
 		inline unsigned int getMoney() const { return money; }
 		inline std::string getTitle() const { return title; }
 

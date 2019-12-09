@@ -24,10 +24,10 @@ namespace TD {
 
 		void moveEnemy(Enemy*);
 
-		Castle* castle;
+		Castle* castle_;
 		
 	public:
-		Landscape() : cells(), height(0), width(0), enemyTable(), castle(nullptr) {}
+		Landscape() : cells(), height(0), width(0), enemyTable(), castle_(nullptr) {}
 		Landscape(std::vector<std::vector<Cell*>>& _cells);
 
 		inline unsigned int getHeight() const { return height; }
@@ -40,8 +40,8 @@ namespace TD {
 
 		void update();
 		
-		inline void setCastle(Castle* c) { castle = c; }
-		inline Castle* getCastle() const { return castle; }
+		inline void setCastle(Castle* c) { castle_ = c; }
+		inline Castle* getCastle() const { return castle_; }
 
 		bool createPath();
 	};

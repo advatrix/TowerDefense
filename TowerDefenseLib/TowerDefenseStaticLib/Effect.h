@@ -23,10 +23,11 @@ namespace TD {
 		Effect(Enemy* en, unsigned int time, unsigned int t);
 		virtual ~Effect() {}
 
-		unsigned int getRemainedTime() const { return remainedTime; }
+		inline unsigned int getValue() const { return value; }
+		inline unsigned int getRemainedTime() const { return remainedTime; }
 		virtual effectTypeEnum getType() const { return effectTypeEnum::noEffect; }
-		bool isActive() const { return active; }
-
+		inline bool isActive() const { return active; }
+		
 		inline void setEnemy(Enemy* e) { enemy = e; }
 
 
