@@ -83,8 +83,11 @@ void AppManager::createLevel() {
 	print("enter width");
 	input(width);
 
-	std::vector<std::vector<Cell*>> cells;
+
+
+	std::vector<std::vector<FileCell>> cells;
 	for (unsigned i = 0; i < height; i++) {
+
 		for (unsigned j = 0; j < width; j++) {
 			int cellType;
 			std::cout << "enter type of cell" << i << ' ' << j;
@@ -105,4 +108,86 @@ void AppManager::createLevel() {
 			}
 		}
 	}
+
+	std::vector<FileFeature> featuresStructs;
+	int levelCount;
+	print("how many tower levels?");
+	input(levelCount);
+	for (int i = 0; i < levelCount; i++) {
+		double dmg, shotSpeed, rad;
+		int price;
+		print("enter damage");
+		input(dmg);
+		print("enter shotSpeed");
+		input(shotSpeed);
+		print("enter radius");
+		input(rad);
+		print("input price");
+		input(price);
+		featuresStructs.push_back(FileFeature(i + 1, price, dmg, rad, shotSpeed));
+	}
+
+	std::vector<std::vector<FileScheduleItem>> schedule;
+
+	print("how many lires?");
+	int lc;
+	input(lc);
+	for (int i = 0; i < lc; i++) {
+		int x, y;
+		print("enter cords");
+		print("enter x");
+		input(x);
+		print("enter y");
+		input(y);
+		print("how many enemies?");
+		int ec;
+		input(ec);
+		cells[x][y].building = buildingTypeEnum::lire;
+		cells[x][y].buildingId = i;
+		std::vector<FileScheduleItem> tmpSch;
+		for (int j = 0; j < ec; j++) {
+			std::cout << "creating enemy " << j + 1 << std::endl;
+			unsigned int time;
+			std::string title;
+			double hp, speed;
+			int money;
+			print("input spawn time");
+			input(time);
+			print("input title");
+			input(title);
+			print("input hp");
+			input(hp);
+			print("input speed");
+			input(speed);
+			print("input money");
+			input(money);
+			tmpSch.push_back(FileScheduleItem(time, title, hp, speed, money));
+		}
+		schedule.push_back(tmpSch);
+	}
+
+	print("Creating a castle");
+	int x, y, money;
+	std::string title;
+	double mhp, chp;
+	print("input x");
+	input(x);
+	print("input y");
+	input(y);
+	print("input start money");
+	input(money);
+	print("input title");
+	input(title);
+	print("input current hp");
+	input(chp);
+	print("input max hp");
+	input(mhp);
+
+	FileCastle c(x, y, money, title, mhp, chp);
+	std::fstream castleFile("castle.bin", std::ios::binary | std::ios::out | std::ios::trunc);
+	castleFile << c;
+	castleFile.close();
+
+
+	cellsFile
 }
