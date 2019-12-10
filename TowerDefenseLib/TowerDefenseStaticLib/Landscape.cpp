@@ -18,12 +18,14 @@ namespace TD {
 	}
 
 	Landscape::~Landscape() {
+		/*
 		for (auto it = cells.begin(); it != cells.end(); it++)
 			for (auto jt = (*it).begin(); jt != (*it).end(); jt++)
-				delete (*jt);
+				if (*jt) delete (*jt);
 
 		for (auto it = enemyTable->begin(); it != enemyTable->end(); it++)
-			delete (*it);
+			if (*it) delete (*it);
+			*/
 	}
 
 	void Landscape::update() {
@@ -52,7 +54,7 @@ namespace TD {
 			for (int j = 0; j < width; j++)
 				if (cells[i][j]->getType() == cellTypeEnum::road) {
 					Road* a = dynamic_cast<Road*>(cells[i][j]);
-					if (i > 0 && (cells[i - 1][j]->getType) == cellTypeEnum::road) {
+					if (i > 0 && (cells[i - 1][j]->getType()) == cellTypeEnum::road) {
 						Road* b = dynamic_cast<Road*>(cells[i - 1][j]);
 						Road::makeNorthSouthNeighbours(b, a);
 					}

@@ -23,7 +23,8 @@ TEST(_Castle, initEmpty) {
 
 TEST(_Castle, init) {
 	std::pair<double, double> p(5.6, 6.5);
-	Castle c(&p, "a", 45.15, 50, 13);
+	std::string a = "a";
+	Castle c(p, a, 45.15, 50.2, 13);
 	ASSERT_EQ(c.getTitle(), "a");
 	ASSERT_EQ(c.getMoney(), 13);
 	ASSERT_EQ(c.getCurHp(), 45.15);
@@ -34,7 +35,7 @@ TEST(_Castle, init) {
 
 TEST(_Castle, inc_dec) {
 	std::pair<double, double> p(5.6, 6.5);
-	Castle c(&p, "a", 45.15, 50, 13);
+	Castle c(p, "a", 45.15, 50, 13);
 	ASSERT_EQ(c.getMoney(), 13);
 	ASSERT_EQ(c.getCurHp(), 45.15);
 

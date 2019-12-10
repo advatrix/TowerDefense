@@ -1,3 +1,6 @@
+#pragma warning(disable:4996)
+
+
 #include "pch.h"
 
 #include <fstream>
@@ -76,7 +79,7 @@ namespace TD {
 			e = new Weakness(nullptr, time, value);
 			break;
 		}
-		Trap* t = new Trap(landscape->getCell(i, j)->cords(), e, landscape->getEnemyTable);
+		Trap* t = new Trap(landscape->getCell(i, j)->cords(), e, landscape->getEnemyTable());
 		Road* r = dynamic_cast<Road*>(landscape->getCell(i, j));
 		r->build(t);
 
@@ -105,7 +108,8 @@ namespace TD {
 			liresFile("lires.bin", std::ios::binary | std::ios::out | std::ios::trunc),
 			effectsFile("effects.bin", std::ios::binary | std::ios::out | std::ios::trunc),
 			trapsFile("traps.bin", std::ios::binary | std::ios::out | std::ios::trunc),
-			schedulesFile("schedules.bin", std::ios::binary | std::ios::out | std::ios::trunc);
+			schedulesFile("schedules.bin", std::ios::binary | std::ios::out | std::ios::trunc),
+			featuresFile("features.bin", std::ios::binary | std::ios::out | std::ios::trunc);
 
 		std::vector<FileCell> cellsStructs;
 		std::vector<FileEnemy> enemiesStructs;
@@ -124,7 +128,7 @@ namespace TD {
 				case cellTypeEnum::forest:
 					cellsStructs.push_back(FileCell(floor(c->cords().first), floor(c->cords().second), cellTypeEnum::forest, 0, 0));
 					break;
-				case cellTypeEnum::road:
+				case cellTypeEnum::road: {
 					Road* r = dynamic_cast<Road*>(c);
 					Building* b = r->getBuilding();
 					int bId = 0;
@@ -141,7 +145,7 @@ namespace TD {
 						schedulesStructs.push_back(tmpSchVector);
 						break;
 					}
-					case buildingTypeEnum::trap:
+					case buildingTypeEnum::trap: {
 						bId = trapsStructs.size();
 						Trap* t = dynamic_cast<Trap*>(b);
 						trapsStructs.push_back(FileTrap(floor(b->getCords().first), floor(b->getCords().second), effectsStructs.size()));
@@ -149,6 +153,7 @@ namespace TD {
 						effectsStructs.push_back(FileEffect(e->getType(), e->getValue(), e->getRemainedTime()));
 						cellsStructs.push_back(FileCell(i, j, cellTypeEnum::road, buildingTypeEnum::trap, trapsStructs.size() - 1));
 						break;
+					}
 					default: {
 						bId = 0;
 						cellsStructs.push_back(FileCell(i, j, cellTypeEnum::road, buildingTypeEnum::castle, 0));
@@ -161,23 +166,27 @@ namespace TD {
 					}
 					}
 					break;
-				case cellTypeEnum::field:
-					Field* f = dynamic_cast<Field*>(f);
+				}
+				case cellTypeEnum::field: {
+					Field* f = dynamic_cast<Field*>(c);
 					Tower* t = f->getTower();
 					int bId = 0;
 					switch (t->getType()) {
-					case buildingTypeEnum::magicTower:
+					case buildingTypeEnum::magicTower: {
 						MagicTower* m = dynamic_cast<MagicTower*>(t);
 						Effect* e = m->getEffect();
 						effectsStructs.push_back(FileEffect(e->getType(), e->getValue(), e->getRemainedTime()));
 						towerStructs.push_back(FileTower(i, j, towerTypeEnum::magic, effectsStructs.size() - 1, t->getLevel(), t->getStrategyType()));
 						cellsStructs.push_back(FileCell(i, j, cellTypeEnum::field, buildingTypeEnum::magicTower, towerStructs.size()));
 						break;
-					case buildingTypeEnum::tower:
+					}
+					case buildingTypeEnum::tower: {
 						towerStructs.push_back(FileTower(i, j, buildingTypeEnum::tower, 0, t->getLevel(), t->getStrategyType()));
 						cellsStructs.push_back(FileCell(i, j, cellTypeEnum::field, buildingTypeEnum::tower, towerStructs.size()));
+						break;
 					}
-
+					}
+				}
 				}
 			}
 
@@ -205,6 +214,9 @@ namespace TD {
 			for (auto jt = (*it).begin(); jt != (*it).end(); jt++) schedulesFile << (*jt);
 		}
 
+		featuresFile << static_cast<unsigned>(features.size());
+		for (auto it = features.begin(); it != features.end(); it++) featuresFile << (*it);
+
 		cellsFile.close();
 		enemiesFile.close();
 		towersFile.close();
@@ -212,6 +224,7 @@ namespace TD {
 		effectsFile.close();
 		trapsFile.close();
 		schedulesFile.close();
+		featuresFile.close();
 	}
 
 	void GameManager::load(unsigned int level) {
@@ -226,7 +239,8 @@ namespace TD {
 			effectsFile("effects.bin", std::ios::binary | std::ios::in),
 			trapsFile("traps.bin", std::ios::binary | std::ios::in),
 			schedulesFile("schedules.bin", std::ios::binary | std::ios::in),
-			castleFile("castle.bin", std::ios::binary | std::ios::in);
+			castleFile("castle.bin", std::ios::binary | std::ios::in),
+			featuresFile("features.bin", std::ios::binary | std::ios::in);
 
 		std::vector<std::vector<Cell*>> cells;
 
@@ -253,14 +267,16 @@ namespace TD {
 		FileCastle tmpFileCastle;
 
 		unsigned featuresCount;
-		
-
+		featuresFile >> featuresCount;
+		for (unsigned i = 0; i < featuresCount; i++) {
+			featuresFile >> tmpFileFeature;
+			Feature* f = new Feature(tmpFileFeature.price, tmpFileFeature.radius, tmpFileFeature.damage,
+				tmpFileFeature.shotSpeed, tmpFileFeature.level);
+			features.push_back(f);
+		}
 
 		unsigned height, width;
 		ct::Table<Enemy*>* enemyTable = new ct::Table<Enemy*>();
-
-		
-
 		cellsFile >> height >> width;
 		for (unsigned i = 0; i < height; i++) {
 			std::vector<Cell*> row;
@@ -299,7 +315,7 @@ namespace TD {
 					case buildingTypeEnum::trap: {
 						trapsFile >> tmpFileTrap;
 						effectsFile >> tmpFileEffect;
-						Effect* eff;
+						Effect* eff = nullptr;
 						switch (tmpFileEffect.type) {
 						case effectTypeEnum::poison:
 							eff = new Poison(nullptr, tmpFileEffect.time, tmpFileEffect.value);
@@ -331,7 +347,7 @@ namespace TD {
 					case buildingTypeEnum::magicTower: {
 						towersFile >> tmpFileTower;
 						effectsFile >> tmpFileEffect;
-						Effect* eff;
+						Effect* eff = nullptr;
 						switch (tmpFileEffect.type) {
 						case effectTypeEnum::poison:
 							eff = new Poison(nullptr, tmpFileEffect.time, tmpFileEffect.value);
@@ -354,6 +370,16 @@ namespace TD {
 				}
 			}
 		}
+		
+		cellsFile.close();
+		enemiesFile.close();
+		towersFile.close();
+		liresFile.close();
+		effectsFile.close();
+		trapsFile.close();
+		schedulesFile.close();
+		castleFile.close();
+		featuresFile.close();
 
 		
 	}
