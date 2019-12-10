@@ -27,6 +27,11 @@ namespace TD {
 			load(_level);
 			level = _level;
 		}
+
+		GameManager(std::string fname) {
+			load(fname);
+			level = 0;
+		}
 		~GameManager();
 
 
@@ -34,6 +39,7 @@ namespace TD {
 		void destroy(int i, int j);
 		void save();
 		void load(unsigned int level);
+		void load(std::string);
 
 		void buildTower(int i, int j, unsigned int level);
 		void buildMagicTower(int i, int j, unsigned int level, effectTypeEnum effType, unsigned int value, unsigned int time);

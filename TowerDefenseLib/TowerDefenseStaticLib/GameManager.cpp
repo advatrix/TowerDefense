@@ -227,11 +227,10 @@ namespace TD {
 		featuresFile.close();
 	}
 
-	void GameManager::load(unsigned int level) {
-		std::string levelName = std::to_string(level);
+	void GameManager::load(std::string filename) {
 		std::experimental::filesystem::current_path("../levels");
-		std::experimental::filesystem::current_path(levelName);
-		
+		std::experimental::filesystem::current_path(filename);
+
 		std::fstream cellsFile("cells.bin", std::ios::binary | std::ios::in),
 			enemiesFile("enemies.bin", std::ios::binary | std::ios::in),
 			towersFile("towers.bin", std::ios::binary | std::ios::in),
@@ -300,7 +299,7 @@ namespace TD {
 					}
 					case buildingTypeEnum::lire: {
 						liresFile >> tmpFileLire;
-						std::multimap<unsigned, Enemy*>* enemySchedule = new std::multimap<unsigned,Enemy*>();
+						std::multimap<unsigned, Enemy*>* enemySchedule = new std::multimap<unsigned, Enemy*>();
 						for (int i = 0; i < tmpFileLire.enemiesCount; i++) {
 							schedulesFile >> tmpFileSchedule;
 							Enemy* e = new Enemy(tmpFileLire.x, tmpFileLire.y, tmpFileSchedule.maxHp,
@@ -370,7 +369,7 @@ namespace TD {
 				}
 			}
 		}
-		
+
 		cellsFile.close();
 		enemiesFile.close();
 		towersFile.close();
@@ -381,8 +380,169 @@ namespace TD {
 		castleFile.close();
 		featuresFile.close();
 
-		
+
+	}
+	void GameManager::load(unsigned int level) {
+		std::string levelName = std::to_string(level);
+		std::experimental::filesystem::current_path("../levels");
+		std::experimental::filesystem::current_path(levelName);
+
+		std::fstream cellsFile("cells.bin", std::ios::binary | std::ios::in),
+			enemiesFile("enemies.bin", std::ios::binary | std::ios::in),
+			towersFile("towers.bin", std::ios::binary | std::ios::in),
+			liresFile("lires.bin", std::ios::binary | std::ios::in),
+			effectsFile("effects.bin", std::ios::binary | std::ios::in),
+			trapsFile("traps.bin", std::ios::binary | std::ios::in),
+			schedulesFile("schedules.bin", std::ios::binary | std::ios::in),
+			castleFile("castle.bin", std::ios::binary | std::ios::in),
+			featuresFile("features.bin", std::ios::binary | std::ios::in);
+
+		std::vector<std::vector<Cell*>> cells;
+
+		/*
+		std::vector<std::vector<FileCell>> fileCells;
+		FileCastle fileCastle;
+		std::vector<FileEffect> fileEffects;
+		std::vector<FileEnemy> fileEnemies;
+		std::vector<FileFeature> fileFeatures;
+		std::vector<FileLire> fileLires;
+		std::vector<std::vector<FileScheduleItem>> fileSchedules;
+		std::vector<FileTower> fileTowers;
+		std::vector<FileTrap> fileTraps;
+		*/
+
+		FileCell tmpFileCell;
+		FileEffect tmpFileEffect;
+		FileEnemy tmpFileEnemy;
+		FileFeature tmpFileFeature;
+		FileLire tmpFileLire;
+		FileScheduleItem tmpFileSchedule;
+		FileTower tmpFileTower;
+		FileTrap tmpFileTrap;
+		FileCastle tmpFileCastle;
+
+		unsigned featuresCount;
+		featuresFile >> featuresCount;
+		for (unsigned i = 0; i < featuresCount; i++) {
+			featuresFile >> tmpFileFeature;
+			Feature* f = new Feature(tmpFileFeature.price, tmpFileFeature.radius, tmpFileFeature.damage,
+				tmpFileFeature.shotSpeed, tmpFileFeature.level);
+			features.push_back(f);
+		}
+
+		unsigned height, width;
+		ct::Table<Enemy*>* enemyTable = new ct::Table<Enemy*>();
+		cellsFile >> height >> width;
+		for (unsigned i = 0; i < height; i++) {
+			std::vector<Cell*> row;
+			for (unsigned j = 0; j < width; j++) {
+				cellsFile >> tmpFileCell;
+				switch (tmpFileCell.type) {
+				case cellTypeEnum::forest: {
+					row.push_back(new Cell(tmpFileCell.x, tmpFileCell.y));
+					break;
+				}
+				case cellTypeEnum::road: {
+					Road* r = new Road(tmpFileCell.x, tmpFileCell.y);
+					std::pair<double, double> cords(tmpFileCell.x, tmpFileCell.y);
+					switch (tmpFileCell.building) {
+					case buildingTypeEnum::castle: {
+						castleFile >> tmpFileCastle;
+						Castle* c = new Castle(cords, tmpFileCastle.title, tmpFileCastle.curHp, tmpFileCastle.maxHp, tmpFileCastle.money);
+						r->build(c);
+						landscape->setCastle(c);
+						break;
+					}
+					case buildingTypeEnum::lire: {
+						liresFile >> tmpFileLire;
+						std::multimap<unsigned, Enemy*>* enemySchedule = new std::multimap<unsigned, Enemy*>();
+						for (int i = 0; i < tmpFileLire.enemiesCount; i++) {
+							schedulesFile >> tmpFileSchedule;
+							Enemy* e = new Enemy(tmpFileLire.x, tmpFileLire.y, tmpFileSchedule.maxHp,
+								tmpFileSchedule.speed, tmpFileSchedule.money, tmpFileSchedule.name, tmpFileSchedule.maxHp,
+								tmpFileSchedule.speed);
+							enemySchedule->insert(std::make_pair(tmpFileSchedule.time, e));
+						}
+						Lire* l = new Lire(cords, *enemySchedule, 0, enemyTable);
+						r->build(l);
+						break;
+					}
+					case buildingTypeEnum::trap: {
+						trapsFile >> tmpFileTrap;
+						effectsFile >> tmpFileEffect;
+						Effect* eff = nullptr;
+						switch (tmpFileEffect.type) {
+						case effectTypeEnum::poison:
+							eff = new Poison(nullptr, tmpFileEffect.time, tmpFileEffect.value);
+							break;
+						case effectTypeEnum::slowdown:
+							eff = new Slowdown(nullptr, tmpFileEffect.time, tmpFileEffect.value);
+							break;
+						case effectTypeEnum::weakness: {
+							eff = new Weakness(nullptr, tmpFileEffect.time, tmpFileEffect.value);
+							break;
+						}
+						}
+						Trap* t = new Trap(cords, eff, enemyTable);
+						r->build(t);
+						break;
+					}
+					}
+				}
+				case cellTypeEnum::field: {
+					Field* f = new Field(tmpFileCell.x, tmpFileCell.y);
+					std::pair<double, double> cords(tmpFileCell.x, tmpFileCell.y);
+					switch (tmpFileCell.building) {
+					case buildingTypeEnum::tower: {
+						towersFile >> tmpFileTower;
+						Tower* t = new Tower(features[tmpFileTower.level], strategies[tmpFileTower.strategyType], 0, cords);
+						f->build(t);
+						break;
+					}
+					case buildingTypeEnum::magicTower: {
+						towersFile >> tmpFileTower;
+						effectsFile >> tmpFileEffect;
+						Effect* eff = nullptr;
+						switch (tmpFileEffect.type) {
+						case effectTypeEnum::poison:
+							eff = new Poison(nullptr, tmpFileEffect.time, tmpFileEffect.value);
+							break;
+						case effectTypeEnum::slowdown:
+							eff = new Slowdown(nullptr, tmpFileEffect.time, tmpFileEffect.value);
+							break;
+						case effectTypeEnum::weakness: {
+							eff = new Weakness(nullptr, tmpFileEffect.time, tmpFileEffect.value);
+							break;
+						}
+						}
+						MagicTower* m = new MagicTower(features[tmpFileTower.level], strategies[tmpFileTower.strategyType],
+							0, cords, eff);
+						f->build(m);
+						break;
+					}
+					}
+				}
+				}
+			}
+		}
+
+		cellsFile.close();
+		enemiesFile.close();
+		towersFile.close();
+		liresFile.close();
+		effectsFile.close();
+		trapsFile.close();
+		schedulesFile.close();
+		castleFile.close();
+		featuresFile.close();
+
+
 	}
 
 
 }
+
+	
+
+
+
