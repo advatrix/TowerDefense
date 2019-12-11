@@ -32,7 +32,7 @@ namespace TD {
 		FileTower(int _x, int _y, int _towerType, int _effectId, int _level, int _strategytype);
 
 		friend std::ostream& operator << (std::ostream&, const FileTower&);
-		friend std::istream& operator >> (std::istream&, const FileTower&);
+		friend std::istream& operator >> (std::istream&, FileTower&);
 	};
 
 	struct FileLire {
@@ -43,7 +43,7 @@ namespace TD {
 		FileLire(int _x, int _y, int _enemiesCount);
 
 		friend std::ostream& operator << (std::ostream&, const FileLire&);
-		friend std::istream& operator >> (std::istream&, const FileLire&);
+		friend std::istream& operator >> (std::istream&, FileLire&);
 	};
 
 	struct FileScheduleItem {
@@ -56,7 +56,7 @@ namespace TD {
 		FileScheduleItem(unsigned int _time, std::string _name, double _maxHp, double _speed, int _money);
 
 		friend std::ostream& operator << (std::ostream&, const FileScheduleItem&);
-		friend std::istream& operator >> (std::istream&, const FileScheduleItem&);
+		friend std::istream& operator >> (std::istream&, FileScheduleItem&);
 	};
 
 	struct FileTrap {
@@ -67,7 +67,7 @@ namespace TD {
 		FileTrap(int _x, int _y, int _effectId);
 
 		friend std::ostream& operator << (std::ostream&, const FileTrap&);
-		friend std::istream& operator >> (std::istream&, const FileTrap&);
+		friend std::istream& operator >> (std::istream&, FileTrap&);
 	};
 
 	struct FileCastle {
@@ -81,7 +81,7 @@ namespace TD {
 		FileCastle(int _x, int _y, int _money, std::string _title, double _maxHp, double _curHp);
 
 		friend std::ostream& operator << (std::ostream&, const FileCastle&);
-		friend std::istream& operator >> (std::istream&, const FileCastle&);
+		friend std::istream& operator >> (std::istream&, FileCastle&);
 	};
 
 	struct FileEffect {
@@ -92,7 +92,7 @@ namespace TD {
 		FileEffect(int _type, int _value, unsigned int _time);
 
 		friend std::ostream& operator << (std::ostream&, const FileEffect&);
-		friend std::istream& operator >> (std::istream&, const FileEffect&);
+		friend std::istream& operator >> (std::istream&, FileEffect&);
 	};
 
 	struct FileEnemy {
@@ -110,7 +110,7 @@ namespace TD {
 			double _speed, int _money, int _nEffects);
 
 		friend std::ostream& operator << (std::ostream&, const FileEnemy&);
-		friend std::istream& operator >> (std::istream&, const FileEnemy&);
+		friend std::istream& operator >> (std::istream&, FileEnemy&);
 	};
 
 	struct FileFeature {
@@ -123,7 +123,7 @@ namespace TD {
 		FileFeature(int _level, int _price, double _damage, double _radius, double _shotSpeed);
 
 		friend std::ostream& operator << (std::ostream&, const FileFeature&);
-		friend std::istream& operator >> (std::istream&, const FileFeature&);
+		friend std::istream& operator >> (std::istream&, FileFeature&);
 	};
 }
 

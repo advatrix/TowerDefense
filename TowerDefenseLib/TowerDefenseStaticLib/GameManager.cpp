@@ -265,9 +265,9 @@ namespace TD {
 		FileTrap tmpFileTrap;
 		FileCastle tmpFileCastle;
 
-		unsigned featuresCount;
+		unsigned int featuresCount;
 		featuresFile >> featuresCount;
-		for (unsigned i = 0; i < featuresCount; i++) {
+		for (unsigned int i = 0; i < featuresCount; i++) {
 			featuresFile >> tmpFileFeature;
 			Feature* f = new Feature(tmpFileFeature.price, tmpFileFeature.radius, tmpFileFeature.damage,
 				tmpFileFeature.shotSpeed, tmpFileFeature.level);
@@ -382,10 +382,12 @@ namespace TD {
 
 
 	}
+
 	void GameManager::load(unsigned int level) {
 		std::string levelName = std::to_string(level);
 		std::experimental::filesystem::current_path("../levels");
 		std::experimental::filesystem::current_path(levelName);
+		this->level = level;
 
 		std::fstream cellsFile("cells.bin", std::ios::binary | std::ios::in),
 			enemiesFile("enemies.bin", std::ios::binary | std::ios::in),
@@ -421,7 +423,7 @@ namespace TD {
 		FileTrap tmpFileTrap;
 		FileCastle tmpFileCastle;
 
-		unsigned featuresCount;
+		size_t featuresCount;
 		featuresFile >> featuresCount;
 		for (unsigned i = 0; i < featuresCount; i++) {
 			featuresFile >> tmpFileFeature;

@@ -164,7 +164,7 @@ namespace TD {
 
 
 	std::ostream& operator<< (std::ostream& o, const FileFeature& f) {
-		o << f.level << f.price << f.damage << f.radius << f.shotSpeed;
+		o << std::endl << f.level << std::endl << f.price << f.damage << f.radius << f.shotSpeed;
 		return o;
 	}
 

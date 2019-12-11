@@ -2,16 +2,17 @@
 
 void GraphicsCell::update() {
 	switch (spectationCell->getType()) {
-	case cellTypeEnum::field:
+	case cellTypeEnum::field: {
 		Field* f = dynamic_cast<Field*>(spectationCell);
 		setBuilding(f->getTower());
 		if (spectationBuilding) {
 			switch (spectationBuilding->getType()) {
-			case buildingTypeEnum::tower:
+			case buildingTypeEnum::tower: {
 				Tower* t = dynamic_cast<Tower*>(spectationBuilding);
 				setRepr(t->getLevel() + 96);
 				break;
-			case buildingTypeEnum::magicTower:
+			}
+			case buildingTypeEnum::magicTower: {
 				MagicTower* m = dynamic_cast<MagicTower*>(spectationBuilding);
 				setRepr(m->getLevel() + 64);
 				switch (m->getEffectType()) {
@@ -26,17 +27,20 @@ void GraphicsCell::update() {
 					break;
 				}
 			}
+			}
 		}
 		else {
 			setRepr('.');
 			setTxtColor(Yellow);
 		}
 		break;
-	case cellTypeEnum::forest:
+	}
+	case cellTypeEnum::forest: {
 		setRepr('^');
 		setTxtColor(Green);
 		break;
-	case cellTypeEnum::road:
+	}
+	case cellTypeEnum::road: {
 		Road* r = dynamic_cast<Road*>(spectationCell);
 		setBuilding(r->getBuilding());
 		if (spectationBuilding) {
@@ -49,7 +53,7 @@ void GraphicsCell::update() {
 				setRepr('*');
 				setTxtColor(Red);
 				break;
-			case buildingTypeEnum::trap:
+			case buildingTypeEnum::trap: {
 				setRepr('+');
 				Trap* t = dynamic_cast<Trap*>(spectationBuilding);
 				switch (t->getEffectType()) {
@@ -65,9 +69,11 @@ void GraphicsCell::update() {
 				}
 				break;
 			}
+			}
 		}
 		setRepr('=');
 		setTxtColor(LightGray);
 		break;
+	}
 	}
 }

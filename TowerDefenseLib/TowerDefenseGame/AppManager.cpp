@@ -2,9 +2,13 @@
 #include <experimental/filesystem>
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <string>
 
 #include "AppManager.h"
-#include "..//TowerDefenseStaticLib///TowerDefenseLib.h"
+
+
+#include "..//TowerDefenseStaticLib/TowerDefenseLib.h"
 
 using namespace TD;
 
@@ -57,6 +61,7 @@ void AppManager::createLevel() {
 	input(levelName);
 	std::experimental::filesystem::current_path("../levels");
 	std::experimental::filesystem::create_directory(levelName);
+	std::experimental::filesystem::current_path(levelName);
 
 	std::fstream cellsFile("cells.bin", std::ios::binary | std::ios::out | std::ios::trunc),
 		enemiesFile("enemies.bin", std::ios::binary | std::ios::out | std::ios::trunc),
@@ -87,7 +92,7 @@ void AppManager::createLevel() {
 
 	std::vector<std::vector<FileCell>> cells;
 	for (unsigned i = 0; i < height; i++) {
-
+		std::vector<FileCell> row;
 		for (unsigned j = 0; j < width; j++) {
 			int cellType;
 			std::cout << "enter type of cell" << i << ' ' << j;
@@ -95,18 +100,20 @@ void AppManager::createLevel() {
 			input(cellType);
 			switch (cellType) {
 			case cellTypeEnum::forest:
-				cellsStructs.push_back(FileCell(i, j, cellTypeEnum::forest, 0, 0));
+				row.push_back(FileCell(i, j, cellTypeEnum::forest, 0, 0));
 				break;
-			case cellTypeEnum::road: {
-				cellsStructs.push_back(FileCell(i, j, cellTypeEnum::road, 0, 0));
+			case cellTypeEnum::road: 
+				row.push_back(FileCell(i, j, cellTypeEnum::road, 0, 0));
 				break;
 			case cellTypeEnum::field: {
-				cellsStructs.push_back(FileCell(i, j, cellTypeEnum::field, 0, 0));
+				row.push_back(FileCell(i, j, cellTypeEnum::field, 0, 0));
 				break;
 			}
+
 			}
-			}
+
 		}
+		cells.push_back(row);
 	}
 
 	std::vector<FileFeature> featuresStructs;
@@ -142,7 +149,9 @@ void AppManager::createLevel() {
 		print("how many enemies?");
 		int ec;
 		input(ec);
-		cells[x][y].building = buildingTypeEnum::lire;
+		liresStructs.push_back(FileLire(x, y, ec));
+		cells[x][y].building = 4;
+		// cells[x][y].building = buildingTypeEnum::lire;
 		cells[x][y].buildingId = i;
 		std::vector<FileScheduleItem> tmpSch;
 		for (int j = 0; j < ec; j++) {
@@ -188,6 +197,179 @@ void AppManager::createLevel() {
 	castleFile << c;
 	castleFile.close();
 
+	cellsFile << height << width;
+	for (auto it = cells.begin(); it != cells.end(); it++) {
+		for (auto jt = (*it).begin(); jt != (*it).end(); jt++) {
+			cellsFile << (*jt);
+		}
+	}
 
-	cellsFile
+	liresFile << static_cast<unsigned>(liresStructs.size());
+	for (auto it = liresStructs.begin(); it != liresStructs.end(); it++) {
+		liresFile << (*it);
+	}
+
+	schedulesFile << static_cast<unsigned>(schedule.size());
+	for (auto it = schedule.begin(); it != schedule.end(); it++) {
+		schedulesFile << static_cast<unsigned>((*it).size());
+		for (auto jt = (*it).begin(); jt != (*it).end(); jt++) schedulesFile << (*jt);
+	}
+
+	size_t featuresCount = featuresStructs.size();
+	featuresFile << featuresCount;
+	for (auto it = featuresStructs.begin(); it != featuresStructs.end(); it++) featuresFile << (*it);
+
+	cellsFile.close();
+	enemiesFile.close();
+	towersFile.close();
+	liresFile.close();
+	effectsFile.close();
+	trapsFile.close();
+	schedulesFile.close();
+	featuresFile.close();
+
+	std::experimental::filesystem::current_path("../");
+	// std::experimental::filesystem::current_path("../");
+
+	game->load(levelName);
+	play();
 }
+
+void AppManager::help() {
+	print("not implemented yet");
+}
+
+void AppManager::loadLevel() {
+	std::string filename;
+	print("input filename");
+	input(filename);
+	game->load(filename);
+	play();
+}
+
+void AppManager::play() {
+	int rc;
+	while (true) {
+		game->update();
+		graphics->update(game->getEnemyTable());
+		graphics->render();
+		int rc = menu(gameMenu);
+		switch (rc) {
+		case 1: 
+			pause();
+			break;
+		case 2:
+			save();
+			return;
+		case 3:
+			return;
+		}
+
+	}
+}
+
+void AppManager::pause() {
+	while (true) {
+		int rc = menu(pauseMenu);
+		switch (rc) {
+		case 0:
+			upgrade();
+			break;
+		case 1:
+			build();
+			break;
+		case 2:
+			info();
+			break;
+		case 3:
+			return;
+		}
+	}
+}
+
+int AppManager::menu(std::vector<std::string> v) {
+	for (int i = 0; i < v.size(); i++) print(v[i]);
+	int rc;
+	input(rc);
+	return rc;
+}
+
+void AppManager::save() {
+	game->save();
+}
+
+void AppManager::upgrade() {
+	print("input tower cords");
+	int x, y;
+	print("input x");
+	input(x);
+	print("input y");
+	input(y);
+	game->upgrade(x, y);
+}
+
+void AppManager::build() {
+	print("input cords");
+	int x, y;
+	print("input x");
+	input(x);
+	print("input y");
+	input(y);
+	print("enter tower type");
+	int type = menu(towerTypeMenu);
+	switch (type) {
+	case 0:
+		game->buildTower(x, y, 1);
+		break;
+	case 1: {
+		int effType = menu(effTypeMenu);
+		print("enter effect params");
+		print("enter value");
+		unsigned value, t;
+		input(value);
+		print("input time");
+		input(t);
+		switch (effType) {
+		case 0:
+			game->buildMagicTower(x, y, 1, effectTypeEnum::slowdown, value, t);
+			break;
+		case 1:
+			game->buildMagicTower(x, y, 1, effectTypeEnum::weakness, value, t);
+			break;
+		case 2:
+			game->buildMagicTower(x, y, 1, effectTypeEnum::poison, value, t);
+			break;
+		}
+		break;
+	}
+	case 2: {
+		int effType = menu(effTypeMenu);
+		print("enter effect params");
+		print("enter value");
+		unsigned value, t;
+		input(value);
+		print("input time");
+		input(t);
+		switch (effType) {
+		case 0:
+			game->buildTrap(x, y, effectTypeEnum::slowdown, value, t);
+			break;
+		case 1:
+			game->buildTrap(x, y, effectTypeEnum::weakness, value, t);
+			break;
+		case 2:
+			game->buildTrap(x, y, effectTypeEnum::poison, value, t);
+			break;
+		}
+		break;
+	}
+	}
+}
+
+void AppManager::info() const {
+	std::cout << "HP: " << game->getHp() << "\nMoney: " << game->getMoney() << std::endl;
+}
+
+
+
+

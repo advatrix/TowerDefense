@@ -19,5 +19,9 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& o, const GraphicsManager& g);
 
+	GraphicsManager() : map(), cells(), enemies(), n(0) {}
+
+	~GraphicsManager() {}
+
 };
 

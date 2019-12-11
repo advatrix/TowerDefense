@@ -1,4 +1,7 @@
-#pragma once
+#ifndef _GRAPHICS_ENTITY_H_
+#define _GRAPHICS_ENTITY_H_
+
+
 #include <iostream>
 #include <Windows.h>
 
@@ -9,10 +12,7 @@ enum Colors {
 };
 
 
-void setColor(int txt, int bg) {
-	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hStdOut, (WORD)((bg << 4) | txt));
-}
+void setColor(int txt, int bg);
 
 class GraphicsEntity
 {
@@ -51,4 +51,6 @@ public:
 
 	~GraphicsEntity() {}
 };
+
+#endif
 

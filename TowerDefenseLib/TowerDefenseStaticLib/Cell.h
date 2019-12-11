@@ -3,6 +3,7 @@
 
 
 #include <stdexcept>
+#include <limits>
 
 #include "Enums.h"
 #include "Building.h"
@@ -56,7 +57,7 @@ namespace TD {
 			Road();
 			Road(int, int);
 			inline unsigned int getDist() const { return dist; }
-			inline bool hasPath() const { return dist != std::numeric_limits<unsigned>::max(); }
+			inline bool hasPath() const { return dist != (std::numeric_limits<unsigned>::max)(); }
 			inline Building* getBuilding() const { return building; }
 			friend class Landscape;
 			friend class Road;

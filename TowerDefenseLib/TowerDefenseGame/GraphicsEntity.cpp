@@ -7,3 +7,8 @@ std::ostream& operator << (std::ostream& o, const GraphicsEntity& e) {
 	return o;
 }
 
+void setColor(int txt, int bg) {
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hStdOut, (WORD)((bg << 4) | txt));
+}
+

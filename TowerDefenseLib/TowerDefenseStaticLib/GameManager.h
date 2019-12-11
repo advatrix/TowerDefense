@@ -32,6 +32,12 @@ namespace TD {
 			load(fname);
 			level = 0;
 		}
+
+		GameManager(): features(), strategies(), entities() {
+			landscape = nullptr;
+			level = 0;
+		}
+
 		~GameManager();
 
 
@@ -45,7 +51,9 @@ namespace TD {
 		void buildMagicTower(int i, int j, unsigned int level, effectTypeEnum effType, unsigned int value, unsigned int time);
 		void buildTrap(int i, int j, effectTypeEnum effType, unsigned int value, unsigned int time);
 		
-		
+		inline ct::Table<Enemy*>* getEnemyTable() const { return landscape->getEnemyTable(); }
+		inline double getHp() const { return landscape->getCastle()->getCurHp(); }
+		inline int getMoney() const { return landscape->getCastle()->getMoney(); }
 
 
 

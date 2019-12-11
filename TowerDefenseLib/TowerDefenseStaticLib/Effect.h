@@ -19,7 +19,7 @@ namespace TD {
 		virtual void update() = 0;
 		virtual Effect* copy() = 0;
 		Effect() :
-			remainedTime(std::numeric_limits<unsigned>::max()), value(0), enemy(nullptr), active(false){}
+			remainedTime((std::numeric_limits<unsigned>::max)()), value(0), enemy(nullptr), active(false){}
 		Effect(Enemy* en, unsigned int time, unsigned int t);
 		virtual ~Effect() {}
 
