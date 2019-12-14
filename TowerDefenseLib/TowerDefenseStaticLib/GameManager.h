@@ -54,6 +54,7 @@ namespace TD {
 		inline ct::Table<Enemy*>* getEnemyTable() const { return landscape->getEnemyTable(); }
 		inline double getHp() const { return landscape->getCastle()->getCurHp(); }
 		inline int getMoney() const { return landscape->getCastle()->getMoney(); }
+		inline std::vector<std::vector<Cell*>> getCells() const { return landscape->getCells(); }
 
 
 

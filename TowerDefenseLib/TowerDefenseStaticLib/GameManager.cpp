@@ -368,6 +368,7 @@ namespace TD {
 				}
 				}
 			}
+			cells.push_back(row);
 		}
 
 		cellsFile.close();
@@ -380,7 +381,7 @@ namespace TD {
 		castleFile.close();
 		featuresFile.close();
 
-
+		landscape = new Landscape(cells, enemyTable);
 	}
 
 	void GameManager::load(unsigned int level) {
@@ -526,6 +527,7 @@ namespace TD {
 				}
 				}
 			}
+			cells.push_back(row);
 		}
 
 		cellsFile.close();
@@ -538,7 +540,7 @@ namespace TD {
 		castleFile.close();
 		featuresFile.close();
 
-
+		landscape = new Landscape(cells, enemyTable);
 	}
 
 

@@ -6,8 +6,8 @@ namespace TD {
 		double _curHp, double _curSpeed, double _dmgMultiplier, ct::Table<Effect*> _effects, 
 		bool isAlive) {
 	
-		if (maxSpeed <= 0) throw std::invalid_argument("illegal max speed");
-		if (maxHp <= 0) throw std::invalid_argument("illegal max hp");
+		if (_maxSpeed <= 0) throw std::invalid_argument("illegal max speed");
+		if (_maxHp <= 0) throw std::invalid_argument("illegal max hp");
 
 		x = _x;
 		y = _y;
@@ -23,7 +23,7 @@ namespace TD {
 		else curSpeed = _curSpeed;
 
 		dmgMultiplier = _dmgMultiplier;
-		effects = _effects;
+		if (_effects.getSize()) effects = _effects;
 
 		alive = isAlive;
 	}

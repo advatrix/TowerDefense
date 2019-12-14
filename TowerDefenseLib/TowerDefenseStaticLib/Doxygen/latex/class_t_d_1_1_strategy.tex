@@ -1,0 +1,46 @@
+\hypertarget{class_t_d_1_1_strategy}{}\doxysection{TD\+::Strategy Class Reference}
+\label{class_t_d_1_1_strategy}\index{TD::Strategy@{TD::Strategy}}
+Inheritance diagram for TD\+::Strategy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.882353cm]{class_t_d_1_1_strategy}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_d_1_1_strategy_a40d9f73e55a650611562516fede01c7c}\label{class_t_d_1_1_strategy_a40d9f73e55a650611562516fede01c7c}} 
+virtual void {\bfseries attack} (\mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} $\ast$)=0
+\item 
+\mbox{\Hypertarget{class_t_d_1_1_strategy_a938418acde5d34e7dcfc995181c3d9fb}\label{class_t_d_1_1_strategy_a938418acde5d34e7dcfc995181c3d9fb}} 
+virtual strategy\+Type\+Enum {\bfseries get\+Type} () const
+\item 
+\mbox{\Hypertarget{class_t_d_1_1_strategy_ad317e499a9fb353cd8e52e6da111bb87}\label{class_t_d_1_1_strategy_ad317e499a9fb353cd8e52e6da111bb87}} 
+virtual \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ {\bfseries get\+Target} (std\+::pair$<$ double, double $>$ \&cords, double raduis) const =0
+\item 
+\mbox{\Hypertarget{class_t_d_1_1_strategy_aa291f43f791697f82dc148fbdbe4c2ce}\label{class_t_d_1_1_strategy_aa291f43f791697f82dc148fbdbe4c2ce}} 
+{\bfseries Strategy} (\mbox{\hyperlink{classcustom_templates_1_1_table}{ct\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ $\ast$\+\_\+enemy\+Table)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_d_1_1_strategy_a6b689b4f6ce9815f5bdf7b20954a8227}\label{class_t_d_1_1_strategy_a6b689b4f6ce9815f5bdf7b20954a8227}} 
+static double {\bfseries distance} (\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$, \mbox{\hyperlink{class_t_d_1_1_building}{Building}} $\ast$)
+\item 
+\mbox{\Hypertarget{class_t_d_1_1_strategy_aa1e6d4599e8298f9b4cab3bc4d66f405}\label{class_t_d_1_1_strategy_aa1e6d4599e8298f9b4cab3bc4d66f405}} 
+static double {\bfseries distance} (std\+::pair$<$ double, double $>$, std\+::pair$<$ double, double $>$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_d_1_1_strategy_ad0c319752ca91a3205ebaffbe5e1e94c}\label{class_t_d_1_1_strategy_ad0c319752ca91a3205ebaffbe5e1e94c}} 
+\mbox{\hyperlink{classcustom_templates_1_1_table}{ct\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ $\ast$ {\bfseries enemy\+Table}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Landscape\+\_\+.\+h\item 
+Strategy.\+h\item 
+Landscape\+\_\+.\+cpp\item 
+Strategy.\+cpp\end{DoxyCompactItemize}

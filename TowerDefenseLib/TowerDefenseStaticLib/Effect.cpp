@@ -10,6 +10,7 @@ namespace TD {
 	}
 
 	void Weakness::update() {
+		if (!enemy) return;
 		if (!active) {
 			enemy->mulDamageMultiplier(pc(value));
 			active = true;
@@ -21,6 +22,7 @@ namespace TD {
 	}
 
 	void Slowdown::update() {
+		if (!enemy) return;
 		if (!active) {
 			enemy->divCurrentSpeed(pc(value));
 			active = true;
@@ -32,6 +34,7 @@ namespace TD {
 	}
 
 	void Poison::update() {
+		if (!enemy) return;
 		if (!active) active = true;
 		enemy->makeDamage(value);
 		if (--remainedTime == 0) active = false;

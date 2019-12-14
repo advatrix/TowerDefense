@@ -29,6 +29,7 @@ namespace TD {
 	public:
 		Landscape() : cells(), height(0), width(0), enemyTable(), castle_(nullptr) {}
 		Landscape(std::vector<std::vector<Cell*>>& _cells);
+		Landscape(std::vector<std::vector<Cell*>>& _cells, ct::Table<Enemy*>* et);
 
 		inline unsigned int getHeight() const { return height; }
 		inline unsigned int getWidth() const { return width; }
@@ -42,6 +43,7 @@ namespace TD {
 		
 		inline void setCastle(Castle* c) { castle_ = c; }
 		inline Castle* getCastle() const { return castle_; }
+		inline std::vector<std::vector<Cell*>> getCells() const { return cells; }
 
 		bool createPath();
 	};

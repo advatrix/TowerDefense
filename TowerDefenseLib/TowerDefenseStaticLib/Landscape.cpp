@@ -29,8 +29,10 @@ namespace TD {
 	}
 
 	void Landscape::update() {
-		for (auto it = enemyTable->begin(); it != enemyTable->end(); it++) {
-			moveEnemy(*it);
+		if (enemyTable) {
+			for (auto it = enemyTable->begin(); it != enemyTable->end(); it++) {
+				moveEnemy(*it);
+			}
 		}
 	}
 
@@ -88,6 +90,14 @@ namespace TD {
 		}
 		return true;
 		
+	}
+
+	Landscape::Landscape(std::vector<std::vector<Cell*>>& _cells, ct::Table<Enemy*>* et) {
+		cells = _cells;
+		enemyTable = et;
+		castle_ = nullptr;
+		height = cells.size();
+		width = cells[0].size();
 	}
 
 }

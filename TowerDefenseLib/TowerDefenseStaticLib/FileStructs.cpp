@@ -76,7 +76,7 @@ namespace TD {
 
 
 	std::ostream& operator<< (std::ostream& o, const FileCell& f) {
-		o << f.x << f.y << f.type << f.building << f.buildingId;
+		o << f.x << std::endl << f.y << std::endl << f.type << std::endl << f.building << std::endl << f.buildingId << std::endl;
 		return o;
 	}
 
@@ -87,7 +87,7 @@ namespace TD {
 
 
 	std::ostream& operator<< (std::ostream& o, const FileTower& f) {
-		o << f.x << f.y << f.towerType << f.effectId << f.level << f.strategyType;
+		o  << f.x << std::endl << f.y << std::endl << f.towerType << std::endl << f.effectId << std::endl << f.level << std::endl << f.strategyType << std::endl;
 		return o;
 	}
 
@@ -98,7 +98,7 @@ namespace TD {
 
 
 	std::ostream& operator<< (std::ostream& o, const FileLire& f) {
-		o << f.x << f.y << f.enemiesCount;
+		o << f.x << std::endl << f.y << std::endl << f.enemiesCount << std::endl;
 		return o;
 	}
 
@@ -109,7 +109,7 @@ namespace TD {
 
 
 	std::ostream& operator<< (std::ostream& o, const FileScheduleItem& f) {
-		o << f.time << f.name << f.maxHp << f.speed << f.money;
+		o << f.time << std::endl << f.name << std::endl << f.maxHp << std::endl << f.speed << std::endl << f.money << std::endl;
 		return o;
 	}
 
@@ -120,7 +120,7 @@ namespace TD {
 
 
 	std::ostream& operator<< (std::ostream& o, const FileTrap& f) {
-		o << f.x << f.y << f.effectId;
+		o << f.x << std::endl << f.y << std::endl << f.effectId << std::endl;
 		return o;
 	}
 
@@ -131,7 +131,7 @@ namespace TD {
 
 
 	std::ostream& operator<< (std::ostream& o, const FileCastle& f) {
-		o << f.x << f.y << f.money << f.title << f.maxHp << f.curHp;
+		o << f.x << std::endl << f.y << std::endl << f.money << std::endl << f.title << std::endl << f.maxHp << std::endl << f.curHp << std::endl;
 		return o;
 	}
 
@@ -142,7 +142,7 @@ namespace TD {
 
 
 	std::ostream& operator<< (std::ostream& o, const FileEffect& f) {
-		o << f.type << f.value << f.time;
+		o << f.type << std::endl << f.value << std::endl << f.time << std::endl;
 		return o;
 	}
 
@@ -153,7 +153,7 @@ namespace TD {
 
 
 	std::ostream& operator<< (std::ostream& o, const FileEnemy& f) {
-		o << f.name << f.cord_x << f.cord_y << f.maxHp << f.curHp << f.speed << f.money << f.nEffects;
+		o << f.name << std::endl << f.cord_x << std::endl << f.cord_y << std::endl << f.maxHp << std::endl << f.curHp << std::endl << f.speed << std::endl << f.money << std::endl << f.nEffects << std::endl;
 		return o;
 	}
 
@@ -164,7 +164,7 @@ namespace TD {
 
 
 	std::ostream& operator<< (std::ostream& o, const FileFeature& f) {
-		o << std::endl << f.level << std::endl << f.price << f.damage << f.radius << f.shotSpeed;
+		o << f.level << std::endl << f.price << std::endl << f.damage << std::endl << f.radius << std::endl << f.shotSpeed << std::endl;
 		return o;
 	}
 

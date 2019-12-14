@@ -194,29 +194,29 @@ void AppManager::createLevel() {
 
 	FileCastle c(x, y, money, title, mhp, chp);
 	std::fstream castleFile("castle.bin", std::ios::binary | std::ios::out | std::ios::trunc);
-	castleFile << c;
+	castleFile << c << std::endl;
 	castleFile.close();
 
-	cellsFile << height << width;
+	cellsFile << height << std::endl << width << std::endl;
 	for (auto it = cells.begin(); it != cells.end(); it++) {
 		for (auto jt = (*it).begin(); jt != (*it).end(); jt++) {
 			cellsFile << (*jt);
 		}
 	}
 
-	liresFile << static_cast<unsigned>(liresStructs.size());
+	liresFile << static_cast<unsigned>(liresStructs.size()) << std::endl;
 	for (auto it = liresStructs.begin(); it != liresStructs.end(); it++) {
 		liresFile << (*it);
 	}
 
-	schedulesFile << static_cast<unsigned>(schedule.size());
+	schedulesFile << static_cast<unsigned>(schedule.size()) << std::endl;
 	for (auto it = schedule.begin(); it != schedule.end(); it++) {
 		schedulesFile << static_cast<unsigned>((*it).size());
 		for (auto jt = (*it).begin(); jt != (*it).end(); jt++) schedulesFile << (*jt);
 	}
 
 	size_t featuresCount = featuresStructs.size();
-	featuresFile << featuresCount;
+	featuresFile << featuresCount << std::endl;
 	for (auto it = featuresStructs.begin(); it != featuresStructs.end(); it++) featuresFile << (*it);
 
 	cellsFile.close();
@@ -230,7 +230,6 @@ void AppManager::createLevel() {
 
 	std::experimental::filesystem::current_path("../");
 	// std::experimental::filesystem::current_path("../");
-
 	game->load(levelName);
 	play();
 }
@@ -249,10 +248,12 @@ void AppManager::loadLevel() {
 
 void AppManager::play() {
 	int rc;
+	graphics = new GraphicsManager(game->getCells(), game->getEnemyTable());
 	while (true) {
 		game->update();
 		graphics->update(game->getEnemyTable());
 		graphics->render();
+		std::cout << *graphics;
 		int rc = menu(gameMenu);
 		switch (rc) {
 		case 1: 

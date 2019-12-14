@@ -37,6 +37,7 @@ namespace TD {
 	}
 
 	void Road::build(Building* bld) {
+		if (!bld) throw std::invalid_argument("building nullptr");
 		if (building) throw std::runtime_error("Rebuilding");
 		if (bld->getType() == buildingTypeEnum::tower ||
 			bld->getType() == buildingTypeEnum::magicTower)
@@ -68,14 +69,11 @@ namespace TD {
 
 
 	void Road::destroy() {
-		Trap* possibleTrap;
-		try {
-			possibleTrap = dynamic_cast<Trap*>(building);
+		if (!building) throw std::exception("nothing to destroy");
+		if (building->getType() == buildingTypeEnum::trap) {
+			delete building;
+			building = nullptr;
 		}
-		catch (...) {
-			throw std::exception("impossible to destroy");
-		}
-		if (possibleTrap) delete building;
 		else throw std::exception("impossible to destroy");
 	}
 
@@ -104,15 +102,11 @@ namespace TD {
 	}
 
 	Road::~Road() {
-		try {
-			destroy();
-		}
-		catch (...) {
-			;
-		}
+		
 	}
 
 	void Field::build(Tower* tw) {
+		if (tower) throw std::runtime_error("already built");
 		if (tw) tower = tw;
 		else throw std::invalid_argument("tower nullptr");
 	}
@@ -130,11 +124,14 @@ namespace TD {
 	}
 
 	Field::~Field() {
-		delete tower;
+		
 	}
 
 	void Field::destroy() {
-		if (tower) delete tower;
+		if (tower) {
+			delete tower;
+			tower = nullptr;
+		}
 	}
 
 

@@ -52,7 +52,7 @@ namespace TD {
 		public:
 			void build(Building*);
 			void destroy() throw (std::exception);
-			inline bool isBuilt() { return building; }
+			inline bool isBuilt() const { return building; }
 			~Road();
 			Road();
 			Road(int, int);

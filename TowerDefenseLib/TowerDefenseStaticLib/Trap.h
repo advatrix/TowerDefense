@@ -18,6 +18,7 @@ namespace TD {
 			enemyTable = et;
 		}
 		void update();
+		buildingTypeEnum getType() const { return buildingTypeEnum::trap; }
 
 	};
 }

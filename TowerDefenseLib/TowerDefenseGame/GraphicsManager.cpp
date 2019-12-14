@@ -18,8 +18,10 @@ void GraphicsManager::render() {
 }
 
 std::ostream& operator<<(std::ostream& o, const GraphicsManager& g) {
-	for (auto it = g.map.begin(); it != g.map.end(); it++)
+	for (auto it = g.map.begin(); it != g.map.end(); it++) {
 		for (auto jt = (*it).begin(); jt != (*it).end(); jt++)
-			std::cout << (*jt);
+			std::cout << *(*jt);
+		std::cout << std::endl;
+	}
 	return o;
 }
