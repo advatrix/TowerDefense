@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['id_720',['id',['../classnlohmann_1_1detail_1_1exception.html#a0d4589a3fb54e81646d986c05efa3b9a',1,'nlohmann::detail::exception']]]
+  ['damage_233',['damage',['../struct_t_d_1_1_file_feature.html#a4054486cfc4bcc6e0022f7cb3c42d646',1,'TD::FileFeature']]]
 ];

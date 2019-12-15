@@ -1,13 +1,10 @@
 var searchData=
 [
-  ['landscape_225',['Landscape',['../class_t_d_1_1_landscape.html',1,'TD']]],
-  ['less_3c_3a_3anlohmann_3a_3adetail_3a_3avalue_5ft_20_3e_226',['less&lt;::nlohmann::detail::value_t &gt;',['../structstd_1_1less_3_1_1nlohmann_1_1detail_1_1value__t_01_4.html',1,'std']]],
-  ['lexer_227',['lexer',['../classnlohmann_1_1detail_1_1lexer.html',1,'nlohmann::detail']]],
-  ['lines_5fread_228',['lines_read',['../structnlohmann_1_1detail_1_1position__t.html#a4bbad8bc2c0d17c1b61c3ce729908b71',1,'nlohmann::detail::position_t']]],
-  ['lire_229',['Lire',['../class_t_d_1_1_lire.html',1,'TD']]],
-  ['literal_5ffalse_230',['literal_false',['../classnlohmann_1_1detail_1_1lexer.html#a3f313cdbe187cababfc5e06f0b69b098afab1694b1b3937a079f4625fe0b6108b',1,'nlohmann::detail::lexer']]],
-  ['literal_5fnull_231',['literal_null',['../classnlohmann_1_1detail_1_1lexer.html#a3f313cdbe187cababfc5e06f0b69b098ab7ae4c0e46d86f884677768160b26e9e',1,'nlohmann::detail::lexer']]],
-  ['literal_5for_5fvalue_232',['literal_or_value',['../classnlohmann_1_1detail_1_1lexer.html#a3f313cdbe187cababfc5e06f0b69b098ad2a8e6f6721cccec0b466301dd9495a5',1,'nlohmann::detail::lexer']]],
-  ['literal_5ftrue_233',['literal_true',['../classnlohmann_1_1detail_1_1lexer.html#a3f313cdbe187cababfc5e06f0b69b098a85cc1a37b0aaa52de40e72f0ed4e0c0d',1,'nlohmann::detail::lexer']]],
-  ['little_5fendianess_234',['little_endianess',['../classnlohmann_1_1detail_1_1binary__reader.html#a1e31dbfcf9567c8c2d4f0e4eb1b0230a',1,'nlohmann::detail::binary_reader']]]
+  ['name_83',['name',['../struct_t_d_1_1_file_schedule_item.html#a0a9dfed7669b98c890e752d7fef4f06f',1,'TD::FileScheduleItem::name()'],['../struct_t_d_1_1_file_enemy.html#af877c63f67f04c0d2d0493764b5e6ab5',1,'TD::FileEnemy::name()']]],
+  ['neartocastle_84',['NearToCastle',['../class_t_d_1_1_near_to_castle.html',1,'TD::NearToCastle'],['../namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badcae800abedf11e723758d40e4d4c8a0a56',1,'TD::nearToCastle()']]],
+  ['neartotower_85',['NearToTower',['../class_t_d_1_1_near_to_tower.html',1,'TD::NearToTower'],['../namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badca02424bd3aed3b9fdc6299ec416d64f49',1,'TD::nearToTower()']]],
+  ['neffects_86',['nEffects',['../struct_t_d_1_1_file_enemy.html#a4ac967ff7db114d768fbf7a4d615a3fb',1,'TD::FileEnemy']]],
+  ['noeffect_87',['noEffect',['../namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddfa543fb9d86e13a9b600c3403367153dbc',1,'TD']]],
+  ['none_88',['none',['../namespace_t_d.html#afc697847486c1a94f27e032d3fbae69ea241cf8823a1d157c8df68b6b4ca97f15',1,'TD']]],
+  ['nostrategy_89',['noStrategy',['../namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badcad6ae0f9af1d4ae6a596476fa24982434',1,'TD']]]
 ];

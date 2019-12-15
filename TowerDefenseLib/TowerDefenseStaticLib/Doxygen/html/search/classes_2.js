@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['cached_5fpower_391',['cached_power',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html',1,'nlohmann::detail::dtoa_impl']]],
-  ['castle_392',['Castle',['../class_t_d_1_1_castle.html',1,'TD']]],
-  ['cell_393',['Cell',['../class_t_d_1_1_cell.html',1,'TD']]],
-  ['conjunction_394',['conjunction',['../structnlohmann_1_1detail_1_1conjunction.html',1,'nlohmann::detail']]],
-  ['conjunction_3c_20b1_20_3e_395',['conjunction&lt; B1 &gt;',['../structnlohmann_1_1detail_1_1conjunction_3_01_b1_01_4.html',1,'nlohmann::detail']]],
-  ['conjunction_3c_20b1_2c_20bn_2e_2e_2e_20_3e_396',['conjunction&lt; B1, Bn... &gt;',['../structnlohmann_1_1detail_1_1conjunction_3_01_b1_00_01_bn_8_8_8_01_4.html',1,'nlohmann::detail']]],
-  ['conjunction_3c_20std_3a_3ais_5fconstructible_3c_20t1_2c_20args_20_3e_2e_2e_2e_20_3e_397',['conjunction&lt; std::is_constructible&lt; T1, Args &gt;... &gt;',['../structnlohmann_1_1detail_1_1conjunction.html',1,'nlohmann::detail']]],
-  ['cords_398',['Cords',['../class_t_d_1_1_cords.html',1,'TD']]]
+  ['effect_136',['Effect',['../class_t_d_1_1_effect.html',1,'TD']]],
+  ['enemy_137',['Enemy',['../class_t_d_1_1_enemy.html',1,'TD']]],
+  ['entity_138',['Entity',['../class_t_d_1_1_entity.html',1,'TD']]]
 ];

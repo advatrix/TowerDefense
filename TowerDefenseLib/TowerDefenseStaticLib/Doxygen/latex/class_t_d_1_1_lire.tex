@@ -1,5 +1,9 @@
 \hypertarget{class_t_d_1_1_lire}{}\doxysection{TD\+::Lire Class Reference}
 \label{class_t_d_1_1_lire}\index{TD::Lire@{TD::Lire}}
+
+
+{\ttfamily \#include $<$Lire.\+h$>$}
+
 Inheritance diagram for TD\+::Lire\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,38 +13,19 @@ Inheritance diagram for TD\+::Lire\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_lire_a1a89dd24c150e6c242e03a89fa2c1374}\label{class_t_d_1_1_lire_a1a89dd24c150e6c242e03a89fa2c1374}} 
-void {\bfseries spawn} (\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_lire_a8d334398778efbffe452e7a9dac4156d}\label{class_t_d_1_1_lire_a8d334398778efbffe452e7a9dac4156d}} 
-void {\bfseries spawn\+By\+Time} ()
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_lire_aae5a56bf2d9b3a8130bbd4dc8536f75e}\label{class_t_d_1_1_lire_aae5a56bf2d9b3a8130bbd4dc8536f75e}} 
-{\bfseries Lire} (\mbox{\hyperlink{class_t_d_1_1_cell}{Cell}} $\ast$, \mbox{\hyperlink{class_t_d_1_1_enemy_schedule}{Enemy\+Schedule}} $\ast$, \mbox{\hyperlink{class_t_d_1_1_landscape}{Landscape}} $\ast$)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_lire_a27e9e5c2ef28b86dc8858cdd39c0e736}\label{class_t_d_1_1_lire_a27e9e5c2ef28b86dc8858cdd39c0e736}} 
-\mbox{\hyperlink{class_t_d_1_1_enemy_schedule}{Enemy\+Schedule}} $\ast$ {\bfseries get\+Schedule} () const
-\item 
 \mbox{\Hypertarget{class_t_d_1_1_lire_a7fa92627d30e42e0e8f1c88cd8856b8b}\label{class_t_d_1_1_lire_a7fa92627d30e42e0e8f1c88cd8856b8b}} 
 {\bfseries Lire} (std\+::pair$<$ double, double $>$ c, std\+::multimap$<$ unsigned int, \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ sch, unsigned int t, \mbox{\hyperlink{classcustom_templates_1_1_table}{custom\+Templates\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ $\ast$et)
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_lire_a197a82ec20c5ebe1526901b80ff1e18c}\label{class_t_d_1_1_lire_a197a82ec20c5ebe1526901b80ff1e18c}} 
-void {\bfseries update} ()
+void \mbox{\hyperlink{class_t_d_1_1_lire_a197a82ec20c5ebe1526901b80ff1e18c}{update}} ()
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_lire_a1a89dd24c150e6c242e03a89fa2c1374}\label{class_t_d_1_1_lire_a1a89dd24c150e6c242e03a89fa2c1374}} 
-void {\bfseries spawn} (\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$)
+void \mbox{\hyperlink{class_t_d_1_1_lire_a00bec7ff4f87d307aebf85b49dbf588f}{spawn}} (\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$e)
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_lire_a6e4c75449931e6cb91ab1e3d48cceaf2}\label{class_t_d_1_1_lire_a6e4c75449931e6cb91ab1e3d48cceaf2}} 
-void {\bfseries spawn} ()
+void \mbox{\hyperlink{class_t_d_1_1_lire_a6e4c75449931e6cb91ab1e3d48cceaf2}{spawn}} ()
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_lire_a7dcffef990da1dd58fa20e73e8a0f76a}\label{class_t_d_1_1_lire_a7dcffef990da1dd58fa20e73e8a0f76a}} 
-building\+Type\+Enum {\bfseries get\+Type} () const
+\mbox{\hyperlink{namespace_t_d_afc697847486c1a94f27e032d3fbae69e}{building\+Type\+Enum}} \mbox{\hyperlink{class_t_d_1_1_lire_a7dcffef990da1dd58fa20e73e8a0f76a}{get\+Type}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_lire_ae9a264d144a2771cc331c5d4be54414c}\label{class_t_d_1_1_lire_ae9a264d144a2771cc331c5d4be54414c}} 
-class {\bfseries Landscape}
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_lire_a140a2a29511147897abbb772733f6c2c}\label{class_t_d_1_1_lire_a140a2a29511147897abbb772733f6c2c}} 
 class {\bfseries Game\+Manager}
@@ -48,9 +33,53 @@ class {\bfseries Game\+Manager}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+This class describes states of the lires, which spawn enemies according to their schedule. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_lire_a7dcffef990da1dd58fa20e73e8a0f76a}\label{class_t_d_1_1_lire_a7dcffef990da1dd58fa20e73e8a0f76a}} 
+\index{TD::Lire@{TD::Lire}!getType@{getType}}
+\index{getType@{getType}!TD::Lire@{TD::Lire}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_t_d_afc697847486c1a94f27e032d3fbae69e}{building\+Type\+Enum}} T\+D\+::\+Lire\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Virtual function that returns type of the particular building. \begin{DoxyReturn}{Returns}
+building\+Type\+Enum element corresponding to the type of the building 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_t_d_1_1_building_a6bb7c7cfa42836065376d9c18e8f057f}{T\+D\+::\+Building}}.
+
+\mbox{\Hypertarget{class_t_d_1_1_lire_a6e4c75449931e6cb91ab1e3d48cceaf2}\label{class_t_d_1_1_lire_a6e4c75449931e6cb91ab1e3d48cceaf2}} 
+\index{TD::Lire@{TD::Lire}!spawn@{spawn}}
+\index{spawn@{spawn}!TD::Lire@{TD::Lire}}
+\doxysubsubsection{\texorpdfstring{spawn()}{spawn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void T\+D\+::\+Lire\+::spawn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Spawns enemies according to internal lire\textquotesingle{}s schedule if neccesary \mbox{\Hypertarget{class_t_d_1_1_lire_a00bec7ff4f87d307aebf85b49dbf588f}\label{class_t_d_1_1_lire_a00bec7ff4f87d307aebf85b49dbf588f}} 
+\index{TD::Lire@{TD::Lire}!spawn@{spawn}}
+\index{spawn@{spawn}!TD::Lire@{TD::Lire}}
+\doxysubsubsection{\texorpdfstring{spawn()}{spawn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void T\+D\+::\+Lire\+::spawn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+Spawns current \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} disregarging the schedule 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em e} & A pointer to the enemy to spawn \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_d_1_1_lire_a197a82ec20c5ebe1526901b80ff1e18c}\label{class_t_d_1_1_lire_a197a82ec20c5ebe1526901b80ff1e18c}} 
+\index{TD::Lire@{TD::Lire}!update@{update}}
+\index{update@{update}!TD::Lire@{TD::Lire}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void T\+D\+::\+Lire\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Updates state of the \mbox{\hyperlink{class_t_d_1_1_lire}{Lire}}\+: increments internal time and spawns enemies if necessary 
+
+Implements \mbox{\hyperlink{class_t_d_1_1_entity_acac5cef3bf6178984314c523e565f8d2}{T\+D\+::\+Entity}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Landscape\+\_\+.\+h\item 
 Lire.\+h\item 
-Landscape\+\_\+.\+cpp\item 
 Lire.\+cpp\end{DoxyCompactItemize}

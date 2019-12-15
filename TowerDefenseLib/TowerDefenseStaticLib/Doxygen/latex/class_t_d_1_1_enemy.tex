@@ -1,5 +1,14 @@
 \hypertarget{class_t_d_1_1_enemy}{}\doxysection{TD\+::Enemy Class Reference}
 \label{class_t_d_1_1_enemy}\index{TD::Enemy@{TD::Enemy}}
+
+
+This class decribes every \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} in the game.  
+
+
+
+
+{\ttfamily \#include $<$Enemy.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,107 +45,100 @@ void {\bfseries div\+Current\+Speed} (double v)
 \mbox{\Hypertarget{class_t_d_1_1_enemy_a514705a8467d8dc5d4dcd11cbaf0baa5}\label{class_t_d_1_1_enemy_a514705a8467d8dc5d4dcd11cbaf0baa5}} 
 {\bfseries Enemy} (double \+\_\+x, double \+\_\+y, double \+\_\+max\+Hp, double max\+Speed, int money, std\+::string \&title, double \+\_\+cur\+Hp=-\/1, double \+\_\+cur\+Speed=-\/1, double dmg\+Multiplier=1, \mbox{\hyperlink{classcustom_templates_1_1_table}{ct\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ $>$ \+\_\+effects=\mbox{\hyperlink{classcustom_templates_1_1_table}{ct\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ $>$(), bool is\+Alive=false)
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_af45a5213c50e02ffae5a0872da97f17d}\label{class_t_d_1_1_enemy_af45a5213c50e02ffae5a0872da97f17d}} 
-void {\bfseries move} (double deltaX, double deltaY)
+void \mbox{\hyperlink{class_t_d_1_1_enemy_af45a5213c50e02ffae5a0872da97f17d}{move}} (double deltaX, double deltaY)
+\begin{DoxyCompactList}\small\item\em Moves enemy in current direction Changes \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}}\textquotesingle{}s cords on deltas multiplied by current enemy\textquotesingle{}s speed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_d_1_1_enemy_ab1ae77224fd2e4c20adad8012816dca8}{place}} (std\+::pair$<$ double, double $>$ c)
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_ab1ae77224fd2e4c20adad8012816dca8}\label{class_t_d_1_1_enemy_ab1ae77224fd2e4c20adad8012816dca8}} 
-void {\bfseries place} (std\+::pair$<$ double, double $>$ c)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a8ad218acec2304835dfc1c299a01c503}\label{class_t_d_1_1_enemy_a8ad218acec2304835dfc1c299a01c503}} 
-void {\bfseries make\+Damage} (double dmg)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a15525bdc78f74d9cfb4cdd6cf2b56c42}\label{class_t_d_1_1_enemy_a15525bdc78f74d9cfb4cdd6cf2b56c42}} 
-void {\bfseries add\+Effect} (\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$e)
-\item 
+void \mbox{\hyperlink{class_t_d_1_1_enemy_a8ad218acec2304835dfc1c299a01c503}{make\+Damage}} (double dmg)
+\begin{DoxyCompactList}\small\item\em Makes damage on the enemy Substracts dmg multiplied by dmg\+Multiplier from current hit points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_d_1_1_enemy_a15525bdc78f74d9cfb4cdd6cf2b56c42}{add\+Effect}} (\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Adds new effect affecting the enemy Inserts a pointer to the new effect to the enemy\textquotesingle{}s effects table. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_t_d_1_1_enemy_a8e99e12df5831bf96cd4062aedb941a9}\label{class_t_d_1_1_enemy_a8e99e12df5831bf96cd4062aedb941a9}} 
 bool {\bfseries is\+Alive} () const
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a5fa067802dd843fe2b178e5f73d3254b}\label{class_t_d_1_1_enemy_a5fa067802dd843fe2b178e5f73d3254b}} 
-void {\bfseries revive} ()
+void \mbox{\hyperlink{class_t_d_1_1_enemy_a5fa067802dd843fe2b178e5f73d3254b}{revive}} ()
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a880d6c91768fe25288d0a7e517dd5ee3}\label{class_t_d_1_1_enemy_a880d6c91768fe25288d0a7e517dd5ee3}} 
-void {\bfseries kill} ()
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a8695f77982662a6fb3e035db2b7c9f60}\label{class_t_d_1_1_enemy_a8695f77982662a6fb3e035db2b7c9f60}} 
-{\bfseries Enemy} (std\+::string \+\_\+title, double \+\_\+max, double \+\_\+cur, int \+\_\+money, double \+\_\+speed, std\+::vector$<$ \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ $>$ \+\_\+effects, double \+\_\+x, double \+\_\+y, \mbox{\hyperlink{class_t_d_1_1_landscape}{Landscape}} $\ast$land)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a040c7acd061f0952f4346926083299bd}\label{class_t_d_1_1_enemy_a040c7acd061f0952f4346926083299bd}} 
-void {\bfseries turn} ()
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a260f7561a1f13479b95a841fab95cad7}\label{class_t_d_1_1_enemy_a260f7561a1f13479b95a841fab95cad7}} 
-void {\bfseries hit} (\mbox{\hyperlink{class_t_d_1_1_castle}{Castle}} $\ast$)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_ac0660c34528fc687df29b7a4a0a86ecf}\label{class_t_d_1_1_enemy_ac0660c34528fc687df29b7a4a0a86ecf}} 
-void {\bfseries get\+Hurt} (double)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_ab94bd125f3b3e9097604ce3bcfc4d4b2}\label{class_t_d_1_1_enemy_ab94bd125f3b3e9097604ce3bcfc4d4b2}} 
-void {\bfseries add\+Effect} (\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_ac3ed59a598f66e754733b2bffc8c8baa}\label{class_t_d_1_1_enemy_ac3ed59a598f66e754733b2bffc8c8baa}} 
-double {\bfseries hp} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_aff97793080b72cefdc3031f756e90bea}\label{class_t_d_1_1_enemy_aff97793080b72cefdc3031f756e90bea}} 
-std\+::pair$<$ double, double $>$ {\bfseries cords} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_aa8fd726160afd2e45039bd3ea38a2424}\label{class_t_d_1_1_enemy_aa8fd726160afd2e45039bd3ea38a2424}} 
-double {\bfseries spd} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_adf894dbd25f57bf1c85dd9ab1d0a3206}\label{class_t_d_1_1_enemy_adf894dbd25f57bf1c85dd9ab1d0a3206}} 
-void {\bfseries set\+Cords} (std\+::pair$<$ double, double $>$)
-\end{DoxyCompactItemize}
-\doxysubsection*{Protected Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a21e74023803248e9802c0790f6e46d00}\label{class_t_d_1_1_enemy_a21e74023803248e9802c0790f6e46d00}} 
-void {\bfseries move} ()
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a8e90f4a224aec1838cd452ef7b3ad6ee}\label{class_t_d_1_1_enemy_a8e90f4a224aec1838cd452ef7b3ad6ee}} 
-void {\bfseries calculate\+Hp} ()
-\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a038a71e93a71f2227adaaf66c880eb9d}\label{class_t_d_1_1_enemy_a038a71e93a71f2227adaaf66c880eb9d}} 
-double {\bfseries speed}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a6b0cfeea5b21268d29fa2874f6ec6bd8}\label{class_t_d_1_1_enemy_a6b0cfeea5b21268d29fa2874f6ec6bd8}} 
-double {\bfseries real\+Speed}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_ac62b8aa3baf4115868d8ea3daac67aa7}\label{class_t_d_1_1_enemy_ac62b8aa3baf4115868d8ea3daac67aa7}} 
-\mbox{\hyperlink{class_t_d_1_1_effect_table}{Effect\+Table}} $\ast$ {\bfseries effects}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_aaf29834ddb818e0a4ea43aac3dd4bc0e}\label{class_t_d_1_1_enemy_aaf29834ddb818e0a4ea43aac3dd4bc0e}} 
-\mbox{\hyperlink{class_t_d_1_1_road}{Road}} $\ast$ {\bfseries road}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_aad2679351db97593f5a34261d5645ff9}\label{class_t_d_1_1_enemy_aad2679351db97593f5a34261d5645ff9}} 
-\mbox{\hyperlink{class_t_d_1_1_landscape}{Landscape}} $\ast$ {\bfseries land\+\_\+}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_acacf8bc8c1437a9f54d248f8089293ac}\label{class_t_d_1_1_enemy_acacf8bc8c1437a9f54d248f8089293ac}} 
-double {\bfseries x\+\_\+}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a3cd9ad6e151e74f37a173c9ac3feb239}\label{class_t_d_1_1_enemy_a3cd9ad6e151e74f37a173c9ac3feb239}} 
-double {\bfseries y\+\_\+}
-\end{DoxyCompactItemize}
-\doxysubsection*{Friends}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_ac8649272bb0576cc72f2486439664efe}\label{class_t_d_1_1_enemy_ac8649272bb0576cc72f2486439664efe}} 
-class {\bfseries Effect}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a2d654fc6022d494c5dd9d8fd0bc653d6}\label{class_t_d_1_1_enemy_a2d654fc6022d494c5dd9d8fd0bc653d6}} 
-class {\bfseries Weakness}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_ad220cab0d4240ec44801ade4d8a9745b}\label{class_t_d_1_1_enemy_ad220cab0d4240ec44801ade4d8a9745b}} 
-class {\bfseries Slowdown}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_enemy_a15c8a0c0917fbcadce32f53bd9f70f4a}\label{class_t_d_1_1_enemy_a15c8a0c0917fbcadce32f53bd9f70f4a}} 
-class {\bfseries Poison}
+void \mbox{\hyperlink{class_t_d_1_1_enemy_a880d6c91768fe25288d0a7e517dd5ee3}{kill}} ()
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+This class decribes every \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} in the game. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_enemy_a15525bdc78f74d9cfb4cdd6cf2b56c42}\label{class_t_d_1_1_enemy_a15525bdc78f74d9cfb4cdd6cf2b56c42}} 
+\index{TD::Enemy@{TD::Enemy}!addEffect@{addEffect}}
+\index{addEffect@{addEffect}!TD::Enemy@{TD::Enemy}}
+\doxysubsubsection{\texorpdfstring{addEffect()}{addEffect()}}
+{\footnotesize\ttfamily void T\+D\+::\+Enemy\+::add\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds new effect affecting the enemy Inserts a pointer to the new effect to the enemy\textquotesingle{}s effects table. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em e} & Pointer to the new effect \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_d_1_1_enemy_a880d6c91768fe25288d0a7e517dd5ee3}\label{class_t_d_1_1_enemy_a880d6c91768fe25288d0a7e517dd5ee3}} 
+\index{TD::Enemy@{TD::Enemy}!kill@{kill}}
+\index{kill@{kill}!TD::Enemy@{TD::Enemy}}
+\doxysubsubsection{\texorpdfstring{kill()}{kill()}}
+{\footnotesize\ttfamily void T\+D\+::\+Enemy\+::kill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the \char`\"{}alive\char`\"{} flag to false making enemy inactive \mbox{\Hypertarget{class_t_d_1_1_enemy_a8ad218acec2304835dfc1c299a01c503}\label{class_t_d_1_1_enemy_a8ad218acec2304835dfc1c299a01c503}} 
+\index{TD::Enemy@{TD::Enemy}!makeDamage@{makeDamage}}
+\index{makeDamage@{makeDamage}!TD::Enemy@{TD::Enemy}}
+\doxysubsubsection{\texorpdfstring{makeDamage()}{makeDamage()}}
+{\footnotesize\ttfamily void T\+D\+::\+Enemy\+::make\+Damage (\begin{DoxyParamCaption}\item[{double}]{dmg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Makes damage on the enemy Substracts dmg multiplied by dmg\+Multiplier from current hit points. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dmg} & Raw damage value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_d_1_1_enemy_af45a5213c50e02ffae5a0872da97f17d}\label{class_t_d_1_1_enemy_af45a5213c50e02ffae5a0872da97f17d}} 
+\index{TD::Enemy@{TD::Enemy}!move@{move}}
+\index{move@{move}!TD::Enemy@{TD::Enemy}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void T\+D\+::\+Enemy\+::move (\begin{DoxyParamCaption}\item[{double}]{deltaX,  }\item[{double}]{deltaY }\end{DoxyParamCaption})}
+
+
+
+Moves enemy in current direction Changes \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}}\textquotesingle{}s cords on deltas multiplied by current enemy\textquotesingle{}s speed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em deltaX} & direction on X axe \\
+\hline
+\mbox{\texttt{ in}}  & {\em deltaY} & direction on Y axe \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_d_1_1_enemy_ab1ae77224fd2e4c20adad8012816dca8}\label{class_t_d_1_1_enemy_ab1ae77224fd2e4c20adad8012816dca8}} 
+\index{TD::Enemy@{TD::Enemy}!place@{place}}
+\index{place@{place}!TD::Enemy@{TD::Enemy}}
+\doxysubsubsection{\texorpdfstring{place()}{place()}}
+{\footnotesize\ttfamily void T\+D\+::\+Enemy\+::place (\begin{DoxyParamCaption}\item[{std\+::pair$<$ double, double $>$}]{c }\end{DoxyParamCaption})}
+
+Places the enemy on current position on the game level 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & std\+::pair from x and y coordinates to place the enemy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_d_1_1_enemy_a5fa067802dd843fe2b178e5f73d3254b}\label{class_t_d_1_1_enemy_a5fa067802dd843fe2b178e5f73d3254b}} 
+\index{TD::Enemy@{TD::Enemy}!revive@{revive}}
+\index{revive@{revive}!TD::Enemy@{TD::Enemy}}
+\doxysubsubsection{\texorpdfstring{revive()}{revive()}}
+{\footnotesize\ttfamily void T\+D\+::\+Enemy\+::revive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the \char`\"{}alive\char`\"{} flag to true making enemy active 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Enemy.\+h\item 
-Landscape\+\_\+.\+h\item 
-Enemy.\+cpp\item 
-Landscape\+\_\+.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{_enemy_8h}{Enemy.\+h}}\item 
+Enemy.\+cpp\end{DoxyCompactItemize}

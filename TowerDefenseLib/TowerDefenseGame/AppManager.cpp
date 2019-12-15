@@ -28,6 +28,7 @@ void AppManager::run() {
 		default:
 			return;
 		}
+		system("CLS");
 	}
 }
 
@@ -265,9 +266,10 @@ void AppManager::play() {
 		case 3:
 			return;
 		}
-
+		system("CLS");
 	}
 }
+
 
 void AppManager::pause() {
 	while (true) {
@@ -292,6 +294,7 @@ int AppManager::menu(std::vector<std::string> v) {
 	for (int i = 0; i < v.size(); i++) print(v[i]);
 	int rc;
 	input(rc);
+	system("CLS");
 	return rc;
 }
 

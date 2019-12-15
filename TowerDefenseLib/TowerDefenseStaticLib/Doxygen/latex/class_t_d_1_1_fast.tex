@@ -1,5 +1,9 @@
 \hypertarget{class_t_d_1_1_fast}{}\doxysection{TD\+::Fast Class Reference}
 \label{class_t_d_1_1_fast}\index{TD::Fast@{TD::Fast}}
+
+
+{\ttfamily \#include $<$Strategy.\+h$>$}
+
 Inheritance diagram for TD\+::Fast\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,11 +13,10 @@ Inheritance diagram for TD\+::Fast\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_fast_ad08e2f8388ff321af35bc3ab7cb35045}\label{class_t_d_1_1_fast_ad08e2f8388ff321af35bc3ab7cb35045}} 
-\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ {\bfseries get\+Target} (std\+::pair$<$ double, double $>$ \&cords, double raduis) const
+\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ \mbox{\hyperlink{class_t_d_1_1_fast_ad08e2f8388ff321af35bc3ab7cb35045}{get\+Target}} (std\+::pair$<$ double, double $>$ \&cords, double raduis) const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_fast_acc0cf2e86518e2272b14aa12ff5eff3f}\label{class_t_d_1_1_fast_acc0cf2e86518e2272b14aa12ff5eff3f}} 
-strategy\+Type\+Enum {\bfseries get\+Type} () const
+\mbox{\hyperlink{namespace_t_d_a414ab09d4b7262ea69cc0818c326badc}{strategy\+Type\+Enum}} {\bfseries get\+Type} () const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_fast_a1af6bb9cfdce1d2a99cc0dd9c2f39733}\label{class_t_d_1_1_fast_a1af6bb9cfdce1d2a99cc0dd9c2f39733}} 
 {\bfseries Fast} (\mbox{\hyperlink{classcustom_templates_1_1_table}{ct\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ $\ast$\+\_\+enemy\+Table)
@@ -21,7 +24,33 @@ strategy\+Type\+Enum {\bfseries get\+Type} () const
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+This class describes \char`\"{}\+The fasteft\char`\"{} strategy 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_fast_ad08e2f8388ff321af35bc3ab7cb35045}\label{class_t_d_1_1_fast_ad08e2f8388ff321af35bc3ab7cb35045}} 
+\index{TD::Fast@{TD::Fast}!getTarget@{getTarget}}
+\index{getTarget@{getTarget}!TD::Fast@{TD::Fast}}
+\doxysubsubsection{\texorpdfstring{getTarget()}{getTarget()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ T\+D\+::\+Fast\+::get\+Target (\begin{DoxyParamCaption}\item[{std\+::pair$<$ double, double $>$ \&}]{cords,  }\item[{double}]{raduis }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Defines a target \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} for the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} to attack\+: the one with the most current speed within the radius of the \mbox{\hyperlink{class_t_d_1_1_feature}{Feature}} of the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cords} & Cords of the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} as std\+::pair \\
+\hline
+\mbox{\texttt{ in}}  & {\em radius} & Radius of the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}}\textquotesingle{}s \mbox{\hyperlink{class_t_d_1_1_feature}{Feature}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} should attack 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_t_d_1_1_strategy_ad317e499a9fb353cd8e52e6da111bb87}{T\+D\+::\+Strategy}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Strategy.\+h\item 
+\mbox{\hyperlink{_strategy_8h}{Strategy.\+h}}\item 
 Strategy.\+cpp\end{DoxyCompactItemize}

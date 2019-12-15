@@ -65,35 +65,48 @@ $(function() {
 <div class="title">Trap.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _TRAP_H_</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _TRAP_H_</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Table.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;MagicEntity.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Building.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>ct = customTemplates;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>TD {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">class </span>Trap : <span class="keyword">public</span> Building, <span class="keyword">public</span> MagicEntity {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* enemyTable;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        Trap() : Building(), MagicEntity(), enemyTable(nullptr) {}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        Trap(std::pair&lt;double, double&gt; c, Effect* eff, <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* et) : </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            Building(c), MagicEntity(eff) {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            enemyTable = et;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> update();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        buildingTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> buildingTypeEnum::trap; }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    };</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="_trap_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef _TRAP_H_</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define _TRAP_H_</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Table.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_magic_entity_8h.html">MagicEntity.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_building_8h.html">Building.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>ct = customTemplates;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_t_d.html">TD</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_t_d_1_1_trap.html">   19</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_trap.html">Trap</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_building.html">Building</a>, <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_magic_entity.html">MagicEntity</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* enemyTable; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="class_t_d_1_1_trap.html">Trap</a>() : <a class="code" href="class_t_d_1_1_building.html">Building</a>(), <a class="code" href="class_t_d_1_1_magic_entity.html">MagicEntity</a>(), enemyTable(<span class="keyword">nullptr</span>) {}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="class_t_d_1_1_trap.html">Trap</a>(std::pair&lt;double, double&gt; c, <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* eff, <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* et) : </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="class_t_d_1_1_building.html">Building</a>(c), <a class="code" href="class_t_d_1_1_magic_entity.html">MagicEntity</a>(eff) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            enemyTable = et;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_trap.html#ad4367fb340d1f6bab2e44ee62536a10e">update</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_t_d_1_1_trap.html#aeabb26b466f8fc53a07102b8fe8b0d28">   32</a></span>&#160;        <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69e">buildingTypeEnum</a> <a class="code" href="class_t_d_1_1_trap.html#aeabb26b466f8fc53a07102b8fe8b0d28">getType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69ea4a4669088972276919cb1bd50336de32">buildingTypeEnum::trap</a>; }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    };</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="a_building_8h_html"><div class="ttname"><a href="_building_8h.html">Building.h</a></div><div class="ttdoc">Header for Building class.</div></div>
+<div class="ttc" id="anamespace_t_d_html_afc697847486c1a94f27e032d3fbae69ea4a4669088972276919cb1bd50336de32"><div class="ttname"><a href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69ea4a4669088972276919cb1bd50336de32">TD::trap</a></div><div class="ttdoc">Trap.</div><div class="ttdef"><b>Definition:</b> Enums.h:14</div></div>
 <div class="ttc" id="aclasscustom_templates_1_1_table_html"><div class="ttname"><a href="classcustom_templates_1_1_table.html">customTemplates::Table</a></div><div class="ttdef"><b>Definition:</b> Table.h:12</div></div>
+<div class="ttc" id="anamespace_t_d_html_afc697847486c1a94f27e032d3fbae69e"><div class="ttname"><a href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69e">TD::buildingTypeEnum</a></div><div class="ttdeci">buildingTypeEnum</div><div class="ttdoc">Set of every possible building type.</div><div class="ttdef"><b>Definition:</b> Enums.h:10</div></div>
+<div class="ttc" id="a_magic_entity_8h_html"><div class="ttname"><a href="_magic_entity_8h.html">MagicEntity.h</a></div></div>
+<div class="ttc" id="aclass_t_d_1_1_building_html"><div class="ttname"><a href="class_t_d_1_1_building.html">TD::Building</a></div><div class="ttdoc">Parent class for every building.</div><div class="ttdef"><b>Definition:</b> Building.h:22</div></div>
+<div class="ttc" id="aclass_t_d_1_1_trap_html_aeabb26b466f8fc53a07102b8fe8b0d28"><div class="ttname"><a href="class_t_d_1_1_trap.html#aeabb26b466f8fc53a07102b8fe8b0d28">TD::Trap::getType</a></div><div class="ttdeci">buildingTypeEnum getType() const</div><div class="ttdef"><b>Definition:</b> Trap.h:32</div></div>
+<div class="ttc" id="aclass_t_d_1_1_trap_html"><div class="ttname"><a href="class_t_d_1_1_trap.html">TD::Trap</a></div><div class="ttdef"><b>Definition:</b> Trap.h:19</div></div>
+<div class="ttc" id="aclass_t_d_1_1_magic_entity_html"><div class="ttname"><a href="class_t_d_1_1_magic_entity.html">TD::MagicEntity</a></div><div class="ttdef"><b>Definition:</b> MagicEntity.h:17</div></div>
+<div class="ttc" id="aclass_t_d_1_1_effect_html"><div class="ttname"><a href="class_t_d_1_1_effect.html">TD::Effect</a></div><div class="ttdoc">Parent class that provides polymorphism for all Effects in the game.</div><div class="ttdef"><b>Definition:</b> Effect.h:18</div></div>
+<div class="ttc" id="aclass_t_d_1_1_trap_html_ad4367fb340d1f6bab2e44ee62536a10e"><div class="ttname"><a href="class_t_d_1_1_trap.html#ad4367fb340d1f6bab2e44ee62536a10e">TD::Trap::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> Trap.cpp:5</div></div>
+<div class="ttc" id="anamespace_t_d_html"><div class="ttname"><a href="namespace_t_d.html">TD</a></div><div class="ttdef"><b>Definition:</b> Building.cpp:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

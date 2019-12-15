@@ -1,5 +1,9 @@
 \hypertarget{class_t_d_1_1_trap}{}\doxysection{TD\+::Trap Class Reference}
 \label{class_t_d_1_1_trap}\index{TD::Trap@{TD::Trap}}
+
+
+{\ttfamily \#include $<$Trap.\+h$>$}
+
 Inheritance diagram for TD\+::Trap\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,30 +13,46 @@ Inheritance diagram for TD\+::Trap\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_trap_a299a56bfc2da57b4f5b35f56852fd3f0}\label{class_t_d_1_1_trap_a299a56bfc2da57b4f5b35f56852fd3f0}} 
-void {\bfseries attack} ()
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_trap_a42fbb29430ba91659cfbfd3025c1bfe4}\label{class_t_d_1_1_trap_a42fbb29430ba91659cfbfd3025c1bfe4}} 
-{\bfseries Trap} (\mbox{\hyperlink{class_t_d_1_1_landscape}{Landscape}} $\ast$)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_trap_aa9f738d6ccf552535000e895b1a64c64}\label{class_t_d_1_1_trap_aa9f738d6ccf552535000e895b1a64c64}} 
-{\bfseries Trap} (\mbox{\hyperlink{class_t_d_1_1_landscape}{Landscape}} $\ast$, \mbox{\hyperlink{class_t_d_1_1_cell}{Cell}} $\ast$, effect\+Type\+Enum, int value, unsigned int time)
-\item 
 \mbox{\Hypertarget{class_t_d_1_1_trap_ad3681c865591e4426a0ad8bcf9c93d50}\label{class_t_d_1_1_trap_ad3681c865591e4426a0ad8bcf9c93d50}} 
 {\bfseries Trap} (std\+::pair$<$ double, double $>$ c, \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$eff, \mbox{\hyperlink{classcustom_templates_1_1_table}{ct\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ $\ast$et)
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_trap_ad4367fb340d1f6bab2e44ee62536a10e}\label{class_t_d_1_1_trap_ad4367fb340d1f6bab2e44ee62536a10e}} 
-void {\bfseries update} ()
+void \mbox{\hyperlink{class_t_d_1_1_trap_ad4367fb340d1f6bab2e44ee62536a10e}{update}} ()
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_trap_aeabb26b466f8fc53a07102b8fe8b0d28}\label{class_t_d_1_1_trap_aeabb26b466f8fc53a07102b8fe8b0d28}} 
-building\+Type\+Enum {\bfseries get\+Type} () const
+\mbox{\hyperlink{namespace_t_d_afc697847486c1a94f27e032d3fbae69e}{building\+Type\+Enum}} \mbox{\hyperlink{class_t_d_1_1_trap_aeabb26b466f8fc53a07102b8fe8b0d28}{get\+Type}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+This class describe states of every trap in the game 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_trap_aeabb26b466f8fc53a07102b8fe8b0d28}\label{class_t_d_1_1_trap_aeabb26b466f8fc53a07102b8fe8b0d28}} 
+\index{TD::Trap@{TD::Trap}!getType@{getType}}
+\index{getType@{getType}!TD::Trap@{TD::Trap}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_t_d_afc697847486c1a94f27e032d3fbae69e}{building\+Type\+Enum}} T\+D\+::\+Trap\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Virtual function that returns type of the particular building. \begin{DoxyReturn}{Returns}
+building\+Type\+Enum element corresponding to the type of the building 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_t_d_1_1_building_a6bb7c7cfa42836065376d9c18e8f057f}{T\+D\+::\+Building}}.
+
+\mbox{\Hypertarget{class_t_d_1_1_trap_ad4367fb340d1f6bab2e44ee62536a10e}\label{class_t_d_1_1_trap_ad4367fb340d1f6bab2e44ee62536a10e}} 
+\index{TD::Trap@{TD::Trap}!update@{update}}
+\index{update@{update}!TD::Trap@{TD::Trap}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void T\+D\+::\+Trap\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function is called every game tick and checks whether there are enemies directly on the trap and applies an effect on them if necessary. 
+
+Implements \mbox{\hyperlink{class_t_d_1_1_entity_acac5cef3bf6178984314c523e565f8d2}{T\+D\+::\+Entity}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Landscape\+\_\+.\+h\item 
-Trap.\+h\item 
-Landscape\+\_\+.\+cpp\item 
+\mbox{\hyperlink{_trap_8h}{Trap.\+h}}\item 
 Trap.\+cpp\end{DoxyCompactItemize}

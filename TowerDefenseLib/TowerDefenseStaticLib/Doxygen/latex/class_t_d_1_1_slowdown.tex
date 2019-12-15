@@ -1,5 +1,14 @@
 \hypertarget{class_t_d_1_1_slowdown}{}\doxysection{TD\+::Slowdown Class Reference}
 \label{class_t_d_1_1_slowdown}\index{TD::Slowdown@{TD::Slowdown}}
+
+
+This class describes \mbox{\hyperlink{class_t_d_1_1_slowdown}{Slowdown}} effect \mbox{\hyperlink{class_t_d_1_1_slowdown}{Slowdown}} affects \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}}\textquotesingle{}s speed so that the \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} will move slower while being affected by \mbox{\hyperlink{class_t_d_1_1_slowdown}{Slowdown}} instance.  
+
+
+
+
+{\ttfamily \#include $<$Effect.\+h$>$}
+
 Inheritance diagram for TD\+::Slowdown\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,14 +18,12 @@ Inheritance diagram for TD\+::Slowdown\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_slowdown_a588c08b37a7c3151c0eca1d105db6431}\label{class_t_d_1_1_slowdown_a588c08b37a7c3151c0eca1d105db6431}} 
-void {\bfseries update} ()
+void \mbox{\hyperlink{class_t_d_1_1_slowdown_a588c08b37a7c3151c0eca1d105db6431}{update}} ()
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_slowdown_af43134fe0cea634a6d311e147f74d182}\label{class_t_d_1_1_slowdown_af43134fe0cea634a6d311e147f74d182}} 
-\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ {\bfseries copy} ()
+\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ \mbox{\hyperlink{class_t_d_1_1_slowdown_af43134fe0cea634a6d311e147f74d182}{copy}} ()
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_slowdown_a96260a752916ec26d0e66974d282d160}\label{class_t_d_1_1_slowdown_a96260a752916ec26d0e66974d282d160}} 
-effect\+Type\+Enum {\bfseries get\+Type} () const
+\mbox{\hyperlink{namespace_t_d_a1f76e246f2affffbe791fc258ab29ddf}{effect\+Type\+Enum}} {\bfseries get\+Type} () const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_slowdown_a6b5289dfb587401a901c809f339023ef}\label{class_t_d_1_1_slowdown_a6b5289dfb587401a901c809f339023ef}} 
 {\bfseries Effect} ()
@@ -27,7 +34,36 @@ effect\+Type\+Enum {\bfseries get\+Type} () const
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+This class describes \mbox{\hyperlink{class_t_d_1_1_slowdown}{Slowdown}} effect \mbox{\hyperlink{class_t_d_1_1_slowdown}{Slowdown}} affects \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}}\textquotesingle{}s speed so that the \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} will move slower while being affected by \mbox{\hyperlink{class_t_d_1_1_slowdown}{Slowdown}} instance. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_slowdown_af43134fe0cea634a6d311e147f74d182}\label{class_t_d_1_1_slowdown_af43134fe0cea634a6d311e147f74d182}} 
+\index{TD::Slowdown@{TD::Slowdown}!copy@{copy}}
+\index{copy@{copy}!TD::Slowdown@{TD::Slowdown}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ T\+D\+::\+Slowdown\+::copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns a copy of particular effect instance \begin{DoxyReturn}{Returns}
+A copy of particular effect instance 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_t_d_1_1_effect_a73fd2c9f8b5a0ecbb37dfa31dee79801}{T\+D\+::\+Effect}}.
+
+\mbox{\Hypertarget{class_t_d_1_1_slowdown_a588c08b37a7c3151c0eca1d105db6431}\label{class_t_d_1_1_slowdown_a588c08b37a7c3151c0eca1d105db6431}} 
+\index{TD::Slowdown@{TD::Slowdown}!update@{update}}
+\index{update@{update}!TD::Slowdown@{TD::Slowdown}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void T\+D\+::\+Slowdown\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Reimplementation of the \mbox{\hyperlink{class_t_d_1_1_slowdown_a588c08b37a7c3151c0eca1d105db6431}{update()}} function from the parent \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} class. If called firstly, chenges the \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}}\textquotesingle{}s cur\+Speed value accorgind to \char`\"{}value\char`\"{} parameter in particular \mbox{\hyperlink{class_t_d_1_1_slowdown}{Slowdown}} instance, sets the \char`\"{}active\char`\"{} flag to true, and decrements remaning time. Otherwise only decrements remaining time. 
+
+Implements \mbox{\hyperlink{class_t_d_1_1_effect_afdf722a46e6069b71c51f6973b08dd57}{T\+D\+::\+Effect}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Effect.\+h\item 
+\mbox{\hyperlink{_effect_8h}{Effect.\+h}}\item 
 Effect.\+cpp\end{DoxyCompactItemize}

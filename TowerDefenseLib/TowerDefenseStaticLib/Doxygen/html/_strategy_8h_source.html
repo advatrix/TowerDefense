@@ -65,116 +65,136 @@ $(function() {
 <div class="title">Strategy.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _STRATEGY_H_</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _STRATEGY_H_</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Enums.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Enemy.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>ct = customTemplates;</div>
+<a href="_strategy_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef _STRATEGY_H_</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define _STRATEGY_H_</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>TD {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enums_8h.html">Enums.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enemy_8h.html">Enemy.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">class </span>Strategy {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* enemyTable;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>: </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> ~Strategy() {}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">inline</span> strategyTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> strategyTypeEnum::noStrategy; }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">double</span> distance(std::pair&lt;double, double&gt;, std::pair&lt;double, double&gt;);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">virtual</span> Enemy* getTarget(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        Strategy(): enemyTable(nullptr) {}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        Strategy(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* _enemyTable);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_t_d_1_1_near_to_tower.html">   24</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_near_to_tower.html">NearToTower</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* getTarget(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="class_t_d_1_1_near_to_tower.html">NearToTower</a>() {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            enemyTable = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">inline</span> strategyTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> strategyTypeEnum::nearToTower; }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="class_t_d_1_1_near_to_tower.html">NearToTower</a>(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* _enemyTable);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        ~<a class="code" href="class_t_d_1_1_near_to_tower.html">NearToTower</a>() {}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_t_d_1_1_near_to_castle.html">   38</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_near_to_castle.html">NearToCastle</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        std::pair&lt;double, double&gt; castleCords;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* getTarget(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>ct = customTemplates;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_t_d.html">TD</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_t_d_1_1_strategy.html">   19</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">   21</a></span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* <a class="code" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">enemyTable</a>; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">public</span>: </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_t_d_1_1_strategy.html">Strategy</a>() {}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badc">strategyTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badcad6ae0f9af1d4ae6a596476fa24982434">strategyTypeEnum::noStrategy</a>; }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="class_t_d_1_1_strategy.html#a7a4de05aa33ccd4d5547907604077e13">distance</a>(std::pair&lt;double, double&gt; a, std::pair&lt;double, double&gt; b);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">virtual</span> Enemy* <a class="code" href="class_t_d_1_1_strategy.html#ad317e499a9fb353cd8e52e6da111bb87">getTarget</a>(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        Strategy(): <a class="code" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">enemyTable</a>(nullptr) {}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        Strategy(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* _enemyTable);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    };</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="class_t_d_1_1_near_to_castle.html">NearToCastle</a>() {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            enemyTable = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">inline</span> strategyTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> strategyTypeEnum::nearToCastle; }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="class_t_d_1_1_near_to_castle.html">NearToCastle</a>(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* enemyTable, std::pair&lt;double, double&gt; _castleCords) :</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a>(enemyTable), castleCords(_castleCords)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        ~<a class="code" href="class_t_d_1_1_near_to_castle.html">NearToCastle</a>() {}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    };</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_t_d_1_1_near_to_tower.html">   47</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_near_to_tower.html">NearToTower</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* <a class="code" href="class_t_d_1_1_near_to_tower.html#aa90362a60396e0df54569b4d525d38dd">getTarget</a>(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_t_d_1_1_strong.html">   57</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_strong.html">Strong</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* getTarget(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="class_t_d_1_1_near_to_tower.html">NearToTower</a>() {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">enemyTable</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="class_t_d_1_1_strong.html">Strong</a>() {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            enemyTable = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">inline</span> strategyTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> strategyTypeEnum::strong; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badc">strategyTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badca02424bd3aed3b9fdc6299ec416d64f49">strategyTypeEnum::nearToTower</a>; }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="class_t_d_1_1_near_to_tower.html">NearToTower</a>(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* _enemyTable);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        ~<a class="code" href="class_t_d_1_1_near_to_tower.html">NearToTower</a>() {}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    };</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="class_t_d_1_1_strong.html">Strong</a>(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* _enemyTable);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        ~<a class="code" href="class_t_d_1_1_strong.html">Strong</a>() {}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    };</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_t_d_1_1_weak.html">   71</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_weak.html">Weak</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* getTarget(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="class_t_d_1_1_weak.html">Weak</a>() {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            enemyTable = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="class_t_d_1_1_weak.html">Weak</a>(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* _enemyTable);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        ~<a class="code" href="class_t_d_1_1_weak.html">Weak</a>() {}</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_t_d_1_1_near_to_castle.html">   70</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_near_to_castle.html">NearToCastle</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::pair&lt;double, double&gt; castleCords; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* <a class="code" href="class_t_d_1_1_near_to_castle.html#a9383f29995e5857bcadd4e43f6e12bf9">getTarget</a>(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">inline</span> strategyTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> strategyTypeEnum::weak; }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    };</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_t_d_1_1_fast.html">   85</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_fast.html">Fast</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* getTarget(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="class_t_d_1_1_fast.html">Fast</a>() {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            enemyTable = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">inline</span> strategyTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> strategyTypeEnum::fast; }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="class_t_d_1_1_fast.html">Fast</a>(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* _enemyTable);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        ~<a class="code" href="class_t_d_1_1_fast.html">Fast</a>() {}</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    };</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="class_t_d_1_1_near_to_castle.html">NearToCastle</a>() {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">enemyTable</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badc">strategyTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badcae800abedf11e723758d40e4d4c8a0a56">strategyTypeEnum::nearToCastle</a>; }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="class_t_d_1_1_near_to_castle.html">NearToCastle</a>(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* <a class="code" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">enemyTable</a>, std::pair&lt;double, double&gt; _castleCords) :</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a>(<a class="code" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">enemyTable</a>), castleCords(_castleCords)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        ~<a class="code" href="class_t_d_1_1_near_to_castle.html">NearToCastle</a>() {}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    };</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="class_t_d_1_1_strong.html">   98</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_strong.html">Strong</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* <a class="code" href="class_t_d_1_1_strong.html#af2d821529278c13286298ad4046100f1">getTarget</a>(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="class_t_d_1_1_strong.html">Strong</a>() {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <a class="code" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">enemyTable</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badc">strategyTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badca1a36280bf1b1c629679226e83f5a5f6f">strategyTypeEnum::strong</a>; }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="class_t_d_1_1_strong.html">Strong</a>(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* _enemyTable);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        ~<a class="code" href="class_t_d_1_1_strong.html">Strong</a>() {}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    };</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="class_t_d_1_1_weak.html">  121</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_weak.html">Weak</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* <a class="code" href="class_t_d_1_1_weak.html#a5d963ebc4e73ff7d22f64f470e81c1c9">getTarget</a>(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <a class="code" href="class_t_d_1_1_weak.html">Weak</a>() {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <a class="code" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">enemyTable</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <a class="code" href="class_t_d_1_1_weak.html">Weak</a>(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* _enemyTable);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        ~<a class="code" href="class_t_d_1_1_weak.html">Weak</a>() {}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badc">strategyTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badca94a894474fc964f2c7a2141c9a305fbe">strategyTypeEnum::weak</a>; }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    };</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="class_t_d_1_1_fast.html">  144</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_fast.html">Fast</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_strategy.html">Strategy</a> {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* <a class="code" href="class_t_d_1_1_fast.html#ad08e2f8388ff321af35bc3ab7cb35045">getTarget</a>(std::pair&lt;double, double&gt;&amp; cords, <span class="keywordtype">double</span> raduis) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <a class="code" href="class_t_d_1_1_fast.html">Fast</a>() {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <a class="code" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">enemyTable</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badc">strategyTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badcafe087568fa6dd882cf96674e8291e8a3">strategyTypeEnum::fast</a>; }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <a class="code" href="class_t_d_1_1_fast.html">Fast</a>(<a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* _enemyTable);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        ~<a class="code" href="class_t_d_1_1_fast.html">Fast</a>() {}</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    };</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_t_d_1_1_strong_html"><div class="ttname"><a href="class_t_d_1_1_strong.html">TD::Strong</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:57</div></div>
+<div class="ttc" id="aclass_t_d_1_1_strong_html_af2d821529278c13286298ad4046100f1"><div class="ttname"><a href="class_t_d_1_1_strong.html#af2d821529278c13286298ad4046100f1">TD::Strong::getTarget</a></div><div class="ttdeci">Enemy * getTarget(std::pair&lt; double, double &gt; &amp;cords, double raduis) const</div><div class="ttdef"><b>Definition:</b> Strategy.cpp:67</div></div>
+<div class="ttc" id="aclass_t_d_1_1_strong_html"><div class="ttname"><a href="class_t_d_1_1_strong.html">TD::Strong</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:98</div></div>
+<div class="ttc" id="a_enemy_8h_html"><div class="ttname"><a href="_enemy_8h.html">Enemy.h</a></div><div class="ttdoc">This file describes Enemy class.</div></div>
+<div class="ttc" id="anamespace_t_d_html_a414ab09d4b7262ea69cc0818c326badc"><div class="ttname"><a href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badc">TD::strategyTypeEnum</a></div><div class="ttdeci">strategyTypeEnum</div><div class="ttdoc">Set of possible Strategy types towers can have.</div><div class="ttdef"><b>Definition:</b> Enums.h:33</div></div>
 <div class="ttc" id="aclasscustom_templates_1_1_table_html"><div class="ttname"><a href="classcustom_templates_1_1_table.html">customTemplates::Table</a></div><div class="ttdef"><b>Definition:</b> Table.h:12</div></div>
-<div class="ttc" id="aclass_t_d_1_1_fast_html"><div class="ttname"><a href="class_t_d_1_1_fast.html">TD::Fast</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:85</div></div>
-<div class="ttc" id="aclass_t_d_1_1_near_to_castle_html"><div class="ttname"><a href="class_t_d_1_1_near_to_castle.html">TD::NearToCastle</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:38</div></div>
-<div class="ttc" id="aclass_t_d_1_1_strategy_html"><div class="ttname"><a href="class_t_d_1_1_strategy.html">TD::Strategy</a></div><div class="ttdef"><b>Definition:</b> Landscape_.h:229</div></div>
-<div class="ttc" id="aclass_t_d_1_1_enemy_html"><div class="ttname"><a href="class_t_d_1_1_enemy.html">TD::Enemy</a></div><div class="ttdef"><b>Definition:</b> Enemy.h:14</div></div>
-<div class="ttc" id="aclass_t_d_1_1_near_to_tower_html"><div class="ttname"><a href="class_t_d_1_1_near_to_tower.html">TD::NearToTower</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:24</div></div>
-<div class="ttc" id="aclass_t_d_1_1_weak_html"><div class="ttname"><a href="class_t_d_1_1_weak.html">TD::Weak</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:71</div></div>
+<div class="ttc" id="anamespace_t_d_html_a414ab09d4b7262ea69cc0818c326badca1a36280bf1b1c629679226e83f5a5f6f"><div class="ttname"><a href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badca1a36280bf1b1c629679226e83f5a5f6f">TD::strong</a></div><div class="ttdoc">Chooses the enemy with the most current hit points to attack.</div><div class="ttdef"><b>Definition:</b> Enums.h:36</div></div>
+<div class="ttc" id="aclass_t_d_1_1_strategy_html_ad317e499a9fb353cd8e52e6da111bb87"><div class="ttname"><a href="class_t_d_1_1_strategy.html#ad317e499a9fb353cd8e52e6da111bb87">TD::Strategy::getTarget</a></div><div class="ttdeci">virtual Enemy * getTarget(std::pair&lt; double, double &gt; &amp;cords, double raduis) const =0</div></div>
+<div class="ttc" id="a_enums_8h_html"><div class="ttname"><a href="_enums_8h.html">Enums.h</a></div></div>
+<div class="ttc" id="anamespace_t_d_html_a414ab09d4b7262ea69cc0818c326badcae800abedf11e723758d40e4d4c8a0a56"><div class="ttname"><a href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badcae800abedf11e723758d40e4d4c8a0a56">TD::nearToCastle</a></div><div class="ttdoc">Chooses the nearest to the castle enemy to attack.</div><div class="ttdef"><b>Definition:</b> Enums.h:35</div></div>
+<div class="ttc" id="anamespace_t_d_html_a414ab09d4b7262ea69cc0818c326badcafe087568fa6dd882cf96674e8291e8a3"><div class="ttname"><a href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badcafe087568fa6dd882cf96674e8291e8a3">TD::fast</a></div><div class="ttdoc">Chooses the enmy with the most curresnt speed to attack.</div><div class="ttdef"><b>Definition:</b> Enums.h:38</div></div>
+<div class="ttc" id="anamespace_t_d_html_a414ab09d4b7262ea69cc0818c326badcad6ae0f9af1d4ae6a596476fa24982434"><div class="ttname"><a href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badcad6ae0f9af1d4ae6a596476fa24982434">TD::noStrategy</a></div><div class="ttdoc">The strategy is undefined.</div><div class="ttdef"><b>Definition:</b> Enums.h:39</div></div>
+<div class="ttc" id="aclass_t_d_1_1_fast_html"><div class="ttname"><a href="class_t_d_1_1_fast.html">TD::Fast</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:144</div></div>
+<div class="ttc" id="aclass_t_d_1_1_near_to_castle_html"><div class="ttname"><a href="class_t_d_1_1_near_to_castle.html">TD::NearToCastle</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:70</div></div>
+<div class="ttc" id="aclass_t_d_1_1_strategy_html_a7a4de05aa33ccd4d5547907604077e13"><div class="ttname"><a href="class_t_d_1_1_strategy.html#a7a4de05aa33ccd4d5547907604077e13">TD::Strategy::distance</a></div><div class="ttdeci">static double distance(std::pair&lt; double, double &gt; a, std::pair&lt; double, double &gt; b)</div><div class="ttdef"><b>Definition:</b> Strategy.cpp:34</div></div>
+<div class="ttc" id="aclass_t_d_1_1_weak_html_a5d963ebc4e73ff7d22f64f470e81c1c9"><div class="ttname"><a href="class_t_d_1_1_weak.html#a5d963ebc4e73ff7d22f64f470e81c1c9">TD::Weak::getTarget</a></div><div class="ttdeci">Enemy * getTarget(std::pair&lt; double, double &gt; &amp;cords, double raduis) const</div><div class="ttdef"><b>Definition:</b> Strategy.cpp:82</div></div>
+<div class="ttc" id="aclass_t_d_1_1_strategy_html_ad0c319752ca91a3205ebaffbe5e1e94c"><div class="ttname"><a href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">TD::Strategy::enemyTable</a></div><div class="ttdeci">ct::Table&lt; Enemy * &gt; * enemyTable</div><div class="ttdoc">A pointer to the table of the enemies on the map.</div><div class="ttdef"><b>Definition:</b> Strategy.h:21</div></div>
+<div class="ttc" id="aclass_t_d_1_1_fast_html_ad08e2f8388ff321af35bc3ab7cb35045"><div class="ttname"><a href="class_t_d_1_1_fast.html#ad08e2f8388ff321af35bc3ab7cb35045">TD::Fast::getTarget</a></div><div class="ttdeci">Enemy * getTarget(std::pair&lt; double, double &gt; &amp;cords, double raduis) const</div><div class="ttdef"><b>Definition:</b> Strategy.cpp:97</div></div>
+<div class="ttc" id="aclass_t_d_1_1_near_to_tower_html_aa90362a60396e0df54569b4d525d38dd"><div class="ttname"><a href="class_t_d_1_1_near_to_tower.html#aa90362a60396e0df54569b4d525d38dd">TD::NearToTower::getTarget</a></div><div class="ttdeci">Enemy * getTarget(std::pair&lt; double, double &gt; &amp;cords, double raduis) const</div><div class="ttdef"><b>Definition:</b> Strategy.cpp:38</div></div>
+<div class="ttc" id="anamespace_t_d_html_a414ab09d4b7262ea69cc0818c326badca02424bd3aed3b9fdc6299ec416d64f49"><div class="ttname"><a href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badca02424bd3aed3b9fdc6299ec416d64f49">TD::nearToTower</a></div><div class="ttdoc">Chooses the nearest to the tower enemy to attack.</div><div class="ttdef"><b>Definition:</b> Enums.h:34</div></div>
+<div class="ttc" id="aclass_t_d_1_1_near_to_castle_html_a9383f29995e5857bcadd4e43f6e12bf9"><div class="ttname"><a href="class_t_d_1_1_near_to_castle.html#a9383f29995e5857bcadd4e43f6e12bf9">TD::NearToCastle::getTarget</a></div><div class="ttdeci">Enemy * getTarget(std::pair&lt; double, double &gt; &amp;cords, double raduis) const</div><div class="ttdef"><b>Definition:</b> Strategy.cpp:52</div></div>
+<div class="ttc" id="aclass_t_d_1_1_strategy_html"><div class="ttname"><a href="class_t_d_1_1_strategy.html">TD::Strategy</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:19</div></div>
+<div class="ttc" id="aclass_t_d_1_1_enemy_html"><div class="ttname"><a href="class_t_d_1_1_enemy.html">TD::Enemy</a></div><div class="ttdoc">This class decribes every Enemy in the game.</div><div class="ttdef"><b>Definition:</b> Enemy.h:20</div></div>
+<div class="ttc" id="anamespace_t_d_html"><div class="ttname"><a href="namespace_t_d.html">TD</a></div><div class="ttdef"><b>Definition:</b> Building.cpp:9</div></div>
+<div class="ttc" id="aclass_t_d_1_1_near_to_tower_html"><div class="ttname"><a href="class_t_d_1_1_near_to_tower.html">TD::NearToTower</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:47</div></div>
+<div class="ttc" id="anamespace_t_d_html_a414ab09d4b7262ea69cc0818c326badca94a894474fc964f2c7a2141c9a305fbe"><div class="ttname"><a href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badca94a894474fc964f2c7a2141c9a305fbe">TD::weak</a></div><div class="ttdoc">Chooses the enemy tih the least current hit points to attack.</div><div class="ttdef"><b>Definition:</b> Enums.h:37</div></div>
+<div class="ttc" id="aclass_t_d_1_1_weak_html"><div class="ttname"><a href="class_t_d_1_1_weak.html">TD::Weak</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:121</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

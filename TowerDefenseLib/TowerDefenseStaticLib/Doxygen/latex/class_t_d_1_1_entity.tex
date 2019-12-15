@@ -1,19 +1,43 @@
 \hypertarget{class_t_d_1_1_entity}{}\doxysection{TD\+::Entity Class Reference}
 \label{class_t_d_1_1_entity}\index{TD::Entity@{TD::Entity}}
+
+
+The very basic class of every entity of the game This class provides polymorphism to every entity that has to be updated every game tick and whose behaviour depends on time.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
 Inheritance diagram for TD\+::Entity\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=10.000000cm]{class_t_d_1_1_entity}
+\includegraphics[height=2.857143cm]{class_t_d_1_1_entity}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_entity_acac5cef3bf6178984314c523e565f8d2}\label{class_t_d_1_1_entity_acac5cef3bf6178984314c523e565f8d2}} 
-virtual void {\bfseries update} ()=0
+virtual void \mbox{\hyperlink{class_t_d_1_1_entity_acac5cef3bf6178984314c523e565f8d2}{update}} ()=0
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The very basic class of every entity of the game This class provides polymorphism to every entity that has to be updated every game tick and whose behaviour depends on time. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_entity_acac5cef3bf6178984314c523e565f8d2}\label{class_t_d_1_1_entity_acac5cef3bf6178984314c523e565f8d2}} 
+\index{TD::Entity@{TD::Entity}!update@{update}}
+\index{update@{update}!TD::Entity@{TD::Entity}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void T\+D\+::\+Entity\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function that is called every game tick and updates the instance\textquotesingle{}s state 
+
+Implemented in \mbox{\hyperlink{class_t_d_1_1_effect_afdf722a46e6069b71c51f6973b08dd57}{T\+D\+::\+Effect}}, \mbox{\hyperlink{class_t_d_1_1_poison_a57523bc4f768b55dad6ac62d9d7a6e2a}{T\+D\+::\+Poison}}, \mbox{\hyperlink{class_t_d_1_1_slowdown_a588c08b37a7c3151c0eca1d105db6431}{T\+D\+::\+Slowdown}}, \mbox{\hyperlink{class_t_d_1_1_castle_a8744e7c91ba19261e936eb1f6d6a8b99}{T\+D\+::\+Castle}}, \mbox{\hyperlink{class_t_d_1_1_weakness_a50033d3546f74d5107517f3516956cf7}{T\+D\+::\+Weakness}}, \mbox{\hyperlink{class_t_d_1_1_lire_a197a82ec20c5ebe1526901b80ff1e18c}{T\+D\+::\+Lire}}, \mbox{\hyperlink{class_t_d_1_1_tower_a3279e36f0f98dd30ba087302795d8148}{T\+D\+::\+Tower}}, \mbox{\hyperlink{class_t_d_1_1_trap_ad4367fb340d1f6bab2e44ee62536a10e}{T\+D\+::\+Trap}}, and \mbox{\hyperlink{class_t_d_1_1_magic_tower_a8dfb8388e281c50772a223dec0234ad2}{T\+D\+::\+Magic\+Tower}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Entity.\+h\end{DoxyCompactItemize}
+\mbox{\hyperlink{_entity_8h}{Entity.\+h}}\end{DoxyCompactItemize}

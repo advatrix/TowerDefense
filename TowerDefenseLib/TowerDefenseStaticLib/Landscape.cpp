@@ -40,8 +40,8 @@ namespace TD {
 		std::pair<double, double> cords = e->getCords();
 		Road* cellEnemyOn = dynamic_cast<Road*>(cells[floor(cords.first)][floor(cords.second)]);
 		std::pair<double, double> target = cellEnemyOn->getNext()->cords();
-		double deltaX = abs(floor(cords.first) - target.first) * e->getCurSpeed();
-		double deltaY = abs(floor(cords.second) - target.second) * e->getCurSpeed();
+		double deltaX = abs(floor(cords.first) - target.first);
+		double deltaY = abs(floor(cords.second) - target.second);
 		e->move(deltaX, deltaY);
 		 
 	}

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['max_5fsize_644',['max_size',['../classnlohmann_1_1basic__json.html#a2f47d3c6a441c57dd2be00449fbb88e1',1,'nlohmann::basic_json']]],
-  ['merge_5fpatch_645',['merge_patch',['../classnlohmann_1_1basic__json.html#a7c43ed2a3004c1fa9543913f37b9fca9',1,'nlohmann::basic_json']]],
-  ['meta_646',['meta',['../classnlohmann_1_1basic__json.html#a677318a34ade7f8177a2784c06aa3671',1,'nlohmann::basic_json']]],
-  ['mul_647',['mul',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#aa5f250d12ce89c81fdb08900c6a823e8',1,'nlohmann::detail::dtoa_impl::diyfp']]]
+  ['save_219',['save',['../class_t_d_1_1_game_manager.html#a99c0041b786f13dfd8e2607e23a5a210',1,'TD::GameManager']]],
+  ['setcastle_220',['setCastle',['../class_t_d_1_1_landscape.html#a29fcce41c8a7abdbd2755ff4a29e830c',1,'TD::Landscape']]],
+  ['setfeature_221',['setFeature',['../class_t_d_1_1_tower.html#a75b5e0ace719c91852afbcb8297fc4e8',1,'TD::Tower']]],
+  ['setstrategy_222',['setStrategy',['../class_t_d_1_1_tower.html#acd7785693520ed2e571b3cb1045b625b',1,'TD::Tower']]],
+  ['spawn_223',['spawn',['../class_t_d_1_1_lire.html#a00bec7ff4f87d307aebf85b49dbf588f',1,'TD::Lire::spawn(Enemy *e)'],['../class_t_d_1_1_lire.html#a6e4c75449931e6cb91ab1e3d48cceaf2',1,'TD::Lire::spawn()']]]
 ];

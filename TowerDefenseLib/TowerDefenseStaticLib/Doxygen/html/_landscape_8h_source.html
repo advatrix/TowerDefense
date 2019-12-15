@@ -65,64 +65,70 @@ $(function() {
 <div class="title">Landscape.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//#include &quot;pch.h&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef _LANDSCAPE_H_</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define _LANDSCAPE_H_</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;pch.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Table.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;Cell.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;Enemy.h&quot;</span></div>
+<a href="_landscape_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef _LANDSCAPE_H_</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define _LANDSCAPE_H_</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;pch.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;Table.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>ct = customTemplates;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>TD {</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_t_d_1_1_landscape.html">   17</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_landscape.html">Landscape</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::vector&lt;std::vector&lt;Cell*&gt;&gt; cells;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* enemyTable;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> moveEnemy(<a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>*);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="class_t_d_1_1_castle.html">Castle</a>* castle_;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>() : cells(), height(0), width(0), enemyTable(), castle_(<span class="keyword">nullptr</span>) {}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>(std::vector&lt;std::vector&lt;Cell*&gt;&gt;&amp; _cells);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>(std::vector&lt;std::vector&lt;Cell*&gt;&gt;&amp; _cells, <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* et);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getHeight()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> height; }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getWidth()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> width; }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_t_d_1_1_cell.html">Cell</a>* getCell(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* getEnemyTable()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> enemyTable; }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        ~<a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> update();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setCastle(<a class="code" href="class_t_d_1_1_castle.html">Castle</a>* c) { castle_ = c; }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_castle.html">Castle</a>* getCastle()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> castle_; }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">inline</span> std::vector&lt;std::vector&lt;Cell*&gt;&gt; getCells()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> cells; }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">bool</span> createPath();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    };</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;Cell.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enemy_8h.html">Enemy.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>ct = customTemplates;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_t_d.html">TD</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_t_d_1_1_landscape.html">   23</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_landscape.html">Landscape</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::vector&lt;std::vector&lt;Cell*&gt;&gt; cells; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* enemyTable; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">void</span> moveEnemy(<a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* e); </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_t_d_1_1_castle.html">Castle</a>* castle_; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>() : cells(), height(0), width(0), enemyTable(), castle_(<span class="keyword">nullptr</span>) {}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>(std::vector&lt;std::vector&lt;Cell*&gt;&gt;&amp; _cells);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>(std::vector&lt;std::vector&lt;Cell*&gt;&gt;&amp; _cells, <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* et);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getHeight()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> height; }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getWidth()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> width; }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="class_t_d_1_1_cell.html">Cell</a>* getCell(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Enemy*&gt;</a>* getEnemyTable()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> enemyTable; }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ~<a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> update();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_t_d_1_1_landscape.html#a29fcce41c8a7abdbd2755ff4a29e830c">   58</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_landscape.html#a29fcce41c8a7abdbd2755ff4a29e830c">setCastle</a>(<a class="code" href="class_t_d_1_1_castle.html">Castle</a>* c) { castle_ = c; }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_castle.html">Castle</a>* getCastle()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> castle_; }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_t_d_1_1_landscape.html#a1d7c040c75ca60bc93b2b580b977d926">   65</a></span>&#160;        <span class="keyword">inline</span> std::vector&lt;std::vector&lt;Cell*&gt;&gt; <a class="code" href="class_t_d_1_1_landscape.html#a1d7c040c75ca60bc93b2b580b977d926">getCells</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> cells; }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_t_d_1_1_landscape.html#abee36a674baad0fa98509f9f09983552">createPath</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    };</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="a_enemy_8h_html"><div class="ttname"><a href="_enemy_8h.html">Enemy.h</a></div><div class="ttdoc">This file describes Enemy class.</div></div>
 <div class="ttc" id="aclasscustom_templates_1_1_table_html"><div class="ttname"><a href="classcustom_templates_1_1_table.html">customTemplates::Table</a></div><div class="ttdef"><b>Definition:</b> Table.h:12</div></div>
-<div class="ttc" id="aclass_t_d_1_1_landscape_html"><div class="ttname"><a href="class_t_d_1_1_landscape.html">TD::Landscape</a></div><div class="ttdef"><b>Definition:</b> Landscape.h:17</div></div>
-<div class="ttc" id="aclass_t_d_1_1_castle_html"><div class="ttname"><a href="class_t_d_1_1_castle.html">TD::Castle</a></div><div class="ttdef"><b>Definition:</b> Castle.h:10</div></div>
-<div class="ttc" id="aclass_t_d_1_1_enemy_html"><div class="ttname"><a href="class_t_d_1_1_enemy.html">TD::Enemy</a></div><div class="ttdef"><b>Definition:</b> Enemy.h:14</div></div>
+<div class="ttc" id="aclass_t_d_1_1_landscape_html_a1d7c040c75ca60bc93b2b580b977d926"><div class="ttname"><a href="class_t_d_1_1_landscape.html#a1d7c040c75ca60bc93b2b580b977d926">TD::Landscape::getCells</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; Cell * &gt; &gt; getCells() const</div><div class="ttdef"><b>Definition:</b> Landscape.h:65</div></div>
+<div class="ttc" id="aclass_t_d_1_1_landscape_html_a29fcce41c8a7abdbd2755ff4a29e830c"><div class="ttname"><a href="class_t_d_1_1_landscape.html#a29fcce41c8a7abdbd2755ff4a29e830c">TD::Landscape::setCastle</a></div><div class="ttdeci">void setCastle(Castle *c)</div><div class="ttdef"><b>Definition:</b> Landscape.h:58</div></div>
+<div class="ttc" id="aclass_t_d_1_1_landscape_html"><div class="ttname"><a href="class_t_d_1_1_landscape.html">TD::Landscape</a></div><div class="ttdef"><b>Definition:</b> Landscape.h:23</div></div>
+<div class="ttc" id="aclass_t_d_1_1_landscape_html_abee36a674baad0fa98509f9f09983552"><div class="ttname"><a href="class_t_d_1_1_landscape.html#abee36a674baad0fa98509f9f09983552">TD::Landscape::createPath</a></div><div class="ttdeci">bool createPath()</div><div class="ttdef"><b>Definition:</b> Landscape.cpp:49</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html"><div class="ttname"><a href="class_t_d_1_1_castle.html">TD::Castle</a></div><div class="ttdoc">This class describes Castle This class describes Castle which is the main building in the entire game...</div><div class="ttdef"><b>Definition:</b> Castle.h:19</div></div>
+<div class="ttc" id="aclass_t_d_1_1_enemy_html"><div class="ttname"><a href="class_t_d_1_1_enemy.html">TD::Enemy</a></div><div class="ttdoc">This class decribes every Enemy in the game.</div><div class="ttdef"><b>Definition:</b> Enemy.h:20</div></div>
+<div class="ttc" id="anamespace_t_d_html"><div class="ttname"><a href="namespace_t_d.html">TD</a></div><div class="ttdef"><b>Definition:</b> Building.cpp:9</div></div>
 <div class="ttc" id="aclass_t_d_1_1_cell_html"><div class="ttname"><a href="class_t_d_1_1_cell.html">TD::Cell</a></div><div class="ttdef"><b>Definition:</b> Cell.h:14</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

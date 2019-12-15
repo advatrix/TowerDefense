@@ -1,5 +1,14 @@
 \hypertarget{class_t_d_1_1_weakness}{}\doxysection{TD\+::Weakness Class Reference}
 \label{class_t_d_1_1_weakness}\index{TD::Weakness@{TD::Weakness}}
+
+
+This class describes \mbox{\hyperlink{class_t_d_1_1_weakness}{Weakness}} effect \mbox{\hyperlink{class_t_d_1_1_weakness}{Weakness}} affects enemy\textquotesingle{}s Damage Multiplier so that the enemy will get higher damage from towers while being affected by \mbox{\hyperlink{class_t_d_1_1_weakness}{Weakness}}.  
+
+
+
+
+{\ttfamily \#include $<$Effect.\+h$>$}
+
 Inheritance diagram for TD\+::Weakness\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,14 +18,12 @@ Inheritance diagram for TD\+::Weakness\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_weakness_a50033d3546f74d5107517f3516956cf7}\label{class_t_d_1_1_weakness_a50033d3546f74d5107517f3516956cf7}} 
-void {\bfseries update} ()
+void \mbox{\hyperlink{class_t_d_1_1_weakness_a50033d3546f74d5107517f3516956cf7}{update}} ()
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_weakness_a8be7241f97beb9f682f8bff2d4869e62}\label{class_t_d_1_1_weakness_a8be7241f97beb9f682f8bff2d4869e62}} 
-\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ {\bfseries copy} ()
+\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ \mbox{\hyperlink{class_t_d_1_1_weakness_a8be7241f97beb9f682f8bff2d4869e62}{copy}} ()
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_weakness_a458de3c88e49bd2fd3e4553f4b805c13}\label{class_t_d_1_1_weakness_a458de3c88e49bd2fd3e4553f4b805c13}} 
-effect\+Type\+Enum {\bfseries get\+Type} () const
+\mbox{\hyperlink{namespace_t_d_a1f76e246f2affffbe791fc258ab29ddf}{effect\+Type\+Enum}} {\bfseries get\+Type} () const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_weakness_a6b5289dfb587401a901c809f339023ef}\label{class_t_d_1_1_weakness_a6b5289dfb587401a901c809f339023ef}} 
 {\bfseries Effect} ()
@@ -27,7 +34,36 @@ effect\+Type\+Enum {\bfseries get\+Type} () const
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+This class describes \mbox{\hyperlink{class_t_d_1_1_weakness}{Weakness}} effect \mbox{\hyperlink{class_t_d_1_1_weakness}{Weakness}} affects enemy\textquotesingle{}s Damage Multiplier so that the enemy will get higher damage from towers while being affected by \mbox{\hyperlink{class_t_d_1_1_weakness}{Weakness}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_weakness_a8be7241f97beb9f682f8bff2d4869e62}\label{class_t_d_1_1_weakness_a8be7241f97beb9f682f8bff2d4869e62}} 
+\index{TD::Weakness@{TD::Weakness}!copy@{copy}}
+\index{copy@{copy}!TD::Weakness@{TD::Weakness}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ T\+D\+::\+Weakness\+::copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns a copy of particular effect instance \begin{DoxyReturn}{Returns}
+A copy of particular effect instance 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_t_d_1_1_effect_a73fd2c9f8b5a0ecbb37dfa31dee79801}{T\+D\+::\+Effect}}.
+
+\mbox{\Hypertarget{class_t_d_1_1_weakness_a50033d3546f74d5107517f3516956cf7}\label{class_t_d_1_1_weakness_a50033d3546f74d5107517f3516956cf7}} 
+\index{TD::Weakness@{TD::Weakness}!update@{update}}
+\index{update@{update}!TD::Weakness@{TD::Weakness}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void T\+D\+::\+Weakness\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Reimplementation of the \mbox{\hyperlink{class_t_d_1_1_weakness_a50033d3546f74d5107517f3516956cf7}{update()}} function from the parent \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} class. If called firstly, changes the enemy\textquotesingle{}s damage\+Multiplier according to the instance\textquotesingle{}s \char`\"{}value\char`\"{} parameter, sets the \char`\"{}active\char`\"{} flag to true, and decrements remaining time. Otherwise only decrements remaining time. 
+
+Implements \mbox{\hyperlink{class_t_d_1_1_effect_afdf722a46e6069b71c51f6973b08dd57}{T\+D\+::\+Effect}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Effect.\+h\item 
+\mbox{\hyperlink{_effect_8h}{Effect.\+h}}\item 
 Effect.\+cpp\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['token_5ftype_763',['token_type',['../classnlohmann_1_1detail_1_1lexer.html#a3f313cdbe187cababfc5e06f0b69b098',1,'nlohmann::detail::lexer']]]
+  ['strategytypeenum_263',['strategyTypeEnum',['../namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badc',1,'TD']]]
 ];

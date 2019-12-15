@@ -65,36 +65,48 @@ $(function() {
 <div class="title">MagicEntity.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _MAGIC_ENTITY_H_</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _MAGIC_ENTITY_H_</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Effect.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Table.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Enemy.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>TD {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">class </span>MagicEntity {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        Effect* effect;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">customTemplates::Table&lt;Enemy*&gt;</a> attached;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        MagicEntity() :effect(nullptr), attached() {}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        MagicEntity(Effect* eff);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        MagicEntity(Effect* eff, <a class="code" href="classcustom_templates_1_1_table.html">customTemplates::Table&lt;Enemy*&gt;</a> att) :</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            effect(eff), attached(att) {}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">inline</span> effectTypeEnum getEffectType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> effect-&gt;getType(); }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> applyEffect(Enemy*);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getValue()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> effect-&gt;getValue(); }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">inline</span> Effect* getEffect()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> effect; }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">virtual</span> ~MagicEntity() {}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    };</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<a href="_magic_entity_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef _MAGIC_ENTITY_H_</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define _MAGIC_ENTITY_H_</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_effect_8h.html">Effect.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Table.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enemy_8h.html">Enemy.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_t_d.html">TD</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_t_d_1_1_magic_entity.html">   17</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_magic_entity.html">MagicEntity</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_t_d_1_1_magic_entity.html#a5d6b1c677941b4a07cf00706cca9a32f">   19</a></span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* <a class="code" href="class_t_d_1_1_magic_entity.html#a5d6b1c677941b4a07cf00706cca9a32f">effect</a>; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_t_d_1_1_magic_entity.html#ac3b587111ecc168677f1d5a43880cee8">   20</a></span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">customTemplates::Table&lt;Enemy*&gt;</a> <a class="code" href="class_t_d_1_1_magic_entity.html#ac3b587111ecc168677f1d5a43880cee8">attached</a>; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="class_t_d_1_1_magic_entity.html">MagicEntity</a>() :<a class="code" href="class_t_d_1_1_magic_entity.html#a5d6b1c677941b4a07cf00706cca9a32f">effect</a>(nullptr), <a class="code" href="class_t_d_1_1_magic_entity.html#ac3b587111ecc168677f1d5a43880cee8">attached</a>() {}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="class_t_d_1_1_magic_entity.html">MagicEntity</a>(<a class="code" href="class_t_d_1_1_effect.html">Effect</a>* eff);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="class_t_d_1_1_magic_entity.html">MagicEntity</a>(<a class="code" href="class_t_d_1_1_effect.html">Effect</a>* eff, <a class="code" href="classcustom_templates_1_1_table.html">customTemplates::Table&lt;Enemy*&gt;</a> att) :</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <a class="code" href="class_t_d_1_1_magic_entity.html#a5d6b1c677941b4a07cf00706cca9a32f">effect</a>(eff), <a class="code" href="class_t_d_1_1_magic_entity.html#ac3b587111ecc168677f1d5a43880cee8">attached</a>(att) {}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddf">effectTypeEnum</a> getEffectType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_t_d_1_1_magic_entity.html#a5d6b1c677941b4a07cf00706cca9a32f">effect</a>-&gt;getType(); }</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_magic_entity.html#a92009ee73c69e6f88795b6979fed9297">applyEffect</a>(Enemy* e);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_t_d_1_1_magic_entity.html#a3e02389de65979d0cc2ac8fa0ed6628a">   37</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_t_d_1_1_magic_entity.html#a3e02389de65979d0cc2ac8fa0ed6628a">getValue</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_t_d_1_1_magic_entity.html#a5d6b1c677941b4a07cf00706cca9a32f">effect</a>-&gt;getValue(); }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* getEffect()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_t_d_1_1_magic_entity.html#a5d6b1c677941b4a07cf00706cca9a32f">effect</a>; }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">virtual</span> ~MagicEntity() {}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    };</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_t_d_1_1_magic_entity_html_a5d6b1c677941b4a07cf00706cca9a32f"><div class="ttname"><a href="class_t_d_1_1_magic_entity.html#a5d6b1c677941b4a07cf00706cca9a32f">TD::MagicEntity::effect</a></div><div class="ttdeci">Effect * effect</div><div class="ttdoc">A pointer to the Effect this Entity applies on enemies.</div><div class="ttdef"><b>Definition:</b> MagicEntity.h:19</div></div>
+<div class="ttc" id="a_effect_8h_html"><div class="ttname"><a href="_effect_8h.html">Effect.h</a></div><div class="ttdoc">In this file all Effects of the game are implemented.</div></div>
+<div class="ttc" id="a_enemy_8h_html"><div class="ttname"><a href="_enemy_8h.html">Enemy.h</a></div><div class="ttdoc">This file describes Enemy class.</div></div>
 <div class="ttc" id="aclasscustom_templates_1_1_table_html"><div class="ttname"><a href="classcustom_templates_1_1_table.html">customTemplates::Table</a></div><div class="ttdef"><b>Definition:</b> Table.h:12</div></div>
+<div class="ttc" id="aclass_t_d_1_1_magic_entity_html_ac3b587111ecc168677f1d5a43880cee8"><div class="ttname"><a href="class_t_d_1_1_magic_entity.html#ac3b587111ecc168677f1d5a43880cee8">TD::MagicEntity::attached</a></div><div class="ttdeci">customTemplates::Table&lt; Enemy * &gt; attached</div><div class="ttdoc">Table of the Enemy pointers on which this MagicEntity has already applied its effects.</div><div class="ttdef"><b>Definition:</b> MagicEntity.h:20</div></div>
+<div class="ttc" id="aclass_t_d_1_1_magic_entity_html_a3e02389de65979d0cc2ac8fa0ed6628a"><div class="ttname"><a href="class_t_d_1_1_magic_entity.html#a3e02389de65979d0cc2ac8fa0ed6628a">TD::MagicEntity::getValue</a></div><div class="ttdeci">unsigned int getValue() const</div><div class="ttdef"><b>Definition:</b> MagicEntity.h:37</div></div>
+<div class="ttc" id="aclass_t_d_1_1_magic_entity_html"><div class="ttname"><a href="class_t_d_1_1_magic_entity.html">TD::MagicEntity</a></div><div class="ttdef"><b>Definition:</b> MagicEntity.h:17</div></div>
+<div class="ttc" id="aclass_t_d_1_1_effect_html"><div class="ttname"><a href="class_t_d_1_1_effect.html">TD::Effect</a></div><div class="ttdoc">Parent class that provides polymorphism for all Effects in the game.</div><div class="ttdef"><b>Definition:</b> Effect.h:18</div></div>
+<div class="ttc" id="aclass_t_d_1_1_magic_entity_html_a92009ee73c69e6f88795b6979fed9297"><div class="ttname"><a href="class_t_d_1_1_magic_entity.html#a92009ee73c69e6f88795b6979fed9297">TD::MagicEntity::applyEffect</a></div><div class="ttdeci">void applyEffect(Enemy *e)</div><div class="ttdef"><b>Definition:</b> MagicEntity.cpp:12</div></div>
+<div class="ttc" id="anamespace_t_d_html_a1f76e246f2affffbe791fc258ab29ddf"><div class="ttname"><a href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddf">TD::effectTypeEnum</a></div><div class="ttdeci">effectTypeEnum</div><div class="ttdoc">Set of possible Effect types.</div><div class="ttdef"><b>Definition:</b> Enums.h:43</div></div>
+<div class="ttc" id="anamespace_t_d_html"><div class="ttname"><a href="namespace_t_d.html">TD</a></div><div class="ttdef"><b>Definition:</b> Building.cpp:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

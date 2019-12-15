@@ -497,6 +497,126 @@ TEST(pc, tests) {
 	ASSERT_NEAR(Effect::pc(500), 6, err);
 }
 
+TEST(_Enemy, def) {
+	Enemy e;
+	std::pair<double, double> c(-1, -1);
+	ASSERT_EQ(e.getCords(), c);
+	ASSERT_EQ(e.getCurHp(), 1);
+	ASSERT_EQ(e.getCurSpeed(), 0);
+	ASSERT_EQ(e.getDamageMultiplier(), 1);
+	ASSERT_EQ(e.getMoney(), 0);
+	ASSERT_EQ(e.getTitle(), "empty");
+}
+
+TEST(_Enemy, init) {
+	std::string title = "Enemy";
+	Enemy e(0, 0, 1, 1, 1, title);
+	std::pair<double, double> cords(0, 0);
+	ASSERT_EQ(e.getCords(), cords);
+	ASSERT_EQ(e.getCurHp(), 1);
+	ASSERT_EQ(e.getCurSpeed(), 1);
+	ASSERT_EQ(e.getDamageMultiplier(), 1);
+	ASSERT_EQ(e.getMoney(), 1);
+	ASSERT_EQ(e.getTitle(), title);
+}
+
+TEST(_Enemy, initErrs) {
+	std::string title = "e";
+	ASSERT_THROW(Enemy e1(1, 1, -1, 1, 1, title), std::invalid_argument);
+	ASSERT_THROW(Enemy e2(1, 1, 1, -1, 1, title), std::invalid_argument);
+	ASSERT_THROW(Enemy e3(1, 1, 0, 1, 1, title), std::invalid_argument);
+	ASSERT_THROW(Enemy e4(1, 1, 1, 0, 1, title), std::invalid_argument);
+	ASSERT_NO_THROW(Enemy e5(1, 1, 1, 1, 0, title), std::invalid_argument);
+	ASSERT_NO_THROW(Enemy e6(1, 1, 1, 1, -7, title), std::invalid_argument);
+}
+
+TEST(_Enemy, move) {
+	std::string title = "Enemy";
+	Enemy e(0, 0, 1, 1, 1, title);
+
+	e.move(1, 1);
+
+	std::pair<double, double> c(1, 1);
+	ASSERT_EQ(e.getCords(), c);
+
+	Enemy e1(1, 1, 1, 0.2, 1, title);
+	e1.move(1, 0);
+	ASSERT_NEAR(e1.getCords().first, 1.2, err);
+	ASSERT_NEAR(e1.getCords().second, 1, err);
+
+	Enemy e2(1, 1, 1, 2, 1, title);
+	e2.move(0, 1);
+	ASSERT_NEAR(e2.getCords().first, 1, err);
+	ASSERT_NEAR(e2.getCords().second, 3, err);
+
+	Enemy e3(1, 1, 1, 0.4, 1, title);
+	e3.move(2, 2);
+	ASSERT_NEAR(e3.getCords().first, 1.8, err);
+	ASSERT_NEAR(e3.getCords().second, 1.8, err);
+	e3.move(-1, 1);
+	ASSERT_NEAR(e3.getCords().first, 1.4, err);
+	ASSERT_NEAR(e3.getCords().second, 2.2, err);
+}
+
+TEST(_Enemy, place) {
+	Enemy e(1, 1, 1, 1, 1, static_cast<std::string>("e"));
+	e.place(std::pair<double, double>(0, 0));
+	ASSERT_EQ(e.getCords().first, 0);
+	ASSERT_EQ(e.getCords().second, 0);
+
+	e.place(std::pair<double, double>(-4, -9));
+	ASSERT_EQ(e.getCords().first, -4);
+	ASSERT_EQ(e.getCords().second, -9);
+}
+
+TEST(_Enemy, makeDamage) {
+	Enemy e(1, 1, 10, 1, 1, std::string("a"));
+	e.makeDamage(1);
+	ASSERT_EQ(e.getCurHp(), 9);
+
+	Enemy e1(1, 1, 10, 1, 1, std::string("a"), 10, 1, 2);
+	e.makeDamage(1);
+	ASSERT_EQ(e.getCurHp(), 8);
+}
+
+TEST(_Feature, def) {
+	Feature f;
+	ASSERT_EQ(f.getDamage(), 1);
+	ASSERT_EQ(f.getLevel(), 0);
+	ASSERT_EQ(f.getPrice(), 0);
+	ASSERT_EQ(f.getRadius(), 1);
+	ASSERT_EQ(f.getShotSpeed(), 0);
+}
+
+TEST(_Feature, init) {
+	Feature f(1, 2, 3, 4, 5);
+	ASSERT_EQ(f.getPrice(), 1);
+	ASSERT_EQ(f.getRadius(), 2);
+	ASSERT_EQ(f.getDamage(), 3);
+	ASSERT_EQ(f.getShotSpeed(), 4);
+	ASSERT_EQ(f.getLevel(), 5);
+}
+
+TEST(_GameManager, def) {
+	GameManager game;
+	game.load(1);
+	ASSERT_EQ(game.getHp(), 1);
+	ASSERT_EQ(game.getMoney(), 1);
+	auto c = game.getCells();
+	ASSERT_EQ(c[0][0]->getType(), cellTypeEnum::road);
+	Road* r = dynamic_cast<Road*>(c[0][0]);
+	ASSERT_EQ(r->getBuilding()->getType(), buildingTypeEnum::lire);
+	ASSERT_EQ(r->getDist(), 5);
+
+	auto e = game.getEnemyTable();
+	ASSERT_EQ(e->getSize(), 0);
+
+}
+
+
+
+
+
 
 
 

@@ -1,32 +1,58 @@
 \hypertarget{class_t_d_1_1_magic_tower}{}\doxysection{TD\+::Magic\+Tower Class Reference}
 \label{class_t_d_1_1_magic_tower}\index{TD::MagicTower@{TD::MagicTower}}
+
+
+{\ttfamily \#include $<$Magic\+Tower.\+h$>$}
+
 Inheritance diagram for TD\+::Magic\+Tower\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.829060cm]{class_t_d_1_1_magic_tower}
+\includegraphics[height=4.000000cm]{class_t_d_1_1_magic_tower}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_magic_tower_a5d6cc9e9d713153bafea59a015d10fb6}\label{class_t_d_1_1_magic_tower_a5d6cc9e9d713153bafea59a015d10fb6}} 
-{\bfseries Magic\+Tower} (\mbox{\hyperlink{class_t_d_1_1_landscape}{Landscape}} $\ast$, \mbox{\hyperlink{class_t_d_1_1_cell}{Cell}} $\ast$, \mbox{\hyperlink{class_t_d_1_1_feature}{Feature}} $\ast$, \mbox{\hyperlink{class_t_d_1_1_strategy}{Strategy}} $\ast$, effect\+Type\+Enum, int, unsigned int)
-\item 
 \mbox{\Hypertarget{class_t_d_1_1_magic_tower_ac12ea2f7b57a614a1699cd01bd296025}\label{class_t_d_1_1_magic_tower_ac12ea2f7b57a614a1699cd01bd296025}} 
 {\bfseries Magic\+Tower} (\mbox{\hyperlink{class_t_d_1_1_feature}{Feature}} $\ast$\+\_\+feature, \mbox{\hyperlink{class_t_d_1_1_strategy}{Strategy}} $\ast$\+\_\+strategy, unsigned int \+\_\+last\+Shot, std\+::pair$<$ double, double $>$ \+\_\+cords, \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$eff)
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_magic_tower_a8dfb8388e281c50772a223dec0234ad2}\label{class_t_d_1_1_magic_tower_a8dfb8388e281c50772a223dec0234ad2}} 
-void {\bfseries update} ()
+void \mbox{\hyperlink{class_t_d_1_1_magic_tower_a8dfb8388e281c50772a223dec0234ad2}{update}} ()
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_magic_tower_ab0ca62ad8cfc2fdb062a26040f0fbd5f}\label{class_t_d_1_1_magic_tower_ab0ca62ad8cfc2fdb062a26040f0fbd5f}} 
-building\+Type\+Enum {\bfseries get\+Type} () const
+\mbox{\hyperlink{namespace_t_d_afc697847486c1a94f27e032d3fbae69e}{building\+Type\+Enum}} \mbox{\hyperlink{class_t_d_1_1_magic_tower_ab0ca62ad8cfc2fdb062a26040f0fbd5f}{get\+Type}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+This class describes state of Magic towers in the game 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_magic_tower_ab0ca62ad8cfc2fdb062a26040f0fbd5f}\label{class_t_d_1_1_magic_tower_ab0ca62ad8cfc2fdb062a26040f0fbd5f}} 
+\index{TD::MagicTower@{TD::MagicTower}!getType@{getType}}
+\index{getType@{getType}!TD::MagicTower@{TD::MagicTower}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_t_d_afc697847486c1a94f27e032d3fbae69e}{building\+Type\+Enum}} T\+D\+::\+Magic\+Tower\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Virtual function that returns type of the particular building. \begin{DoxyReturn}{Returns}
+building\+Type\+Enum element corresponding to the type of the building 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_t_d_1_1_tower_ade7e1f7a7e7c4ace75e8a4902f4d5b81}{T\+D\+::\+Tower}}.
+
+\mbox{\Hypertarget{class_t_d_1_1_magic_tower_a8dfb8388e281c50772a223dec0234ad2}\label{class_t_d_1_1_magic_tower_a8dfb8388e281c50772a223dec0234ad2}} 
+\index{TD::MagicTower@{TD::MagicTower}!update@{update}}
+\index{update@{update}!TD::MagicTower@{TD::MagicTower}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void T\+D\+::\+Magic\+Tower\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function is called every game tick. It attacks the enemies around the \mbox{\hyperlink{class_t_d_1_1_magic_tower}{Magic\+Tower}} instance and applies the Effects to them if necessary. 
+
+Reimplemented from \mbox{\hyperlink{class_t_d_1_1_tower_a3279e36f0f98dd30ba087302795d8148}{T\+D\+::\+Tower}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Landscape\+\_\+.\+h\item 
-Magic\+Tower.\+h\item 
-Landscape\+\_\+.\+cpp\item 
+\mbox{\hyperlink{_magic_tower_8h}{Magic\+Tower.\+h}}\item 
 Magic\+Tower.\+cpp\end{DoxyCompactItemize}

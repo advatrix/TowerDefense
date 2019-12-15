@@ -1,5 +1,9 @@
 \hypertarget{class_t_d_1_1_near_to_castle}{}\doxysection{TD\+::Near\+To\+Castle Class Reference}
 \label{class_t_d_1_1_near_to_castle}\index{TD::NearToCastle@{TD::NearToCastle}}
+
+
+{\ttfamily \#include $<$Strategy.\+h$>$}
+
 Inheritance diagram for TD\+::Near\+To\+Castle\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,19 +13,44 @@ Inheritance diagram for TD\+::Near\+To\+Castle\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_near_to_castle_a9383f29995e5857bcadd4e43f6e12bf9}\label{class_t_d_1_1_near_to_castle_a9383f29995e5857bcadd4e43f6e12bf9}} 
-\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ {\bfseries get\+Target} (std\+::pair$<$ double, double $>$ \&cords, double raduis) const
+\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ \mbox{\hyperlink{class_t_d_1_1_near_to_castle_a9383f29995e5857bcadd4e43f6e12bf9}{get\+Target}} (std\+::pair$<$ double, double $>$ \&cords, double raduis) const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_near_to_castle_a196dfa93a20f463eafaf087f60a6ba22}\label{class_t_d_1_1_near_to_castle_a196dfa93a20f463eafaf087f60a6ba22}} 
-strategy\+Type\+Enum {\bfseries get\+Type} () const
+\mbox{\hyperlink{namespace_t_d_a414ab09d4b7262ea69cc0818c326badc}{strategy\+Type\+Enum}} {\bfseries get\+Type} () const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_near_to_castle_a563a870d815f210670e4be4aad981835}\label{class_t_d_1_1_near_to_castle_a563a870d815f210670e4be4aad981835}} 
-{\bfseries Near\+To\+Castle} (\mbox{\hyperlink{classcustom_templates_1_1_table}{ct\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ $\ast$enemy\+Table, std\+::pair$<$ double, double $>$ \+\_\+castle\+Cords)
+{\bfseries Near\+To\+Castle} (\mbox{\hyperlink{classcustom_templates_1_1_table}{ct\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ $\ast$\mbox{\hyperlink{class_t_d_1_1_strategy_ad0c319752ca91a3205ebaffbe5e1e94c}{enemy\+Table}}, std\+::pair$<$ double, double $>$ \+\_\+castle\+Cords)
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+This class describes \char`\"{}the nearest to the Castle\char`\"{} strategy 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_near_to_castle_a9383f29995e5857bcadd4e43f6e12bf9}\label{class_t_d_1_1_near_to_castle_a9383f29995e5857bcadd4e43f6e12bf9}} 
+\index{TD::NearToCastle@{TD::NearToCastle}!getTarget@{getTarget}}
+\index{getTarget@{getTarget}!TD::NearToCastle@{TD::NearToCastle}}
+\doxysubsubsection{\texorpdfstring{getTarget()}{getTarget()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ T\+D\+::\+Near\+To\+Castle\+::get\+Target (\begin{DoxyParamCaption}\item[{std\+::pair$<$ double, double $>$ \&}]{cords,  }\item[{double}]{raduis }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Defines a target \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} for the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} to attack\+: the nearest one to the \mbox{\hyperlink{class_t_d_1_1_castle}{Castle}} within \mbox{\hyperlink{class_t_d_1_1_feature}{Feature}} radius of the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cords} & Cords of the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} as std\+::pair \\
+\hline
+\mbox{\texttt{ in}}  & {\em radius} & Radius of the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}}\textquotesingle{}s \mbox{\hyperlink{class_t_d_1_1_feature}{Feature}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} should attack 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_t_d_1_1_strategy_ad317e499a9fb353cd8e52e6da111bb87}{T\+D\+::\+Strategy}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Strategy.\+h\item 
+\mbox{\hyperlink{_strategy_8h}{Strategy.\+h}}\item 
 Strategy.\+cpp\end{DoxyCompactItemize}

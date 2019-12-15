@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>TD</b></li><li class="navelem"><a class="el" href="class_t_d_1_1_strategy.html">Strategy</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespace_t_d.html">TD</a></li><li class="navelem"><a class="el" href="class_t_d_1_1_strategy.html">Strategy</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,6 +74,8 @@ $(function() {
 <div class="title">TD::Strategy Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_strategy_8h_source.html">Strategy.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for TD::Strategy:</div>
 <div class="dyncontent">
@@ -90,14 +92,10 @@ Inheritance diagram for TD::Strategy:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a40d9f73e55a650611562516fede01c7c"><td class="memItemLeft" align="right" valign="top"><a id="a40d9f73e55a650611562516fede01c7c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>attack</b> (<a class="el" href="class_t_d_1_1_tower.html">Tower</a> *)=0</td></tr>
-<tr class="separator:a40d9f73e55a650611562516fede01c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a938418acde5d34e7dcfc995181c3d9fb"><td class="memItemLeft" align="right" valign="top"><a id="a938418acde5d34e7dcfc995181c3d9fb"></a>
-virtual strategyTypeEnum&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> () const</td></tr>
+virtual <a class="el" href="namespace_t_d.html#a414ab09d4b7262ea69cc0818c326badc">strategyTypeEnum</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> () const</td></tr>
 <tr class="separator:a938418acde5d34e7dcfc995181c3d9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad317e499a9fb353cd8e52e6da111bb87"><td class="memItemLeft" align="right" valign="top"><a id="ad317e499a9fb353cd8e52e6da111bb87"></a>
-virtual <a class="el" href="class_t_d_1_1_enemy.html">Enemy</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTarget</b> (std::pair&lt; double, double &gt; &amp;cords, double raduis) const =0</td></tr>
+<tr class="memitem:ad317e499a9fb353cd8e52e6da111bb87"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_t_d_1_1_enemy.html">Enemy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_strategy.html#ad317e499a9fb353cd8e52e6da111bb87">getTarget</a> (std::pair&lt; double, double &gt; &amp;cords, double raduis) const =0</td></tr>
 <tr class="separator:ad317e499a9fb353cd8e52e6da111bb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa291f43f791697f82dc148fbdbe4c2ce"><td class="memItemLeft" align="right" valign="top"><a id="aa291f43f791697f82dc148fbdbe4c2ce"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Strategy</b> (<a class="el" href="classcustom_templates_1_1_table.html">ct::Table</a>&lt; <a class="el" href="class_t_d_1_1_enemy.html">Enemy</a> * &gt; *_enemyTable)</td></tr>
@@ -105,23 +103,110 @@ virtual <a class="el" href="class_t_d_1_1_enemy.html">Enemy</a> *&#160;</td><td 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6b689b4f6ce9815f5bdf7b20954a8227"><td class="memItemLeft" align="right" valign="top"><a id="a6b689b4f6ce9815f5bdf7b20954a8227"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>distance</b> (<a class="el" href="class_t_d_1_1_enemy.html">Enemy</a> *, <a class="el" href="class_t_d_1_1_building.html">Building</a> *)</td></tr>
-<tr class="separator:a6b689b4f6ce9815f5bdf7b20954a8227"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1e6d4599e8298f9b4cab3bc4d66f405"><td class="memItemLeft" align="right" valign="top"><a id="aa1e6d4599e8298f9b4cab3bc4d66f405"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>distance</b> (std::pair&lt; double, double &gt;, std::pair&lt; double, double &gt;)</td></tr>
-<tr class="separator:aa1e6d4599e8298f9b4cab3bc4d66f405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a4de05aa33ccd4d5547907604077e13"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_strategy.html#a7a4de05aa33ccd4d5547907604077e13">distance</a> (std::pair&lt; double, double &gt; a, std::pair&lt; double, double &gt; b)</td></tr>
+<tr class="separator:a7a4de05aa33ccd4d5547907604077e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ad0c319752ca91a3205ebaffbe5e1e94c"><td class="memItemLeft" align="right" valign="top"><a id="ad0c319752ca91a3205ebaffbe5e1e94c"></a>
-<a class="el" href="classcustom_templates_1_1_table.html">ct::Table</a>&lt; <a class="el" href="class_t_d_1_1_enemy.html">Enemy</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>enemyTable</b></td></tr>
+<a class="el" href="classcustom_templates_1_1_table.html">ct::Table</a>&lt; <a class="el" href="class_t_d_1_1_enemy.html">Enemy</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_strategy.html#ad0c319752ca91a3205ebaffbe5e1e94c">enemyTable</a></td></tr>
+<tr class="memdesc:ad0c319752ca91a3205ebaffbe5e1e94c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pointer to the table of the enemies on the map. <br /></td></tr>
 <tr class="separator:ad0c319752ca91a3205ebaffbe5e1e94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides polymorphism for every strategy used in the game </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7a4de05aa33ccd4d5547907604077e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a4de05aa33ccd4d5547907604077e13">&#9670;&nbsp;</a></span>distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double TD::Strategy::distance </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; double, double &gt;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::pair&lt; double, double &gt;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculates the distance between two points on the map </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Cords of the first point as std::pair </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Cords of the second point as std::pair </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad317e499a9fb353cd8e52e6da111bb87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad317e499a9fb353cd8e52e6da111bb87">&#9670;&nbsp;</a></span>getTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_t_d_1_1_enemy.html">Enemy</a>* TD::Strategy::getTarget </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; double, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>cords</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>raduis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Defines a target <a class="el" href="class_t_d_1_1_enemy.html" title="This class decribes every Enemy in the game.">Enemy</a> for the <a class="el" href="class_t_d_1_1_tower.html">Tower</a> to attack </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cords</td><td>Cords of the <a class="el" href="class_t_d_1_1_tower.html">Tower</a> as std::pair </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">radius</td><td>Radius of the <a class="el" href="class_t_d_1_1_tower.html">Tower</a>'s <a class="el" href="class_t_d_1_1_feature.html">Feature</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_t_d_1_1_enemy.html" title="This class decribes every Enemy in the game.">Enemy</a> <a class="el" href="class_t_d_1_1_tower.html">Tower</a> should attack </dd></dl>
+
+<p>Implemented in <a class="el" href="class_t_d_1_1_fast.html#ad08e2f8388ff321af35bc3ab7cb35045">TD::Fast</a>, <a class="el" href="class_t_d_1_1_weak.html#a5d963ebc4e73ff7d22f64f470e81c1c9">TD::Weak</a>, <a class="el" href="class_t_d_1_1_strong.html#af2d821529278c13286298ad4046100f1">TD::Strong</a>, <a class="el" href="class_t_d_1_1_near_to_castle.html#a9383f29995e5857bcadd4e43f6e12bf9">TD::NearToCastle</a>, and <a class="el" href="class_t_d_1_1_near_to_tower.html#aa90362a60396e0df54569b4d525d38dd">TD::NearToTower</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_landscape___8h_source.html">Landscape_.h</a></li>
 <li><a class="el" href="_strategy_8h_source.html">Strategy.h</a></li>
-<li>Landscape_.cpp</li>
 <li>Strategy.cpp</li>
 </ul>
 </div><!-- contents -->

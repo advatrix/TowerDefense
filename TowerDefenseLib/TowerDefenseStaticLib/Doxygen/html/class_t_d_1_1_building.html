@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>TD</b></li><li class="navelem"><a class="el" href="class_t_d_1_1_building.html">Building</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespace_t_d.html">TD</a></li><li class="navelem"><a class="el" href="class_t_d_1_1_building.html">Building</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,60 +73,106 @@ $(function() {
 <div class="title">TD::Building Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Parent class for every building.  
+ <a href="class_t_d_1_1_building.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_building_8h_source.html">Building.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for TD::Building:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_t_d_1_1_building.png" usemap="#TD::Building_map" alt=""/>
   <map id="TD::Building_map" name="TD::Building_map">
-<area href="class_t_d_1_1_entity.html" alt="TD::Entity" shape="rect" coords="0,0,79,24"/>
-<area href="class_t_d_1_1_castle.html" alt="TD::Castle" shape="rect" coords="89,112,168,136"/>
-<area href="class_t_d_1_1_castle.html" alt="TD::Castle" shape="rect" coords="89,168,168,192"/>
-<area href="class_t_d_1_1_lire.html" alt="TD::Lire" shape="rect" coords="89,224,168,248"/>
-<area href="class_t_d_1_1_lire.html" alt="TD::Lire" shape="rect" coords="89,280,168,304"/>
-<area href="class_t_d_1_1_tower.html" alt="TD::Tower" shape="rect" coords="89,336,168,360"/>
-<area href="class_t_d_1_1_tower.html" alt="TD::Tower" shape="rect" coords="89,392,168,416"/>
-<area href="class_t_d_1_1_trap.html" alt="TD::Trap" shape="rect" coords="89,448,168,472"/>
-<area href="class_t_d_1_1_trap.html" alt="TD::Trap" shape="rect" coords="89,504,168,528"/>
+<area href="class_t_d_1_1_entity.html" title="The very basic class of every entity of the game This class provides polymorphism to every entity tha..." alt="TD::Entity" shape="rect" coords="171,0,275,24"/>
+<area href="class_t_d_1_1_castle.html" title="This class describes Castle This class describes Castle which is the main building in the entire game..." alt="TD::Castle" shape="rect" coords="0,112,104,136"/>
+<area href="class_t_d_1_1_lire.html" alt="TD::Lire" shape="rect" coords="114,112,218,136"/>
+<area href="class_t_d_1_1_tower.html" alt="TD::Tower" shape="rect" coords="228,112,332,136"/>
+<area href="class_t_d_1_1_trap.html" alt="TD::Trap" shape="rect" coords="342,112,446,136"/>
+<area href="class_t_d_1_1_magic_tower.html" alt="TD::MagicTower" shape="rect" coords="228,168,332,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a958e475e2696d8fc032f55ab1b6abd42"><td class="memItemLeft" align="right" valign="top"><a id="a958e475e2696d8fc032f55ab1b6abd42"></a>
-std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCords</b> ()</td></tr>
+<tr class="memitem:a958e475e2696d8fc032f55ab1b6abd42"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_building.html#a958e475e2696d8fc032f55ab1b6abd42">getCords</a> ()</td></tr>
 <tr class="separator:a958e475e2696d8fc032f55ab1b6abd42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f905f8f7e1659dd93399bd7d096a659"><td class="memItemLeft" align="right" valign="top"><a id="a7f905f8f7e1659dd93399bd7d096a659"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Building</b> (std::pair&lt; double, double &gt; c)</td></tr>
 <tr class="separator:a7f905f8f7e1659dd93399bd7d096a659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bb7c7cfa42836065376d9c18e8f057f"><td class="memItemLeft" align="right" valign="top"><a id="a6bb7c7cfa42836065376d9c18e8f057f"></a>
-virtual buildingTypeEnum&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> () const</td></tr>
+<tr class="memitem:a6bb7c7cfa42836065376d9c18e8f057f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69e">buildingTypeEnum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_building.html#a6bb7c7cfa42836065376d9c18e8f057f">getType</a> () const</td></tr>
 <tr class="separator:a6bb7c7cfa42836065376d9c18e8f057f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8e3b433c9780efcb522c3651c6c449c"><td class="memItemLeft" align="right" valign="top"><a id="ae8e3b433c9780efcb522c3651c6c449c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Building</b> (<a class="el" href="class_t_d_1_1_cell.html">Cell</a> *)</td></tr>
-<tr class="separator:ae8e3b433c9780efcb522c3651c6c449c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a255c45437ab2955fde2e1f2954449bf8"><td class="memItemLeft" align="right" valign="top"><a id="a255c45437ab2955fde2e1f2954449bf8"></a>
-std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cords</b> () const</td></tr>
-<tr class="separator:a255c45437ab2955fde2e1f2954449bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_t_d_1_1_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_t_d_1_1_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_t_d_1_1_entity.html">TD::Entity</a></td></tr>
-<tr class="memitem:acac5cef3bf6178984314c523e565f8d2 inherit pub_methods_class_t_d_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a id="acac5cef3bf6178984314c523e565f8d2"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()=0</td></tr>
+<tr class="memitem:acac5cef3bf6178984314c523e565f8d2 inherit pub_methods_class_t_d_1_1_entity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_entity.html#acac5cef3bf6178984314c523e565f8d2">update</a> ()=0</td></tr>
 <tr class="separator:acac5cef3bf6178984314c523e565f8d2 inherit pub_methods_class_t_d_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a800872e19704278be30dcd88f55d2518"><td class="memItemLeft" align="right" valign="top"><a id="a800872e19704278be30dcd88f55d2518"></a>
+<tr class="memitem:af231c9a9ee721296d5a69cb8a5727543"><td class="memItemLeft" align="right" valign="top"><a id="af231c9a9ee721296d5a69cb8a5727543"></a>
 std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cords</b></td></tr>
-<tr class="separator:a800872e19704278be30dcd88f55d2518"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18026621b0678eda0e9b231c6289b4d1"><td class="memItemLeft" align="right" valign="top"><a id="a18026621b0678eda0e9b231c6289b4d1"></a>
-<a class="el" href="class_t_d_1_1_cell.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>cell_</b></td></tr>
-<tr class="separator:a18026621b0678eda0e9b231c6289b4d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:af231c9a9ee721296d5a69cb8a5727543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Parent class for every building. </p>
+<p>This class is abstract, adding ability to place <a class="el" href="class_t_d_1_1_entity.html" title="The very basic class of every entity of the game This class provides polymorphism to every entity tha...">Entity</a> on a cell </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a958e475e2696d8fc032f55ab1b6abd42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a958e475e2696d8fc032f55ab1b6abd42">&#9670;&nbsp;</a></span>getCords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;double, double&gt; TD::Building::getCords </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns cords of the building as pair of x and y </p><dl class="section return"><dt>Returns</dt><dd>cords of the building as std::pair </dd></dl>
+
+</div>
+</div>
+<a id="a6bb7c7cfa42836065376d9c18e8f057f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bb7c7cfa42836065376d9c18e8f057f">&#9670;&nbsp;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69e">buildingTypeEnum</a> TD::Building::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual function that returns type of the particular building. </p><dl class="section return"><dt>Returns</dt><dd>buildingTypeEnum element corresponding to the type of the building </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_t_d_1_1_castle.html#ae0ccec22bdf9e4ef94d351d6806f984c">TD::Castle</a>, <a class="el" href="class_t_d_1_1_lire.html#a7dcffef990da1dd58fa20e73e8a0f76a">TD::Lire</a>, <a class="el" href="class_t_d_1_1_trap.html#aeabb26b466f8fc53a07102b8fe8b0d28">TD::Trap</a>, <a class="el" href="class_t_d_1_1_tower.html#ade7e1f7a7e7c4ace75e8a4902f4d5b81">TD::Tower</a>, and <a class="el" href="class_t_d_1_1_magic_tower.html#ab0ca62ad8cfc2fdb062a26040f0fbd5f">TD::MagicTower</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_building_8h_source.html">Building.h</a></li>
-<li><a class="el" href="_landscape___8h_source.html">Landscape_.h</a></li>
 <li>Building.cpp</li>
-<li>Landscape_.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

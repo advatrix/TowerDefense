@@ -1,5 +1,14 @@
 \hypertarget{class_t_d_1_1_effect}{}\doxysection{TD\+::Effect Class Reference}
 \label{class_t_d_1_1_effect}\index{TD::Effect@{TD::Effect}}
+
+
+Parent class that provides polymorphism for all Effects in the game.  
+
+
+
+
+{\ttfamily \#include $<$Effect.\+h$>$}
+
 Inheritance diagram for TD\+::Effect\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,10 +19,9 @@ Inheritance diagram for TD\+::Effect\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_effect_afdf722a46e6069b71c51f6973b08dd57}\label{class_t_d_1_1_effect_afdf722a46e6069b71c51f6973b08dd57}} 
-virtual void {\bfseries update} ()=0
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_effect_a73fd2c9f8b5a0ecbb37dfa31dee79801}\label{class_t_d_1_1_effect_a73fd2c9f8b5a0ecbb37dfa31dee79801}} 
-virtual \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ {\bfseries copy} ()=0
+virtual void \mbox{\hyperlink{class_t_d_1_1_effect_afdf722a46e6069b71c51f6973b08dd57}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em This function is called every game tick and updates the parameter of the effect instance. The function updates the parameters of the \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} (decreases remaining time) and the \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} if needed. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ \mbox{\hyperlink{class_t_d_1_1_effect_a73fd2c9f8b5a0ecbb37dfa31dee79801}{copy}} ()=0
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_effect_ade1186bbcec6242becefe552a7888e27}\label{class_t_d_1_1_effect_ade1186bbcec6242becefe552a7888e27}} 
 {\bfseries Effect} (\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$en, unsigned int time, unsigned int t)
@@ -25,7 +33,7 @@ unsigned int {\bfseries get\+Value} () const
 unsigned int {\bfseries get\+Remained\+Time} () const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_effect_a471184e5246b92f2861a2519110d818f}\label{class_t_d_1_1_effect_a471184e5246b92f2861a2519110d818f}} 
-virtual effect\+Type\+Enum {\bfseries get\+Type} () const
+virtual \mbox{\hyperlink{namespace_t_d_a1f76e246f2affffbe791fc258ab29ddf}{effect\+Type\+Enum}} {\bfseries get\+Type} () const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_effect_abf8cb3a715ad72f22a50acdc9dd7a623}\label{class_t_d_1_1_effect_abf8cb3a715ad72f22a50acdc9dd7a623}} 
 bool {\bfseries is\+Active} () const
@@ -36,27 +44,59 @@ void {\bfseries set\+Enemy} (\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_effect_a5abcc0812a5c7cb838bee4a62c0473fd}\label{class_t_d_1_1_effect_a5abcc0812a5c7cb838bee4a62c0473fd}} 
-static double {\bfseries pc} (double v)
+static double \mbox{\hyperlink{class_t_d_1_1_effect_a5abcc0812a5c7cb838bee4a62c0473fd}{pc}} (double v)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_effect_abac4ce63501ae9c40988f975da8a4e29}\label{class_t_d_1_1_effect_abac4ce63501ae9c40988f975da8a4e29}} 
-unsigned int {\bfseries remained\+Time}
-\item 
+unsigned int \mbox{\hyperlink{class_t_d_1_1_effect_abac4ce63501ae9c40988f975da8a4e29}{remained\+Time}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} remaining time. Equals to maximum posiible unsigned value if effect is not active. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_t_d_1_1_effect_ad2273c8bb9b74e5cf4e2937c1ecbaf27}\label{class_t_d_1_1_effect_ad2273c8bb9b74e5cf4e2937c1ecbaf27}} 
-unsigned int {\bfseries value}
-\item 
+unsigned int \mbox{\hyperlink{class_t_d_1_1_effect_ad2273c8bb9b74e5cf4e2937c1ecbaf27}{value}}
+\begin{DoxyCompactList}\small\item\em Value of the effect in percents of the enemy\textquotesingle{}s parameter the effect affects. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_t_d_1_1_effect_a174f2cfc4fcd2a20986e2833aba5195e}\label{class_t_d_1_1_effect_a174f2cfc4fcd2a20986e2833aba5195e}} 
-\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ {\bfseries enemy}
-\item 
+\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ \mbox{\hyperlink{class_t_d_1_1_effect_a174f2cfc4fcd2a20986e2833aba5195e}{enemy}}
+\begin{DoxyCompactList}\small\item\em A pointer to the enemy \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} affects. Equals to nullptr if instance is disabled. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_t_d_1_1_effect_aa727b80eaa01b33da55e724004e6edf2}\label{class_t_d_1_1_effect_aa727b80eaa01b33da55e724004e6edf2}} 
 bool {\bfseries active}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Parent class that provides polymorphism for all Effects in the game. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_effect_a73fd2c9f8b5a0ecbb37dfa31dee79801}\label{class_t_d_1_1_effect_a73fd2c9f8b5a0ecbb37dfa31dee79801}} 
+\index{TD::Effect@{TD::Effect}!copy@{copy}}
+\index{copy@{copy}!TD::Effect@{TD::Effect}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}}$\ast$ T\+D\+::\+Effect\+::copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Returns a copy of particular effect instance \begin{DoxyReturn}{Returns}
+A copy of particular effect instance 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_t_d_1_1_poison_a4c7a2fe57910c7a568ac464bc97eeca2}{T\+D\+::\+Poison}}, \mbox{\hyperlink{class_t_d_1_1_slowdown_af43134fe0cea634a6d311e147f74d182}{T\+D\+::\+Slowdown}}, and \mbox{\hyperlink{class_t_d_1_1_weakness_a8be7241f97beb9f682f8bff2d4869e62}{T\+D\+::\+Weakness}}.
+
+\mbox{\Hypertarget{class_t_d_1_1_effect_a5abcc0812a5c7cb838bee4a62c0473fd}\label{class_t_d_1_1_effect_a5abcc0812a5c7cb838bee4a62c0473fd}} 
+\index{TD::Effect@{TD::Effect}!pc@{pc}}
+\index{pc@{pc}!TD::Effect@{TD::Effect}}
+\doxysubsubsection{\texorpdfstring{pc()}{pc()}}
+{\footnotesize\ttfamily static double T\+D\+::\+Effect\+::pc (\begin{DoxyParamCaption}\item[{double}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Function that converts effect values into a multiplier apllied to the enemy parameters 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em v} & Value to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Multiplier 
+\end{DoxyReturn}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Effect.\+h\item 
+\mbox{\hyperlink{_effect_8h}{Effect.\+h}}\item 
 Effect.\+cpp\end{DoxyCompactItemize}

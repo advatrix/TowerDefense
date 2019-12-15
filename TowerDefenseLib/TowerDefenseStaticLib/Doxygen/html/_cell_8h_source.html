@@ -72,18 +72,18 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Enums.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Building.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Castle.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;Tower.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enums_8h.html">Enums.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_building_8h.html">Building.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_castle_8h.html">Castle.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_tower_8h.html">Tower.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>TD {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_t_d.html">TD</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_t_d_1_1_cell.html">   14</a></span>&#160;        <span class="keyword">class </span><a class="code" href="class_t_d_1_1_cell.html">Cell</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordtype">int</span> x;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordtype">int</span> y;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keyword">virtual</span> <span class="keyword">inline</span> cellTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> cellTypeEnum::forest; }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keyword">virtual</span> <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135">cellTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135a4fdd3fbbd0be3cb8c1664e4db5241e30">cellTypeEnum::forest</a>; }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="class_t_d_1_1_cell.html">Cell</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <a class="code" href="class_t_d_1_1_cell.html">Cell</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroy() {}</div>
@@ -129,7 +129,7 @@ $(function() {
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_t_d_1_1_road.html">Road</a>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keyword">inline</span> cellTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> cellTypeEnum::road; }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135">cellTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135ae60f9f6e1b38b6239b18f3cf7cbe499c">cellTypeEnum::road</a>; }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_road.html">Road</a>* getNext()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> next; }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        };</div>
@@ -143,21 +143,31 @@ $(function() {
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="class_t_d_1_1_field.html">Field</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            ~<a class="code" href="class_t_d_1_1_field.html">Field</a>();</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordtype">void</span> destroy();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keyword">inline</span> <span class="keywordtype">bool</span> isBuilt() { <span class="keywordflow">return</span> tower; }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_tower.html">Tower</a>* getTower()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tower; }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keyword">inline</span> <span class="keywordtype">bool</span> isBuilt() { <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69eaf9aadd6d0a4e4fd5054dfa9855b42e71">tower</a>; }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_tower.html">Tower</a>* getTower()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69eaf9aadd6d0a4e4fd5054dfa9855b42e71">tower</a>; }</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">inline</span> cellTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> cellTypeEnum::field; }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135">cellTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135ae0668d9f2f7c01e75788ab6c7c61bd08">cellTypeEnum::field</a>; }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        };</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_t_d_1_1_landscape_html"><div class="ttname"><a href="class_t_d_1_1_landscape.html">TD::Landscape</a></div><div class="ttdef"><b>Definition:</b> Landscape.h:17</div></div>
-<div class="ttc" id="aclass_t_d_1_1_building_html"><div class="ttname"><a href="class_t_d_1_1_building.html">TD::Building</a></div><div class="ttdef"><b>Definition:</b> Building.h:11</div></div>
+<div class="ttc" id="a_building_8h_html"><div class="ttname"><a href="_building_8h.html">Building.h</a></div><div class="ttdoc">Header for Building class.</div></div>
+<div class="ttc" id="anamespace_t_d_html_afc697847486c1a94f27e032d3fbae69eaf9aadd6d0a4e4fd5054dfa9855b42e71"><div class="ttname"><a href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69eaf9aadd6d0a4e4fd5054dfa9855b42e71">TD::tower</a></div><div class="ttdoc">Default tower.</div><div class="ttdef"><b>Definition:</b> Enums.h:12</div></div>
+<div class="ttc" id="anamespace_t_d_html_a544e6e8629e5404053812fef830be135ae0668d9f2f7c01e75788ab6c7c61bd08"><div class="ttname"><a href="namespace_t_d.html#a544e6e8629e5404053812fef830be135ae0668d9f2f7c01e75788ab6c7c61bd08">TD::field</a></div><div class="ttdoc">Field: only Towers can be built there.</div><div class="ttdef"><b>Definition:</b> Enums.h:23</div></div>
+<div class="ttc" id="a_enums_8h_html"><div class="ttname"><a href="_enums_8h.html">Enums.h</a></div></div>
+<div class="ttc" id="anamespace_t_d_html_a544e6e8629e5404053812fef830be135"><div class="ttname"><a href="namespace_t_d.html#a544e6e8629e5404053812fef830be135">TD::cellTypeEnum</a></div><div class="ttdeci">cellTypeEnum</div><div class="ttdoc">Set of every possible cell type.</div><div class="ttdef"><b>Definition:</b> Enums.h:20</div></div>
+<div class="ttc" id="aclass_t_d_1_1_landscape_html"><div class="ttname"><a href="class_t_d_1_1_landscape.html">TD::Landscape</a></div><div class="ttdef"><b>Definition:</b> Landscape.h:23</div></div>
+<div class="ttc" id="aclass_t_d_1_1_building_html"><div class="ttname"><a href="class_t_d_1_1_building.html">TD::Building</a></div><div class="ttdoc">Parent class for every building.</div><div class="ttdef"><b>Definition:</b> Building.h:22</div></div>
+<div class="ttc" id="anamespace_t_d_html_a544e6e8629e5404053812fef830be135ae60f9f6e1b38b6239b18f3cf7cbe499c"><div class="ttname"><a href="namespace_t_d.html#a544e6e8629e5404053812fef830be135ae60f9f6e1b38b6239b18f3cf7cbe499c">TD::road</a></div><div class="ttdoc">Road: allbuilding except Towers can be built there. Enemies can be placed only there.</div><div class="ttdef"><b>Definition:</b> Enums.h:22</div></div>
+<div class="ttc" id="anamespace_t_d_html_a544e6e8629e5404053812fef830be135a4fdd3fbbd0be3cb8c1664e4db5241e30"><div class="ttname"><a href="namespace_t_d.html#a544e6e8629e5404053812fef830be135a4fdd3fbbd0be3cb8c1664e4db5241e30">TD::forest</a></div><div class="ttdoc">Basic cell type: nothing can be built there.</div><div class="ttdef"><b>Definition:</b> Enums.h:21</div></div>
 <div class="ttc" id="aclass_t_d_1_1_field_html"><div class="ttname"><a href="class_t_d_1_1_field.html">TD::Field</a></div><div class="ttdef"><b>Definition:</b> Cell.h:70</div></div>
 <div class="ttc" id="aclass_t_d_1_1_road_html"><div class="ttname"><a href="class_t_d_1_1_road.html">TD::Road</a></div><div class="ttdef"><b>Definition:</b> Cell.h:28</div></div>
-<div class="ttc" id="aclass_t_d_1_1_tower_html"><div class="ttname"><a href="class_t_d_1_1_tower.html">TD::Tower</a></div><div class="ttdef"><b>Definition:</b> Landscape_.h:177</div></div>
+<div class="ttc" id="a_tower_8h_html"><div class="ttname"><a href="_tower_8h.html">Tower.h</a></div></div>
+<div class="ttc" id="aclass_t_d_1_1_tower_html"><div class="ttname"><a href="class_t_d_1_1_tower.html">TD::Tower</a></div><div class="ttdef"><b>Definition:</b> Tower.h:17</div></div>
+<div class="ttc" id="anamespace_t_d_html"><div class="ttname"><a href="namespace_t_d.html">TD</a></div><div class="ttdef"><b>Definition:</b> Building.cpp:9</div></div>
+<div class="ttc" id="a_castle_8h_html"><div class="ttname"><a href="_castle_8h.html">Castle.h</a></div><div class="ttdoc">This file contains representation of the Castle class.</div></div>
 <div class="ttc" id="aclass_t_d_1_1_cell_html"><div class="ttname"><a href="class_t_d_1_1_cell.html">TD::Cell</a></div><div class="ttdef"><b>Definition:</b> Cell.h:14</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

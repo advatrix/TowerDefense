@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ignore_775',['ignore',['../namespacenlohmann_1_1detail.html#a5a76b60b26dc8c47256a996d18d967dfa567bc1d268f135496de3d5b946b691f3',1,'nlohmann::detail']]]
+  ['magic_271',['magic',['../namespace_t_d.html#a8ea09b025f1612c3d991d44b2fd3657ba759002dd0a7b7228d964c87709e00c49',1,'TD']]],
+  ['magictower_272',['magicTower',['../namespace_t_d.html#afc697847486c1a94f27e032d3fbae69ea4316ea58fb278dce3d7f412a006c7559',1,'TD']]]
 ];

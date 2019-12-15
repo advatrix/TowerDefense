@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['has_5ffrom_5fjson_120',['has_from_json',['../structnlohmann_1_1detail_1_1has__from__json.html',1,'nlohmann::detail']]],
-  ['has_5ffrom_5fjson_3c_20basicjsontype_2c_20t_2c_20enable_5fif_5ft_3c_20not_20is_5fbasic_5fjson_3c_20t_20_3e_3a_3avalue_20_3e_20_3e_121',['has_from_json&lt; BasicJsonType, T, enable_if_t&lt; not is_basic_json&lt; T &gt;::value &gt; &gt;',['../structnlohmann_1_1detail_1_1has__from__json_3_01_basic_json_type_00_01_t_00_01enable__if__t_3_01e29213c543deddccc314d19cbaf9f3b4.html',1,'nlohmann::detail']]],
-  ['has_5fnon_5fdefault_5ffrom_5fjson_122',['has_non_default_from_json',['../structnlohmann_1_1detail_1_1has__non__default__from__json.html',1,'nlohmann::detail']]],
-  ['has_5fnon_5fdefault_5ffrom_5fjson_3c_20basicjsontype_2c_20t_2c_20enable_5fif_5ft_3c_20not_20is_5fbasic_5fjson_3c_20t_20_3e_3a_3avalue_20_3e_20_3e_123',['has_non_default_from_json&lt; BasicJsonType, T, enable_if_t&lt; not is_basic_json&lt; T &gt;::value &gt; &gt;',['../structnlohmann_1_1detail_1_1has__non__default__from__json_3_01_basic_json_type_00_01_t_00_01enab81bd4c814ac1146ff15f3f4636933207.html',1,'nlohmann::detail']]],
-  ['has_5fto_5fjson_124',['has_to_json',['../structnlohmann_1_1detail_1_1has__to__json.html',1,'nlohmann::detail']]],
-  ['has_5fto_5fjson_3c_20basicjsontype_2c_20t_2c_20enable_5fif_5ft_3c_20not_20is_5fbasic_5fjson_3c_20t_20_3e_3a_3avalue_20_3e_20_3e_125',['has_to_json&lt; BasicJsonType, T, enable_if_t&lt; not is_basic_json&lt; T &gt;::value &gt; &gt;',['../structnlohmann_1_1detail_1_1has__to__json_3_01_basic_json_type_00_01_t_00_01enable__if__t_3_01nob111e71d40e2273c290d1ce5c6a3b84f.html',1,'nlohmann::detail']]],
-  ['hash_3c_20nlohmann_3a_3ajson_20_3e_126',['hash&lt; nlohmann::json &gt;',['../structstd_1_1hash_3_01nlohmann_1_1json_01_4.html',1,'std']]]
+  ['inchp_65',['incHp',['../class_t_d_1_1_castle.html#a4b3a635bb15ae2ecd6380b55866d6041',1,'TD::Castle']]],
+  ['incmoney_66',['incMoney',['../class_t_d_1_1_castle.html#ad223a6454999af0c586deb2ff70b2dec',1,'TD::Castle']]]
 ];

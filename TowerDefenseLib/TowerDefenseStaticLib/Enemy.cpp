@@ -29,8 +29,8 @@ namespace TD {
 	}
 
 	void Enemy::move(double deltaX, double deltaY) {
-		x += deltaX;
-		y += deltaY;
+		x += deltaX * curSpeed;
+		y += deltaY * curSpeed;
 	}
 
 	void Enemy::place(std::pair<double, double> c) {

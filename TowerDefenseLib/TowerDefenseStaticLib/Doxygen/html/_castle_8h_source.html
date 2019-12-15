@@ -65,51 +65,72 @@ $(function() {
 <div class="title">Castle.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _CASTLE_H_</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _CASTLE_H_</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Enums.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Building.h&quot;</span></div>
+<a href="_castle_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef _CASTLE_H_</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define _CASTLE_H_</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>TD {</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_t_d_1_1_castle.html">   10</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_castle.html">Castle</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_building.html">Building</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        std::string title;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">double</span> curHp;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">double</span> maxHp;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> money;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_t_d_1_1_castle.html">Castle</a>() : <a class="code" href="class_t_d_1_1_building.html">Building</a>(), title(<span class="stringliteral">&quot;Castle&quot;</span>), curHp(100), maxHp(100), money(100) {}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="class_t_d_1_1_castle.html">Castle</a>(std::pair&lt;double, double&gt; c, std::string t, <span class="keywordtype">double</span> curhp, <span class="keywordtype">double</span> maxhp, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _money);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> incHp(<span class="keywordtype">double</span> v);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> decHp(<span class="keywordtype">double</span> v);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> incMoney(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v) { money += v; }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> decMoney(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> getCurHp()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> curHp; }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> getMaxHp()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxHp; }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getMoney()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> money; }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">inline</span> std::string getTitle()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> title; }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        buildingTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> buildingTypeEnum::castle; }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">void</span> update() {}</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enums_8h.html">Enums.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_building_8h.html">Building.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_t_d.html">TD</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_t_d_1_1_castle.html">   19</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_castle.html">Castle</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_building.html">Building</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        std::string title;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">double</span> curHp;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">double</span> maxHp;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> money;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="class_t_d_1_1_castle.html">Castle</a>() : <a class="code" href="class_t_d_1_1_building.html">Building</a>(), title(<span class="stringliteral">&quot;Castle&quot;</span>), curHp(100), maxHp(100), money(100) {}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="class_t_d_1_1_castle.html">Castle</a>(std::pair&lt;double, double&gt; c, std::string t, <span class="keywordtype">double</span> curhp, <span class="keywordtype">double</span> maxhp, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _money);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_castle.html#a4b3a635bb15ae2ecd6380b55866d6041">incHp</a>(<span class="keywordtype">double</span> v);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        ~<a class="code" href="class_t_d_1_1_castle.html">Castle</a>() {}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    };</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_castle.html#af58c2a3820ff18e63a0d043df7fa675c">decHp</a>(<span class="keywordtype">double</span> v);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_t_d_1_1_castle.html#ad223a6454999af0c586deb2ff70b2dec">   46</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_castle.html#ad223a6454999af0c586deb2ff70b2dec">incMoney</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v) { money += v; }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_castle.html#a4f662563b8b337713bba119a0a946ade">decMoney</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_t_d_1_1_castle.html#a4d00d4de181acf1ebfbf1613bb99d483">   58</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_t_d_1_1_castle.html#a4d00d4de181acf1ebfbf1613bb99d483">getCurHp</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> curHp; }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_t_d_1_1_castle.html#a7a604a135f827222daf81065c134b9db">   64</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_t_d_1_1_castle.html#a7a604a135f827222daf81065c134b9db">getMaxHp</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxHp; }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_t_d_1_1_castle.html#afc3573de80f79a0abeb681cab11c0bc4">   70</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_t_d_1_1_castle.html#afc3573de80f79a0abeb681cab11c0bc4">getMoney</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> money; }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_t_d_1_1_castle.html#a3b2faf1a77a54474461989f4fc52c61d">   76</a></span>&#160;        <span class="keyword">inline</span> std::string <a class="code" href="class_t_d_1_1_castle.html#a3b2faf1a77a54474461989f4fc52c61d">getTitle</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> title; }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_t_d_1_1_castle.html#ae0ccec22bdf9e4ef94d351d6806f984c">   82</a></span>&#160;        <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69e">buildingTypeEnum</a> <a class="code" href="class_t_d_1_1_castle.html#ae0ccec22bdf9e4ef94d351d6806f984c">getType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69ea5adc9272c02e0f5a97b9a3eccd3d8165">buildingTypeEnum::castle</a>; }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_t_d_1_1_castle.html#a8744e7c91ba19261e936eb1f6d6a8b99">   87</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_castle.html#a8744e7c91ba19261e936eb1f6d6a8b99">update</a>() {}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        ~<a class="code" href="class_t_d_1_1_castle.html">Castle</a>() {}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    };</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_t_d_1_1_building_html"><div class="ttname"><a href="class_t_d_1_1_building.html">TD::Building</a></div><div class="ttdef"><b>Definition:</b> Building.h:11</div></div>
-<div class="ttc" id="aclass_t_d_1_1_castle_html"><div class="ttname"><a href="class_t_d_1_1_castle.html">TD::Castle</a></div><div class="ttdef"><b>Definition:</b> Castle.h:10</div></div>
+<div class="ttc" id="anamespace_t_d_html_afc697847486c1a94f27e032d3fbae69ea5adc9272c02e0f5a97b9a3eccd3d8165"><div class="ttname"><a href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69ea5adc9272c02e0f5a97b9a3eccd3d8165">TD::castle</a></div><div class="ttdoc">Castle.</div><div class="ttdef"><b>Definition:</b> Enums.h:16</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html_a8744e7c91ba19261e936eb1f6d6a8b99"><div class="ttname"><a href="class_t_d_1_1_castle.html#a8744e7c91ba19261e936eb1f6d6a8b99">TD::Castle::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> Castle.h:87</div></div>
+<div class="ttc" id="a_building_8h_html"><div class="ttname"><a href="_building_8h.html">Building.h</a></div><div class="ttdoc">Header for Building class.</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html_a4b3a635bb15ae2ecd6380b55866d6041"><div class="ttname"><a href="class_t_d_1_1_castle.html#a4b3a635bb15ae2ecd6380b55866d6041">TD::Castle::incHp</a></div><div class="ttdeci">void incHp(double v)</div><div class="ttdef"><b>Definition:</b> Castle.cpp:19</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html_a4f662563b8b337713bba119a0a946ade"><div class="ttname"><a href="class_t_d_1_1_castle.html#a4f662563b8b337713bba119a0a946ade">TD::Castle::decMoney</a></div><div class="ttdeci">void decMoney(unsigned int v)</div><div class="ttdef"><b>Definition:</b> Castle.cpp:31</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html_ae0ccec22bdf9e4ef94d351d6806f984c"><div class="ttname"><a href="class_t_d_1_1_castle.html#ae0ccec22bdf9e4ef94d351d6806f984c">TD::Castle::getType</a></div><div class="ttdeci">buildingTypeEnum getType() const</div><div class="ttdef"><b>Definition:</b> Castle.h:82</div></div>
+<div class="ttc" id="anamespace_t_d_html_afc697847486c1a94f27e032d3fbae69e"><div class="ttname"><a href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69e">TD::buildingTypeEnum</a></div><div class="ttdeci">buildingTypeEnum</div><div class="ttdoc">Set of every possible building type.</div><div class="ttdef"><b>Definition:</b> Enums.h:10</div></div>
+<div class="ttc" id="a_enums_8h_html"><div class="ttname"><a href="_enums_8h.html">Enums.h</a></div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html_afc3573de80f79a0abeb681cab11c0bc4"><div class="ttname"><a href="class_t_d_1_1_castle.html#afc3573de80f79a0abeb681cab11c0bc4">TD::Castle::getMoney</a></div><div class="ttdeci">unsigned int getMoney() const</div><div class="ttdef"><b>Definition:</b> Castle.h:70</div></div>
+<div class="ttc" id="aclass_t_d_1_1_building_html"><div class="ttname"><a href="class_t_d_1_1_building.html">TD::Building</a></div><div class="ttdoc">Parent class for every building.</div><div class="ttdef"><b>Definition:</b> Building.h:22</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html_a3b2faf1a77a54474461989f4fc52c61d"><div class="ttname"><a href="class_t_d_1_1_castle.html#a3b2faf1a77a54474461989f4fc52c61d">TD::Castle::getTitle</a></div><div class="ttdeci">std::string getTitle() const</div><div class="ttdef"><b>Definition:</b> Castle.h:76</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html_a7a604a135f827222daf81065c134b9db"><div class="ttname"><a href="class_t_d_1_1_castle.html#a7a604a135f827222daf81065c134b9db">TD::Castle::getMaxHp</a></div><div class="ttdeci">double getMaxHp() const</div><div class="ttdef"><b>Definition:</b> Castle.h:64</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html_ad223a6454999af0c586deb2ff70b2dec"><div class="ttname"><a href="class_t_d_1_1_castle.html#ad223a6454999af0c586deb2ff70b2dec">TD::Castle::incMoney</a></div><div class="ttdeci">void incMoney(unsigned int v)</div><div class="ttdef"><b>Definition:</b> Castle.h:46</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html_a4d00d4de181acf1ebfbf1613bb99d483"><div class="ttname"><a href="class_t_d_1_1_castle.html#a4d00d4de181acf1ebfbf1613bb99d483">TD::Castle::getCurHp</a></div><div class="ttdeci">double getCurHp() const</div><div class="ttdef"><b>Definition:</b> Castle.h:58</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html"><div class="ttname"><a href="class_t_d_1_1_castle.html">TD::Castle</a></div><div class="ttdoc">This class describes Castle This class describes Castle which is the main building in the entire game...</div><div class="ttdef"><b>Definition:</b> Castle.h:19</div></div>
+<div class="ttc" id="aclass_t_d_1_1_castle_html_af58c2a3820ff18e63a0d043df7fa675c"><div class="ttname"><a href="class_t_d_1_1_castle.html#af58c2a3820ff18e63a0d043df7fa675c">TD::Castle::decHp</a></div><div class="ttdeci">void decHp(double v)</div><div class="ttdef"><b>Definition:</b> Castle.cpp:25</div></div>
+<div class="ttc" id="anamespace_t_d_html"><div class="ttname"><a href="namespace_t_d.html">TD</a></div><div class="ttdef"><b>Definition:</b> Building.cpp:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

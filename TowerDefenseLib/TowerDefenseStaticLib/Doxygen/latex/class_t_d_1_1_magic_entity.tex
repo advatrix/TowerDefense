@@ -1,5 +1,9 @@
 \hypertarget{class_t_d_1_1_magic_entity}{}\doxysection{TD\+::Magic\+Entity Class Reference}
 \label{class_t_d_1_1_magic_entity}\index{TD::MagicEntity@{TD::MagicEntity}}
+
+
+{\ttfamily \#include $<$Magic\+Entity.\+h$>$}
+
 Inheritance diagram for TD\+::Magic\+Entity\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,9 +13,6 @@ Inheritance diagram for TD\+::Magic\+Entity\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_magic_entity_aae440564f006e4d30d1fdc8e91103097}\label{class_t_d_1_1_magic_entity_aae440564f006e4d30d1fdc8e91103097}} 
-void {\bfseries apply\+Effect} (\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$)
-\item 
 \mbox{\Hypertarget{class_t_d_1_1_magic_entity_af2f37bbd6a9f3f18e1b39f8484138825}\label{class_t_d_1_1_magic_entity_af2f37bbd6a9f3f18e1b39f8484138825}} 
 {\bfseries Magic\+Entity} (\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$eff)
 \item 
@@ -19,13 +20,11 @@ void {\bfseries apply\+Effect} (\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\
 {\bfseries Magic\+Entity} (\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$eff, \mbox{\hyperlink{classcustom_templates_1_1_table}{custom\+Templates\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ att)
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_magic_entity_ac5e935f3060d51ee8c0bd735a30f27c5}\label{class_t_d_1_1_magic_entity_ac5e935f3060d51ee8c0bd735a30f27c5}} 
-effect\+Type\+Enum {\bfseries get\+Effect\+Type} () const
+\mbox{\hyperlink{namespace_t_d_a1f76e246f2affffbe791fc258ab29ddf}{effect\+Type\+Enum}} {\bfseries get\+Effect\+Type} () const
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_magic_entity_aae440564f006e4d30d1fdc8e91103097}\label{class_t_d_1_1_magic_entity_aae440564f006e4d30d1fdc8e91103097}} 
-void {\bfseries apply\+Effect} (\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$)
+void \mbox{\hyperlink{class_t_d_1_1_magic_entity_a92009ee73c69e6f88795b6979fed9297}{apply\+Effect}} (\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$e)
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_magic_entity_a3e02389de65979d0cc2ac8fa0ed6628a}\label{class_t_d_1_1_magic_entity_a3e02389de65979d0cc2ac8fa0ed6628a}} 
-unsigned int {\bfseries get\+Value} () const
+unsigned int \mbox{\hyperlink{class_t_d_1_1_magic_entity_a3e02389de65979d0cc2ac8fa0ed6628a}{get\+Value}} () const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_magic_entity_a2c4fcc7a9b3245ad840152c6de5a30b3}\label{class_t_d_1_1_magic_entity_a2c4fcc7a9b3245ad840152c6de5a30b3}} 
 \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ {\bfseries get\+Effect} () const
@@ -33,23 +32,41 @@ unsigned int {\bfseries get\+Value} () const
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_magic_entity_af9f93e39b2101b25f603e314e7310f13}\label{class_t_d_1_1_magic_entity_af9f93e39b2101b25f603e314e7310f13}} 
-\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ {\bfseries effect}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_magic_entity_a55a364c1aa170ec4a48d382d6297762b}\label{class_t_d_1_1_magic_entity_a55a364c1aa170ec4a48d382d6297762b}} 
-std\+::vector$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ {\bfseries attached}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_magic_entity_a70a9abd420904b285afb4b68ca26e77a}\label{class_t_d_1_1_magic_entity_a70a9abd420904b285afb4b68ca26e77a}} 
-\mbox{\hyperlink{class_t_d_1_1_landscape}{Landscape}} $\ast$ {\bfseries land\+\_\+}
-\item 
+\mbox{\Hypertarget{class_t_d_1_1_magic_entity_a5d6b1c677941b4a07cf00706cca9a32f}\label{class_t_d_1_1_magic_entity_a5d6b1c677941b4a07cf00706cca9a32f}} 
+\mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} $\ast$ \mbox{\hyperlink{class_t_d_1_1_magic_entity_a5d6b1c677941b4a07cf00706cca9a32f}{effect}}
+\begin{DoxyCompactList}\small\item\em A pointer to the \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} this \mbox{\hyperlink{class_t_d_1_1_entity}{Entity}} applies on enemies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_t_d_1_1_magic_entity_ac3b587111ecc168677f1d5a43880cee8}\label{class_t_d_1_1_magic_entity_ac3b587111ecc168677f1d5a43880cee8}} 
-\mbox{\hyperlink{classcustom_templates_1_1_table}{custom\+Templates\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ {\bfseries attached}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classcustom_templates_1_1_table}{custom\+Templates\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ \mbox{\hyperlink{class_t_d_1_1_magic_entity_ac3b587111ecc168677f1d5a43880cee8}{attached}}
+\begin{DoxyCompactList}\small\item\em Table of the \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} pointers on which this \mbox{\hyperlink{class_t_d_1_1_magic_entity}{Magic\+Entity}} has already applied its effects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class provides polymorhism for every entity on the game that can apply magic Effects to Enemies. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_magic_entity_a92009ee73c69e6f88795b6979fed9297}\label{class_t_d_1_1_magic_entity_a92009ee73c69e6f88795b6979fed9297}} 
+\index{TD::MagicEntity@{TD::MagicEntity}!applyEffect@{applyEffect}}
+\index{applyEffect@{applyEffect}!TD::MagicEntity@{TD::MagicEntity}}
+\doxysubsubsection{\texorpdfstring{applyEffect()}{applyEffect()}}
+{\footnotesize\ttfamily void T\+D\+::\+Magic\+Entity\+::apply\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+Copies the internal \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} of the \mbox{\hyperlink{class_t_d_1_1_magic_entity}{Magic\+Entity}} instance, applies this copy to the \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} and inserts \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} pointer to \textquotesingle{}attached\textquotesingle{} table 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em e} & A pointer to the \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} to apply the \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_d_1_1_magic_entity_a3e02389de65979d0cc2ac8fa0ed6628a}\label{class_t_d_1_1_magic_entity_a3e02389de65979d0cc2ac8fa0ed6628a}} 
+\index{TD::MagicEntity@{TD::MagicEntity}!getValue@{getValue}}
+\index{getValue@{getValue}!TD::MagicEntity@{TD::MagicEntity}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily unsigned int T\+D\+::\+Magic\+Entity\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+Magnitude of the \mbox{\hyperlink{class_t_d_1_1_effect}{Effect}} 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Landscape\+\_\+.\+h\item 
-Magic\+Entity.\+h\item 
-Landscape\+\_\+.\+cpp\item 
+\mbox{\hyperlink{_magic_entity_8h}{Magic\+Entity.\+h}}\item 
 Magic\+Entity.\+cpp\end{DoxyCompactItemize}

@@ -1,5 +1,9 @@
 \hypertarget{class_t_d_1_1_strong}{}\doxysection{TD\+::Strong Class Reference}
 \label{class_t_d_1_1_strong}\index{TD::Strong@{TD::Strong}}
+
+
+{\ttfamily \#include $<$Strategy.\+h$>$}
+
 Inheritance diagram for TD\+::Strong\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,11 +13,10 @@ Inheritance diagram for TD\+::Strong\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_strong_af2d821529278c13286298ad4046100f1}\label{class_t_d_1_1_strong_af2d821529278c13286298ad4046100f1}} 
-\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ {\bfseries get\+Target} (std\+::pair$<$ double, double $>$ \&cords, double raduis) const
+\mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ \mbox{\hyperlink{class_t_d_1_1_strong_af2d821529278c13286298ad4046100f1}{get\+Target}} (std\+::pair$<$ double, double $>$ \&cords, double raduis) const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_strong_a966fccb759e79fc96bed5c788301827f}\label{class_t_d_1_1_strong_a966fccb759e79fc96bed5c788301827f}} 
-strategy\+Type\+Enum {\bfseries get\+Type} () const
+\mbox{\hyperlink{namespace_t_d_a414ab09d4b7262ea69cc0818c326badc}{strategy\+Type\+Enum}} {\bfseries get\+Type} () const
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_strong_ac073bce22aff058fcffabca856887b86}\label{class_t_d_1_1_strong_ac073bce22aff058fcffabca856887b86}} 
 {\bfseries Strong} (\mbox{\hyperlink{classcustom_templates_1_1_table}{ct\+::\+Table}}$<$ \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ $>$ $\ast$\+\_\+enemy\+Table)
@@ -21,7 +24,33 @@ strategy\+Type\+Enum {\bfseries get\+Type} () const
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+This class describes \char`\"{}\+The strongest\char`\"{} strategy 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_strong_af2d821529278c13286298ad4046100f1}\label{class_t_d_1_1_strong_af2d821529278c13286298ad4046100f1}} 
+\index{TD::Strong@{TD::Strong}!getTarget@{getTarget}}
+\index{getTarget@{getTarget}!TD::Strong@{TD::Strong}}
+\doxysubsubsection{\texorpdfstring{getTarget()}{getTarget()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} $\ast$ T\+D\+::\+Strong\+::get\+Target (\begin{DoxyParamCaption}\item[{std\+::pair$<$ double, double $>$ \&}]{cords,  }\item[{double}]{raduis }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Defines a target \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} for the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} to attack\+: \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} with the most hit points within the \mbox{\hyperlink{class_t_d_1_1_feature}{Feature}} radius of the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cords} & Cords of the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} as std\+::pair \\
+\hline
+\mbox{\texttt{ in}}  & {\em radius} & Radius of the \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}}\textquotesingle{}s \mbox{\hyperlink{class_t_d_1_1_feature}{Feature}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_t_d_1_1_enemy}{Enemy}} \mbox{\hyperlink{class_t_d_1_1_tower}{Tower}} should attack 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_t_d_1_1_strategy_ad317e499a9fb353cd8e52e6da111bb87}{T\+D\+::\+Strategy}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Strategy.\+h\item 
+\mbox{\hyperlink{_strategy_8h}{Strategy.\+h}}\item 
 Strategy.\+cpp\end{DoxyCompactItemize}

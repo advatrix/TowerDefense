@@ -65,74 +65,85 @@ $(function() {
 <div class="title">Enemy.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _ENEMY_H_</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _ENEMY_H_</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Table.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Entity.h&quot;</span></div>
+<a href="_enemy_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef _ENEMY_H_</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define _ENEMY_H_</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>ct = customTemplates;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Table.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>TD {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Entity.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">class </span>Effect;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>ct = customTemplates;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_t_d_1_1_enemy.html">   14</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_enemy.html">Enemy</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">double</span> x;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">double</span> y;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">double</span> maxHp;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">double</span> curHp;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">double</span> curSpeed;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">double</span> maxSpeed;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">double</span> dmgMultiplier;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">bool</span> alive;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">int</span> money;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Effect*&gt;</a> effects;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::string title;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">inline</span> std::string getTitle()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> title; }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">inline</span> std::pair&lt;double, double&gt; getCords()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> std::pair&lt;double, double&gt;(x, y); }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> getCurHp()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> curHp; }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">int</span> getMoney()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> money; }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> getDamageMultiplier()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dmgMultiplier; }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> getCurSpeed()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> curSpeed; }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> mulDamageMultiplier(<span class="keywordtype">double</span> v) { dmgMultiplier *= v; }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> divDamageMultiplier(<span class="keywordtype">double</span> v) { dmgMultiplier /= v; }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> mulCurrentSpeed(<span class="keywordtype">double</span> v) { curSpeed *= v; }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> divCurrentSpeed(<span class="keywordtype">double</span> v) { curSpeed /= v; }</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_t_d.html">TD</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">class </span>Effect;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_t_d_1_1_enemy.html">   20</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_enemy.html">Enemy</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">double</span> x;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">double</span> y;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">double</span> maxHp;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">double</span> curHp;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">double</span> curSpeed;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">double</span> maxSpeed;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">double</span> dmgMultiplier;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">bool</span> alive;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">int</span> money;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Effect*&gt;</a> effects;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        std::string title;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">inline</span> std::string getTitle()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> title; }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">inline</span> std::pair&lt;double, double&gt; getCords()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> std::pair&lt;double, double&gt;(x, y); }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> getCurHp()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> curHp; }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">int</span> getMoney()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> money; }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> getDamageMultiplier()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dmgMultiplier; }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> getCurSpeed()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> curSpeed; }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> mulDamageMultiplier(<span class="keywordtype">double</span> v) { dmgMultiplier *= v; }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> divDamageMultiplier(<span class="keywordtype">double</span> v) { dmgMultiplier /= v; }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>() :</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            x(-1), y(-1), maxHp(1), curHp(1), maxSpeed(0), curSpeed(0), dmgMultiplier(1), money(0), effects(),</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            title(<span class="stringliteral">&quot;empty&quot;</span>), alive(<span class="keyword">false</span>) {}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> mulCurrentSpeed(<span class="keywordtype">double</span> v) { curSpeed *= v; }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> divCurrentSpeed(<span class="keywordtype">double</span> v) { curSpeed /= v; }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>(<span class="keywordtype">double</span> _x, <span class="keywordtype">double</span> _y, <span class="keywordtype">double</span> _maxHp, <span class="keywordtype">double</span> maxSpeed, <span class="keywordtype">int</span> money, std::string&amp; title,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordtype">double</span> _curHp = -1, <span class="keywordtype">double</span> _curSpeed = -1, <span class="keywordtype">double</span> dmgMultiplier = 1, <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Effect*&gt;</a> _effects = <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Effect*&gt;</a>(), </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordtype">bool</span> isAlive = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> move(<span class="keywordtype">double</span> deltaX, <span class="keywordtype">double</span> deltaY);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> place(std::pair&lt;double, double&gt; c);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> makeDamage(<span class="keywordtype">double</span> dmg) { curHp -= (dmg * dmgMultiplier); }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> addEffect(<a class="code" href="class_t_d_1_1_effect.html">Effect</a>* e) { effects.insert(e); }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> isAlive()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> alive; }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> revive() { alive = <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> kill() { alive = <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    };</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif _ENEMY_H_</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>() :</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            x(-1), y(-1), maxHp(1), curHp(1), maxSpeed(0), curSpeed(0), dmgMultiplier(1), money(0), effects(),</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            title(<span class="stringliteral">&quot;empty&quot;</span>), alive(<span class="keyword">false</span>) {}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>(<span class="keywordtype">double</span> _x, <span class="keywordtype">double</span> _y, <span class="keywordtype">double</span> _maxHp, <span class="keywordtype">double</span> maxSpeed, <span class="keywordtype">int</span> money, std::string&amp; title,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordtype">double</span> _curHp = -1, <span class="keywordtype">double</span> _curSpeed = -1, <span class="keywordtype">double</span> dmgMultiplier = 1, <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Effect*&gt;</a> _effects = <a class="code" href="classcustom_templates_1_1_table.html">ct::Table&lt;Effect*&gt;</a>(), </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordtype">bool</span> isAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_enemy.html#af45a5213c50e02ffae5a0872da97f17d">move</a>(<span class="keywordtype">double</span> deltaX, <span class="keywordtype">double</span> deltaY);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_enemy.html#ab1ae77224fd2e4c20adad8012816dca8">place</a>(std::pair&lt;double, double&gt; c);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_t_d_1_1_enemy.html#a8ad218acec2304835dfc1c299a01c503">   76</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_enemy.html#a8ad218acec2304835dfc1c299a01c503">makeDamage</a>(<span class="keywordtype">double</span> dmg) { curHp -= (dmg * dmgMultiplier); }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_t_d_1_1_enemy.html#a15525bdc78f74d9cfb4cdd6cf2b56c42">   83</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_enemy.html#a15525bdc78f74d9cfb4cdd6cf2b56c42">addEffect</a>(<a class="code" href="class_t_d_1_1_effect.html">Effect</a>* e) { effects.insert(e); }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> isAlive()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> alive; }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_t_d_1_1_enemy.html#a5fa067802dd843fe2b178e5f73d3254b">   90</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_enemy.html#a5fa067802dd843fe2b178e5f73d3254b">revive</a>() { alive = <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="class_t_d_1_1_enemy.html#a880d6c91768fe25288d0a7e517dd5ee3">   95</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_enemy.html#a880d6c91768fe25288d0a7e517dd5ee3">kill</a>() { alive = <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    };</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif _ENEMY_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_t_d_1_1_enemy_html_a15525bdc78f74d9cfb4cdd6cf2b56c42"><div class="ttname"><a href="class_t_d_1_1_enemy.html#a15525bdc78f74d9cfb4cdd6cf2b56c42">TD::Enemy::addEffect</a></div><div class="ttdeci">void addEffect(Effect *e)</div><div class="ttdoc">Adds new effect affecting the enemy Inserts a pointer to the new effect to the enemy's effects table.</div><div class="ttdef"><b>Definition:</b> Enemy.h:83</div></div>
+<div class="ttc" id="aclass_t_d_1_1_enemy_html_af45a5213c50e02ffae5a0872da97f17d"><div class="ttname"><a href="class_t_d_1_1_enemy.html#af45a5213c50e02ffae5a0872da97f17d">TD::Enemy::move</a></div><div class="ttdeci">void move(double deltaX, double deltaY)</div><div class="ttdoc">Moves enemy in current direction Changes Enemy's cords on deltas multiplied by current enemy's speed.</div><div class="ttdef"><b>Definition:</b> Enemy.cpp:31</div></div>
 <div class="ttc" id="aclasscustom_templates_1_1_table_html"><div class="ttname"><a href="classcustom_templates_1_1_table.html">customTemplates::Table</a></div><div class="ttdef"><b>Definition:</b> Table.h:12</div></div>
-<div class="ttc" id="aclass_t_d_1_1_effect_html"><div class="ttname"><a href="class_t_d_1_1_effect.html">TD::Effect</a></div><div class="ttdef"><b>Definition:</b> Effect.h:11</div></div>
-<div class="ttc" id="aclass_t_d_1_1_enemy_html"><div class="ttname"><a href="class_t_d_1_1_enemy.html">TD::Enemy</a></div><div class="ttdef"><b>Definition:</b> Enemy.h:14</div></div>
+<div class="ttc" id="aclass_t_d_1_1_enemy_html_a880d6c91768fe25288d0a7e517dd5ee3"><div class="ttname"><a href="class_t_d_1_1_enemy.html#a880d6c91768fe25288d0a7e517dd5ee3">TD::Enemy::kill</a></div><div class="ttdeci">void kill()</div><div class="ttdef"><b>Definition:</b> Enemy.h:95</div></div>
+<div class="ttc" id="aclass_t_d_1_1_enemy_html_a5fa067802dd843fe2b178e5f73d3254b"><div class="ttname"><a href="class_t_d_1_1_enemy.html#a5fa067802dd843fe2b178e5f73d3254b">TD::Enemy::revive</a></div><div class="ttdeci">void revive()</div><div class="ttdef"><b>Definition:</b> Enemy.h:90</div></div>
+<div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div></div>
+<div class="ttc" id="aclass_t_d_1_1_effect_html"><div class="ttname"><a href="class_t_d_1_1_effect.html">TD::Effect</a></div><div class="ttdoc">Parent class that provides polymorphism for all Effects in the game.</div><div class="ttdef"><b>Definition:</b> Effect.h:18</div></div>
+<div class="ttc" id="aclass_t_d_1_1_enemy_html"><div class="ttname"><a href="class_t_d_1_1_enemy.html">TD::Enemy</a></div><div class="ttdoc">This class decribes every Enemy in the game.</div><div class="ttdef"><b>Definition:</b> Enemy.h:20</div></div>
+<div class="ttc" id="anamespace_t_d_html"><div class="ttname"><a href="namespace_t_d.html">TD</a></div><div class="ttdef"><b>Definition:</b> Building.cpp:9</div></div>
+<div class="ttc" id="aclass_t_d_1_1_enemy_html_ab1ae77224fd2e4c20adad8012816dca8"><div class="ttname"><a href="class_t_d_1_1_enemy.html#ab1ae77224fd2e4c20adad8012816dca8">TD::Enemy::place</a></div><div class="ttdeci">void place(std::pair&lt; double, double &gt; c)</div><div class="ttdef"><b>Definition:</b> Enemy.cpp:36</div></div>
+<div class="ttc" id="aclass_t_d_1_1_enemy_html_a8ad218acec2304835dfc1c299a01c503"><div class="ttname"><a href="class_t_d_1_1_enemy.html#a8ad218acec2304835dfc1c299a01c503">TD::Enemy::makeDamage</a></div><div class="ttdeci">void makeDamage(double dmg)</div><div class="ttdoc">Makes damage on the enemy Substracts dmg multiplied by dmgMultiplier from current hit points.</div><div class="ttdef"><b>Definition:</b> Enemy.h:76</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

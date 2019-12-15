@@ -65,86 +65,110 @@ $(function() {
 <div class="title">Effect.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _EFFECTS_H_</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _EFFECTS_H_</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Entity.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Enums.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Enemy.h&quot;</span></div>
+<a href="_effect_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef _EFFECTS_H_</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define _EFFECTS_H_</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>TD {</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_t_d_1_1_effect.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_effect.html">Effect</a>: <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_entity.html">Entity</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> remainedTime;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* enemy;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">bool</span> active;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> update() = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* copy() = 0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>() :</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            remainedTime((std::numeric_limits&lt;unsigned&gt;::max)()), value(0), enemy(<span class="keyword">nullptr</span>), active(<span class="keyword">false</span>){}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>(<a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* en, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> time, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> t);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_t_d_1_1_effect.html">Effect</a>() {}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getValue()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> value; }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getRemainedTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> remainedTime; }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">virtual</span> effectTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> effectTypeEnum::noEffect; }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> isActive()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> active; }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setEnemy(<a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* e) { enemy = e; }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">double</span> pc(<span class="keywordtype">double</span> v) { <span class="keywordflow">return</span> (v + 100) / 100; }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    };</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_t_d_1_1_weakness.html">   37</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_weakness.html">Weakness</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_effect.html">Effect</a> {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="class_t_d_1_1_weakness.html">Weakness</a>() : <a class="code" href="class_t_d_1_1_effect.html">Effect</a>() {}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">using</span> Effect::Effect;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Entity.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enums_8h.html">Enums.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enemy_8h.html">Enemy.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_t_d.html">TD</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_t_d_1_1_effect.html">   18</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_effect.html">Effect</a>: <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_entity.html">Entity</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_t_d_1_1_effect.html#abac4ce63501ae9c40988f975da8a4e29">   21</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_t_d_1_1_effect.html#abac4ce63501ae9c40988f975da8a4e29">remainedTime</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_t_d_1_1_effect.html#ad2273c8bb9b74e5cf4e2937c1ecbaf27">   22</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_t_d_1_1_effect.html#ad2273c8bb9b74e5cf4e2937c1ecbaf27">value</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_t_d_1_1_effect.html#a174f2cfc4fcd2a20986e2833aba5195e">   23</a></span>&#160;        <a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* <a class="code" href="class_t_d_1_1_effect.html#a174f2cfc4fcd2a20986e2833aba5195e">enemy</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">bool</span> active;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_effect.html#afdf722a46e6069b71c51f6973b08dd57">update</a>() = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* <a class="code" href="class_t_d_1_1_effect.html#a73fd2c9f8b5a0ecbb37dfa31dee79801">copy</a>() = 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>() :</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="class_t_d_1_1_effect.html#abac4ce63501ae9c40988f975da8a4e29">remainedTime</a>((std::numeric_limits&lt;unsigned&gt;::max)()), <a class="code" href="class_t_d_1_1_effect.html#ad2273c8bb9b74e5cf4e2937c1ecbaf27">value</a>(0), <a class="code" href="class_t_d_1_1_effect.html#a174f2cfc4fcd2a20986e2833aba5195e">enemy</a>(nullptr), active(false){}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>(<a class="code" href="class_t_d_1_1_enemy.html">Enemy</a>* en, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> time, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> t);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_t_d_1_1_effect.html">Effect</a>() {}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> update();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        ~<a class="code" href="class_t_d_1_1_weakness.html">Weakness</a>() {}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* copy();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">inline</span> effectTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> effectTypeEnum::weakness; }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getValue()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_t_d_1_1_effect.html#ad2273c8bb9b74e5cf4e2937c1ecbaf27">value</a>; }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getRemainedTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_t_d_1_1_effect.html#abac4ce63501ae9c40988f975da8a4e29">remainedTime</a>; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddf">effectTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddfa543fb9d86e13a9b600c3403367153dbc">effectTypeEnum::noEffect</a>; }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> isActive()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> active; }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setEnemy(Enemy* e) { <a class="code" href="class_t_d_1_1_effect.html#a174f2cfc4fcd2a20986e2833aba5195e">enemy</a> = e; }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_t_d_1_1_slowdown.html">   49</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_slowdown.html">Slowdown</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_effect.html">Effect</a> {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="class_t_d_1_1_slowdown.html">Slowdown</a>() : <a class="code" href="class_t_d_1_1_effect.html">Effect</a>() {}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">using</span> Effect::Effect;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> update();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        ~<a class="code" href="class_t_d_1_1_slowdown.html">Slowdown</a>() {}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* copy();</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_t_d_1_1_effect.html#a5abcc0812a5c7cb838bee4a62c0473fd">   54</a></span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="class_t_d_1_1_effect.html#a5abcc0812a5c7cb838bee4a62c0473fd">pc</a>(<span class="keywordtype">double</span> v) { <span class="keywordflow">return</span> (v + 100) / 100; }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    };</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">inline</span> effectTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> effectTypeEnum::slowdown; }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    };</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_t_d_1_1_poison.html">   60</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_poison.html">Poison</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_effect.html">Effect</a> {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">public</span>: </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="class_t_d_1_1_poison.html">Poison</a>() : <a class="code" href="class_t_d_1_1_effect.html">Effect</a>() {}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">using</span> Effect::Effect;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> update();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        ~<a class="code" href="class_t_d_1_1_poison.html">Poison</a>() {}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* copy();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">inline</span> effectTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> effectTypeEnum::poison; }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    };</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_t_d_1_1_weakness.html">   62</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_weakness.html">Weakness</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_effect.html">Effect</a> {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="class_t_d_1_1_weakness.html">Weakness</a>() : <a class="code" href="class_t_d_1_1_effect.html">Effect</a>() {}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">using</span> Effect::Effect;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_weakness.html#a50033d3546f74d5107517f3516956cf7">update</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        ~<a class="code" href="class_t_d_1_1_weakness.html">Weakness</a>() {}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* <a class="code" href="class_t_d_1_1_weakness.html#a8be7241f97beb9f682f8bff2d4869e62">copy</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddf">effectTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddfa21a39c607dec2f145ab9941bbd476962">effectTypeEnum::weakness</a>; }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    };</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_t_d_1_1_slowdown.html">   83</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_slowdown.html">Slowdown</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_effect.html">Effect</a> {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="class_t_d_1_1_slowdown.html">Slowdown</a>() : <a class="code" href="class_t_d_1_1_effect.html">Effect</a>() {}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">using</span> Effect::Effect;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_slowdown.html#a588c08b37a7c3151c0eca1d105db6431">update</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        ~<a class="code" href="class_t_d_1_1_slowdown.html">Slowdown</a>() {}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* <a class="code" href="class_t_d_1_1_slowdown.html#af43134fe0cea634a6d311e147f74d182">copy</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddf">effectTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddfabd511ba12e6264e52cc4b3f6b9dba22c">effectTypeEnum::slowdown</a>; }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    };</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="class_t_d_1_1_poison.html">  103</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_poison.html">Poison</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_effect.html">Effect</a> {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">public</span>: </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="class_t_d_1_1_poison.html">Poison</a>() : <a class="code" href="class_t_d_1_1_effect.html">Effect</a>() {}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keyword">using</span> Effect::Effect;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_t_d_1_1_poison.html#a57523bc4f768b55dad6ac62d9d7a6e2a">update</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        ~<a class="code" href="class_t_d_1_1_poison.html">Poison</a>() {}</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="class_t_d_1_1_effect.html">Effect</a>* <a class="code" href="class_t_d_1_1_poison.html#a4c7a2fe57910c7a568ac464bc97eeca2">copy</a>();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddf">effectTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddfaec3e9bd3ee3df06a9a8e7ab27a0d22a3">effectTypeEnum::poison</a>; }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    };</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_t_d_1_1_weakness_html"><div class="ttname"><a href="class_t_d_1_1_weakness.html">TD::Weakness</a></div><div class="ttdef"><b>Definition:</b> Effect.h:37</div></div>
-<div class="ttc" id="aclass_t_d_1_1_slowdown_html"><div class="ttname"><a href="class_t_d_1_1_slowdown.html">TD::Slowdown</a></div><div class="ttdef"><b>Definition:</b> Effect.h:49</div></div>
-<div class="ttc" id="aclass_t_d_1_1_poison_html"><div class="ttname"><a href="class_t_d_1_1_poison.html">TD::Poison</a></div><div class="ttdef"><b>Definition:</b> Effect.h:60</div></div>
-<div class="ttc" id="aclass_t_d_1_1_effect_html"><div class="ttname"><a href="class_t_d_1_1_effect.html">TD::Effect</a></div><div class="ttdef"><b>Definition:</b> Effect.h:11</div></div>
-<div class="ttc" id="aclass_t_d_1_1_enemy_html"><div class="ttname"><a href="class_t_d_1_1_enemy.html">TD::Enemy</a></div><div class="ttdef"><b>Definition:</b> Enemy.h:14</div></div>
-<div class="ttc" id="aclass_t_d_1_1_entity_html"><div class="ttname"><a href="class_t_d_1_1_entity.html">TD::Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:5</div></div>
+<div class="ttc" id="aclass_t_d_1_1_effect_html_afdf722a46e6069b71c51f6973b08dd57"><div class="ttname"><a href="class_t_d_1_1_effect.html#afdf722a46e6069b71c51f6973b08dd57">TD::Effect::update</a></div><div class="ttdeci">virtual void update()=0</div><div class="ttdoc">This function is called every game tick and updates the parameter of the effect instance....</div></div>
+<div class="ttc" id="aclass_t_d_1_1_effect_html_a5abcc0812a5c7cb838bee4a62c0473fd"><div class="ttname"><a href="class_t_d_1_1_effect.html#a5abcc0812a5c7cb838bee4a62c0473fd">TD::Effect::pc</a></div><div class="ttdeci">static double pc(double v)</div><div class="ttdef"><b>Definition:</b> Effect.h:54</div></div>
+<div class="ttc" id="anamespace_t_d_html_a1f76e246f2affffbe791fc258ab29ddfaec3e9bd3ee3df06a9a8e7ab27a0d22a3"><div class="ttname"><a href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddfaec3e9bd3ee3df06a9a8e7ab27a0d22a3">TD::poison</a></div><div class="ttdoc">Poison.</div><div class="ttdef"><b>Definition:</b> Enums.h:46</div></div>
+<div class="ttc" id="aclass_t_d_1_1_slowdown_html_a588c08b37a7c3151c0eca1d105db6431"><div class="ttname"><a href="class_t_d_1_1_slowdown.html#a588c08b37a7c3151c0eca1d105db6431">TD::Slowdown::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> Effect.cpp:24</div></div>
+<div class="ttc" id="a_enemy_8h_html"><div class="ttname"><a href="_enemy_8h.html">Enemy.h</a></div><div class="ttdoc">This file describes Enemy class.</div></div>
+<div class="ttc" id="aclass_t_d_1_1_effect_html_a174f2cfc4fcd2a20986e2833aba5195e"><div class="ttname"><a href="class_t_d_1_1_effect.html#a174f2cfc4fcd2a20986e2833aba5195e">TD::Effect::enemy</a></div><div class="ttdeci">Enemy * enemy</div><div class="ttdoc">A pointer to the enemy Effect affects. Equals to nullptr if instance is disabled.</div><div class="ttdef"><b>Definition:</b> Effect.h:23</div></div>
+<div class="ttc" id="a_enums_8h_html"><div class="ttname"><a href="_enums_8h.html">Enums.h</a></div></div>
+<div class="ttc" id="anamespace_t_d_html_a1f76e246f2affffbe791fc258ab29ddfa21a39c607dec2f145ab9941bbd476962"><div class="ttname"><a href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddfa21a39c607dec2f145ab9941bbd476962">TD::weakness</a></div><div class="ttdoc">Weakness.</div><div class="ttdef"><b>Definition:</b> Enums.h:44</div></div>
+<div class="ttc" id="aclass_t_d_1_1_weakness_html_a8be7241f97beb9f682f8bff2d4869e62"><div class="ttname"><a href="class_t_d_1_1_weakness.html#a8be7241f97beb9f682f8bff2d4869e62">TD::Weakness::copy</a></div><div class="ttdeci">Effect * copy()</div><div class="ttdef"><b>Definition:</b> Effect.cpp:43</div></div>
+<div class="ttc" id="aclass_t_d_1_1_effect_html_a73fd2c9f8b5a0ecbb37dfa31dee79801"><div class="ttname"><a href="class_t_d_1_1_effect.html#a73fd2c9f8b5a0ecbb37dfa31dee79801">TD::Effect::copy</a></div><div class="ttdeci">virtual Effect * copy()=0</div></div>
+<div class="ttc" id="aclass_t_d_1_1_slowdown_html_af43134fe0cea634a6d311e147f74d182"><div class="ttname"><a href="class_t_d_1_1_slowdown.html#af43134fe0cea634a6d311e147f74d182">TD::Slowdown::copy</a></div><div class="ttdeci">Effect * copy()</div><div class="ttdef"><b>Definition:</b> Effect.cpp:48</div></div>
+<div class="ttc" id="aclass_t_d_1_1_effect_html_ad2273c8bb9b74e5cf4e2937c1ecbaf27"><div class="ttname"><a href="class_t_d_1_1_effect.html#ad2273c8bb9b74e5cf4e2937c1ecbaf27">TD::Effect::value</a></div><div class="ttdeci">unsigned int value</div><div class="ttdoc">Value of the effect in percents of the enemy's parameter the effect affects.</div><div class="ttdef"><b>Definition:</b> Effect.h:22</div></div>
+<div class="ttc" id="aclass_t_d_1_1_effect_html_abac4ce63501ae9c40988f975da8a4e29"><div class="ttname"><a href="class_t_d_1_1_effect.html#abac4ce63501ae9c40988f975da8a4e29">TD::Effect::remainedTime</a></div><div class="ttdeci">unsigned int remainedTime</div><div class="ttdoc">Effect remaining time. Equals to maximum posiible unsigned value if effect is not active.</div><div class="ttdef"><b>Definition:</b> Effect.h:21</div></div>
+<div class="ttc" id="aclass_t_d_1_1_weakness_html"><div class="ttname"><a href="class_t_d_1_1_weakness.html">TD::Weakness</a></div><div class="ttdoc">This class describes Weakness effect Weakness affects enemy's Damage Multiplier so that the enemy wil...</div><div class="ttdef"><b>Definition:</b> Effect.h:62</div></div>
+<div class="ttc" id="aclass_t_d_1_1_weakness_html_a50033d3546f74d5107517f3516956cf7"><div class="ttname"><a href="class_t_d_1_1_weakness.html#a50033d3546f74d5107517f3516956cf7">TD::Weakness::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> Effect.cpp:12</div></div>
+<div class="ttc" id="anamespace_t_d_html_a1f76e246f2affffbe791fc258ab29ddfabd511ba12e6264e52cc4b3f6b9dba22c"><div class="ttname"><a href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddfabd511ba12e6264e52cc4b3f6b9dba22c">TD::slowdown</a></div><div class="ttdoc">Slowdown.</div><div class="ttdef"><b>Definition:</b> Enums.h:45</div></div>
+<div class="ttc" id="aclass_t_d_1_1_slowdown_html"><div class="ttname"><a href="class_t_d_1_1_slowdown.html">TD::Slowdown</a></div><div class="ttdoc">This class describes Slowdown effect Slowdown affects Enemy's speed so that the Enemy will move slowe...</div><div class="ttdef"><b>Definition:</b> Effect.h:83</div></div>
+<div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div></div>
+<div class="ttc" id="aclass_t_d_1_1_poison_html"><div class="ttname"><a href="class_t_d_1_1_poison.html">TD::Poison</a></div><div class="ttdoc">This class describes Poison effect Poison make damage on Enemy's every time update() function is call...</div><div class="ttdef"><b>Definition:</b> Effect.h:103</div></div>
+<div class="ttc" id="aclass_t_d_1_1_poison_html_a57523bc4f768b55dad6ac62d9d7a6e2a"><div class="ttname"><a href="class_t_d_1_1_poison.html#a57523bc4f768b55dad6ac62d9d7a6e2a">TD::Poison::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> Effect.cpp:36</div></div>
+<div class="ttc" id="aclass_t_d_1_1_effect_html"><div class="ttname"><a href="class_t_d_1_1_effect.html">TD::Effect</a></div><div class="ttdoc">Parent class that provides polymorphism for all Effects in the game.</div><div class="ttdef"><b>Definition:</b> Effect.h:18</div></div>
+<div class="ttc" id="anamespace_t_d_html_a1f76e246f2affffbe791fc258ab29ddf"><div class="ttname"><a href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddf">TD::effectTypeEnum</a></div><div class="ttdeci">effectTypeEnum</div><div class="ttdoc">Set of possible Effect types.</div><div class="ttdef"><b>Definition:</b> Enums.h:43</div></div>
+<div class="ttc" id="aclass_t_d_1_1_enemy_html"><div class="ttname"><a href="class_t_d_1_1_enemy.html">TD::Enemy</a></div><div class="ttdoc">This class decribes every Enemy in the game.</div><div class="ttdef"><b>Definition:</b> Enemy.h:20</div></div>
+<div class="ttc" id="anamespace_t_d_html_a1f76e246f2affffbe791fc258ab29ddfa543fb9d86e13a9b600c3403367153dbc"><div class="ttname"><a href="namespace_t_d.html#a1f76e246f2affffbe791fc258ab29ddfa543fb9d86e13a9b600c3403367153dbc">TD::noEffect</a></div><div class="ttdoc">The effect type is undefined.</div><div class="ttdef"><b>Definition:</b> Enums.h:47</div></div>
+<div class="ttc" id="anamespace_t_d_html"><div class="ttname"><a href="namespace_t_d.html">TD</a></div><div class="ttdef"><b>Definition:</b> Building.cpp:9</div></div>
+<div class="ttc" id="aclass_t_d_1_1_entity_html"><div class="ttname"><a href="class_t_d_1_1_entity.html">TD::Entity</a></div><div class="ttdoc">The very basic class of every entity of the game This class provides polymorphism to every entity tha...</div><div class="ttdef"><b>Definition:</b> Entity.h:14</div></div>
+<div class="ttc" id="aclass_t_d_1_1_poison_html_a4c7a2fe57910c7a568ac464bc97eeca2"><div class="ttname"><a href="class_t_d_1_1_poison.html#a4c7a2fe57910c7a568ac464bc97eeca2">TD::Poison::copy</a></div><div class="ttdeci">Effect * copy()</div><div class="ttdef"><b>Definition:</b> Effect.cpp:53</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,43 +1,69 @@
 \hypertarget{class_t_d_1_1_building}{}\doxysection{TD\+::Building Class Reference}
 \label{class_t_d_1_1_building}\index{TD::Building@{TD::Building}}
+
+
+Parent class for every building.  
+
+
+
+
+{\ttfamily \#include $<$Building.\+h$>$}
+
 Inheritance diagram for TD\+::Building\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=10.000000cm]{class_t_d_1_1_building}
+\includegraphics[height=4.000000cm]{class_t_d_1_1_building}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_building_a958e475e2696d8fc032f55ab1b6abd42}\label{class_t_d_1_1_building_a958e475e2696d8fc032f55ab1b6abd42}} 
-std\+::pair$<$ double, double $>$ {\bfseries get\+Cords} ()
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{class_t_d_1_1_building_a958e475e2696d8fc032f55ab1b6abd42}{get\+Cords}} ()
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_building_a7f905f8f7e1659dd93399bd7d096a659}\label{class_t_d_1_1_building_a7f905f8f7e1659dd93399bd7d096a659}} 
 {\bfseries Building} (std\+::pair$<$ double, double $>$ c)
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_building_a6bb7c7cfa42836065376d9c18e8f057f}\label{class_t_d_1_1_building_a6bb7c7cfa42836065376d9c18e8f057f}} 
-virtual building\+Type\+Enum {\bfseries get\+Type} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_building_ae8e3b433c9780efcb522c3651c6c449c}\label{class_t_d_1_1_building_ae8e3b433c9780efcb522c3651c6c449c}} 
-{\bfseries Building} (\mbox{\hyperlink{class_t_d_1_1_cell}{Cell}} $\ast$)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_building_a255c45437ab2955fde2e1f2954449bf8}\label{class_t_d_1_1_building_a255c45437ab2955fde2e1f2954449bf8}} 
-std\+::pair$<$ double, double $>$ {\bfseries cords} () const
+virtual \mbox{\hyperlink{namespace_t_d_afc697847486c1a94f27e032d3fbae69e}{building\+Type\+Enum}} \mbox{\hyperlink{class_t_d_1_1_building_a6bb7c7cfa42836065376d9c18e8f057f}{get\+Type}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_building_a800872e19704278be30dcd88f55d2518}\label{class_t_d_1_1_building_a800872e19704278be30dcd88f55d2518}} 
+\mbox{\Hypertarget{class_t_d_1_1_building_af231c9a9ee721296d5a69cb8a5727543}\label{class_t_d_1_1_building_af231c9a9ee721296d5a69cb8a5727543}} 
 std\+::pair$<$ double, double $>$ {\bfseries cords}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_building_a18026621b0678eda0e9b231c6289b4d1}\label{class_t_d_1_1_building_a18026621b0678eda0e9b231c6289b4d1}} 
-\mbox{\hyperlink{class_t_d_1_1_cell}{Cell}} $\ast$ {\bfseries cell\+\_\+}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parent class for every building. 
+
+This class is abstract, adding ability to place \mbox{\hyperlink{class_t_d_1_1_entity}{Entity}} on a cell 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_building_a958e475e2696d8fc032f55ab1b6abd42}\label{class_t_d_1_1_building_a958e475e2696d8fc032f55ab1b6abd42}} 
+\index{TD::Building@{TD::Building}!getCords@{getCords}}
+\index{getCords@{getCords}!TD::Building@{TD::Building}}
+\doxysubsubsection{\texorpdfstring{getCords()}{getCords()}}
+{\footnotesize\ttfamily std\+::pair$<$double, double$>$ T\+D\+::\+Building\+::get\+Cords (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns cords of the building as pair of x and y \begin{DoxyReturn}{Returns}
+cords of the building as std\+::pair 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_t_d_1_1_building_a6bb7c7cfa42836065376d9c18e8f057f}\label{class_t_d_1_1_building_a6bb7c7cfa42836065376d9c18e8f057f}} 
+\index{TD::Building@{TD::Building}!getType@{getType}}
+\index{getType@{getType}!TD::Building@{TD::Building}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{namespace_t_d_afc697847486c1a94f27e032d3fbae69e}{building\+Type\+Enum}} T\+D\+::\+Building\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Virtual function that returns type of the particular building. \begin{DoxyReturn}{Returns}
+building\+Type\+Enum element corresponding to the type of the building 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_t_d_1_1_castle_ae0ccec22bdf9e4ef94d351d6806f984c}{T\+D\+::\+Castle}}, \mbox{\hyperlink{class_t_d_1_1_lire_a7dcffef990da1dd58fa20e73e8a0f76a}{T\+D\+::\+Lire}}, \mbox{\hyperlink{class_t_d_1_1_trap_aeabb26b466f8fc53a07102b8fe8b0d28}{T\+D\+::\+Trap}}, \mbox{\hyperlink{class_t_d_1_1_tower_ade7e1f7a7e7c4ace75e8a4902f4d5b81}{T\+D\+::\+Tower}}, and \mbox{\hyperlink{class_t_d_1_1_magic_tower_ab0ca62ad8cfc2fdb062a26040f0fbd5f}{T\+D\+::\+Magic\+Tower}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Building.\+h\item 
-Landscape\+\_\+.\+h\item 
-Building.\+cpp\item 
-Landscape\+\_\+.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{_building_8h}{Building.\+h}}\item 
+Building.\+cpp\end{DoxyCompactItemize}

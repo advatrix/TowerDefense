@@ -1,5 +1,9 @@
 \hypertarget{class_t_d_1_1_landscape}{}\doxysection{TD\+::Landscape Class Reference}
 \label{class_t_d_1_1_landscape}\index{TD::Landscape@{TD::Landscape}}
+
+
+{\ttfamily \#include $<$Landscape.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,92 +28,53 @@ unsigned int {\bfseries get\+Width} () const
 \mbox{\Hypertarget{class_t_d_1_1_landscape_ade730f87091c449009050e9e5b831ab2}\label{class_t_d_1_1_landscape_ade730f87091c449009050e9e5b831ab2}} 
 void {\bfseries update} ()
 \item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a29fcce41c8a7abdbd2755ff4a29e830c}\label{class_t_d_1_1_landscape_a29fcce41c8a7abdbd2755ff4a29e830c}} 
-void {\bfseries set\+Castle} (\mbox{\hyperlink{class_t_d_1_1_castle}{Castle}} $\ast$c)
+void \mbox{\hyperlink{class_t_d_1_1_landscape_a29fcce41c8a7abdbd2755ff4a29e830c}{set\+Castle}} (\mbox{\hyperlink{class_t_d_1_1_castle}{Castle}} $\ast$c)
 \item 
 \mbox{\Hypertarget{class_t_d_1_1_landscape_a47837e10fb9202002c71f17b6cfc1dd0}\label{class_t_d_1_1_landscape_a47837e10fb9202002c71f17b6cfc1dd0}} 
 \mbox{\hyperlink{class_t_d_1_1_castle}{Castle}} $\ast$ {\bfseries get\+Castle} () const
 \item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_t_d_1_1_cell}{Cell}} $\ast$ $>$ $>$ \mbox{\hyperlink{class_t_d_1_1_landscape_a1d7c040c75ca60bc93b2b580b977d926}{get\+Cells}} () const
+\item 
+bool \mbox{\hyperlink{class_t_d_1_1_landscape_abee36a674baad0fa98509f9f09983552}{create\+Path}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class describes the state of the current level map 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_d_1_1_landscape_abee36a674baad0fa98509f9f09983552}\label{class_t_d_1_1_landscape_abee36a674baad0fa98509f9f09983552}} 
+\index{TD::Landscape@{TD::Landscape}!createPath@{createPath}}
+\index{createPath@{createPath}!TD::Landscape@{TD::Landscape}}
+\doxysubsubsection{\texorpdfstring{createPath()}{createPath()}}
+{\footnotesize\ttfamily bool T\+D\+::\+Landscape\+::create\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates all possible pathes from every \mbox{\hyperlink{class_t_d_1_1_lire}{Lire}} on the \mbox{\hyperlink{class_t_d_1_1_landscape}{Landscape}} to the \mbox{\hyperlink{class_t_d_1_1_castle}{Castle}}. \begin{DoxyReturn}{Returns}
+Flag showing whether path creating was successfull (true) or not (false). 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_t_d_1_1_landscape_a1d7c040c75ca60bc93b2b580b977d926}\label{class_t_d_1_1_landscape_a1d7c040c75ca60bc93b2b580b977d926}} 
-std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_t_d_1_1_cell}{Cell}} $\ast$ $>$ $>$ {\bfseries get\+Cells} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a4bed4f372eaa9ad3ad6dbc61e1f28206}\label{class_t_d_1_1_landscape_a4bed4f372eaa9ad3ad6dbc61e1f28206}} 
-bool {\bfseries create\+Path} ()
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a339ce781e46659201d77848f8d5312b9}\label{class_t_d_1_1_landscape_a339ce781e46659201d77848f8d5312b9}} 
-{\bfseries Landscape} (int level)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a746bd0c45d45a34ea7faa42d9cfbfea6}\label{class_t_d_1_1_landscape_a746bd0c45d45a34ea7faa42d9cfbfea6}} 
-unsigned int {\bfseries get\+Size} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_ac4f124043332e1402965b159be3a3f0e}\label{class_t_d_1_1_landscape_ac4f124043332e1402965b159be3a3f0e}} 
-void {\bfseries set\+Size} (int height, int width)=delete
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_ac044a5d567b9563f1e5568bf2b657660}\label{class_t_d_1_1_landscape_ac044a5d567b9563f1e5568bf2b657660}} 
-cell\+Type\+Enum {\bfseries get\+Cell\+Type} (int n, int m) const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a9c1d2c52a48e95ed0069f69f466ee73b}\label{class_t_d_1_1_landscape_a9c1d2c52a48e95ed0069f69f466ee73b}} 
-void {\bfseries set\+Cell\+Type} (int n, int m, cell\+Type\+Enum type)  throw (std\+::invalid\+\_\+argument)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_ab42ce5423531a0145445d4e0efa48aa8}\label{class_t_d_1_1_landscape_ab42ce5423531a0145445d4e0efa48aa8}} 
-bool {\bfseries check} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a5fd6a7410519650e8195727f6e6efce5}\label{class_t_d_1_1_landscape_a5fd6a7410519650e8195727f6e6efce5}} 
-unsigned int {\bfseries get\+Width} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a76af8b323db7820b3dc272ca5029012b}\label{class_t_d_1_1_landscape_a76af8b323db7820b3dc272ca5029012b}} 
-unsigned int {\bfseries get\+Height} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a23a4b0244933c10a14be3e5cdb4e1d70}\label{class_t_d_1_1_landscape_a23a4b0244933c10a14be3e5cdb4e1d70}} 
-unsigned int {\bfseries get\+Time} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_ad8f54b039aa5512ad6270ab1435e5c39}\label{class_t_d_1_1_landscape_ad8f54b039aa5512ad6270ab1435e5c39}} 
-void {\bfseries start} (int)
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_aa7df1785e345c16a50d1757e88ef1fb5}\label{class_t_d_1_1_landscape_aa7df1785e345c16a50d1757e88ef1fb5}} 
-std\+::array$<$ \mbox{\hyperlink{class_t_d_1_1_strategy}{Strategy}} $\ast$, 5 $>$ {\bfseries strategies} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_ad44698f708de8e9c2b546a150984b26f}\label{class_t_d_1_1_landscape_ad44698f708de8e9c2b546a150984b26f}} 
-std\+::array$<$ \mbox{\hyperlink{class_t_d_1_1_feature}{Feature}} $\ast$, 2 $>$ {\bfseries features} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a89a545e465b60d8c69c0bffb71522f56}\label{class_t_d_1_1_landscape_a89a545e465b60d8c69c0bffb71522f56}} 
-\mbox{\hyperlink{class_t_d_1_1_enemy_table}{Enemy\+Table}} $\ast$ {\bfseries table} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a47837e10fb9202002c71f17b6cfc1dd0}\label{class_t_d_1_1_landscape_a47837e10fb9202002c71f17b6cfc1dd0}} 
-\mbox{\hyperlink{class_t_d_1_1_castle}{Castle}} $\ast$ {\bfseries get\+Castle} () const
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a1be48b25e53f43055b25b2937257b0ca}\label{class_t_d_1_1_landscape_a1be48b25e53f43055b25b2937257b0ca}} 
-\mbox{\hyperlink{class_t_d_1_1_cell}{Cell}} $\ast$ {\bfseries get\+Cell} (int i, int j) const
-\end{DoxyCompactItemize}
-\doxysubsection*{Friends}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a3e967e16b3ce2326371ea7a441b0ffbc}\label{class_t_d_1_1_landscape_a3e967e16b3ce2326371ea7a441b0ffbc}} 
-class {\bfseries Default\+Tower}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_acfa21e50b2006da7f302581ed55cbc97}\label{class_t_d_1_1_landscape_acfa21e50b2006da7f302581ed55cbc97}} 
-class {\bfseries Near\+To\+Castle}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_af853d75d4297d3f89f1fe656e9a01440}\label{class_t_d_1_1_landscape_af853d75d4297d3f89f1fe656e9a01440}} 
-class {\bfseries Near\+To\+Tower}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_acc95ea001b268b4eef234dc1806b962d}\label{class_t_d_1_1_landscape_acc95ea001b268b4eef234dc1806b962d}} 
-class {\bfseries Strong}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_af122ec100d9075d8f3a1335dbb497236}\label{class_t_d_1_1_landscape_af122ec100d9075d8f3a1335dbb497236}} 
-class {\bfseries Weak}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_a180c938971f7364eadb749b9bd958bec}\label{class_t_d_1_1_landscape_a180c938971f7364eadb749b9bd958bec}} 
-class {\bfseries Fast}
-\item 
-\mbox{\Hypertarget{class_t_d_1_1_landscape_aba9f022bd59f44d40e316d4708c5fb97}\label{class_t_d_1_1_landscape_aba9f022bd59f44d40e316d4708c5fb97}} 
-class {\bfseries Lire}
-\end{DoxyCompactItemize}
+\index{TD::Landscape@{TD::Landscape}!getCells@{getCells}}
+\index{getCells@{getCells}!TD::Landscape@{TD::Landscape}}
+\doxysubsubsection{\texorpdfstring{getCells()}{getCells()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{class_t_d_1_1_cell}{Cell}}$\ast$$>$ $>$ T\+D\+::\+Landscape\+::get\+Cells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns two-\/dimensional vector of the \mbox{\hyperlink{class_t_d_1_1_cell}{Cell}} pointers describing cuurent map state \begin{DoxyReturn}{Returns}
+two-\/dimensional vector of the \mbox{\hyperlink{class_t_d_1_1_cell}{Cell}} pointers 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_t_d_1_1_landscape_a29fcce41c8a7abdbd2755ff4a29e830c}\label{class_t_d_1_1_landscape_a29fcce41c8a7abdbd2755ff4a29e830c}} 
+\index{TD::Landscape@{TD::Landscape}!setCastle@{setCastle}}
+\index{setCastle@{setCastle}!TD::Landscape@{TD::Landscape}}
+\doxysubsubsection{\texorpdfstring{setCastle()}{setCastle()}}
+{\footnotesize\ttfamily void T\+D\+::\+Landscape\+::set\+Castle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_t_d_1_1_castle}{Castle}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets a new pointer to the \mbox{\hyperlink{class_t_d_1_1_castle}{Castle}} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & New pointer to the \mbox{\hyperlink{class_t_d_1_1_castle}{Castle}} \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Landscape.\+h\item 
-Landscape\+\_\+.\+h\item 
-Landscape.\+cpp\item 
-Landscape\+\_\+.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{_landscape_8h}{Landscape.\+h}}\item 
+Landscape.\+cpp\end{DoxyCompactItemize}

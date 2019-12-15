@@ -8,7 +8,6 @@
 
 namespace TD {
 	Building::Building(std::pair<double, double> c) {
-		cords = c;
-		
+		cords = c;	
 	}
 }

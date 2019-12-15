@@ -10,11 +10,16 @@ void GraphicsManager::update(ct::Table<Enemy*>* enemyTable) {
 }
 
 void GraphicsManager::render() {
-	for (auto it = cells.begin(); it != cells.end(); it++)
+	   
+	for (auto it = cells.begin(); it != cells.end(); it++) {
+		(*it)->update();
 		map[(*it)->getX()][(*it)->getY()] = (*it);
+	}
 
 	for (auto it = enemies.begin(); it != enemies.end(); it++)
 		map[(*it)->getX()][(*it)->getY()] = (*it);
+
+	
 }
 
 std::ostream& operator<<(std::ostream& o, const GraphicsManager& g) {

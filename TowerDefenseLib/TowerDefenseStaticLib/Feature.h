@@ -1,16 +1,24 @@
+/**
+\file 
+This file contains implementation of Feature class
+*/
+
 #ifndef _FEATURE_H_
 #define _FEATURE_H_
 
 #include "Enums.h"
 
 namespace TD {
+	/**
+	This class decribes features of every Tower in the game
+	*/
 	class Feature {
 	private:
-		unsigned int price;
-		double radius;
-		double damage;
-		unsigned int shotSpeed;
-		unsigned int level;
+		unsigned int price; ///< The price to build a Tower with this feature or to update Tower to this feature
+		double radius; ///< Raduis in which the Tower cann attack enemies
+		double damage; ///< Damage that the Tower can make on the Enemy every shot
+		unsigned int shotSpeed; ///< The minimum possible interval between two Tower shots
+		unsigned int level; ///< Current level of the Tower (indeed, the serial number of the Feature instance)
 	public:
 		Feature(unsigned int p, double r, double d, unsigned int ss, unsigned int lvl);
 		Feature() :

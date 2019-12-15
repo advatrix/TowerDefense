@@ -65,37 +65,45 @@ $(function() {
 <div class="title">Building.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _BUILDING_H_</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _BUILDING_H_</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Entity.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Enums.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>TD {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_t_d_1_1_building.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_building.html">Building</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_entity.html">Entity</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        std::pair&lt;double, double&gt; cords;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_t_d_1_1_building.html">Building</a>() {}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">inline</span> std::pair&lt;double, double&gt; getCords() { <span class="keywordflow">return</span> cords; }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_t_d_1_1_building.html">Building</a>() : cords() {}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="class_t_d_1_1_building.html">Building</a>(std::pair&lt;double, double&gt; c);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">virtual</span> buildingTypeEnum getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> buildingTypeEnum::none; }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<a href="_building_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef _BUILDING_H_</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define _BUILDING_H_</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Entity.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enums_8h.html">Enums.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_t_d.html">TD</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_t_d_1_1_building.html">   22</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_t_d_1_1_building.html">Building</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_entity.html">Entity</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::pair&lt;double, double&gt; cords;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_t_d_1_1_building.html">Building</a>() {}</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_t_d_1_1_building.html#a958e475e2696d8fc032f55ab1b6abd42">   31</a></span>&#160;        <span class="keyword">inline</span> std::pair&lt;double, double&gt; <a class="code" href="class_t_d_1_1_building.html#a958e475e2696d8fc032f55ab1b6abd42">getCords</a>() { <span class="keywordflow">return</span> cords; }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="class_t_d_1_1_building.html">Building</a>() : cords() {}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        Building(std::pair&lt;double, double&gt; c);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_t_d_1_1_building.html#a6bb7c7cfa42836065376d9c18e8f057f">   39</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69e">buildingTypeEnum</a> <a class="code" href="class_t_d_1_1_building.html#a6bb7c7cfa42836065376d9c18e8f057f">getType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69ea241cf8823a1d157c8df68b6b4ca97f15">buildingTypeEnum::none</a>; }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    };</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_t_d_1_1_building_html"><div class="ttname"><a href="class_t_d_1_1_building.html">TD::Building</a></div><div class="ttdef"><b>Definition:</b> Building.h:11</div></div>
-<div class="ttc" id="aclass_t_d_1_1_entity_html"><div class="ttname"><a href="class_t_d_1_1_entity.html">TD::Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:5</div></div>
+<div class="ttc" id="aclass_t_d_1_1_building_html_a958e475e2696d8fc032f55ab1b6abd42"><div class="ttname"><a href="class_t_d_1_1_building.html#a958e475e2696d8fc032f55ab1b6abd42">TD::Building::getCords</a></div><div class="ttdeci">std::pair&lt; double, double &gt; getCords()</div><div class="ttdef"><b>Definition:</b> Building.h:31</div></div>
+<div class="ttc" id="anamespace_t_d_html_afc697847486c1a94f27e032d3fbae69e"><div class="ttname"><a href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69e">TD::buildingTypeEnum</a></div><div class="ttdeci">buildingTypeEnum</div><div class="ttdoc">Set of every possible building type.</div><div class="ttdef"><b>Definition:</b> Enums.h:10</div></div>
+<div class="ttc" id="a_enums_8h_html"><div class="ttname"><a href="_enums_8h.html">Enums.h</a></div></div>
+<div class="ttc" id="anamespace_t_d_html_afc697847486c1a94f27e032d3fbae69ea241cf8823a1d157c8df68b6b4ca97f15"><div class="ttname"><a href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69ea241cf8823a1d157c8df68b6b4ca97f15">TD::none</a></div><div class="ttdoc">Type of the building is undefined.</div><div class="ttdef"><b>Definition:</b> Enums.h:11</div></div>
+<div class="ttc" id="aclass_t_d_1_1_building_html_a6bb7c7cfa42836065376d9c18e8f057f"><div class="ttname"><a href="class_t_d_1_1_building.html#a6bb7c7cfa42836065376d9c18e8f057f">TD::Building::getType</a></div><div class="ttdeci">virtual buildingTypeEnum getType() const</div><div class="ttdef"><b>Definition:</b> Building.h:39</div></div>
+<div class="ttc" id="aclass_t_d_1_1_building_html"><div class="ttname"><a href="class_t_d_1_1_building.html">TD::Building</a></div><div class="ttdoc">Parent class for every building.</div><div class="ttdef"><b>Definition:</b> Building.h:22</div></div>
+<div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div></div>
+<div class="ttc" id="anamespace_t_d_html"><div class="ttname"><a href="namespace_t_d.html">TD</a></div><div class="ttdef"><b>Definition:</b> Building.cpp:9</div></div>
+<div class="ttc" id="aclass_t_d_1_1_entity_html"><div class="ttname"><a href="class_t_d_1_1_entity.html">TD::Entity</a></div><div class="ttdoc">The very basic class of every entity of the game This class provides polymorphism to every entity tha...</div><div class="ttdef"><b>Definition:</b> Entity.h:14</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

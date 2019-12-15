@@ -265,9 +265,15 @@ namespace TD {
 		FileTrap tmpFileTrap;
 		FileCastle tmpFileCastle;
 
-		unsigned int featuresCount;
+		// landscape = new Landscape();
+		Castle* c = nullptr;
+
+		size_t liresCount;
+		liresFile >> liresCount;
+
+		size_t featuresCount;
 		featuresFile >> featuresCount;
-		for (unsigned int i = 0; i < featuresCount; i++) {
+		for (unsigned i = 0; i < featuresCount; i++) {
 			featuresFile >> tmpFileFeature;
 			Feature* f = new Feature(tmpFileFeature.price, tmpFileFeature.radius, tmpFileFeature.damage,
 				tmpFileFeature.shotSpeed, tmpFileFeature.level);
@@ -292,9 +298,9 @@ namespace TD {
 					switch (tmpFileCell.building) {
 					case buildingTypeEnum::castle: {
 						castleFile >> tmpFileCastle;
-						Castle* c = new Castle(cords, tmpFileCastle.title, tmpFileCastle.curHp, tmpFileCastle.maxHp, tmpFileCastle.money);
+						c = new Castle(cords, tmpFileCastle.title, tmpFileCastle.curHp, tmpFileCastle.maxHp, tmpFileCastle.money);
 						r->build(c);
-						landscape->setCastle(c);
+						// landscape->setCastle(c);
 						break;
 					}
 					case buildingTypeEnum::lire: {
@@ -332,6 +338,8 @@ namespace TD {
 						break;
 					}
 					}
+					row.push_back(r);
+					break;
 				}
 				case cellTypeEnum::field: {
 					Field* f = new Field(tmpFileCell.x, tmpFileCell.y);
@@ -365,6 +373,7 @@ namespace TD {
 						break;
 					}
 					}
+					row.push_back(f);
 				}
 				}
 			}
@@ -382,6 +391,15 @@ namespace TD {
 		featuresFile.close();
 
 		landscape = new Landscape(cells, enemyTable);
+		landscape->setCastle(c);
+		if (!landscape->createPath()) throw std::exception("Bad level");
+
+		strategies.push_back(new NearToTower());
+		strategies.push_back(new NearToCastle());
+		strategies.push_back(new Strong());
+		strategies.push_back(new Weak());
+		strategies.push_back(new Fast());
+
 	}
 
 	void GameManager::load(unsigned int level) {
@@ -424,6 +442,12 @@ namespace TD {
 		FileTrap tmpFileTrap;
 		FileCastle tmpFileCastle;
 
+		// landscape = new Landscape();
+		Castle* c = nullptr;
+
+		size_t liresCount;
+		liresFile >> liresCount;
+
 		size_t featuresCount;
 		featuresFile >> featuresCount;
 		for (unsigned i = 0; i < featuresCount; i++) {
@@ -451,9 +475,9 @@ namespace TD {
 					switch (tmpFileCell.building) {
 					case buildingTypeEnum::castle: {
 						castleFile >> tmpFileCastle;
-						Castle* c = new Castle(cords, tmpFileCastle.title, tmpFileCastle.curHp, tmpFileCastle.maxHp, tmpFileCastle.money);
+						c = new Castle(cords, tmpFileCastle.title, tmpFileCastle.curHp, tmpFileCastle.maxHp, tmpFileCastle.money);
 						r->build(c);
-						landscape->setCastle(c);
+						// landscape->setCastle(c);
 						break;
 					}
 					case buildingTypeEnum::lire: {
@@ -491,6 +515,8 @@ namespace TD {
 						break;
 					}
 					}
+					row.push_back(r);
+					break;
 				}
 				case cellTypeEnum::field: {
 					Field* f = new Field(tmpFileCell.x, tmpFileCell.y);
@@ -524,6 +550,7 @@ namespace TD {
 						break;
 					}
 					}
+					row.push_back(f);
 				}
 				}
 			}
@@ -541,6 +568,14 @@ namespace TD {
 		featuresFile.close();
 
 		landscape = new Landscape(cells, enemyTable);
+		landscape->setCastle(c);
+		if (!landscape->createPath()) throw std::exception("Bad level");
+
+		strategies.push_back(new NearToTower());
+		strategies.push_back(new NearToCastle());
+		strategies.push_back(new Strong());
+		strategies.push_back(new Weak());
+		strategies.push_back(new Fast());
 	}
 
 

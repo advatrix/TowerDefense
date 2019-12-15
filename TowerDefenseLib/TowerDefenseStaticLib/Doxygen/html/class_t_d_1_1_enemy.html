@@ -61,20 +61,22 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>TD</b></li><li class="navelem"><a class="el" href="class_t_d_1_1_enemy.html">Enemy</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespace_t_d.html">TD</a></li><li class="navelem"><a class="el" href="class_t_d_1_1_enemy.html">Enemy</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="class_t_d_1_1_enemy-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TD::Enemy Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class decribes every <a class="el" href="class_t_d_1_1_enemy.html" title="This class decribes every Enemy in the game.">Enemy</a> in the game.  
+ <a href="class_t_d_1_1_enemy.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_enemy_8h_source.html">Enemy.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -111,108 +113,212 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>divCurrentSpeed</b> (
 <tr class="memitem:a514705a8467d8dc5d4dcd11cbaf0baa5"><td class="memItemLeft" align="right" valign="top"><a id="a514705a8467d8dc5d4dcd11cbaf0baa5"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Enemy</b> (double _x, double _y, double _maxHp, double maxSpeed, int money, std::string &amp;title, double _curHp=-1, double _curSpeed=-1, double dmgMultiplier=1, <a class="el" href="classcustom_templates_1_1_table.html">ct::Table</a>&lt; <a class="el" href="class_t_d_1_1_effect.html">Effect</a> * &gt; _effects=<a class="el" href="classcustom_templates_1_1_table.html">ct::Table</a>&lt; <a class="el" href="class_t_d_1_1_effect.html">Effect</a> * &gt;(), bool isAlive=false)</td></tr>
 <tr class="separator:a514705a8467d8dc5d4dcd11cbaf0baa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af45a5213c50e02ffae5a0872da97f17d"><td class="memItemLeft" align="right" valign="top"><a id="af45a5213c50e02ffae5a0872da97f17d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>move</b> (double deltaX, double deltaY)</td></tr>
+<tr class="memitem:af45a5213c50e02ffae5a0872da97f17d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_enemy.html#af45a5213c50e02ffae5a0872da97f17d">move</a> (double deltaX, double deltaY)</td></tr>
+<tr class="memdesc:af45a5213c50e02ffae5a0872da97f17d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves enemy in current direction Changes <a class="el" href="class_t_d_1_1_enemy.html" title="This class decribes every Enemy in the game.">Enemy</a>'s cords on deltas multiplied by current enemy's speed.  <a href="class_t_d_1_1_enemy.html#af45a5213c50e02ffae5a0872da97f17d">More...</a><br /></td></tr>
 <tr class="separator:af45a5213c50e02ffae5a0872da97f17d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1ae77224fd2e4c20adad8012816dca8"><td class="memItemLeft" align="right" valign="top"><a id="ab1ae77224fd2e4c20adad8012816dca8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>place</b> (std::pair&lt; double, double &gt; c)</td></tr>
+<tr class="memitem:ab1ae77224fd2e4c20adad8012816dca8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_enemy.html#ab1ae77224fd2e4c20adad8012816dca8">place</a> (std::pair&lt; double, double &gt; c)</td></tr>
 <tr class="separator:ab1ae77224fd2e4c20adad8012816dca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ad218acec2304835dfc1c299a01c503"><td class="memItemLeft" align="right" valign="top"><a id="a8ad218acec2304835dfc1c299a01c503"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>makeDamage</b> (double dmg)</td></tr>
+<tr class="memitem:a8ad218acec2304835dfc1c299a01c503"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_enemy.html#a8ad218acec2304835dfc1c299a01c503">makeDamage</a> (double dmg)</td></tr>
+<tr class="memdesc:a8ad218acec2304835dfc1c299a01c503"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes damage on the enemy Substracts dmg multiplied by dmgMultiplier from current hit points.  <a href="class_t_d_1_1_enemy.html#a8ad218acec2304835dfc1c299a01c503">More...</a><br /></td></tr>
 <tr class="separator:a8ad218acec2304835dfc1c299a01c503"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15525bdc78f74d9cfb4cdd6cf2b56c42"><td class="memItemLeft" align="right" valign="top"><a id="a15525bdc78f74d9cfb4cdd6cf2b56c42"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addEffect</b> (<a class="el" href="class_t_d_1_1_effect.html">Effect</a> *e)</td></tr>
+<tr class="memitem:a15525bdc78f74d9cfb4cdd6cf2b56c42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_enemy.html#a15525bdc78f74d9cfb4cdd6cf2b56c42">addEffect</a> (<a class="el" href="class_t_d_1_1_effect.html">Effect</a> *e)</td></tr>
+<tr class="memdesc:a15525bdc78f74d9cfb4cdd6cf2b56c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds new effect affecting the enemy Inserts a pointer to the new effect to the enemy's effects table.  <a href="class_t_d_1_1_enemy.html#a15525bdc78f74d9cfb4cdd6cf2b56c42">More...</a><br /></td></tr>
 <tr class="separator:a15525bdc78f74d9cfb4cdd6cf2b56c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e99e12df5831bf96cd4062aedb941a9"><td class="memItemLeft" align="right" valign="top"><a id="a8e99e12df5831bf96cd4062aedb941a9"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAlive</b> () const</td></tr>
 <tr class="separator:a8e99e12df5831bf96cd4062aedb941a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fa067802dd843fe2b178e5f73d3254b"><td class="memItemLeft" align="right" valign="top"><a id="a5fa067802dd843fe2b178e5f73d3254b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>revive</b> ()</td></tr>
+<tr class="memitem:a5fa067802dd843fe2b178e5f73d3254b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_enemy.html#a5fa067802dd843fe2b178e5f73d3254b">revive</a> ()</td></tr>
 <tr class="separator:a5fa067802dd843fe2b178e5f73d3254b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a880d6c91768fe25288d0a7e517dd5ee3"><td class="memItemLeft" align="right" valign="top"><a id="a880d6c91768fe25288d0a7e517dd5ee3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>kill</b> ()</td></tr>
+<tr class="memitem:a880d6c91768fe25288d0a7e517dd5ee3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_d_1_1_enemy.html#a880d6c91768fe25288d0a7e517dd5ee3">kill</a> ()</td></tr>
 <tr class="separator:a880d6c91768fe25288d0a7e517dd5ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8695f77982662a6fb3e035db2b7c9f60"><td class="memItemLeft" align="right" valign="top"><a id="a8695f77982662a6fb3e035db2b7c9f60"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Enemy</b> (std::string _title, double _max, double _cur, int _money, double _speed, std::vector&lt; <a class="el" href="class_t_d_1_1_effect.html">Effect</a> * &gt; _effects, double _x, double _y, <a class="el" href="class_t_d_1_1_landscape.html">Landscape</a> *land)</td></tr>
-<tr class="separator:a8695f77982662a6fb3e035db2b7c9f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040c7acd061f0952f4346926083299bd"><td class="memItemLeft" align="right" valign="top"><a id="a040c7acd061f0952f4346926083299bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>turn</b> ()</td></tr>
-<tr class="separator:a040c7acd061f0952f4346926083299bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a260f7561a1f13479b95a841fab95cad7"><td class="memItemLeft" align="right" valign="top"><a id="a260f7561a1f13479b95a841fab95cad7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>hit</b> (<a class="el" href="class_t_d_1_1_castle.html">Castle</a> *)</td></tr>
-<tr class="separator:a260f7561a1f13479b95a841fab95cad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0660c34528fc687df29b7a4a0a86ecf"><td class="memItemLeft" align="right" valign="top"><a id="ac0660c34528fc687df29b7a4a0a86ecf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getHurt</b> (double)</td></tr>
-<tr class="separator:ac0660c34528fc687df29b7a4a0a86ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab94bd125f3b3e9097604ce3bcfc4d4b2"><td class="memItemLeft" align="right" valign="top"><a id="ab94bd125f3b3e9097604ce3bcfc4d4b2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addEffect</b> (<a class="el" href="class_t_d_1_1_effect.html">Effect</a> *)</td></tr>
-<tr class="separator:ab94bd125f3b3e9097604ce3bcfc4d4b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3ed59a598f66e754733b2bffc8c8baa"><td class="memItemLeft" align="right" valign="top"><a id="ac3ed59a598f66e754733b2bffc8c8baa"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>hp</b> () const</td></tr>
-<tr class="separator:ac3ed59a598f66e754733b2bffc8c8baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff97793080b72cefdc3031f756e90bea"><td class="memItemLeft" align="right" valign="top"><a id="aff97793080b72cefdc3031f756e90bea"></a>
-std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cords</b> () const</td></tr>
-<tr class="separator:aff97793080b72cefdc3031f756e90bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8fd726160afd2e45039bd3ea38a2424"><td class="memItemLeft" align="right" valign="top"><a id="aa8fd726160afd2e45039bd3ea38a2424"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>spd</b> () const</td></tr>
-<tr class="separator:aa8fd726160afd2e45039bd3ea38a2424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf894dbd25f57bf1c85dd9ab1d0a3206"><td class="memItemLeft" align="right" valign="top"><a id="adf894dbd25f57bf1c85dd9ab1d0a3206"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCords</b> (std::pair&lt; double, double &gt;)</td></tr>
-<tr class="separator:adf894dbd25f57bf1c85dd9ab1d0a3206"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a21e74023803248e9802c0790f6e46d00"><td class="memItemLeft" align="right" valign="top"><a id="a21e74023803248e9802c0790f6e46d00"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>move</b> ()</td></tr>
-<tr class="separator:a21e74023803248e9802c0790f6e46d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e90f4a224aec1838cd452ef7b3ad6ee"><td class="memItemLeft" align="right" valign="top"><a id="a8e90f4a224aec1838cd452ef7b3ad6ee"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>calculateHp</b> ()</td></tr>
-<tr class="separator:a8e90f4a224aec1838cd452ef7b3ad6ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a038a71e93a71f2227adaaf66c880eb9d"><td class="memItemLeft" align="right" valign="top"><a id="a038a71e93a71f2227adaaf66c880eb9d"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>speed</b></td></tr>
-<tr class="separator:a038a71e93a71f2227adaaf66c880eb9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b0cfeea5b21268d29fa2874f6ec6bd8"><td class="memItemLeft" align="right" valign="top"><a id="a6b0cfeea5b21268d29fa2874f6ec6bd8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>realSpeed</b></td></tr>
-<tr class="separator:a6b0cfeea5b21268d29fa2874f6ec6bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac62b8aa3baf4115868d8ea3daac67aa7"><td class="memItemLeft" align="right" valign="top"><a id="ac62b8aa3baf4115868d8ea3daac67aa7"></a>
-<a class="el" href="class_t_d_1_1_effect_table.html">EffectTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>effects</b></td></tr>
-<tr class="separator:ac62b8aa3baf4115868d8ea3daac67aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf29834ddb818e0a4ea43aac3dd4bc0e"><td class="memItemLeft" align="right" valign="top"><a id="aaf29834ddb818e0a4ea43aac3dd4bc0e"></a>
-<a class="el" href="class_t_d_1_1_road.html">Road</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>road</b></td></tr>
-<tr class="separator:aaf29834ddb818e0a4ea43aac3dd4bc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad2679351db97593f5a34261d5645ff9"><td class="memItemLeft" align="right" valign="top"><a id="aad2679351db97593f5a34261d5645ff9"></a>
-<a class="el" href="class_t_d_1_1_landscape.html">Landscape</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>land_</b></td></tr>
-<tr class="separator:aad2679351db97593f5a34261d5645ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acacf8bc8c1437a9f54d248f8089293ac"><td class="memItemLeft" align="right" valign="top"><a id="acacf8bc8c1437a9f54d248f8089293ac"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>x_</b></td></tr>
-<tr class="separator:acacf8bc8c1437a9f54d248f8089293ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cd9ad6e151e74f37a173c9ac3feb239"><td class="memItemLeft" align="right" valign="top"><a id="a3cd9ad6e151e74f37a173c9ac3feb239"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>y_</b></td></tr>
-<tr class="separator:a3cd9ad6e151e74f37a173c9ac3feb239"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:ac8649272bb0576cc72f2486439664efe"><td class="memItemLeft" align="right" valign="top"><a id="ac8649272bb0576cc72f2486439664efe"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>Effect</b></td></tr>
-<tr class="separator:ac8649272bb0576cc72f2486439664efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d654fc6022d494c5dd9d8fd0bc653d6"><td class="memItemLeft" align="right" valign="top"><a id="a2d654fc6022d494c5dd9d8fd0bc653d6"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>Weakness</b></td></tr>
-<tr class="separator:a2d654fc6022d494c5dd9d8fd0bc653d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad220cab0d4240ec44801ade4d8a9745b"><td class="memItemLeft" align="right" valign="top"><a id="ad220cab0d4240ec44801ade4d8a9745b"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>Slowdown</b></td></tr>
-<tr class="separator:ad220cab0d4240ec44801ade4d8a9745b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15c8a0c0917fbcadce32f53bd9f70f4a"><td class="memItemLeft" align="right" valign="top"><a id="a15c8a0c0917fbcadce32f53bd9f70f4a"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>Poison</b></td></tr>
-<tr class="separator:a15c8a0c0917fbcadce32f53bd9f70f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class decribes every <a class="el" href="class_t_d_1_1_enemy.html" title="This class decribes every Enemy in the game.">Enemy</a> in the game. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a15525bdc78f74d9cfb4cdd6cf2b56c42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15525bdc78f74d9cfb4cdd6cf2b56c42">&#9670;&nbsp;</a></span>addEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TD::Enemy::addEffect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_t_d_1_1_effect.html">Effect</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds new effect affecting the enemy Inserts a pointer to the new effect to the enemy's effects table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>Pointer to the new effect </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a880d6c91768fe25288d0a7e517dd5ee3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a880d6c91768fe25288d0a7e517dd5ee3">&#9670;&nbsp;</a></span>kill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TD::Enemy::kill </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets the "alive" flag to false making enemy inactive </p>
+
+</div>
+</div>
+<a id="a8ad218acec2304835dfc1c299a01c503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad218acec2304835dfc1c299a01c503">&#9670;&nbsp;</a></span>makeDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TD::Enemy::makeDamage </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dmg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Makes damage on the enemy Substracts dmg multiplied by dmgMultiplier from current hit points. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dmg</td><td>Raw damage value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af45a5213c50e02ffae5a0872da97f17d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af45a5213c50e02ffae5a0872da97f17d">&#9670;&nbsp;</a></span>move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TD::Enemy::move </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>deltaX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>deltaY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves enemy in current direction Changes <a class="el" href="class_t_d_1_1_enemy.html" title="This class decribes every Enemy in the game.">Enemy</a>'s cords on deltas multiplied by current enemy's speed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">deltaX</td><td>direction on X axe </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deltaY</td><td>direction on Y axe </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab1ae77224fd2e4c20adad8012816dca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1ae77224fd2e4c20adad8012816dca8">&#9670;&nbsp;</a></span>place()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TD::Enemy::place </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; double, double &gt;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Places the enemy on current position on the game level </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>std::pair from x and y coordinates to place the enemy </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5fa067802dd843fe2b178e5f73d3254b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fa067802dd843fe2b178e5f73d3254b">&#9670;&nbsp;</a></span>revive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TD::Enemy::revive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets the "alive" flag to true making enemy active </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_enemy_8h_source.html">Enemy.h</a></li>
-<li><a class="el" href="_landscape___8h_source.html">Landscape_.h</a></li>
 <li>Enemy.cpp</li>
-<li>Landscape_.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

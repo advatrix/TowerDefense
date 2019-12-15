@@ -43,7 +43,8 @@ void GraphicsCell::update() {
 	case cellTypeEnum::road: {
 		Road* r = dynamic_cast<Road*>(spectationCell);
 		setBuilding(r->getBuilding());
-		if (spectationBuilding) {
+		if (r->getBuilding()) {
+			spectationBuilding = r->getBuilding();
 			switch (spectationBuilding->getType()) {
 			case buildingTypeEnum::castle:
 				setRepr('@');
@@ -71,8 +72,10 @@ void GraphicsCell::update() {
 			}
 			}
 		}
-		setRepr('=');
-		setTxtColor(LightGray);
+		else {
+			setRepr('=');
+			setTxtColor(LightGray);
+		}
 		break;
 	}
 	}

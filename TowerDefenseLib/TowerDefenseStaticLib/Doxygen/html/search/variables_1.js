@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['byte_717',['byte',['../classnlohmann_1_1detail_1_1parse__error.html#a9505aaa1ca943be927eec7cc579592ff',1,'nlohmann::detail::parse_error']]]
+  ['building_227',['building',['../struct_t_d_1_1_file_cell.html#a2db4f2b072e7616e64e4f95bc3163894',1,'TD::FileCell']]],
+  ['buildingid_228',['buildingId',['../struct_t_d_1_1_file_cell.html#a6d6601e4bd85050894e48f6e2438aaeb',1,'TD::FileCell']]]
 ];
