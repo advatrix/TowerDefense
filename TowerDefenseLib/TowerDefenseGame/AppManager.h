@@ -18,7 +18,7 @@ private:
 
 	std::vector<std::string> cellTypeMenu = { "0. Forest", "1. Road", "2. Field" };
 	std::vector<std::string> towerTypeMenu = { "0. Tower", "1. Magic Tower", "2. Trap" };
-	std::vector<std::string> effTypeMenu = { "0. Slowdown", "1. Weakness", "2. Poison" };
+	std::vector<std::string> effTypeMenu = { "0. Weakness", "1. Slowdown", "2. Poison" };
 
 	void newGame();
 	void loadGame();
@@ -46,6 +46,7 @@ public:
 		graphics = new GraphicsManager();
 	}
 
+	void displayGameState() const;
 
 
 

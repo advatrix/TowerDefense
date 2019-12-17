@@ -31,7 +31,11 @@ namespace TD {
 	void Landscape::update() {
 		if (enemyTable) {
 			for (auto it = enemyTable->begin(); it != enemyTable->end(); it++) {
-				moveEnemy(*it);
+				if ((*it)->getCurHp()) moveEnemy(*it);
+				else {
+					castle_->incHp((*it)->getMoney());
+					enemyTable->remove(*it);
+				}
 			}
 		}
 	}
@@ -39,10 +43,19 @@ namespace TD {
 	void Landscape::moveEnemy(Enemy* e) {
 		std::pair<double, double> cords = e->getCords();
 		Road* cellEnemyOn = dynamic_cast<Road*>(cells[floor(cords.first)][floor(cords.second)]);
+		if (cellEnemyOn->dist == 0) {
+			castle_->decHp(e->getCurHp());
+			enemyTable->remove(e);
+			return;
+		}
 		std::pair<double, double> target = cellEnemyOn->getNext()->cords();
-		double deltaX = abs(floor(cords.first) - target.first);
-		double deltaY = abs(floor(cords.second) - target.second);
+		double deltaX = target.first - floor(cords.first);
+		double deltaY = target.second - floor(cords.second);
 		e->move(deltaX, deltaY);
+		cords = e->getCords();
+		std::pair<double, double> cc = castle_->getCords();
+		if (floor(cords.first) == floor(cc.first) && floor(cords.second) == floor(cc.second))
+			castle_->decHp(e->getCurHp());
 		 
 	}
 

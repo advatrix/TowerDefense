@@ -27,7 +27,7 @@ namespace TD {
 
 		std::vector<Entity*> entities; ///< Vector of pointers to every Entity of the game which updates every tick
 
-		
+		size_t internalTime; ///< Number of turns since tha game started
 	public:
 
 		/**
@@ -137,7 +137,9 @@ namespace TD {
 		*/
 		inline std::vector<std::vector<Cell*>> getCells() const { return landscape->getCells(); }
 
+		inline size_t getTime() const { return internalTime; }
 
+		inline Feature* getFeature(size_t level) const { return features[level]; }
 
 	};
 }

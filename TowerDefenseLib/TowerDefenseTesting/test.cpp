@@ -611,8 +611,14 @@ TEST(_GameManager, def) {
 	auto e = game.getEnemyTable();
 	ASSERT_EQ(e->getSize(), 0);
 
+	
 }
 
+TEST(_GameManager, save_load) {
+	GameManager game;
+	game.load(1);
+	game.save();
+}
 
 
 

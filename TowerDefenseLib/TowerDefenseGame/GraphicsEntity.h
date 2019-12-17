@@ -11,7 +11,7 @@ enum Colors {
 	DarkGray, LightBlue, LightGreen, LightCyan, LightRed, LightMagenta, Yellow, White
 };
 
-
+void setFontSize(int size);
 void setColor(int txt, int bg);
 
 class GraphicsEntity

@@ -10,6 +10,7 @@ void GraphicsCell::update() {
 			case buildingTypeEnum::tower: {
 				Tower* t = dynamic_cast<Tower*>(spectationBuilding);
 				setRepr(t->getLevel() + 96);
+				setTxtColor(Black);
 				break;
 			}
 			case buildingTypeEnum::magicTower: {
@@ -32,27 +33,30 @@ void GraphicsCell::update() {
 		else {
 			setRepr('.');
 			setTxtColor(Yellow);
+			setBgColor(Yellow);
 		}
 		break;
 	}
 	case cellTypeEnum::forest: {
 		setRepr('^');
 		setTxtColor(Green);
+		setBgColor(Green);
 		break;
 	}
 	case cellTypeEnum::road: {
+		setBgColor(LightGray);
 		Road* r = dynamic_cast<Road*>(spectationCell);
 		setBuilding(r->getBuilding());
 		if (r->getBuilding()) {
 			spectationBuilding = r->getBuilding();
 			switch (spectationBuilding->getType()) {
 			case buildingTypeEnum::castle:
-				setRepr('@');
-				setTxtColor(White);
+				setRepr(219);
+				setTxtColor(Red);
 				break;
 			case buildingTypeEnum::lire:
-				setRepr('*');
-				setTxtColor(Red);
+				setRepr(176);
+				setTxtColor(Black);
 				break;
 			case buildingTypeEnum::trap: {
 				setRepr('+');

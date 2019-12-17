@@ -44,6 +44,8 @@ namespace TD {
 		inline void mulCurrentSpeed(double v) { curSpeed *= v; }
 		inline void divCurrentSpeed(double v) { curSpeed /= v; }
 
+		inline ct::Table<Effect*> getEffects() const { return effects; }
+
 
 
 

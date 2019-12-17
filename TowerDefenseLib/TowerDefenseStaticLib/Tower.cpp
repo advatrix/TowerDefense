@@ -15,8 +15,10 @@ namespace TD {
 	void Tower::update() {
 		if (lastShot > feature->getShotSpeed()) {
 			Enemy* target = strategy->getTarget(cords, feature->getRadius());
-			target->makeDamage(feature->getDamage());
-			lastShot = 0;
+			if (target) {
+				target->makeDamage(feature->getDamage());
+				lastShot = 0;
+			}
 		}
 		else lastShot++;
 	}

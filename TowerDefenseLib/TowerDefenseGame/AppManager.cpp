@@ -13,6 +13,7 @@
 using namespace TD;
 
 void AppManager::run() {
+	setFontSize(25);
 	while (true) {
 		int rc = menu(lobby);
 		switch (rc) {
@@ -212,7 +213,7 @@ void AppManager::createLevel() {
 
 	schedulesFile << static_cast<unsigned>(schedule.size()) << std::endl;
 	for (auto it = schedule.begin(); it != schedule.end(); it++) {
-		schedulesFile << static_cast<unsigned>((*it).size());
+		schedulesFile << static_cast<unsigned>((*it).size()) << std::endl;
 		for (auto jt = (*it).begin(); jt != (*it).end(); jt++) schedulesFile << (*jt);
 	}
 
@@ -229,10 +230,10 @@ void AppManager::createLevel() {
 	schedulesFile.close();
 	featuresFile.close();
 
-	std::experimental::filesystem::current_path("../");
+	//std::experimental::filesystem::current_path("../");
 	// std::experimental::filesystem::current_path("../");
-	game->load(levelName);
-	play();
+	//game->load(levelName);
+	//play();
 }
 
 void AppManager::help() {
@@ -240,7 +241,7 @@ void AppManager::help() {
 }
 
 void AppManager::loadLevel() {
-	std::string filename;
+	unsigned int filename;
 	print("input filename");
 	input(filename);
 	game->load(filename);
@@ -255,6 +256,11 @@ void AppManager::play() {
 		graphics->update(game->getEnemyTable());
 		graphics->render();
 		std::cout << *graphics;
+		displayGameState();
+		if (game->getHp() == 0) {
+			std::cout << "You lose" << std::endl;
+			return;
+		}
 		int rc = menu(gameMenu);
 		switch (rc) {
 		case 1: 
@@ -270,6 +276,11 @@ void AppManager::play() {
 	}
 }
 
+void AppManager::displayGameState() const {
+	std::cout << "Current turn: " << game->getTime() << std::endl
+		<< "LIVES: " << game->getHp() << std::endl
+		<< "MONEY: " << game->getMoney() << std::endl;
+}
 
 void AppManager::pause() {
 	while (true) {
@@ -303,16 +314,31 @@ void AppManager::save() {
 }
 
 void AppManager::upgrade() {
+	std::cout << *graphics;
 	print("input tower cords");
 	int x, y;
 	print("input x");
 	input(x);
 	print("input y");
 	input(y);
-	game->upgrade(x, y);
+	try {
+		game->upgrade(x, y);
+	}
+	catch (std::runtime_error & e) {
+		print(e.what());
+	}
 }
 
 void AppManager::build() {
+	std::cout << *graphics << std::endl;
+	std::cout << "Your money: " << game->getMoney() << std::endl;
+	Feature* f = game->getFeature(0);
+	std::cout << "TOWER" << std::endl <<
+		"PRICE: " << f->getPrice() << std::endl <<
+		"DAMAGE: " << f->getDamage() << std::endl <<
+		"RADIUS: " << f->getRadius() << std::endl <<
+		"SHOT SPEED: " << f->getShotSpeed() << std::endl;
+	std::cout << std::endl << "Magic effects cost Value multiplied by Time";
 	print("input cords");
 	int x, y;
 	print("input x");
@@ -323,7 +349,12 @@ void AppManager::build() {
 	int type = menu(towerTypeMenu);
 	switch (type) {
 	case 0:
-		game->buildTower(x, y, 1);
+		try {
+			game->buildTower(x, y, 1);
+		}
+		catch (std::runtime_error& e) {
+			print(e.what());
+		}
 		break;
 	case 1: {
 		int effType = menu(effTypeMenu);
@@ -333,16 +364,11 @@ void AppManager::build() {
 		input(value);
 		print("input time");
 		input(t);
-		switch (effType) {
-		case 0:
-			game->buildMagicTower(x, y, 1, effectTypeEnum::slowdown, value, t);
-			break;
-		case 1:
-			game->buildMagicTower(x, y, 1, effectTypeEnum::weakness, value, t);
-			break;
-		case 2:
-			game->buildMagicTower(x, y, 1, effectTypeEnum::poison, value, t);
-			break;
+		try {
+			game->buildMagicTower(x, y, 1, static_cast<effectTypeEnum>(effType), value, t);
+		}
+		catch (std::runtime_error& e) {
+			print(e.what());
 		}
 		break;
 	}
@@ -354,16 +380,11 @@ void AppManager::build() {
 		input(value);
 		print("input time");
 		input(t);
-		switch (effType) {
-		case 0:
-			game->buildTrap(x, y, effectTypeEnum::slowdown, value, t);
-			break;
-		case 1:
-			game->buildTrap(x, y, effectTypeEnum::weakness, value, t);
-			break;
-		case 2:
-			game->buildTrap(x, y, effectTypeEnum::poison, value, t);
-			break;
+		try {
+			game->buildTrap(x, y, static_cast<effectTypeEnum>(effType), value, t);
+		}
+		catch (std::runtime_error& e) {
+			print(e.what());
 		}
 		break;
 	}

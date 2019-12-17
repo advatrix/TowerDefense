@@ -16,6 +16,7 @@ namespace TD {
 		title = _title;
 		maxHp = _maxHp;
 
+
 		if (_curHp <= 0) curHp = maxHp;
 		else curHp = _curHp;
 
