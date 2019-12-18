@@ -24,7 +24,6 @@ void setFontSize(int size) {
 
 	GetCurrentConsoleFontEx(hConsole, TRUE, &fontInfo);
 
-
 	wcscpy(fontInfo.FaceName, L"Lucida Console");
 
 	fontInfo.dwFontSize.Y = size;

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tower Defense: Cell.h Source File</title>
+<title>Tower Defense: C:/Users/troja/git/TowerDefense_MagicWeapon/TowerDefenseLib/TowerDefenseStaticLib/Cell.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,6 +59,11 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_9bec7083027963d9f9ceae2cc7474de5.html">git</a></li><li class="navelem"><a class="el" href="dir_a1cefb8e835b198e7e51fdbe1d70e329.html">TowerDefense_MagicWeapon</a></li><li class="navelem"><a class="el" href="dir_efccf3270db65937d9575f22a1b875f0.html">TowerDefenseLib</a></li><li class="navelem"><a class="el" href="dir_c2104e43349ee18531c7e5a9fa1b3701.html">TowerDefenseStaticLib</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Cell.h</div>  </div>
@@ -124,34 +128,35 @@ $(function() {
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="class_t_d_1_1_road.html">Road</a>();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="class_t_d_1_1_road.html">Road</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getDist()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dist; }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">inline</span> <span class="keywordtype">bool</span> hasPath()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dist != (std::numeric_limits&lt;unsigned&gt;::max)(); }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_building.html">Building</a>* getBuilding()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> building; }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_t_d_1_1_road.html">Road</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135">cellTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135ae60f9f6e1b38b6239b18f3cf7cbe499c">cellTypeEnum::road</a>; }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_road.html">Road</a>* getNext()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> next; }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        };</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_t_d_1_1_field.html">   70</a></span>&#160;        <span class="keyword">class </span><a class="code" href="class_t_d_1_1_field.html">Field</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_cell.html">Cell</a> {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="class_t_d_1_1_tower.html">Tower</a>* tower;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordtype">void</span> build(<a class="code" href="class_t_d_1_1_tower.html">Tower</a>*) <span class="keywordflow">throw</span> (std::invalid_argument);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <a class="code" href="class_t_d_1_1_field.html">Field</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="class_t_d_1_1_field.html">Field</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            ~<a class="code" href="class_t_d_1_1_field.html">Field</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordtype">void</span> destroy();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keyword">inline</span> <span class="keywordtype">bool</span> isBuilt() { <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69eaf9aadd6d0a4e4fd5054dfa9855b42e71">tower</a>; }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_tower.html">Tower</a>* getTower()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69eaf9aadd6d0a4e4fd5054dfa9855b42e71">tower</a>; }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135">cellTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135ae0668d9f2f7c01e75788ab6c7c61bd08">cellTypeEnum::field</a>; }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        };</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">inline</span> <span class="keywordtype">bool</span> hasPath()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (dist != (std::numeric_limits&lt;unsigned&gt;::max)()) &amp;&amp;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                (dist != (std::numeric_limits&lt;int&gt;::max)()); }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_building.html">Building</a>* getBuilding()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> building; }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_t_d_1_1_landscape.html">Landscape</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_t_d_1_1_road.html">Road</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135">cellTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135ae60f9f6e1b38b6239b18f3cf7cbe499c">cellTypeEnum::road</a>; }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_road.html">Road</a>* getNext()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> next; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        };</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_t_d_1_1_field.html">   71</a></span>&#160;        <span class="keyword">class </span><a class="code" href="class_t_d_1_1_field.html">Field</a> : <span class="keyword">public</span> <a class="code" href="class_t_d_1_1_cell.html">Cell</a> {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <a class="code" href="class_t_d_1_1_tower.html">Tower</a>* tower;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordtype">void</span> build(<a class="code" href="class_t_d_1_1_tower.html">Tower</a>*) <span class="keywordflow">throw</span> (std::invalid_argument);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="class_t_d_1_1_field.html">Field</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <a class="code" href="class_t_d_1_1_field.html">Field</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            ~<a class="code" href="class_t_d_1_1_field.html">Field</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordtype">void</span> destroy();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keyword">inline</span> <span class="keywordtype">bool</span> isBuilt() { <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69eaf9aadd6d0a4e4fd5054dfa9855b42e71">tower</a>; }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keyword">inline</span> <a class="code" href="class_t_d_1_1_tower.html">Tower</a>* getTower()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69eaf9aadd6d0a4e4fd5054dfa9855b42e71">tower</a>; }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keyword">inline</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135">cellTypeEnum</a> getType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespace_t_d.html#a544e6e8629e5404053812fef830be135ae0668d9f2f7c01e75788ab6c7c61bd08">cellTypeEnum::field</a>; }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        };</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="a_building_8h_html"><div class="ttname"><a href="_building_8h.html">Building.h</a></div><div class="ttdoc">Header for Building class.</div></div>
 <div class="ttc" id="anamespace_t_d_html_afc697847486c1a94f27e032d3fbae69eaf9aadd6d0a4e4fd5054dfa9855b42e71"><div class="ttname"><a href="namespace_t_d.html#afc697847486c1a94f27e032d3fbae69eaf9aadd6d0a4e4fd5054dfa9855b42e71">TD::tower</a></div><div class="ttdoc">Default tower.</div><div class="ttdef"><b>Definition:</b> Enums.h:12</div></div>
@@ -162,7 +167,7 @@ $(function() {
 <div class="ttc" id="aclass_t_d_1_1_building_html"><div class="ttname"><a href="class_t_d_1_1_building.html">TD::Building</a></div><div class="ttdoc">Parent class for every building.</div><div class="ttdef"><b>Definition:</b> Building.h:22</div></div>
 <div class="ttc" id="anamespace_t_d_html_a544e6e8629e5404053812fef830be135ae60f9f6e1b38b6239b18f3cf7cbe499c"><div class="ttname"><a href="namespace_t_d.html#a544e6e8629e5404053812fef830be135ae60f9f6e1b38b6239b18f3cf7cbe499c">TD::road</a></div><div class="ttdoc">Road: allbuilding except Towers can be built there. Enemies can be placed only there.</div><div class="ttdef"><b>Definition:</b> Enums.h:22</div></div>
 <div class="ttc" id="anamespace_t_d_html_a544e6e8629e5404053812fef830be135a4fdd3fbbd0be3cb8c1664e4db5241e30"><div class="ttname"><a href="namespace_t_d.html#a544e6e8629e5404053812fef830be135a4fdd3fbbd0be3cb8c1664e4db5241e30">TD::forest</a></div><div class="ttdoc">Basic cell type: nothing can be built there.</div><div class="ttdef"><b>Definition:</b> Enums.h:21</div></div>
-<div class="ttc" id="aclass_t_d_1_1_field_html"><div class="ttname"><a href="class_t_d_1_1_field.html">TD::Field</a></div><div class="ttdef"><b>Definition:</b> Cell.h:70</div></div>
+<div class="ttc" id="aclass_t_d_1_1_field_html"><div class="ttname"><a href="class_t_d_1_1_field.html">TD::Field</a></div><div class="ttdef"><b>Definition:</b> Cell.h:71</div></div>
 <div class="ttc" id="aclass_t_d_1_1_road_html"><div class="ttname"><a href="class_t_d_1_1_road.html">TD::Road</a></div><div class="ttdef"><b>Definition:</b> Cell.h:28</div></div>
 <div class="ttc" id="a_tower_8h_html"><div class="ttname"><a href="_tower_8h.html">Tower.h</a></div></div>
 <div class="ttc" id="aclass_t_d_1_1_tower_html"><div class="ttname"><a href="class_t_d_1_1_tower.html">TD::Tower</a></div><div class="ttdef"><b>Definition:</b> Tower.h:17</div></div>

@@ -261,16 +261,33 @@ void AppManager::play() {
 			std::cout << "You lose" << std::endl;
 			return;
 		}
-		int rc = menu(gameMenu);
-		switch (rc) {
-		case 1: 
-			pause();
-			break;
-		case 2:
-			save();
-			return;
-		case 3:
-			return;
+		if (game->getTime() % 13 == 0 || game->getTime() == 3) {
+			for (int i = 0; i < gameMenu.size(); i++) print(gameMenu[i]);
+			std::string ans;
+			input(ans);
+			if (ans == "hesoyam" || ans == "mephi") {
+				Castle* c = game->getCastle();
+				c->setMaxHp(9000);
+				c->incHp(9000 - c->getCurHp());
+				c->incMoney(100500 - c->getMoney());
+			}
+			else if (ans == "1") pause();
+			else if (ans == "2") save();
+			else return;
+		}
+		else {
+			int rc = menu(gameMenu);
+			switch (rc) {
+			case 1:
+				pause();
+				break;
+			case 2:
+				save();
+				return;
+			case 3:
+				return;
+
+			}
 		}
 		system("CLS");
 	}
@@ -296,9 +313,22 @@ void AppManager::pause() {
 			info();
 			break;
 		case 3:
-			return;
+			setStrategy();
+			break;
+		default: return;
 		}
 	}
+}
+
+void AppManager::setStrategy() {
+	print("Input Tower's cords");
+	int x, y;
+	print("input x");
+	input(x);
+	print("input y");
+	input(y);
+	int rc = menu(strategyTypeMenu);
+	// game->setStrategy(x, y, static_cast<strategyTypeEnum>(rc));
 }
 
 int AppManager::menu(std::vector<std::string> v) {

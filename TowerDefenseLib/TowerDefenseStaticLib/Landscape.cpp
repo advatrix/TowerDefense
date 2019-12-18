@@ -33,7 +33,7 @@ namespace TD {
 			for (auto it = enemyTable->begin(); it != enemyTable->end(); it++) {
 				if ((*it)->getCurHp()) moveEnemy(*it);
 				else {
-					castle_->incHp((*it)->getMoney());
+					castle_->incMoney((*it)->getMoney());
 					enemyTable->remove(*it);
 				}
 			}

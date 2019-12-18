@@ -21,7 +21,7 @@ namespace TD {
 		landscape->update();
 		++internalTime;
 	}
-	
+
 	void GameManager::upgrade(int i, int j) {
 
 		Field* f = dynamic_cast<Field*>(landscape->getCell(i, j));
@@ -30,10 +30,10 @@ namespace TD {
 		if (!t) throw std::runtime_error("Tower is not built here");
 		unsigned int currLevel = t->getLevel();
 		if (currLevel < features.size()) {
-			if (features[currLevel-1]->getPrice() < landscape->getCastle()->getMoney())
+			if (features[currLevel - 1]->getPrice() > landscape->getCastle()->getMoney())
 				throw std::runtime_error("Not enough money");
-			t->setFeature(features[currLevel-1]);
-			landscape->getCastle()->decMoney(features[currLevel-1]->getPrice());
+			t->setFeature(features[currLevel - 1]);
+			landscape->getCastle()->decMoney(features[currLevel - 1]->getPrice());
 		}
 		else throw std::runtime_error("Impossible to upgrade");
 	}
@@ -80,7 +80,7 @@ namespace TD {
 
 	void GameManager::buildTrap(int i, int j, effectTypeEnum effType, unsigned int value, unsigned int time) {
 		if (landscape->getCell(i, j)->getType() != cellTypeEnum::road) throw std::runtime_error("invalid cell type");
-		if (features[0]->getPrice() + value * time > landscape->getCastle()->getMoney()) 
+		if (features[0]->getPrice() + value * time > landscape->getCastle()->getMoney())
 			throw std::runtime_error("Not enough money");
 		Effect* e = nullptr;
 		switch (effType) {
@@ -111,7 +111,7 @@ namespace TD {
 			Field* f = dynamic_cast<Field*>(c);
 			if (f->isBuilt()) lvl = f->getTower()->getLevel();
 
-		} 
+		}
 		c->destroy();
 		landscape->getCastle()->incMoney(ceil(features[lvl]->getPrice() * 0.8));
 		switch (c->getType()) {
@@ -119,7 +119,7 @@ namespace TD {
 			Tower* t = dynamic_cast<Field*>(c)->getTower();
 			entities.erase(std::remove(entities.begin(), entities.end(), t), entities.end());
 			break;
-		} 
+		}
 		case cellTypeEnum::road: {
 			Trap* t = dynamic_cast<Trap*>(dynamic_cast<Road*>(c)->getBuilding());
 			if (!t) throw std::runtime_error("Impossible to destroy this building");
@@ -141,7 +141,7 @@ namespace TD {
 		time_t t;
 		t = time(0);
 		std::string timename = std::to_string(t);
-		
+
 		std::experimental::filesystem::create_directory(timename);
 		std::experimental::filesystem::current_path(timename);
 
@@ -655,6 +655,13 @@ namespace TD {
 		strategies.push_back(new Fast(enemyTable));
 
 		std::experimental::filesystem::current_path("../");
+	}
+
+	void GameManager::setStrategy(int i, int j, strategyTypeEnum s) {
+		Road* r = dynamic_cast<Road*>(landscape->getCell(i, j));
+		if (!r) throw std::runtime_error("Wrong cell");
+		Tower* t = dynamic_cast<Tower*>(r->getBuilding());
+		if (!t) throw std::runtime_error("Strategy changing cannot be applied");
 	}
 
 

@@ -86,6 +86,8 @@ namespace TD {
 		*/
 		void update() {}
 
+		inline void setMaxHp(double newHp) { if (newHp > maxHp) maxHp = newHp; }
+
 		~Castle() {}
 
 	};
