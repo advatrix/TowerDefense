@@ -4,7 +4,7 @@
 
 std::ostream& operator << (std::ostream& o, const GraphicsEntity& e) {
 	setColor(e.txtColor, e.bgColor);
-	setFontSize(25);
+	// setFontSize(25);
 	o << e.repr;
 	setColor(White, Black);
 	return o;

@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 
+#include <conio.h>
+
 #include "AppManager.h"
 
 
@@ -52,7 +54,15 @@ void AppManager::loadGame() {
 	print("enter filename");
 	std::string filename;
 	input(filename);
-	game = new GameManager(filename);
+	try {
+		game = new GameManager(filename);
+	}
+	catch (std::exception & e) {
+		std::cout << "Something went wrong: " << e.what() << std::endl;
+		print("Press any key to continue");
+		getch();
+		return;
+	}
 	play();
 }
 
@@ -237,14 +247,24 @@ void AppManager::createLevel() {
 }
 
 void AppManager::help() {
-	print("not implemented yet");
+	std::cout << "This is a console version of Tower Defense Game.\n\
+		Hope you'll enjoy\n";
+	getch();
 }
 
 void AppManager::loadLevel() {
 	unsigned int filename;
-	print("input filename");
+	print("input level number");
 	input(filename);
-	game->load(filename);
+	try {
+		game->load(filename);
+	}
+	catch (std::exception& e) {
+		std::cout << "Something went wrong: " << e.what() << std::endl;
+		print("Press any key to continue");
+		getch();
+		return;
+	}
 	play();
 }
 
@@ -262,21 +282,51 @@ void AppManager::play() {
 			return;
 		}
 		if (game->getTime() % 13 == 0 || game->getTime() == 3) {
-			for (int i = 0; i < gameMenu.size(); i++) print(gameMenu[i]);
-			std::string ans;
-			input(ans);
-			if (ans == "hesoyam" || ans == "mephi") {
-				Castle* c = game->getCastle();
-				c->setMaxHp(9000);
-				c->incHp(9000 - c->getCurHp());
-				c->incMoney(100500 - c->getMoney());
+
+			for (int i = 0; i < gameMenu.size(); i++)
+				print(gameMenu[i]);
+			char rc = getch();
+			switch (rc) {
+			case '1':
+				system("CLS");
+				pause();
+				break;
+			case '2':
+				system("CLS");
+				save();
+				return;
+			case '3':
+				return;
+			case '4': {
+				std::string ans;
+				input(ans);
+				if (ans == "hesoyam" || ans == "mephi") {
+					Castle* c = game->getCastle();
+					c->setMaxHp(9000);
+					c->incHp(9000 - c->getCurHp());
+					c->incMoney(100500 - c->getMoney());
+				}
+				break;
 			}
-			else if (ans == "1") pause();
-			else if (ans == "2") save();
-			else return;
+			}
 		}
 		else {
-			int rc = menu(gameMenu);
+			for (int i = 0; i < gameMenu.size(); i++)
+				print(gameMenu[i]);
+			char rc = getch();
+			switch (rc) {
+			case '1': 
+				system("CLS");
+				pause();
+				break;
+			case '2':
+				system("CLS");
+				save();
+				return;
+			case '3':
+				return;
+			}
+			/*int rc = menu(gameMenu);
 			switch (rc) {
 			case 1:
 				pause();
@@ -288,6 +338,7 @@ void AppManager::play() {
 				return;
 
 			}
+			*/
 		}
 		system("CLS");
 	}
@@ -423,6 +474,15 @@ void AppManager::build() {
 
 void AppManager::info() const {
 	std::cout << "HP: " << game->getHp() << "\nMoney: " << game->getMoney() << std::endl;
+	print("input cell you want to get info about");
+	int x, y;
+	print("input x");
+	input(x);
+	print("input y");
+	input(y);
+	Cell* c = game->getCells()[x][y];
+	std::cout << "Type: " << c->getType() << std::endl;
+
 }
 
 

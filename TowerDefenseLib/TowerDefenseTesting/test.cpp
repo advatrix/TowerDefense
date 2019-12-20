@@ -1,5 +1,7 @@
 #include "pch.h"
 
+#include <experimental/filesystem>
+
 #include "..//TowerDefenseStaticLib/TowerDefenseLib.h"
 #include <tchar.h>
 
@@ -620,12 +622,41 @@ TEST(_GameManager, save_load) {
 	game.save();
 }
 
+TEST(_GameManager, loadException) {
+	GameManager game;
+	ASSERT_THROW(game.load(0), std::exception);
+	std::experimental::filesystem::current_path("../");
+}
 
+TEST(_GameManager, upgradeNonExistingTower) {
+	GameManager game;
+	game.load(2);
+	ASSERT_THROW(game.upgrade(4, 4), std::exception);
+	// std::experimental::filesystem::current_path("../");
+}
 
+TEST(_GameManager, upgrade) {
+	GameManager game;
+	game.load(2);
+	game.buildTower(4, 4, 1);
+	game.upgrade(4, 4);
+	ASSERT_EQ(game.getCastle()->getMoney(), 20);
+	// std::experimental::filesystem::current_path("../");
+}
 
+TEST(_GameManager, buildOnWrongCell) {
+	GameManager game;
+	game.load(2);
+	ASSERT_THROW(game.buildTower(0, 0, 1), std::runtime_error);
+	ASSERT_THROW(game.buildMagicTower(0, 0, 1, static_cast<effectTypeEnum>(1), 1, 1), std::runtime_error);
+	ASSERT_THROW(game.buildTrap(0, 0, static_cast<effectTypeEnum>(1), 1, 1), std::runtime_error);
+}
 
+TEST(_GameManager, destroyUnexisting) {
+	GameManager game;
+	game.load(2);
 
-
+}
 
 int _tmain(int argc, _TCHAR* argv[])
 {

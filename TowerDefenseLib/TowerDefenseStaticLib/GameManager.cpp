@@ -30,10 +30,10 @@ namespace TD {
 		if (!t) throw std::runtime_error("Tower is not built here");
 		unsigned int currLevel = t->getLevel();
 		if (currLevel < features.size()) {
-			if (features[currLevel - 1]->getPrice() > landscape->getCastle()->getMoney())
+			if (features[currLevel]->getPrice() > landscape->getCastle()->getMoney())
 				throw std::runtime_error("Not enough money");
-			t->setFeature(features[currLevel - 1]);
-			landscape->getCastle()->decMoney(features[currLevel - 1]->getPrice());
+			t->setFeature(features[currLevel]);
+			landscape->getCastle()->decMoney(features[currLevel]->getPrice());
 		}
 		else throw std::runtime_error("Impossible to upgrade");
 	}

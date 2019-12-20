@@ -51,6 +51,12 @@ namespace TD {
 		std::pair<double, double> target = cellEnemyOn->getNext()->cords();
 		double deltaX = target.first - floor(cords.first);
 		double deltaY = target.second - floor(cords.second);
+		if (e->getCurSpeed() > 1) {
+			std::vector<Cell*> missingCells;
+			std::pair<double, double> targetCell;
+			// просчитать клетки, который враг потенциально может проскочить
+			// и дернуть ловушки, находящиеся на них
+		}
 		e->move(deltaX, deltaY);
 		cords = e->getCords();
 		std::pair<double, double> cc = castle_->getCords();
