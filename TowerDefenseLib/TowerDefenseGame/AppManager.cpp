@@ -268,9 +268,49 @@ void AppManager::loadLevel() {
 	play();
 }
 
+void AppManager::updateGraphics() {
+	while (true) {
+		if (m.try_lock()) {
+			graphics->update(game->getEnemyTable);
+			graphics->render();
+			std::cout << *graphics;
+			displayGameState();
+
+
+
+			m.unlock();
+			if (!game->getHp()) break;
+		}
+		else {
+			// wait for unlocking for 30 milliseconds
+		}
+	}
+}
+
+void AppManager::updateGame() {
+	while (true) {
+		if (m.try_lock()) {
+			game->update();
+
+			m.unlock();	
+			if (!game->getHp()) break;
+		}
+		else {
+			//wiat for unlocking for 30 milliseconds
+		}
+	}
+}
+
 void AppManager::play() {
 	int rc;
 	graphics = new GraphicsManager(game->getCells(), game->getEnemyTable());
+
+	std::thread graphicsThread(&updateGraphics);
+	std::thread logicThread(&updateGame);
+
+	graphicsThread.join();
+	logicThread.join();
+
 	while (true) {
 		game->update();
 		graphics->update(game->getEnemyTable());
@@ -379,13 +419,20 @@ void AppManager::setStrategy() {
 	print("input y");
 	input(y);
 	int rc = menu(strategyTypeMenu);
+	try {
+		game->setStrategy(x, y, static_cast<strategyTypeEnum>(rc));
+	}
+	catch (std::exception& e) {
+		std::cout << "Impossible to change th strategy: " << e.what() << std::endl;
+	}
 	// game->setStrategy(x, y, static_cast<strategyTypeEnum>(rc));
 }
 
 int AppManager::menu(std::vector<std::string> v) {
 	for (int i = 0; i < v.size(); i++) print(v[i]);
 	int rc;
-	input(rc);
+	char c = getch();
+	rc = c - 48;
 	system("CLS");
 	return rc;
 }
@@ -482,9 +529,4 @@ void AppManager::info() const {
 	input(y);
 	Cell* c = game->getCells()[x][y];
 	std::cout << "Type: " << c->getType() << std::endl;
-
 }
-
-
-
-

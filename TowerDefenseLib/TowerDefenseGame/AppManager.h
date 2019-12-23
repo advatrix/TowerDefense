@@ -1,4 +1,8 @@
 #pragma once
+
+#include <thread>
+#include <mutex>
+
 #include "..//TowerDefenseStaticLib/TowerDefenseLib.h"
 #include "GraphicsManager.h"
 #include "iofuncs.h"
@@ -37,8 +41,13 @@ private:
 	void setStrategy();
 	void info() const;
 
+	void updateGraphics();
+	void updateGame();
+
 	void printLevelsList() {} //TODO
 	void printSavesList() {} //TODO
+
+	std::mutex m;
 
 public:
 	void run();
