@@ -1,6 +1,7 @@
 #include "pch.h"
 #include <queue>
 #include "Landscape.h"
+#include "Trap.h"
 
 
 namespace TD {
@@ -52,8 +53,23 @@ namespace TD {
 		double deltaX = target.first - floor(cords.first);
 		double deltaY = target.second - floor(cords.second);
 		if (e->getCurSpeed() > 1) {
-			std::vector<Cell*> missingCells;
-			std::pair<double, double> targetCell;
+			for (int i = 0; i < floor(e->getCurSpeed()); i++) {
+				Road* tmp = cellEnemyOn->getNext();
+				if (e->getCurSpeed() - i > 1) {
+					if (tmp->getBuilding() && tmp->getBuilding()->getType() == buildingTypeEnum::trap) {
+						Trap* t = dynamic_cast<Trap*>(tmp->getBuilding());
+						t->applyEffect(e);
+					}
+					double dx = tmp->getNext()->cords().first - e->getCords().first;
+					double dy = tmp->getNext()->cords().second - e->getCords().second;
+					e->place(std::pair<double, double>(dx, dy));
+				}
+				if (!tmp->getDist()) {
+					return;
+				}
+				cellEnemyOn = tmp;
+
+			}
 			// просчитать клетки, который враг потенциально может проскочить
 			// и дернуть ловушки, находящиеся на них
 		}

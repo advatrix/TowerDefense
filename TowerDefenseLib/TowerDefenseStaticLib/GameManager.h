@@ -141,7 +141,7 @@ namespace TD {
 
 		inline Feature* getFeature(size_t level) const { return features[level]; }
 
-		inline void setStrategy(int i, int j, strategyTypeEnum s);
+		void setStrategy(int i, int j, strategyTypeEnum s);
 
 		inline Castle* getCastle() const { return landscape->getCastle(); }
 

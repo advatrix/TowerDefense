@@ -662,6 +662,7 @@ namespace TD {
 		if (!r) throw std::runtime_error("Wrong cell");
 		Tower* t = dynamic_cast<Tower*>(r->getBuilding());
 		if (!t) throw std::runtime_error("Strategy changing cannot be applied");
+		t->setStrategy(strategies[s]);
 	}
 
 

@@ -5,7 +5,11 @@
 #include <vector>
 #include <string>
 
+#include <chrono>
+
 #include <conio.h>
+
+#include <Windows.h>
 
 #include "AppManager.h"
 
@@ -271,18 +275,29 @@ void AppManager::loadLevel() {
 void AppManager::updateGraphics() {
 	while (true) {
 		if (m.try_lock()) {
-			graphics->update(game->getEnemyTable);
+			graphics->update(game->getEnemyTable());
 			graphics->render();
 			std::cout << *graphics;
 			displayGameState();
 
-
-
+			if (kbhit()) {
+				switch (getch()) {
+				case 'p': {
+					pause();
+					break;
+				}
+				case 'q': {
+					save();
+					return;
+				}
+				}
+			}
+			system("CLS");
 			m.unlock();
 			if (!game->getHp()) break;
 		}
 		else {
-			// wait for unlocking for 30 milliseconds
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		}
 	}
 }
@@ -293,10 +308,10 @@ void AppManager::updateGame() {
 			game->update();
 
 			m.unlock();	
-			if (!game->getHp()) break;
+			if (!game->getHp()) return;
 		}
 		else {
-			//wiat for unlocking for 30 milliseconds
+			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
 	}
 }
@@ -305,12 +320,13 @@ void AppManager::play() {
 	int rc;
 	graphics = new GraphicsManager(game->getCells(), game->getEnemyTable());
 
-	std::thread graphicsThread(&updateGraphics);
-	std::thread logicThread(&updateGame);
+	std::thread graphicsThread(&AppManager::updateGraphics, this);
+	std::thread logicThread(&AppManager::updateGame, this);
+
 
 	graphicsThread.join();
 	logicThread.join();
-
+	/*
 	while (true) {
 		game->update();
 		graphics->update(game->getEnemyTable());
@@ -378,10 +394,11 @@ void AppManager::play() {
 				return;
 
 			}
-			*/
+			*//*
 		}
 		system("CLS");
 	}
+	*/
 }
 
 void AppManager::displayGameState() const {

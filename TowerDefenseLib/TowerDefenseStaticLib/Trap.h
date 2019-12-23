@@ -31,6 +31,8 @@ namespace TD {
 		void update();
 		buildingTypeEnum getType() const { return buildingTypeEnum::trap; }
 
+		inline void applyEffect(Enemy* e) { e->addEffect(effect->copy()); }
+
 	};
 }
 
