@@ -29,7 +29,7 @@ namespace TD {
 	}
 
 	void Landscape::update() {
-		if (enemyTable) {
+		if (enemyTable && enemyTable->getSize()) {
 			for (auto it = enemyTable->begin(); it != enemyTable->end(); it++) {
 				if ((*it)->getCurHp()) moveEnemy(*it);
 				else {

@@ -20,11 +20,6 @@ public:
 
     void startGame();
 
-private:
-    Ui::GameWindow *ui;
-    unsigned int levelName;
-    TD::GameManager* game;
-
     QGridLayout* gridLayout = new QGridLayout();
 
     Map* map = new Map;
@@ -33,6 +28,16 @@ private:
 
     void setAllConnects();
     void configureInterfaces();
+
+
+private:
+    Ui::GameWindow *ui;
+    unsigned int levelName;
+    TD::GameManager* game;
+
+    void configureLayout();
+
+
 
 
 };

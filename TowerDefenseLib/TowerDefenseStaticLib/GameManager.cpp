@@ -487,6 +487,7 @@ namespace TD {
 
 		std::vector<std::vector<Cell*>> cells;
 
+		
 		/*
 		std::vector<std::vector<FileCell>> fileCells;
 		FileCastle fileCastle;
@@ -647,6 +648,8 @@ namespace TD {
 		landscape = new Landscape(cells, enemyTable);
 		landscape->setCastle(c);
 		if (!landscape->createPath()) throw std::exception("Bad level");
+
+		
 
 		strategies.push_back(new NearToTower(enemyTable));
 		strategies.push_back(new NearToCastle(enemyTable, c->getCords()));
