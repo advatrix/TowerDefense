@@ -1,3 +1,4 @@
+// #include "..\TowerDefenseGUI\AppManager.h"
 #include <filesystem>
 #include <experimental/filesystem>
 #include <iostream>
@@ -34,6 +35,8 @@ void AppManager::run() {
 		system("CLS");
 	}
 }
+
+
 
 void AppManager::newGame() {
 	print("Starting a new game");

@@ -2,7 +2,8 @@
 #define GAMEWINDOW_H
 
 #include <QMainWindow>
-#include "../../TowerDefenseLib/TowerDefenseStaticLib/TowerDefenseLib.h"
+#include <QGridLayout>
+#include "Lib/TowerDefenseLib.h"
 
 namespace Ui {
 class GameWindow;
@@ -23,6 +24,17 @@ private:
     Ui::GameWindow *ui;
     unsigned int levelName;
     TD::GameManager* game;
+
+    QGridLayout* gridLayout = new QGridLayout();
+
+    Map* map = new Map;
+    InterfaceRight* interfaceRight;
+    InterfaceBottom* interfaceBottom;
+
+    void setAllConnects();
+    void configureInterfaces();
+
+
 };
 
 #endif // GAMEWINDOW_H

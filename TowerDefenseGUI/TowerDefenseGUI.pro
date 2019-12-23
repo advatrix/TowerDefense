@@ -2,7 +2,8 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++11 \
+    warn_off
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -16,6 +17,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Lib/Building.cpp \
+    Lib/Castle.cpp \
+    Lib/Cell.cpp \
+    Lib/Effect.cpp \
+    Lib/Enemy.cpp \
+    Lib/Feature.cpp \
+    Lib/FileStructs.cpp \
+    Lib/GameManager.cpp \
+    Lib/Landscape.cpp \
+    Lib/Lire.cpp \
+    Lib/MagicEntity.cpp \
+    Lib/MagicTower.cpp \
+    Lib/Strategy.cpp \
+    Lib/Tower.cpp \
+    Lib/TowerDefenseStaticLib.cpp \
+    Lib/Trap.cpp \
+    Lib/pch.cpp \
     about.cpp \
     gamewindow.cpp \
     levelchoicewindow.cpp \
@@ -24,6 +42,27 @@ SOURCES += \
     startoptionswindow.cpp
 
 HEADERS += \
+    Lib/Building.h \
+    Lib/Castle.h \
+    Lib/Cell.h \
+    Lib/Effect.h \
+    Lib/Enemy.h \
+    Lib/Entity.h \
+    Lib/Enums.h \
+    Lib/Feature.h \
+    Lib/FileStructs.h \
+    Lib/GameManager.h \
+    Lib/Landscape.h \
+    Lib/Lire.h \
+    Lib/MagicEntity.h \
+    Lib/MagicTower.h \
+    Lib/Strategy.h \
+    Lib/Table.h \
+    Lib/Tower.h \
+    Lib/TowerDefenseLib.h \
+    Lib/Trap.h \
+    Lib/framework.h \
+    Lib/pch.h \
     about.h \
     gamewindow.h \
     levelchoicewindow.h \

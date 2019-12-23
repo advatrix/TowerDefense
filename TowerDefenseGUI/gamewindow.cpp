@@ -24,10 +24,11 @@ void GameWindow::startGame() {
     QGridLayout* grid = new QGridLayout;
 
 
-    for (int i = 0; i < game->getCells().size(); i++) {
-        for (int j = 0; j < game->getCells()[0].size(); j++)
+    for (size_t i = 0; i < game->getCells().size(); i++) {
+        for (size_t j = 0; j < game->getCells()[0].size(); j++)
         {
             grid->addWidget(new QLabel("A", this), i, j);
+
 
         }
     }

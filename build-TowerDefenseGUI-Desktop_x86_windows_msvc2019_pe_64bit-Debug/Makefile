@@ -245,9 +245,9 @@ Makefile: ..\TowerDefenseGUI\TowerDefenseGUI.pro C:\Qt\5.12.6\msvc2015_64\mkspec
 		C:\Qt\5.12.6\msvc2015_64\mkspecs\features\resolve_config.prf \
 		C:\Qt\5.12.6\msvc2015_64\mkspecs\features\exclusive_builds_post.prf \
 		C:\Qt\5.12.6\msvc2015_64\mkspecs\features\default_post.prf \
+		C:\Qt\5.12.6\msvc2015_64\mkspecs\features\warn_off.prf \
 		C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qml_debug.prf \
 		C:\Qt\5.12.6\msvc2015_64\mkspecs\features\precompile_header.prf \
-		C:\Qt\5.12.6\msvc2015_64\mkspecs\features\warn_on.prf \
 		C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qt.prf \
 		C:\Qt\5.12.6\msvc2015_64\mkspecs\features\resources.prf \
 		C:\Qt\5.12.6\msvc2015_64\mkspecs\features\moc.prf \
@@ -434,9 +434,9 @@ C:\Qt\5.12.6\msvc2015_64\mkspecs\features\win32\default_pre.prf:
 C:\Qt\5.12.6\msvc2015_64\mkspecs\features\resolve_config.prf:
 C:\Qt\5.12.6\msvc2015_64\mkspecs\features\exclusive_builds_post.prf:
 C:\Qt\5.12.6\msvc2015_64\mkspecs\features\default_post.prf:
+C:\Qt\5.12.6\msvc2015_64\mkspecs\features\warn_off.prf:
 C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qml_debug.prf:
 C:\Qt\5.12.6\msvc2015_64\mkspecs\features\precompile_header.prf:
-C:\Qt\5.12.6\msvc2015_64\mkspecs\features\warn_on.prf:
 C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qt.prf:
 C:\Qt\5.12.6\msvc2015_64\mkspecs\features\resources.prf:
 C:\Qt\5.12.6\msvc2015_64\mkspecs\features\moc.prf:

@@ -14,8 +14,8 @@ EQ            = =
 CC            = cl
 CXX           = cl
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
-CFLAGS        = -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zi -MDd -W3 -w44456 -w44457 -w44458 /Fddebug\TowerDefenseGUI.vc.pdb $(DEFINES)
-CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc /Fddebug\TowerDefenseGUI.vc.pdb $(DEFINES)
+CFLAGS        = -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zi -MDd -W0 /Fddebug\TowerDefenseGUI.vc.pdb $(DEFINES)
+CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W0 -EHsc /Fddebug\TowerDefenseGUI.vc.pdb $(DEFINES)
 INCPATH       = -I..\TowerDefenseGUI -I. -IC:\Qt\5.12.6\msvc2015_64\include -IC:\Qt\5.12.6\msvc2015_64\include\QtWidgets -IC:\Qt\5.12.6\msvc2015_64\include\QtGui -IC:\Qt\5.12.6\msvc2015_64\include\QtANGLE -IC:\Qt\5.12.6\msvc2015_64\include\QtCore -Idebug -I. -I/include -IC:\Qt\5.12.6\msvc2015_64\mkspecs\win32-msvc 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /DEBUG /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
@@ -47,7 +47,24 @@ OBJECTS_DIR   = debug
 
 ####### Files
 
-SOURCES       = ..\TowerDefenseGUI\about.cpp \
+SOURCES       = ..\TowerDefenseGUI\Lib\Building.cpp \
+		..\TowerDefenseGUI\Lib\Castle.cpp \
+		..\TowerDefenseGUI\Lib\Cell.cpp \
+		..\TowerDefenseGUI\Lib\Effect.cpp \
+		..\TowerDefenseGUI\Lib\Enemy.cpp \
+		..\TowerDefenseGUI\Lib\Feature.cpp \
+		..\TowerDefenseGUI\Lib\FileStructs.cpp \
+		..\TowerDefenseGUI\Lib\GameManager.cpp \
+		..\TowerDefenseGUI\Lib\Landscape.cpp \
+		..\TowerDefenseGUI\Lib\Lire.cpp \
+		..\TowerDefenseGUI\Lib\MagicEntity.cpp \
+		..\TowerDefenseGUI\Lib\MagicTower.cpp \
+		..\TowerDefenseGUI\Lib\Strategy.cpp \
+		..\TowerDefenseGUI\Lib\Tower.cpp \
+		..\TowerDefenseGUI\Lib\TowerDefenseStaticLib.cpp \
+		..\TowerDefenseGUI\Lib\Trap.cpp \
+		..\TowerDefenseGUI\Lib\pch.cpp \
+		..\TowerDefenseGUI\about.cpp \
 		..\TowerDefenseGUI\gamewindow.cpp \
 		..\TowerDefenseGUI\levelchoicewindow.cpp \
 		..\TowerDefenseGUI\main.cpp \
@@ -57,7 +74,24 @@ SOURCES       = ..\TowerDefenseGUI\about.cpp \
 		debug\moc_levelchoicewindow.cpp \
 		debug\moc_mainwindow.cpp \
 		debug\moc_startoptionswindow.cpp
-OBJECTS       = debug\about.obj \
+OBJECTS       = debug\Building.obj \
+		debug\Castle.obj \
+		debug\Cell.obj \
+		debug\Effect.obj \
+		debug\Enemy.obj \
+		debug\Feature.obj \
+		debug\FileStructs.obj \
+		debug\GameManager.obj \
+		debug\Landscape.obj \
+		debug\Lire.obj \
+		debug\MagicEntity.obj \
+		debug\MagicTower.obj \
+		debug\Strategy.obj \
+		debug\Tower.obj \
+		debug\TowerDefenseStaticLib.obj \
+		debug\Trap.obj \
+		debug\pch.obj \
+		debug\about.obj \
 		debug\gamewindow.obj \
 		debug\levelchoicewindow.obj \
 		debug\main.obj \
@@ -70,11 +104,49 @@ OBJECTS       = debug\about.obj \
 		debug\moc_startoptionswindow.obj
 
 DIST          = GameField.qml \
-		GameFieldForm.ui.qml ..\TowerDefenseGUI\about.h \
+		GameFieldForm.ui.qml ..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Castle.h \
+		..\TowerDefenseGUI\Lib\Cell.h \
+		..\TowerDefenseGUI\Lib\Effect.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Feature.h \
+		..\TowerDefenseGUI\Lib\FileStructs.h \
+		..\TowerDefenseGUI\Lib\GameManager.h \
+		..\TowerDefenseGUI\Lib\Landscape.h \
+		..\TowerDefenseGUI\Lib\Lire.h \
+		..\TowerDefenseGUI\Lib\MagicEntity.h \
+		..\TowerDefenseGUI\Lib\MagicTower.h \
+		..\TowerDefenseGUI\Lib\Strategy.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\Tower.h \
+		..\TowerDefenseGUI\Lib\TowerDefenseLib.h \
+		..\TowerDefenseGUI\Lib\Trap.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\about.h \
 		..\TowerDefenseGUI\gamewindow.h \
 		..\TowerDefenseGUI\levelchoicewindow.h \
 		..\TowerDefenseGUI\mainwindow.h \
-		..\TowerDefenseGUI\startoptionswindow.h ..\TowerDefenseGUI\about.cpp \
+		..\TowerDefenseGUI\startoptionswindow.h ..\TowerDefenseGUI\Lib\Building.cpp \
+		..\TowerDefenseGUI\Lib\Castle.cpp \
+		..\TowerDefenseGUI\Lib\Cell.cpp \
+		..\TowerDefenseGUI\Lib\Effect.cpp \
+		..\TowerDefenseGUI\Lib\Enemy.cpp \
+		..\TowerDefenseGUI\Lib\Feature.cpp \
+		..\TowerDefenseGUI\Lib\FileStructs.cpp \
+		..\TowerDefenseGUI\Lib\GameManager.cpp \
+		..\TowerDefenseGUI\Lib\Landscape.cpp \
+		..\TowerDefenseGUI\Lib\Lire.cpp \
+		..\TowerDefenseGUI\Lib\MagicEntity.cpp \
+		..\TowerDefenseGUI\Lib\MagicTower.cpp \
+		..\TowerDefenseGUI\Lib\Strategy.cpp \
+		..\TowerDefenseGUI\Lib\Tower.cpp \
+		..\TowerDefenseGUI\Lib\TowerDefenseStaticLib.cpp \
+		..\TowerDefenseGUI\Lib\Trap.cpp \
+		..\TowerDefenseGUI\Lib\pch.cpp \
+		..\TowerDefenseGUI\about.cpp \
 		..\TowerDefenseGUI\gamewindow.cpp \
 		..\TowerDefenseGUI\levelchoicewindow.cpp \
 		..\TowerDefenseGUI\main.cpp \
@@ -149,6 +221,26 @@ DESTDIR_TARGET = debug\TowerDefenseGUI.exe
 	$<
 <<
 
+{..\TowerDefenseGUI\Lib}.cpp{debug\}.obj::
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\ @<<
+	$<
+<<
+
+{..\TowerDefenseGUI\Lib}.cc{debug\}.obj::
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\ @<<
+	$<
+<<
+
+{..\TowerDefenseGUI\Lib}.cxx{debug\}.obj::
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\ @<<
+	$<
+<<
+
+{..\TowerDefenseGUI\Lib}.c{debug\}.obj::
+	$(CC) -c $(CFLAGS) $(INCPATH) -Fodebug\ @<<
+	$<
+<<
+
 ####### Build rules
 
 first: all
@@ -156,7 +248,7 @@ all: Makefile.Debug  debug\TowerDefenseGUI.exe
 
 debug\TowerDefenseGUI.exe: C:\Qt\5.12.6\msvc2015_64\lib\Qt5Widgetsd.lib C:\Qt\5.12.6\msvc2015_64\lib\Qt5Guid.lib C:\Qt\5.12.6\msvc2015_64\lib\Qt5Cored.lib C:\Qt\5.12.6\msvc2015_64\lib\qtmaind.lib ui_about.h ui_gamewindow.h ui_levelchoicewindow.h ui_mainwindow.h ui_startoptionswindow.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) /MANIFEST:embed /OUT:$(DESTDIR_TARGET) @<<
-debug\about.obj debug\gamewindow.obj debug\levelchoicewindow.obj debug\main.obj debug\mainwindow.obj debug\startoptionswindow.obj debug\moc_about.obj debug\moc_gamewindow.obj debug\moc_levelchoicewindow.obj debug\moc_mainwindow.obj debug\moc_startoptionswindow.obj
+debug\Building.obj debug\Castle.obj debug\Cell.obj debug\Effect.obj debug\Enemy.obj debug\Feature.obj debug\FileStructs.obj debug\GameManager.obj debug\Landscape.obj debug\Lire.obj debug\MagicEntity.obj debug\MagicTower.obj debug\Strategy.obj debug\Tower.obj debug\TowerDefenseStaticLib.obj debug\Trap.obj debug\pch.obj debug\about.obj debug\gamewindow.obj debug\levelchoicewindow.obj debug\main.obj debug\mainwindow.obj debug\startoptionswindow.obj debug\moc_about.obj debug\moc_gamewindow.obj debug\moc_levelchoicewindow.obj debug\moc_mainwindow.obj debug\moc_startoptionswindow.obj
 $(LIBS)
 <<
 
@@ -166,10 +258,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) TowerDefenseGUI.zip $(SOURCES) $(DIST) ..\TowerDefenseGUI\TowerDefenseGUI.pro C:\Qt\5.12.6\msvc2015_64\mkspecs\features\spec_pre.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\common\angle.conf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\common\windows-vulkan.conf C:\Qt\5.12.6\msvc2015_64\mkspecs\common\msvc-desktop.conf C:\Qt\5.12.6\msvc2015_64\mkspecs\qconfig.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3drender.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_charts.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_core.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_datavisualization.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_datavisualization_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_help.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_location.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_location_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_network.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_networkauth.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_networkauth_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_purchasing.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_purchasing_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_remoteobjects.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_remoteobjects_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_repparser.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_repparser_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_script.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_script_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_scxml.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_virtualkeyboard.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_virtualkeyboard_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_vulkan_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_webview.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_webview_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qt_functions.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qt_config.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\win32-msvc\qmake.conf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\5.12.6\msvc2015_64\mkspecs\features\exclusive_builds.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\common\msvc-version.conf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\toolchain.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\default_pre.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\win32\default_pre.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\resolve_config.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\default_post.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\build_pass.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qml_debug.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\precompile_header.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\warn_on.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qt.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\resources.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\moc.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\win32\opengl.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\uic.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qmake_use.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\file_copies.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\win32\windows.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\testcase_targets.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\exceptions.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\yacc.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\lex.prf ..\TowerDefenseGUI\TowerDefenseGUI.pro C:\Qt\5.12.6\msvc2015_64\lib\Qt5Widgetsd.prl C:\Qt\5.12.6\msvc2015_64\lib\Qt5Guid.prl C:\Qt\5.12.6\msvc2015_64\lib\Qt5Cored.prl C:\Qt\5.12.6\msvc2015_64\lib\qtmaind.prl    C:\Qt\5.12.6\msvc2015_64\mkspecs\features\data\dummy.cpp ..\TowerDefenseGUI\about.h ..\TowerDefenseGUI\gamewindow.h ..\TowerDefenseGUI\levelchoicewindow.h ..\TowerDefenseGUI\mainwindow.h ..\TowerDefenseGUI\startoptionswindow.h  ..\TowerDefenseGUI\about.cpp ..\TowerDefenseGUI\gamewindow.cpp ..\TowerDefenseGUI\levelchoicewindow.cpp ..\TowerDefenseGUI\main.cpp ..\TowerDefenseGUI\mainwindow.cpp ..\TowerDefenseGUI\startoptionswindow.cpp ..\TowerDefenseGUI\about.ui ..\TowerDefenseGUI\gamewindow.ui ..\TowerDefenseGUI\levelchoicewindow.ui ..\TowerDefenseGUI\mainwindow.ui ..\TowerDefenseGUI\startoptionswindow.ui    
+	$(ZIP) TowerDefenseGUI.zip $(SOURCES) $(DIST) ..\TowerDefenseGUI\TowerDefenseGUI.pro C:\Qt\5.12.6\msvc2015_64\mkspecs\features\spec_pre.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\common\angle.conf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\common\windows-vulkan.conf C:\Qt\5.12.6\msvc2015_64\mkspecs\common\msvc-desktop.conf C:\Qt\5.12.6\msvc2015_64\mkspecs\qconfig.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3drender.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_charts.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_core.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_datavisualization.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_datavisualization_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_help.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_location.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_location_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_network.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_networkauth.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_networkauth_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_purchasing.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_purchasing_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_remoteobjects.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_remoteobjects_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_repparser.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_repparser_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_script.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_script_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_scxml.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_virtualkeyboard.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_virtualkeyboard_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_vulkan_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_webview.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_webview_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qt_functions.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qt_config.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\win32-msvc\qmake.conf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\5.12.6\msvc2015_64\mkspecs\features\exclusive_builds.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\common\msvc-version.conf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\toolchain.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\default_pre.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\win32\default_pre.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\resolve_config.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\default_post.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\build_pass.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\warn_off.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qml_debug.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\precompile_header.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qt.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\resources.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\moc.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\win32\opengl.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\uic.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\qmake_use.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\file_copies.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\win32\windows.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\testcase_targets.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\exceptions.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\yacc.prf C:\Qt\5.12.6\msvc2015_64\mkspecs\features\lex.prf ..\TowerDefenseGUI\TowerDefenseGUI.pro C:\Qt\5.12.6\msvc2015_64\lib\Qt5Widgetsd.prl C:\Qt\5.12.6\msvc2015_64\lib\Qt5Guid.prl C:\Qt\5.12.6\msvc2015_64\lib\Qt5Cored.prl C:\Qt\5.12.6\msvc2015_64\lib\qtmaind.prl    C:\Qt\5.12.6\msvc2015_64\mkspecs\features\data\dummy.cpp ..\TowerDefenseGUI\Lib\Building.h ..\TowerDefenseGUI\Lib\Castle.h ..\TowerDefenseGUI\Lib\Cell.h ..\TowerDefenseGUI\Lib\Effect.h ..\TowerDefenseGUI\Lib\Enemy.h ..\TowerDefenseGUI\Lib\Entity.h ..\TowerDefenseGUI\Lib\Enums.h ..\TowerDefenseGUI\Lib\Feature.h ..\TowerDefenseGUI\Lib\FileStructs.h ..\TowerDefenseGUI\Lib\GameManager.h ..\TowerDefenseGUI\Lib\Landscape.h ..\TowerDefenseGUI\Lib\Lire.h ..\TowerDefenseGUI\Lib\MagicEntity.h ..\TowerDefenseGUI\Lib\MagicTower.h ..\TowerDefenseGUI\Lib\Strategy.h ..\TowerDefenseGUI\Lib\Table.h ..\TowerDefenseGUI\Lib\Tower.h ..\TowerDefenseGUI\Lib\TowerDefenseLib.h ..\TowerDefenseGUI\Lib\Trap.h ..\TowerDefenseGUI\Lib\framework.h ..\TowerDefenseGUI\Lib\pch.h ..\TowerDefenseGUI\about.h ..\TowerDefenseGUI\gamewindow.h ..\TowerDefenseGUI\levelchoicewindow.h ..\TowerDefenseGUI\mainwindow.h ..\TowerDefenseGUI\startoptionswindow.h  ..\TowerDefenseGUI\Lib\Building.cpp ..\TowerDefenseGUI\Lib\Castle.cpp ..\TowerDefenseGUI\Lib\Cell.cpp ..\TowerDefenseGUI\Lib\Effect.cpp ..\TowerDefenseGUI\Lib\Enemy.cpp ..\TowerDefenseGUI\Lib\Feature.cpp ..\TowerDefenseGUI\Lib\FileStructs.cpp ..\TowerDefenseGUI\Lib\GameManager.cpp ..\TowerDefenseGUI\Lib\Landscape.cpp ..\TowerDefenseGUI\Lib\Lire.cpp ..\TowerDefenseGUI\Lib\MagicEntity.cpp ..\TowerDefenseGUI\Lib\MagicTower.cpp ..\TowerDefenseGUI\Lib\Strategy.cpp ..\TowerDefenseGUI\Lib\Tower.cpp ..\TowerDefenseGUI\Lib\TowerDefenseStaticLib.cpp ..\TowerDefenseGUI\Lib\Trap.cpp ..\TowerDefenseGUI\Lib\pch.cpp ..\TowerDefenseGUI\about.cpp ..\TowerDefenseGUI\gamewindow.cpp ..\TowerDefenseGUI\levelchoicewindow.cpp ..\TowerDefenseGUI\main.cpp ..\TowerDefenseGUI\mainwindow.cpp ..\TowerDefenseGUI\startoptionswindow.cpp ..\TowerDefenseGUI\about.ui ..\TowerDefenseGUI\gamewindow.ui ..\TowerDefenseGUI\levelchoicewindow.ui ..\TowerDefenseGUI\mainwindow.ui ..\TowerDefenseGUI\startoptionswindow.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\about.obj debug\gamewindow.obj debug\levelchoicewindow.obj debug\main.obj debug\mainwindow.obj debug\startoptionswindow.obj debug\moc_about.obj debug\moc_gamewindow.obj debug\moc_levelchoicewindow.obj debug\moc_mainwindow.obj debug\moc_startoptionswindow.obj
+	-$(DEL_FILE) debug\Building.obj debug\Castle.obj debug\Cell.obj debug\Effect.obj debug\Enemy.obj debug\Feature.obj debug\FileStructs.obj debug\GameManager.obj debug\Landscape.obj debug\Lire.obj debug\MagicEntity.obj debug\MagicTower.obj debug\Strategy.obj debug\Tower.obj debug\TowerDefenseStaticLib.obj debug\Trap.obj debug\pch.obj debug\about.obj debug\gamewindow.obj debug\levelchoicewindow.obj debug\main.obj debug\mainwindow.obj debug\startoptionswindow.obj debug\moc_about.obj debug\moc_gamewindow.obj debug\moc_levelchoicewindow.obj debug\moc_mainwindow.obj debug\moc_startoptionswindow.obj
 	-$(DEL_FILE) debug\TowerDefenseGUI.vc.pdb debug\TowerDefenseGUI.ilk debug\TowerDefenseGUI.idb
 
 distclean: clean 
@@ -193,7 +285,7 @@ compiler_moc_predefs_make_all: debug\moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) debug\moc_predefs.h
 debug\moc_predefs.h: C:\Qt\5.12.6\msvc2015_64\mkspecs\features\data\dummy.cpp
-	cl -BxC:\Qt\5.12.6\msvc2015_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E C:\Qt\5.12.6\msvc2015_64\mkspecs\features\data\dummy.cpp 2>NUL >debug\moc_predefs.h
+	cl -BxC:\Qt\5.12.6\msvc2015_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W0 -E C:\Qt\5.12.6\msvc2015_64\mkspecs\features\data\dummy.cpp 2>NUL >debug\moc_predefs.h
 
 compiler_moc_header_make_all: debug\moc_about.cpp debug\moc_gamewindow.cpp debug\moc_levelchoicewindow.cpp debug\moc_mainwindow.cpp debug\moc_startoptionswindow.cpp
 compiler_moc_header_clean:
@@ -414,27 +506,27 @@ debug\moc_gamewindow.cpp: ..\TowerDefenseGUI\gamewindow.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtGui\qtouchdevice.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtGui\qicon.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\TowerDefenseLib.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\pch.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\framework.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Landscape.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Table.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Cell.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Enums.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Building.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Entity.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Castle.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Tower.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Feature.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Strategy.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Enemy.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\FileStructs.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Effect.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Lire.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\MagicTower.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\MagicEntity.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Trap.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\GameManager.h \
+		..\TowerDefenseGUI\Lib\TowerDefenseLib.h \
+		..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Landscape.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\Cell.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Castle.h \
+		..\TowerDefenseGUI\Lib\Tower.h \
+		..\TowerDefenseGUI\Lib\Feature.h \
+		..\TowerDefenseGUI\Lib\Strategy.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\FileStructs.h \
+		..\TowerDefenseGUI\Lib\Effect.h \
+		..\TowerDefenseGUI\Lib\Lire.h \
+		..\TowerDefenseGUI\Lib\MagicTower.h \
+		..\TowerDefenseGUI\Lib\MagicEntity.h \
+		..\TowerDefenseGUI\Lib\Trap.h \
+		..\TowerDefenseGUI\Lib\GameManager.h \
 		debug\moc_predefs.h \
 		C:\Qt\5.12.6\msvc2015_64\bin\moc.exe
 	C:\Qt\5.12.6\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/troja/git/TowerDefense_MagicWeapon/build-TowerDefenseGUI-Desktop_x86_windows_msvc2019_pe_64bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.6/msvc2015_64/mkspecs/win32-msvc -IC:/Users/troja/git/TowerDefense_MagicWeapon/TowerDefenseGUI -IC:/Qt/5.12.6/msvc2015_64/include -IC:/Qt/5.12.6/msvc2015_64/include/QtWidgets -IC:/Qt/5.12.6/msvc2015_64/include/QtGui -IC:/Qt/5.12.6/msvc2015_64/include/QtANGLE -IC:/Qt/5.12.6/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt" ..\TowerDefenseGUI\gamewindow.h -o debug\moc_gamewindow.cpp
@@ -868,6 +960,162 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+debug\Building.obj: ..\TowerDefenseGUI\Lib\Building.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Enums.h
+
+debug\Castle.obj: ..\TowerDefenseGUI\Lib\Castle.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Castle.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h
+
+debug\Cell.obj: ..\TowerDefenseGUI\Lib\Cell.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Cell.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Castle.h \
+		..\TowerDefenseGUI\Lib\Tower.h \
+		..\TowerDefenseGUI\Lib\Feature.h \
+		..\TowerDefenseGUI\Lib\Strategy.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\Trap.h \
+		..\TowerDefenseGUI\Lib\MagicEntity.h \
+		..\TowerDefenseGUI\Lib\Effect.h
+
+debug\Effect.obj: ..\TowerDefenseGUI\Lib\Effect.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Effect.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\Table.h
+
+debug\Enemy.obj: ..\TowerDefenseGUI\Lib\Enemy.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\Entity.h
+
+debug\Feature.obj: ..\TowerDefenseGUI\Lib\Feature.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Feature.h \
+		..\TowerDefenseGUI\Lib\Enums.h
+
+debug\FileStructs.obj: ..\TowerDefenseGUI\Lib\FileStructs.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\FileStructs.h \
+		..\TowerDefenseGUI\Lib\Enums.h
+
+debug\GameManager.obj: ..\TowerDefenseGUI\Lib\GameManager.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\GameManager.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\Landscape.h \
+		..\TowerDefenseGUI\Lib\Cell.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Castle.h \
+		..\TowerDefenseGUI\Lib\Tower.h \
+		..\TowerDefenseGUI\Lib\Feature.h \
+		..\TowerDefenseGUI\Lib\Strategy.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\MagicTower.h \
+		..\TowerDefenseGUI\Lib\MagicEntity.h \
+		..\TowerDefenseGUI\Lib\Effect.h \
+		..\TowerDefenseGUI\Lib\Trap.h \
+		..\TowerDefenseGUI\Lib\FileStructs.h \
+		..\TowerDefenseGUI\Lib\Lire.h
+
+debug\Landscape.obj: ..\TowerDefenseGUI\Lib\Landscape.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Landscape.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\Cell.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Castle.h \
+		..\TowerDefenseGUI\Lib\Tower.h \
+		..\TowerDefenseGUI\Lib\Feature.h \
+		..\TowerDefenseGUI\Lib\Strategy.h \
+		..\TowerDefenseGUI\Lib\Enemy.h
+
+debug\Lire.obj: ..\TowerDefenseGUI\Lib\Lire.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Lire.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Enemy.h
+
+debug\MagicEntity.obj: ..\TowerDefenseGUI\Lib\MagicEntity.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\MagicEntity.h \
+		..\TowerDefenseGUI\Lib\Effect.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\Table.h
+
+debug\MagicTower.obj: ..\TowerDefenseGUI\Lib\MagicTower.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\MagicTower.h \
+		..\TowerDefenseGUI\Lib\Tower.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Feature.h \
+		..\TowerDefenseGUI\Lib\Strategy.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\MagicEntity.h \
+		..\TowerDefenseGUI\Lib\Effect.h
+
+debug\Strategy.obj: ..\TowerDefenseGUI\Lib\Strategy.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Strategy.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\Entity.h
+
+debug\Tower.obj: ..\TowerDefenseGUI\Lib\Tower.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Tower.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Feature.h \
+		..\TowerDefenseGUI\Lib\Strategy.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\Table.h
+
+debug\TowerDefenseStaticLib.obj: ..\TowerDefenseGUI\Lib\TowerDefenseStaticLib.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h
+
+debug\Trap.obj: ..\TowerDefenseGUI\Lib\Trap.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Trap.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\MagicEntity.h \
+		..\TowerDefenseGUI\Lib\Effect.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\Building.h
+
+debug\pch.obj: ..\TowerDefenseGUI\Lib\pch.cpp ..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h
+
 debug\about.obj: ..\TowerDefenseGUI\about.cpp ..\TowerDefenseGUI\about.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QDialog \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qdialog.h \
@@ -1109,33 +1357,52 @@ debug\gamewindow.obj: ..\TowerDefenseGUI\gamewindow.cpp ..\TowerDefenseGUI\gamew
 		C:\Qt\5.12.6\msvc2015_64\include\QtGui\qtouchdevice.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtGui\qicon.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\TowerDefenseLib.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\pch.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\framework.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Landscape.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Table.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Cell.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Enums.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Building.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Entity.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Castle.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Tower.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Feature.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Strategy.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Enemy.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\FileStructs.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Effect.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Lire.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\MagicTower.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\MagicEntity.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\Trap.h \
-		..\TowerDefenseLib\TowerDefenseStaticLib\GameManager.h \
+		..\TowerDefenseGUI\Lib\TowerDefenseLib.h \
+		..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Landscape.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\Cell.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Castle.h \
+		..\TowerDefenseGUI\Lib\Tower.h \
+		..\TowerDefenseGUI\Lib\Feature.h \
+		..\TowerDefenseGUI\Lib\Strategy.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\FileStructs.h \
+		..\TowerDefenseGUI\Lib\Effect.h \
+		..\TowerDefenseGUI\Lib\Lire.h \
+		..\TowerDefenseGUI\Lib\MagicTower.h \
+		..\TowerDefenseGUI\Lib\MagicEntity.h \
+		..\TowerDefenseGUI\Lib\Trap.h \
+		..\TowerDefenseGUI\Lib\GameManager.h \
 		ui_gamewindow.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtCore\QVariant \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QApplication \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QMenuBar \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qmenubar.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qmenu.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QStatusBar \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qstatusbar.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QWidget \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QGridLayout \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qgridlayout.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qlayout.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qboxlayout.h
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QLabel \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qframe.h
 
 debug\levelchoicewindow.obj: ..\TowerDefenseGUI\levelchoicewindow.cpp ..\TowerDefenseGUI\levelchoicewindow.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QMainWindow \
@@ -1295,6 +1562,28 @@ debug\levelchoicewindow.obj: ..\TowerDefenseGUI\levelchoicewindow.cpp ..\TowerDe
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qstatusbar.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QVBoxLayout \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QWidget \
+		..\TowerDefenseGUI\gamewindow.h \
+		..\TowerDefenseGUI\Lib\TowerDefenseLib.h \
+		..\TowerDefenseGUI\Lib\pch.h \
+		..\TowerDefenseGUI\Lib\framework.h \
+		..\TowerDefenseGUI\Lib\Landscape.h \
+		..\TowerDefenseGUI\Lib\Table.h \
+		..\TowerDefenseGUI\Lib\Cell.h \
+		..\TowerDefenseGUI\Lib\Enums.h \
+		..\TowerDefenseGUI\Lib\Building.h \
+		..\TowerDefenseGUI\Lib\Entity.h \
+		..\TowerDefenseGUI\Lib\Castle.h \
+		..\TowerDefenseGUI\Lib\Tower.h \
+		..\TowerDefenseGUI\Lib\Feature.h \
+		..\TowerDefenseGUI\Lib\Strategy.h \
+		..\TowerDefenseGUI\Lib\Enemy.h \
+		..\TowerDefenseGUI\Lib\FileStructs.h \
+		..\TowerDefenseGUI\Lib\Effect.h \
+		..\TowerDefenseGUI\Lib\Lire.h \
+		..\TowerDefenseGUI\Lib\MagicTower.h \
+		..\TowerDefenseGUI\Lib\MagicEntity.h \
+		..\TowerDefenseGUI\Lib\Trap.h \
+		..\TowerDefenseGUI\Lib\GameManager.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QListWidget \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\qlistwidget.h \
 		C:\Qt\5.12.6\msvc2015_64\include\QtWidgets\QListWidgetItem
