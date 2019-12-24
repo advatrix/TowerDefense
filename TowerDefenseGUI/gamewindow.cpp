@@ -28,11 +28,9 @@ void GameWindow::startGame() {
         for (size_t j = 0; j < game->getCells()[0].size(); j++)
         {
             grid->addWidget(new QLabel("A", this), i, j);
-
-
         }
     }
 
     setLayout(grid);
-
+привет, руслан, как дела?
 }

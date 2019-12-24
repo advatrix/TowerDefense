@@ -35,7 +35,6 @@ SOURCES += \
     Lib/Trap.cpp \
     Lib/pch.cpp \
     about.cpp \
-    game.cpp \
     gamewindow.cpp \
     levelchoicewindow.cpp \
     main.cpp \
@@ -65,7 +64,6 @@ HEADERS += \
     Lib/framework.h \
     Lib/pch.h \
     about.h \
-    game.h \
     gamewindow.h \
     levelchoicewindow.h \
     mainwindow.h \

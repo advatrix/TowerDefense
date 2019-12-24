@@ -22,20 +22,12 @@ public:
 
     QGridLayout* gridLayout = new QGridLayout();
 
-    Map* map = new Map;
-    InterfaceRight* interfaceRight;
-    InterfaceBottom* interfaceBottom;
-
-    void setAllConnects();
-    void configureInterfaces();
-
 
 private:
     Ui::GameWindow *ui;
     unsigned int levelName;
     TD::GameManager* game;
 
-    void configureLayout();
 
 
 
