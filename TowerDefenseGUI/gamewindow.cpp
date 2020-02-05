@@ -30,7 +30,7 @@ void GameWindow::startGame() {
             grid->addWidget(new QLabel("A", this), i, j);
         }
     }
-
-    setLayout(grid);
-привет, руслан, как дела?
+    QWidget* widget = new QWidget;
+    widget->setLayout(grid);
+    setCentralWidget(widget);
 }

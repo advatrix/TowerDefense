@@ -96,6 +96,9 @@ namespace TD {
 		*/
 		inline void kill() { alive = false; }
 	};
+
+	//different types of enemies
+	//in process
 }
 
 #endif _ENEMY_H_
